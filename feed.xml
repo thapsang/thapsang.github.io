@@ -10,53 +10,47 @@
 				<title>Kiểm tra kết nối database với CodeIgniter</title>
 				<description>&lt;p&gt;Tôi đang sử dụng CodeIgniter 2.2.0, Apache/2.4.9 (Unix), PHP/5.5.11, MySQL/5.0.1. Khi làm việc với database, tôi gặp phải thông báo lỗi sau:&lt;/p&gt;
 
-&lt;p&gt;```
-A Database Error Occurred&lt;/p&gt;
-
-&lt;p&gt;Unable to connect to your database server using the provided settings.&lt;/p&gt;
-
-&lt;p&gt;Filename: core/Loader.php&lt;/p&gt;
-
-&lt;p&gt;Line Number: 346
-```&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; A Database Error Occurred
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; Unable to connect to your database server using the provided settings.
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt; Filename: core/Loader.php
+&lt;span class=&quot;lineno&quot;&gt;6&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;7&lt;/span&gt; Line Number: 346&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Và đây là thông số cấu hình database trong &lt;strong&gt;/application/config/database.php&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;
-$db[&#39;default&#39;][&#39;hostname&#39;] = &#39;localhost&#39;;
-$db[&#39;default&#39;][&#39;username&#39;] = &#39;root&#39;;
-$db[&#39;default&#39;][&#39;password&#39;] = &#39;mypasword&#39;;
-$db[&#39;default&#39;][&#39;database&#39;] = &#39;db_codeigniter_test&#39;;
-$db[&#39;default&#39;][&#39;dbdriver&#39;] = &#39;mysql&#39;;
-$db[&#39;default&#39;][&#39;dbprefix&#39;] = &#39;&#39;;
-$db[&#39;default&#39;][&#39;pconnect&#39;] = TRUE;
-$db[&#39;default&#39;][&#39;db_debug&#39;] = TRUE;
-$db[&#39;default&#39;][&#39;cache_on&#39;] = FALSE;
-$db[&#39;default&#39;][&#39;cachedir&#39;] = &#39;&#39;;
-$db[&#39;default&#39;][&#39;char_set&#39;] = &#39;utf8&#39;;
-$db[&#39;default&#39;][&#39;dbcollat&#39;] = &#39;utf8_general_ci&#39;;
-$db[&#39;default&#39;][&#39;swap_pre&#39;] = &#39;&#39;;
-$db[&#39;default&#39;][&#39;autoinit&#39;] = TRUE;
-$db[&#39;default&#39;][&#39;stricton&#39;] = FALSE;
-&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;hostname&amp;#39;] = &amp;#39;localhost&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;username&amp;#39;] = &amp;#39;root&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;password&amp;#39;] = &amp;#39;mypasword&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;database&amp;#39;] = &amp;#39;db_codeigniter_test&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;dbdriver&amp;#39;] = &amp;#39;mysql&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;dbprefix&amp;#39;] = &amp;#39;&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;pconnect&amp;#39;] = TRUE;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;db_debug&amp;#39;] = TRUE;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;cache_on&amp;#39;] = FALSE;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;cachedir&amp;#39;] = &amp;#39;&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;char_set&amp;#39;] = &amp;#39;utf8&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;dbcollat&amp;#39;] = &amp;#39;utf8_general_ci&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;swap_pre&amp;#39;] = &amp;#39;&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;autoinit&amp;#39;] = TRUE;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$db[&amp;#39;default&amp;#39;][&amp;#39;stricton&amp;#39;] = FALSE;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Để kiểm tra có kết nối được tới database hay không, ta cần thêm đoạn code sau phía dưới cùng của file &lt;strong&gt;/application/config/database.php&lt;/strong&gt; và xem kết quả:&lt;/p&gt;
 
-&lt;p&gt;```
-echo ‘&amp;lt;pre&amp;gt;’;
-print_r($db[‘default’]);
-echo ‘&amp;lt;/pre&amp;gt;’;
-echo ‘Connecting to database: ‘ .$db[‘default’][‘database’];
-  $dbh=mysql_connect(
-    $db[‘default’][‘hostname’],
-    $db[‘default’][‘username’],
-    $db[‘default’][‘password’])
-    or die(‘Cannot connect to the database because: ‘ . mysql_error());
-    mysql_select_db ($db[‘default’][‘database’]);&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo &#39;&amp;lt;br /&amp;gt;   Connected OK:&#39;  ;
-die( &#39;file: &#39; .__FILE__ . &#39; Line: &#39; .__LINE__);  ```
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;echo &amp;#39;&amp;lt;pre&amp;gt;&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;print_r($db[&amp;#39;default&amp;#39;]);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;echo &amp;#39;&amp;lt;/pre&amp;gt;&amp;#39;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;echo &amp;#39;Connecting to database: &amp;#39; .$db[&amp;#39;default&amp;#39;][&amp;#39;database&amp;#39;];&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;  $dbh=mysql_connect(&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;    $db[&amp;#39;default&amp;#39;][&amp;#39;hostname&amp;#39;],&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;    $db[&amp;#39;default&amp;#39;][&amp;#39;username&amp;#39;],&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;    $db[&amp;#39;default&amp;#39;][&amp;#39;password&amp;#39;])&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;    or die(&amp;#39;Cannot connect to the database because: &amp;#39; . mysql_error());&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;    mysql_select_db ($db[&amp;#39;default&amp;#39;][&amp;#39;database&amp;#39;]);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;    echo &amp;#39;&amp;lt;br /&amp;gt;   Connected OK:&amp;#39;  ;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;    die( &amp;#39;file: &amp;#39; .__FILE__ . &amp;#39; Line: &amp;#39; .__LINE__);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Nếu bạn gặp cảnh báo &lt;strong&gt;The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead&lt;/strong&gt;, để loại bỏ thông báo này, bạn có thể thêm &lt;code&gt;error_reporting(E_ALL ^ E_DEPRECATED);&lt;/code&gt; vào đầu file &lt;strong&gt;/application/config/database.php&lt;/strong&gt; hoặc chỉnh sửa giá trị của &lt;strong&gt;error_reporting&lt;/strong&gt; trong file &lt;strong&gt;php.ini&lt;/strong&gt;.
 Xem thêm tại (http://stackoverflow.com/questions/13944956/the-mysql-extension-is-deprecated-and-will-be-removed-in-the-future-use-mysqli).&lt;/p&gt;

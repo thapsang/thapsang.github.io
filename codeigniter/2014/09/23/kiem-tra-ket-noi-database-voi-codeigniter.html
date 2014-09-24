@@ -167,53 +167,47 @@
 	  <div class="article_body">
 	  <p>Tôi đang sử dụng CodeIgniter 2.2.0, Apache/2.4.9 (Unix), PHP/5.5.11, MySQL/5.0.1. Khi làm việc với database, tôi gặp phải thông báo lỗi sau:</p>
 
-<p>```
-A Database Error Occurred</p>
-
-<p>Unable to connect to your database server using the provided settings.</p>
-
-<p>Filename: core/Loader.php</p>
-
-<p>Line Number: 346
-```</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> A Database Error Occurred
+<span class="lineno">2</span> 
+<span class="lineno">3</span> Unable to connect to your database server using the provided settings.
+<span class="lineno">4</span> 
+<span class="lineno">5</span> Filename: core/Loader.php
+<span class="lineno">6</span> 
+<span class="lineno">7</span> Line Number: 346</code></pre></div>
 
 <p>Và đây là thông số cấu hình database trong <strong>/application/config/database.php</strong></p>
 
-<p><code>
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'mypasword';
-$db['default']['database'] = 'db_codeigniter_test';
-$db['default']['dbdriver'] = 'mysql';
-$db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = '';
-$db['default']['char_set'] = 'utf8';
-$db['default']['dbcollat'] = 'utf8_general_ci';
-$db['default']['swap_pre'] = '';
-$db['default']['autoinit'] = TRUE;
-$db['default']['stricton'] = FALSE;
-</code></p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="x">$db[&#39;default&#39;][&#39;hostname&#39;] = &#39;localhost&#39;;</span>
+<span class="lineno"> 2</span> <span class="x">$db[&#39;default&#39;][&#39;username&#39;] = &#39;root&#39;;</span>
+<span class="lineno"> 3</span> <span class="x">$db[&#39;default&#39;][&#39;password&#39;] = &#39;mypasword&#39;;</span>
+<span class="lineno"> 4</span> <span class="x">$db[&#39;default&#39;][&#39;database&#39;] = &#39;db_codeigniter_test&#39;;</span>
+<span class="lineno"> 5</span> <span class="x">$db[&#39;default&#39;][&#39;dbdriver&#39;] = &#39;mysql&#39;;</span>
+<span class="lineno"> 6</span> <span class="x">$db[&#39;default&#39;][&#39;dbprefix&#39;] = &#39;&#39;;</span>
+<span class="lineno"> 7</span> <span class="x">$db[&#39;default&#39;][&#39;pconnect&#39;] = TRUE;</span>
+<span class="lineno"> 8</span> <span class="x">$db[&#39;default&#39;][&#39;db_debug&#39;] = TRUE;</span>
+<span class="lineno"> 9</span> <span class="x">$db[&#39;default&#39;][&#39;cache_on&#39;] = FALSE;</span>
+<span class="lineno">10</span> <span class="x">$db[&#39;default&#39;][&#39;cachedir&#39;] = &#39;&#39;;</span>
+<span class="lineno">11</span> <span class="x">$db[&#39;default&#39;][&#39;char_set&#39;] = &#39;utf8&#39;;</span>
+<span class="lineno">12</span> <span class="x">$db[&#39;default&#39;][&#39;dbcollat&#39;] = &#39;utf8_general_ci&#39;;</span>
+<span class="lineno">13</span> <span class="x">$db[&#39;default&#39;][&#39;swap_pre&#39;] = &#39;&#39;;</span>
+<span class="lineno">14</span> <span class="x">$db[&#39;default&#39;][&#39;autoinit&#39;] = TRUE;</span>
+<span class="lineno">15</span> <span class="x">$db[&#39;default&#39;][&#39;stricton&#39;] = FALSE;</span></code></pre></div>
 
 <p>Để kiểm tra có kết nối được tới database hay không, ta cần thêm đoạn code sau phía dưới cùng của file <strong>/application/config/database.php</strong> và xem kết quả:</p>
 
-<p>```
-echo ‘&lt;pre&gt;’;
-print_r($db[‘default’]);
-echo ‘&lt;/pre&gt;’;
-echo ‘Connecting to database: ‘ .$db[‘default’][‘database’];
-  $dbh=mysql_connect(
-    $db[‘default’][‘hostname’],
-    $db[‘default’][‘username’],
-    $db[‘default’][‘password’])
-    or die(‘Cannot connect to the database because: ‘ . mysql_error());
-    mysql_select_db ($db[‘default’][‘database’]);</p>
-
-<pre><code>echo '&lt;br /&gt;   Connected OK:'  ;
-die( 'file: ' .__FILE__ . ' Line: ' .__LINE__);  ```
-</code></pre>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="x">echo &#39;&lt;pre&gt;&#39;;</span>
+<span class="lineno"> 2</span> <span class="x">print_r($db[&#39;default&#39;]);</span>
+<span class="lineno"> 3</span> <span class="x">echo &#39;&lt;/pre&gt;&#39;;</span>
+<span class="lineno"> 4</span> <span class="x">echo &#39;Connecting to database: &#39; .$db[&#39;default&#39;][&#39;database&#39;];</span>
+<span class="lineno"> 5</span> <span class="x">  $dbh=mysql_connect(</span>
+<span class="lineno"> 6</span> <span class="x">    $db[&#39;default&#39;][&#39;hostname&#39;],</span>
+<span class="lineno"> 7</span> <span class="x">    $db[&#39;default&#39;][&#39;username&#39;],</span>
+<span class="lineno"> 8</span> <span class="x">    $db[&#39;default&#39;][&#39;password&#39;])</span>
+<span class="lineno"> 9</span> <span class="x">    or die(&#39;Cannot connect to the database because: &#39; . mysql_error());</span>
+<span class="lineno">10</span> <span class="x">    mysql_select_db ($db[&#39;default&#39;][&#39;database&#39;]);</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span> <span class="x">    echo &#39;&lt;br /&gt;   Connected OK:&#39;  ;</span>
+<span class="lineno">13</span> <span class="x">    die( &#39;file: &#39; .__FILE__ . &#39; Line: &#39; .__LINE__);</span></code></pre></div>
 
 <p>Nếu bạn gặp cảnh báo <strong>The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead</strong>, để loại bỏ thông báo này, bạn có thể thêm <code>error_reporting(E_ALL ^ E_DEPRECATED);</code> vào đầu file <strong>/application/config/database.php</strong> hoặc chỉnh sửa giá trị của <strong>error_reporting</strong> trong file <strong>php.ini</strong>.
 Xem thêm tại (http://stackoverflow.com/questions/13944956/the-mysql-extension-is-deprecated-and-will-be-removed-in-the-future-use-mysqli).</p>
