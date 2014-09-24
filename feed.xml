@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title></title>
+		<description>Stylish Jekyll Theme</description>
+		<link>/</link>
+		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Kiểm tra kết nối database với CodeIgniter</title>
+				<description>&lt;p&gt;Tôi đang sử dụng CodeIgniter 2.2.0, Apache/2.4.9 (Unix), PHP/5.5.11, MySQL/5.0.1. Khi làm việc với database, tôi gặp phải thông báo lỗi sau:&lt;/p&gt;
+
+&lt;p&gt;```
+A Database Error Occurred&lt;/p&gt;
+
+&lt;p&gt;Unable to connect to your database server using the provided settings.&lt;/p&gt;
+
+&lt;p&gt;Filename: core/Loader.php&lt;/p&gt;
+
+&lt;p&gt;Line Number: 346
+```&lt;/p&gt;
+
+&lt;p&gt;Và đây là thông số cấu hình database trong &lt;strong&gt;/application/config/database.php&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$db[&#39;default&#39;][&#39;hostname&#39;] = &#39;localhost&#39;;
+$db[&#39;default&#39;][&#39;username&#39;] = &#39;root&#39;;
+$db[&#39;default&#39;][&#39;password&#39;] = &#39;mypasword&#39;;
+$db[&#39;default&#39;][&#39;database&#39;] = &#39;db_codeigniter_test&#39;;
+$db[&#39;default&#39;][&#39;dbdriver&#39;] = &#39;mysql&#39;;
+$db[&#39;default&#39;][&#39;dbprefix&#39;] = &#39;&#39;;
+$db[&#39;default&#39;][&#39;pconnect&#39;] = TRUE;
+$db[&#39;default&#39;][&#39;db_debug&#39;] = TRUE;
+$db[&#39;default&#39;][&#39;cache_on&#39;] = FALSE;
+$db[&#39;default&#39;][&#39;cachedir&#39;] = &#39;&#39;;
+$db[&#39;default&#39;][&#39;char_set&#39;] = &#39;utf8&#39;;
+$db[&#39;default&#39;][&#39;dbcollat&#39;] = &#39;utf8_general_ci&#39;;
+$db[&#39;default&#39;][&#39;swap_pre&#39;] = &#39;&#39;;
+$db[&#39;default&#39;][&#39;autoinit&#39;] = TRUE;
+$db[&#39;default&#39;][&#39;stricton&#39;] = FALSE;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Để kiểm tra có kết nối được tới database hay không, ta cần thêm đoạn code sau phía dưới cùng của file &lt;strong&gt;/application/config/database.php&lt;/strong&gt; và xem kết quả:&lt;/p&gt;
+
+&lt;p&gt;```
+echo ‘&amp;lt;pre&amp;gt;’;
+print_r($db[‘default’]);
+echo ‘&amp;lt;/pre&amp;gt;’;
+echo ‘Connecting to database: ‘ .$db[‘default’][‘database’];
+  $dbh=mysql_connect(
+    $db[‘default’][‘hostname’],
+    $db[‘default’][‘username’],
+    $db[‘default’][‘password’])
+    or die(‘Cannot connect to the database because: ‘ . mysql_error());
+    mysql_select_db ($db[‘default’][‘database’]);&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &#39;&amp;lt;br /&amp;gt;   Connected OK:&#39;  ;
+die( &#39;file: &#39; .__FILE__ . &#39; Line: &#39; .__LINE__);  ```
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nếu bạn gặp cảnh báo &lt;strong&gt;The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead&lt;/strong&gt;, để loại bỏ thông báo này, bạn có thể thêm &lt;code&gt;error_reporting(E_ALL ^ E_DEPRECATED);&lt;/code&gt; vào đầu file &lt;strong&gt;/application/config/database.php&lt;/strong&gt; hoặc chỉnh sửa giá trị của &lt;strong&gt;error_reporting&lt;/strong&gt; trong file &lt;strong&gt;php.ini&lt;/strong&gt;.
+Xem thêm tại (http://stackoverflow.com/questions/13944956/the-mysql-extension-is-deprecated-and-will-be-removed-in-the-future-use-mysqli).&lt;/p&gt;
+
+&lt;p&gt;Nếu bạn gặp thông báo lỗi: &lt;strong&gt;mysql_connect(): No such file or directory&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Server không kết nối được tới database bởi vì file socket chưa chính xác. File socket của bạn có thể nằm ở /var/mysql/mysql.sock hoặc /tmp/mysql.sock (nếu bạn cài lampp hoặc xampp, nó sẽ là /opt/lampp/var/mysql/mysql.sock), tuy nhiên có thể PHP tìm kiếm sai vị trí.
+Để giải quyết lỗi này, ta làm như sau:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Xem thông tin phpinfo(): nếu bạn cài lampp hoặc xampp thì có thể xem thông tin phpinfo() bằng cách nhập vào trình duyệt địa chỉ: &lt;a href=&quot;http://localhost/xampp/phpinfo.php&quot;&gt;http://localhost/xampp/phpinfo.php&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Tìm kiếm &lt;strong&gt;mysql.default_socket&lt;/strong&gt; hoặc &lt;strong&gt;pdo_mysql.default_socket&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Mở tập tin &lt;strong&gt;my.ini&lt;/strong&gt; (nếu sử dụng xampp) hoặc &lt;strong&gt;my.cnf&lt;/strong&gt; (nếu sử dụng lampp) và tìm kiếm giá trị của socket, ví dụ 	&lt;strong&gt;socket = /opt/lampp/var/mysql/mysql.sock&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Mở tập tin &lt;strong&gt;php.ini&lt;/strong&gt; (bạn có thể xem địa chỉ chứa file php.ini trên trang thông tin phpinfo hoặc sử dụng lệnh &lt;em&gt;locate php.ini&lt;/em&gt;) và thay thế tất cả các địa chỉ không chính xác bằng địa chỉ chính xác từ MySQL.&lt;/li&gt;
+  &lt;li&gt;Restart Apache.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Nguồn tham khảo: 
+1. http://stackoverflow.com/questions/12584762/mysql-connect-no-such-file-or-directory
+2. http://stackoverflow.com/questions/4219970/warning-mysql-connect-2002-no-such-file-or-directory-trying-to-connect-vi&lt;/p&gt;
+</description>
+				<pubDate>Tue, 23 Sep 2014 00:00:00 +0700</pubDate>
+				<link>/codeigniter/2014/09/23/kiem-tra-ket-noi-database-voi-codeigniter.html</link>
+				<guid isPermaLink="true">/codeigniter/2014/09/23/kiem-tra-ket-noi-database-voi-codeigniter.html</guid>
+			</item>
+		
+			<item>
+				<title>Tạo view calendar trong Drupal 7</title>
+				<description>&lt;h2 id=&quot;tnh-hung&quot;&gt;Tình huống&lt;/h2&gt;
+
+&lt;p&gt;Mới đây, tôi cần hiển thị lịch học của các khóa học dưới dạng lịch (calendar) để mọi người có cái nhìn trực quan hơn. Trang tôi muốn hiển thị là trang &lt;a href=&quot;http://buocnho.com/dao-tao&quot; target=&quot;_blank&quot;&gt;Đào tạo&lt;/a&gt;. Các khóa học có kiểu nội dung là &lt;strong&gt;Course&lt;/strong&gt; và có trường &lt;strong&gt;Dự kiến khai giảng&lt;/strong&gt; (&lt;code&gt;field_course_start_date&lt;/code&gt;) là kiểu ngày tháng (date). Đã có nhiều plugin jquery hỗ trợ việc hiển thị Calendar, nhưng làm thế nào để tôi có thể sử dụng chúng trong Drupal 7?&lt;/p&gt;
+
+&lt;h2 id=&quot;gii-php&quot;&gt;Giải pháp&lt;/h2&gt;
+
+&lt;p&gt;Để giải quyết vấn đề này, tôi sử dụng &lt;a href=&quot;http://drupal.org/project/views&quot; target=&quot;_blank&quot;&gt;Views&lt;/a&gt; dựa trên module &lt;a href=&quot;http://drupal.org/project/calendar&quot; target=&quot;_blank&quot;&gt;Calendar&lt;/a&gt;) của drupal để tạo ra một trang với những truy vấn phù hợp với mục đích hiển thị của tôi.&lt;/p&gt;
+
+&lt;h2 id=&quot;thc-hin&quot;&gt;Thực hiện&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Bạn cần cài đặt các modules sau: &lt;a href=&quot;https://drupal.org/project/ctools&quot; target=&quot;_blank&quot;&gt;CTools&lt;/a&gt;, &lt;a href=&quot;https://drupal.org/project/views&quot; target=&quot;_blank&quot;&gt;Views&lt;/a&gt;, &lt;a href=&quot;https://drupal.org/project/date&quot; target=&quot;_blank&quot;&gt;Date&lt;/a&gt;, &lt;a href=&quot;https://drupal.org/project/calendar&quot; target=&quot;_blank&quot;&gt;Calendar&lt;/a&gt;.
+ &lt;em&gt;Lưu ý&lt;/em&gt;: khi cài đặt các module trên, bạn cần enable cả Date API và Date Views.&lt;/li&gt;
+  &lt;li&gt;Tạo view từ template: bạn truy cập vào Structure &amp;gt; Views &amp;gt; Add view from template.
+ &lt;img src=&quot;/assets/img/add-view-from-template.png&quot; alt=&quot;Tạo view từ template&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Khi đó, bạn sẽ nhìn thấy nhiều loại Views mặc định mà bạn có thể thêm vào.
+    &lt;ul&gt;
+      &lt;li&gt;Click vào &lt;strong&gt;add&lt;/strong&gt; ở phía cuối hàng “&lt;em&gt;A calendar view of the ‘field_course_start_date’ field in the ‘node’ base table.&lt;/em&gt;”.
+  &lt;img src=&quot;/assets/img/add-field-course-start-date.png&quot; alt=&quot;Tạo view từ template&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;Nhập vào tên View mà bạn muốn hiển thị, sau đó click &lt;strong&gt;Continue&lt;/strong&gt;.
+ &lt;img src=&quot;/assets/img/enter-view-name-calendar.png&quot; alt=&quot;Nhập vào tên View Calendar&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;Bạn kéo xuống cuối trang để xem preview của view, bạn sẽ thấy view calendar với nội dung được hiển thị phía trong.
+ &lt;img src=&quot;/assets/img/preview-calendar-view.png&quot; alt=&quot;Preview&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;Kéo trở lên,  chúng ta cần thay đổi phần cấu hình &lt;strong&gt;FILTER CRITERIA&lt;/strong&gt; để view của chúng ta chỉ hiển thị nội dung có content type là &lt;strong&gt;Course&lt;/strong&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;Click vào nút Add.
+  &lt;img src=&quot;/assets/img/add-filter-criteria.png&quot; alt=&quot;Add Filter Criteria&quot; /&gt;&lt;/li&gt;
+          &lt;li&gt;Chọn &lt;em&gt;Content: Type&lt;/em&gt;.&lt;/li&gt;
+          &lt;li&gt;Click Apply (all displays).&lt;/li&gt;
+          &lt;li&gt;Chọn “Is one of” và sau tích chọn “&lt;em&gt;Course&lt;/em&gt;”.
+  &lt;img src=&quot;/assets/img/config-filter-criteria-type.png&quot; alt=&quot;Cấu hình cho Filter Criteria&quot; /&gt;&lt;/li&gt;
+          &lt;li&gt;Click Apply (all displays).
+ Khi đó, &lt;em&gt;Filter Criteria&lt;/em&gt; sẽ như hình.
+ &lt;img src=&quot;/assets/img/filter-criteria-after.png&quot; alt=&quot;Filter Criteria&quot; /&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Tiếp đến, chúng ta chỉnh sửa &lt;strong&gt;Contextual Filters&lt;/strong&gt; trong phần &lt;strong&gt;Advanced&lt;/strong&gt; ở cột bên phải.
+ &lt;img src=&quot;/assets/img/contextual-filters.png&quot; alt=&quot;Cấu hình Contextual Filters&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;Click &lt;em&gt;Date: Date (node) (Content: Dự kiến khai giảng (field_course_start_date))&lt;/em&gt;.&lt;/li&gt;
+      &lt;li&gt;Ở phía trên của cửa sổ, bạn cần đảm bảo rằng mình đang cấu hình cho lựa chọn tất cả các hiển thị (All displays).&lt;/li&gt;
+      &lt;li&gt;Check chọn &lt;em&gt;Content: Dự kiến khai giảng (field_course_start_date)&lt;/em&gt; và click &lt;em&gt;Apply (all displays)&lt;/em&gt;.
+ &lt;img src=&quot;/assets/img/config-contextual-filters.png&quot; alt=&quot;Contextual Filters&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;Kiểm tra lại Preview của View.&lt;/li&gt;
+      &lt;li&gt;Lưu lại  cấu hình của View.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cấu hình đường dẫn của View để hiển thị ngoài trang web.
+    &lt;ul&gt;
+      &lt;li&gt;Đường dẫn mặc định của View được thể hiện trong phần cấu hình &lt;em&gt;Path&lt;/em&gt; của cột &lt;strong&gt;PAGE SETTINGS&lt;/strong&gt;. Bạn click vào đường dẫn đó để thay đổi tên đường dẫn mà bạn muốn. Sau đó lưu các thiết lập đó lại.
+ &lt;img src=&quot;/assets/img/page-calendar-setting.png&quot; alt=&quot;Thiết lập đường dẫn cho trang hiển thị view calendar&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;Nếu bạn thay đổi đường dẫn thì cũng nhớ thay đổi cho các hiển thị theo Week, Day, Year nữa.	&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Kiểm tra hiển thị ngoài trang web
+ Giả sử, tôi thay đổi đường dẫn từ &lt;strong&gt;calendar-node-field-course-start-date&lt;/strong&gt; thành &lt;strong&gt;dao-tao&lt;/strong&gt;. Khi đó, trên thanh địa chỉ trình duyệt, tôi nhập vào như sau: &lt;em&gt;http://localhost/drupal/dao-tao&lt;/em&gt; và kiểm tra kết quả thôi.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;xem-thm&quot;&gt;Xem thêm&lt;/h2&gt;
+
+&lt;p&gt;Nếu bạn gặp lỗi &lt;strong&gt;Warning: Illegal string offset ‘data’ in template_preprocess_calendar_month() (line 38 of modules/calendar/theme/theme.inc)&lt;/strong&gt; khi hiển thị nội dung của view calendar, bạn làm như sau:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Mở file &lt;strong&gt;sites/all/modules/calendar/theme/theme.inc&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Thêm đoạn code sau ngay dưới dòng 37: &lt;/p&gt;
+
+    &lt;p&gt;if (!isset($data[‘data’])) {
+      continue;
+  }&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Lưu file, xóa cache và mở lại trang.&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<pubDate>Mon, 14 Apr 2014 00:00:00 +0700</pubDate>
+				<link>/drupal-7/2014/04/14/tao-view-calendar-trong-drupal7.html</link>
+				<guid isPermaLink="true">/drupal-7/2014/04/14/tao-view-calendar-trong-drupal7.html</guid>
+			</item>
+		
+	</channel>
+</rss>
