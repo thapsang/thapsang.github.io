@@ -1,22 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title></title>
-		<description>Stylish Jekyll Theme</description>
-		<link>/</link>
-		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-		
-			<item>
-				<title>Kiểm tra kết nối database với CodeIgniter</title>
-				<description>&lt;p&gt;Tôi đang sử dụng CodeIgniter 2.2.0, Apache/2.4.9 (Unix), PHP/5.5.11, MySQL/5.0.1. Khi làm việc với database, tôi gặp phải thông báo lỗi sau:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">THAPSANG.NET</title>
+<generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://localhost:4000" />
+<updated>2014-09-25T08:31:04+07:00</updated>
+<id>http://localhost:4000/</id>
+<author>
+  <name>Ta Ly</name>
+  <uri>http://localhost:4000/</uri>
+  <email>taly2808@gmail.com</email>
+</author>
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; A Database Error Occurred
-&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; Unable to connect to your database server using the provided settings.
-&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt; Filename: core/Loader.php
-&lt;span class=&quot;lineno&quot;&gt;6&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt;7&lt;/span&gt; Line Number: 346&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+<entry>
+  <title type="html"><![CDATA[Kiểm tra kết nối database với CodeIgniter]]></title>
+  <link>http://localhost:4000/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</link>
+  <id>http://localhost:4000/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</id>
+  <published>2014-09-23T00:00:00+07:00</published>
+  <updated>2014-09-23T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri>http://localhost:4000</uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Tôi đang sử dụng CodeIgniter 2.2.0, Apache/2.4.9 (Unix), PHP/5.5.11, MySQL/5.0.1. Khi làm việc với database, tôi gặp phải thông báo lỗi sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;A Database Error Occurred
+
+Unable to connect to your database server using the provided settings.
+
+Filename: core/Loader.php
+
+Line Number: 346&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Và đây là thông số cấu hình database trong &lt;strong&gt;/application/config/database.php&lt;/strong&gt;&lt;/p&gt;
 
@@ -53,7 +69,7 @@
 &lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;    die( &amp;#39;file: &amp;#39; .__FILE__ . &amp;#39; Line: &amp;#39; .__LINE__);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Nếu bạn gặp cảnh báo &lt;strong&gt;The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead&lt;/strong&gt;, để loại bỏ thông báo này, bạn có thể thêm &lt;code&gt;error_reporting(E_ALL ^ E_DEPRECATED);&lt;/code&gt; vào đầu file &lt;strong&gt;/application/config/database.php&lt;/strong&gt; hoặc chỉnh sửa giá trị của &lt;strong&gt;error_reporting&lt;/strong&gt; trong file &lt;strong&gt;php.ini&lt;/strong&gt;.
-Xem thêm tại (http://stackoverflow.com/questions/13944956/the-mysql-extension-is-deprecated-and-will-be-removed-in-the-future-use-mysqli).&lt;/p&gt;
+Xem thêm tại &lt;a href=&quot;http://stackoverflow.com/questions/13944956/the-mysql-extension-is-deprecated-and-will-be-removed-in-the-future-use-mysqli&quot;&gt;http://stackoverflow.com/questions/13944956/the-mysql-extension-is-deprecated-and-will-be-removed-in-the-future-use-mysqli&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Nếu bạn gặp thông báo lỗi: &lt;strong&gt;mysql_connect(): No such file or directory&lt;/strong&gt;&lt;/p&gt;
 
@@ -68,18 +84,29 @@ Xem thêm tại (http://stackoverflow.com/questions/13944956/the-mysql-extension
   &lt;li&gt;Restart Apache.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Nguồn tham khảo: 
-1. http://stackoverflow.com/questions/12584762/mysql-connect-no-such-file-or-directory
-2. http://stackoverflow.com/questions/4219970/warning-mysql-connect-2002-no-such-file-or-directory-trying-to-connect-vi&lt;/p&gt;
-</description>
-				<pubDate>Tue, 23 Sep 2014 00:00:00 +0700</pubDate>
-				<link>/codeigniter/2014/09/23/kiem-tra-ket-noi-database-voi-codeigniter.html</link>
-				<guid isPermaLink="true">/codeigniter/2014/09/23/kiem-tra-ket-noi-database-voi-codeigniter.html</guid>
-			</item>
-		
-			<item>
-				<title>Tạo view calendar trong Drupal 7</title>
-				<description>&lt;h2 id=&quot;tnh-hung&quot;&gt;Tình huống&lt;/h2&gt;
+&lt;p&gt;Nguồn tham khảo: &lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/12584762/mysql-connect-no-such-file-or-directory&quot;&gt;http://stackoverflow.com/questions/12584762/mysql-connect-no-such-file-or-directory&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/4219970/warning-mysql-connect-2002-no-such-file-or-directory-trying-to-connect-vi&quot;&gt;http://stackoverflow.com/questions/4219970/warning-mysql-connect-2002-no-such-file-or-directory-trying-to-connect-vi&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter&quot;&gt;Kiểm tra kết nối database với CodeIgniter&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://localhost:4000&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 23, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Tạo view calendar trong Drupal 7]]></title>
+  <link>http://localhost:4000/drupal/7/tao-view-calendar-trong-drupal7</link>
+  <id>http://localhost:4000/drupal/7/tao-view-calendar-trong-drupal7</id>
+  <published>2014-04-14T00:00:00+07:00</published>
+  <updated>2014-04-14T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri>http://localhost:4000</uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;h2 id=&quot;tnh-hung&quot;&gt;Tình huống&lt;/h2&gt;
 
 &lt;p&gt;Mới đây, tôi cần hiển thị lịch học của các khóa học dưới dạng lịch (calendar) để mọi người có cái nhìn trực quan hơn. Trang tôi muốn hiển thị là trang &lt;a href=&quot;http://buocnho.com/dao-tao&quot; target=&quot;_blank&quot;&gt;Đào tạo&lt;/a&gt;. Các khóa học có kiểu nội dung là &lt;strong&gt;Course&lt;/strong&gt; và có trường &lt;strong&gt;Dự kiến khai giảng&lt;/strong&gt; (&lt;code&gt;field_course_start_date&lt;/code&gt;) là kiểu ngày tháng (date). Đã có nhiều plugin jquery hỗ trợ việc hiển thị Calendar, nhưng làm thế nào để tôi có thể sử dụng chúng trong Drupal 7?&lt;/p&gt;
 
@@ -152,11 +179,8 @@ Xem thêm tại (http://stackoverflow.com/questions/13944956/the-mysql-extension
   &lt;li&gt;Lưu file, xóa cache và mở lại trang.&lt;/li&gt;
 &lt;/ul&gt;
 
-</description>
-				<pubDate>Mon, 14 Apr 2014 00:00:00 +0700</pubDate>
-				<link>/drupal-7/2014/04/14/tao-view-calendar-trong-drupal7.html</link>
-				<guid isPermaLink="true">/drupal-7/2014/04/14/tao-view-calendar-trong-drupal7.html</guid>
-			</item>
-		
-	</channel>
-</rss>
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/drupal/7/tao-view-calendar-trong-drupal7&quot;&gt;Tạo view calendar trong Drupal 7&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://localhost:4000&quot;&gt;THAPSANG.NET&lt;/a&gt; on April 14, 2014.&lt;/p&gt;</content>
+</entry>
+
+</feed>
