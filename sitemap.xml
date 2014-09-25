@@ -2,28 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      
     <url>
-        <loc>/</loc>
+        <loc>//</loc>
     </url> 
     <url>
-        <loc>/documentation</loc>
+        <loc>//documentation</loc>
     </url> 
     <url>
-        <loc>/categories</loc>
+        <loc>//categories</loc>
     </url> 
     <url>
-        <loc>/tags</loc>
+        <loc>//tags</loc>
     </url> 
     <url>
-        <loc>/taly2808</loc>
+        <loc>//taly2808</loc>
     </url>
     
     
     <url>
-        <loc>/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</loc>
+        <loc>//codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</loc>
     </url>
     
     <url>
-        <loc>/drupal/7/tao-view-calendar-trong-drupal7</loc>
+        <loc>//drupal/7/tao-view-calendar-trong-drupal7</loc>
     </url>
     
 </urlset>
