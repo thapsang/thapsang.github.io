@@ -109,7 +109,7 @@
 
     <div class="inner">
         <div class="container">
-            <a class="brand" href="" role="banner" itemprop="url">
+            <a class="brand" href="/" role="banner" itemprop="url">
 
                 <img itemprop="logo" src="/images/Candle_Light_300x300.png" alt="THAPSANG.NET Logo" />
 
@@ -159,12 +159,12 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Cách thức kiểm tra kết nối tới database với CodeIgniter và cách xử lý lỗi.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-09-23T00:00:00+07:00" class="post-time" itemprop="datePublished">23 Sep 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#codeigniter" data-toggle="tooltip" title="Other posts from the Codeigniter category" rel="tag">Codeigniter</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">2.1</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#codeigniter" data-toggle="tooltip" title="Other posts from the Codeigniter category" rel="tag">Codeigniter</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">2.8333333333333335</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Tôi đang sử dụng CodeIgniter 2.2.0, Apache/2.4.9 (Unix), PHP/5.5.11, MySQL/5.0.1. Khi làm việc với database, tôi gặp phải thông báo lỗi sau:</p>
+                        <p>Khi làm việc với Model cần kết nối đến database, tôi gặp phải thông báo lỗi sau: (Tôi đang sử dụng CodeIgniter 2.2.0, Apache/2.4.9 (Unix), PHP/5.5.11, MySQL/5.0.1):</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">A Database Error Occurred
 
@@ -198,7 +198,7 @@ Line Number: 346</code></pre></div>
 <span class="lineno"> 2</span> <span class="x">print_r($db[&#39;default&#39;]);</span>
 <span class="lineno"> 3</span> <span class="x">echo &#39;&lt;/pre&gt;&#39;;</span>
 <span class="lineno"> 4</span> <span class="x">echo &#39;Connecting to database: &#39; .$db[&#39;default&#39;][&#39;database&#39;];</span>
-<span class="lineno"> 5</span> <span class="x">  $dbh=mysql_connect(</span>
+<span class="lineno"> 5</span> <span class="x">$dbh=mysql_connect(</span>
 <span class="lineno"> 6</span> <span class="x">    $db[&#39;default&#39;][&#39;hostname&#39;],</span>
 <span class="lineno"> 7</span> <span class="x">    $db[&#39;default&#39;][&#39;username&#39;],</span>
 <span class="lineno"> 8</span> <span class="x">    $db[&#39;default&#39;][&#39;password&#39;])</span>
@@ -271,7 +271,7 @@ Xem thêm tại <a href="http://stackoverflow.com/questions/13944956/the-mysql-e
                         <div class="post-author text-center">                       
 	        <img src="/images/my-ava.jpg" alt="Ta Ly's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>    
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="http://schema.org/Person">Written by <span itemprop="name" class="fn"><a href="/about" title="About Ta Ly" itemprop="url">Ta Ly</a></span></h4>
-	    <p>Hãy thắp một ngọn nến nhỏ, thay vì nguyền rủa bóng đêm</p>
+	    <p>Hãy thắp một ngọn nến nhỏ, thay vì nguyền rủa bóng đêm!</p>
 </div>
  
                         <div id="disqus_thread"></div><!-- /#disqus_thread -->

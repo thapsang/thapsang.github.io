@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-09-25T09:07:10+07:00</updated>
+<updated>2014-09-25T10:06:34+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -24,7 +24,7 @@
     <uri></uri>
     <email>taly2808@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;Tôi đang sử dụng CodeIgniter 2.2.0, Apache/2.4.9 (Unix), PHP/5.5.11, MySQL/5.0.1. Khi làm việc với database, tôi gặp phải thông báo lỗi sau:&lt;/p&gt;
+  <content type="html">&lt;p&gt;Khi làm việc với Model cần kết nối đến database, tôi gặp phải thông báo lỗi sau: (Tôi đang sử dụng CodeIgniter 2.2.0, Apache/2.4.9 (Unix), PHP/5.5.11, MySQL/5.0.1):&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;A Database Error Occurred
 
@@ -58,7 +58,7 @@ Line Number: 346&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;print_r($db[&amp;#39;default&amp;#39;]);&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;echo &amp;#39;&amp;lt;/pre&amp;gt;&amp;#39;;&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;echo &amp;#39;Connecting to database: &amp;#39; .$db[&amp;#39;default&amp;#39;][&amp;#39;database&amp;#39;];&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;  $dbh=mysql_connect(&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;$dbh=mysql_connect(&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;    $db[&amp;#39;default&amp;#39;][&amp;#39;hostname&amp;#39;],&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;    $db[&amp;#39;default&amp;#39;][&amp;#39;username&amp;#39;],&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;x&quot;&gt;    $db[&amp;#39;default&amp;#39;][&amp;#39;password&amp;#39;])&lt;/span&gt;
@@ -97,8 +97,8 @@ Xem thêm tại &lt;a href=&quot;http://stackoverflow.com/questions/13944956/the
 
 <entry>
   <title type="html"><![CDATA[Tạo view calendar trong Drupal 7]]></title>
-  <link>/drupal/7/tao-view-calendar-trong-drupal7</link>
-  <id>/drupal/7/tao-view-calendar-trong-drupal7</id>
+  <link>/drupal-7/tao-view-calendar-trong-drupal7</link>
+  <id>/drupal-7/tao-view-calendar-trong-drupal7</id>
   <published>2014-04-14T00:00:00+07:00</published>
   <updated>2014-04-14T00:00:00+07:00</updated>
   <author>
@@ -106,11 +106,7 @@ Xem thêm tại &lt;a href=&quot;http://stackoverflow.com/questions/13944956/the
     <uri></uri>
     <email>taly2808@gmail.com</email>
   </author>
-  <content type="html">&lt;h2 id=&quot;tnh-hung&quot;&gt;Tình huống&lt;/h2&gt;
-
-&lt;p&gt;Mới đây, tôi cần hiển thị lịch học của các khóa học dưới dạng lịch (calendar) để mọi người có cái nhìn trực quan hơn. Trang tôi muốn hiển thị là trang &lt;a href=&quot;http://buocnho.com/dao-tao&quot; target=&quot;_blank&quot;&gt;Đào tạo&lt;/a&gt;. Các khóa học có kiểu nội dung là &lt;strong&gt;Course&lt;/strong&gt; và có trường &lt;strong&gt;Dự kiến khai giảng&lt;/strong&gt; (&lt;code&gt;field_course_start_date&lt;/code&gt;) là kiểu ngày tháng (date). Đã có nhiều plugin jquery hỗ trợ việc hiển thị Calendar, nhưng làm thế nào để tôi có thể sử dụng chúng trong Drupal 7?&lt;/p&gt;
-
-&lt;h2 id=&quot;gii-php&quot;&gt;Giải pháp&lt;/h2&gt;
+  <content type="html">&lt;p&gt;Trong dự án đang thực hiện, tôi cần hiển thị lịch học của các khóa học dưới dạng lịch (calendar) để mọi người có cái nhìn trực quan hơn. Trang tôi muốn hiển thị là trang &lt;a href=&quot;http://buocnho.com/dao-tao&quot; target=&quot;_blank&quot;&gt;Đào tạo&lt;/a&gt;. Các khóa học có kiểu nội dung là &lt;strong&gt;Course&lt;/strong&gt; và có trường &lt;strong&gt;Dự kiến khai giảng&lt;/strong&gt; (&lt;code&gt;field_course_start_date&lt;/code&gt;) là kiểu ngày tháng (date). Đã có nhiều plugin jquery hỗ trợ việc hiển thị Calendar, nhưng làm thế nào để tôi có thể sử dụng chúng trong Drupal 7?&lt;/p&gt;
 
 &lt;p&gt;Để giải quyết vấn đề này, tôi sử dụng &lt;a href=&quot;http://drupal.org/project/views&quot; target=&quot;_blank&quot;&gt;Views&lt;/a&gt; dựa trên module &lt;a href=&quot;http://drupal.org/project/calendar&quot; target=&quot;_blank&quot;&gt;Calendar&lt;/a&gt;) của drupal để tạo ra một trang với những truy vấn phù hợp với mục đích hiển thị của tôi.&lt;/p&gt;
 
@@ -169,18 +165,19 @@ Xem thêm tại &lt;a href=&quot;http://stackoverflow.com/questions/13944956/the
 
 &lt;ul&gt;
   &lt;li&gt;Mở file &lt;strong&gt;sites/all/modules/calendar/theme/theme.inc&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Thêm đoạn code sau ngay dưới dòng 37: &lt;/p&gt;
+  &lt;li&gt;Thêm đoạn code sau ngay dưới dòng 37: &lt;/li&gt;
+&lt;/ul&gt;
 
-    &lt;p&gt;if (!isset($data[‘data’])) {
-      continue;
-  }&lt;/p&gt;
-  &lt;/li&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;($&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;data&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
   &lt;li&gt;Lưu file, xóa cache và mở lại trang.&lt;/li&gt;
 &lt;/ul&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/drupal/7/tao-view-calendar-trong-drupal7&quot;&gt;Tạo view calendar trong Drupal 7&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on April 14, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/drupal-7/tao-view-calendar-trong-drupal7&quot;&gt;Tạo view calendar trong Drupal 7&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on April 14, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>

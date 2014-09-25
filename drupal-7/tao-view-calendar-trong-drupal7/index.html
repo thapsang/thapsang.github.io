@@ -18,7 +18,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tạo view calendar trong Drupal 7">
 <meta property="og:description" content="Tạo calendar với các module có sẵn của drupal.">
-<meta property="og:url" content="/drupal/7/tao-view-calendar-trong-drupal7">
+<meta property="og:url" content="/drupal-7/tao-view-calendar-trong-drupal7">
 <meta property="og:site_name" content="THAPSANG.NET">
 <meta property="og:image" content="/images/default_bg1.jpg">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/drupal/7/tao-view-calendar-trong-drupal7">
+<link rel="canonical" href="/drupal-7/tao-view-calendar-trong-drupal7">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="THAPSANG.NET Feed">
 <link rel="author" href="https://plus.google.com/u/0/112183179892082059089?rel=author">
 
@@ -109,7 +109,7 @@
 
     <div class="inner">
         <div class="container">
-            <a class="brand" href="" role="banner" itemprop="url">
+            <a class="brand" href="/" role="banner" itemprop="url">
 
                 <img itemprop="logo" src="/images/Candle_Light_300x300.png" alt="THAPSANG.NET Logo" />
 
@@ -159,16 +159,12 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Tạo calendar với các module có sẵn của drupal.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-04-14T00:00:00+07:00" class="post-time" itemprop="datePublished">14 Apr 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#drupal7" data-toggle="tooltip" title="Other posts from the Drupal category" rel="tag">Drupal</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#drupal7" data-toggle="tooltip" title="Other posts from the 7 category" rel="tag">7</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">3.035</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#drupal-7" data-toggle="tooltip" title="Other posts from the Drupal-7 category" rel="tag">Drupal-7</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">4.066666666666666</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <h2 id="tnh-hung">Tình huống</h2>
-
-<p>Mới đây, tôi cần hiển thị lịch học của các khóa học dưới dạng lịch (calendar) để mọi người có cái nhìn trực quan hơn. Trang tôi muốn hiển thị là trang <a href="http://buocnho.com/dao-tao" target="_blank">Đào tạo</a>. Các khóa học có kiểu nội dung là <strong>Course</strong> và có trường <strong>Dự kiến khai giảng</strong> (<code>field_course_start_date</code>) là kiểu ngày tháng (date). Đã có nhiều plugin jquery hỗ trợ việc hiển thị Calendar, nhưng làm thế nào để tôi có thể sử dụng chúng trong Drupal 7?</p>
-
-<h2 id="gii-php">Giải pháp</h2>
+                        <p>Trong dự án đang thực hiện, tôi cần hiển thị lịch học của các khóa học dưới dạng lịch (calendar) để mọi người có cái nhìn trực quan hơn. Trang tôi muốn hiển thị là trang <a href="http://buocnho.com/dao-tao" target="_blank">Đào tạo</a>. Các khóa học có kiểu nội dung là <strong>Course</strong> và có trường <strong>Dự kiến khai giảng</strong> (<code>field_course_start_date</code>) là kiểu ngày tháng (date). Đã có nhiều plugin jquery hỗ trợ việc hiển thị Calendar, nhưng làm thế nào để tôi có thể sử dụng chúng trong Drupal 7?</p>
 
 <p>Để giải quyết vấn đề này, tôi sử dụng <a href="http://drupal.org/project/views" target="_blank">Views</a> dựa trên module <a href="http://drupal.org/project/calendar" target="_blank">Calendar</a>) của drupal để tạo ra một trang với những truy vấn phù hợp với mục đích hiển thị của tôi.</p>
 
@@ -227,13 +223,14 @@
 
 <ul>
   <li>Mở file <strong>sites/all/modules/calendar/theme/theme.inc</strong>.</li>
-  <li>
-    <p>Thêm đoạn code sau ngay dưới dòng 37: </p>
+  <li>Thêm đoạn code sau ngay dưới dòng 37: </li>
+</ul>
 
-    <p>if (!isset($data[‘data’])) {
-      continue;
-  }</p>
-  </li>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">if</span> <span class="o">(!</span><span class="nt">isset</span><span class="o">($</span><span class="nt">data</span><span class="o">[</span><span class="s1">&#39;data&#39;</span><span class="o">]))</span> <span class="p">{</span>
+	<span class="n">continue</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<ul>
   <li>Lưu file, xóa cache và mở lại trang.</li>
 </ul>
 
@@ -256,19 +253,19 @@
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Tạo view calendar trong Drupal 7&quot;%20/drupal/7/tao-view-calendar-trong-drupal7%20via%20&#64;taly2808"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Tạo view calendar trong Drupal 7&quot;%20/drupal-7/tao-view-calendar-trong-drupal7%20via%20&#64;taly2808"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>
         </li>
         <li>
-            <a  href="https://www.facebook.com/sharer/sharer.php?u=/drupal/7/tao-view-calendar-trong-drupal7"
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=/drupal-7/tao-view-calendar-trong-drupal7"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
                 <i class="icon-facebook"></i>
             </a>
         </li>
         <li>
-            <a href="https://plus.google.com/share?url=/drupal/7/tao-view-calendar-trong-drupal7"
+            <a href="https://plus.google.com/share?url=/drupal-7/tao-view-calendar-trong-drupal7"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
                 <i class="icon-google-plus"></i>
             </a>
@@ -278,7 +275,7 @@
                         <div class="post-author text-center">                       
 	        <img src="/images/my-ava.jpg" alt="Ta Ly's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>    
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="http://schema.org/Person">Written by <span itemprop="name" class="fn"><a href="/about" title="About Ta Ly" itemprop="url">Ta Ly</a></span></h4>
-	    <p>Hãy thắp một ngọn nến nhỏ, thay vì nguyền rủa bóng đêm</p>
+	    <p>Hãy thắp một ngọn nến nhỏ, thay vì nguyền rủa bóng đêm!</p>
 </div>
  
                         <div id="disqus_thread"></div><!-- /#disqus_thread -->
