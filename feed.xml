@@ -2,26 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">THAPSANG.NET</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="//feed.xml" />
-<link rel="alternate" type="text/html" href="/" />
-<updated>2014-09-25T09:04:13+07:00</updated>
-<id>//</id>
+<link rel="self" type="application/atom+xml" href="/feed.xml" />
+<link rel="alternate" type="text/html" href="" />
+<updated>2014-09-25T09:07:10+07:00</updated>
+<id>/</id>
 <author>
   <name>Ta Ly</name>
-  <uri>//</uri>
+  <uri>/</uri>
   <email>taly2808@gmail.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[Kiểm tra kết nối database với CodeIgniter]]></title>
-  <link>//codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</link>
-  <id>//codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</id>
+  <link>/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</link>
+  <id>/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</id>
   <published>2014-09-23T00:00:00+07:00</published>
   <updated>2014-09-23T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri>/</uri>
+    <uri></uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Tôi đang sử dụng CodeIgniter 2.2.0, Apache/2.4.9 (Unix), PHP/5.5.11, MySQL/5.0.1. Khi làm việc với database, tôi gặp phải thông báo lỗi sau:&lt;/p&gt;
@@ -91,19 +91,19 @@ Xem thêm tại &lt;a href=&quot;http://stackoverflow.com/questions/13944956/the
   &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/4219970/warning-mysql-connect-2002-no-such-file-or-directory-trying-to-connect-vi&quot;&gt;http://stackoverflow.com/questions/4219970/warning-mysql-connect-2002-no-such-file-or-directory-trying-to-connect-vi&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;//codeigniter/kiem-tra-ket-noi-database-voi-codeigniter&quot;&gt;Kiểm tra kết nối database với CodeIgniter&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;/&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 23, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter&quot;&gt;Kiểm tra kết nối database với CodeIgniter&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 23, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Tạo view calendar trong Drupal 7]]></title>
-  <link>//drupal/7/tao-view-calendar-trong-drupal7</link>
-  <id>//drupal/7/tao-view-calendar-trong-drupal7</id>
+  <link>/drupal/7/tao-view-calendar-trong-drupal7</link>
+  <id>/drupal/7/tao-view-calendar-trong-drupal7</id>
   <published>2014-04-14T00:00:00+07:00</published>
   <updated>2014-04-14T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri>/</uri>
+    <uri></uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;h2 id=&quot;tnh-hung&quot;&gt;Tình huống&lt;/h2&gt;
@@ -180,7 +180,7 @@ Xem thêm tại &lt;a href=&quot;http://stackoverflow.com/questions/13944956/the
 &lt;/ul&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;//drupal/7/tao-view-calendar-trong-drupal7&quot;&gt;Tạo view calendar trong Drupal 7&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;/&quot;&gt;THAPSANG.NET&lt;/a&gt; on April 14, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/drupal/7/tao-view-calendar-trong-drupal7&quot;&gt;Tạo view calendar trong Drupal 7&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on April 14, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
