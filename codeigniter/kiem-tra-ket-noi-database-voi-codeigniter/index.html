@@ -155,7 +155,7 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Cách thức kiểm tra kết nối tới database với CodeIgniter và cách xử lý lỗi.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-09-23T00:00:00+07:00" class="post-time" itemprop="datePublished">23 Sep 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#codeigniter" data-toggle="tooltip" title="Other posts from the Codeigniter category" rel="tag">Codeigniter</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">2.8333333333333335</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#codeigniter" data-toggle="tooltip" title="Other posts from the Codeigniter category" rel="tag">Codeigniter</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">3.44</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
@@ -172,44 +172,46 @@ Line Number: 346</code></pre></div>
 
 <p>Và đây là thông số cấu hình database trong <strong>/application/config/database.php</strong></p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="x">$db[&#39;default&#39;][&#39;hostname&#39;] = &#39;localhost&#39;;</span>
-<span class="lineno"> 2</span> <span class="x">$db[&#39;default&#39;][&#39;username&#39;] = &#39;root&#39;;</span>
-<span class="lineno"> 3</span> <span class="x">$db[&#39;default&#39;][&#39;password&#39;] = &#39;mypasword&#39;;</span>
-<span class="lineno"> 4</span> <span class="x">$db[&#39;default&#39;][&#39;database&#39;] = &#39;db_codeigniter_test&#39;;</span>
-<span class="lineno"> 5</span> <span class="x">$db[&#39;default&#39;][&#39;dbdriver&#39;] = &#39;mysql&#39;;</span>
-<span class="lineno"> 6</span> <span class="x">$db[&#39;default&#39;][&#39;dbprefix&#39;] = &#39;&#39;;</span>
-<span class="lineno"> 7</span> <span class="x">$db[&#39;default&#39;][&#39;pconnect&#39;] = TRUE;</span>
-<span class="lineno"> 8</span> <span class="x">$db[&#39;default&#39;][&#39;db_debug&#39;] = TRUE;</span>
-<span class="lineno"> 9</span> <span class="x">$db[&#39;default&#39;][&#39;cache_on&#39;] = FALSE;</span>
-<span class="lineno">10</span> <span class="x">$db[&#39;default&#39;][&#39;cachedir&#39;] = &#39;&#39;;</span>
-<span class="lineno">11</span> <span class="x">$db[&#39;default&#39;][&#39;char_set&#39;] = &#39;utf8&#39;;</span>
-<span class="lineno">12</span> <span class="x">$db[&#39;default&#39;][&#39;dbcollat&#39;] = &#39;utf8_general_ci&#39;;</span>
-<span class="lineno">13</span> <span class="x">$db[&#39;default&#39;][&#39;swap_pre&#39;] = &#39;&#39;;</span>
-<span class="lineno">14</span> <span class="x">$db[&#39;default&#39;][&#39;autoinit&#39;] = TRUE;</span>
-<span class="lineno">15</span> <span class="x">$db[&#39;default&#39;][&#39;stricton&#39;] = FALSE;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
+<span class="lineno"> 2</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;hostname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="lineno"> 3</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;root&#39;</span><span class="p">;</span>
+<span class="lineno"> 4</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mypasword&#39;</span><span class="p">;</span>
+<span class="lineno"> 5</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;database&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;db_codeigniter_test&#39;</span><span class="p">;</span>
+<span class="lineno"> 6</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;dbdriver&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mysql&#39;</span><span class="p">;</span>
+<span class="lineno"> 7</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;dbprefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="lineno"> 8</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;pconnect&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
+<span class="lineno"> 9</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;db_debug&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
+<span class="lineno">10</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;cache_on&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
+<span class="lineno">11</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;cachedir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="lineno">12</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;char_set&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">;</span>
+<span class="lineno">13</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;dbcollat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;utf8_general_ci&#39;</span><span class="p">;</span>
+<span class="lineno">14</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;swap_pre&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="lineno">15</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;autoinit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
+<span class="lineno">16</span> <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;stricton&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span></code></pre></div>
 
 <p>Để kiểm tra có kết nối được tới database hay không, ta cần thêm đoạn code sau phía dưới cùng của file <strong>/application/config/database.php</strong> và xem kết quả:</p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="x">echo &#39;&lt;pre&gt;&#39;;</span>
-<span class="lineno"> 2</span> <span class="x">print_r($db[&#39;default&#39;]);</span>
-<span class="lineno"> 3</span> <span class="x">echo &#39;&lt;/pre&gt;&#39;;</span>
-<span class="lineno"> 4</span> <span class="x">echo &#39;Connecting to database: &#39; .$db[&#39;default&#39;][&#39;database&#39;];</span>
-<span class="lineno"> 5</span> <span class="x">$dbh=mysql_connect(</span>
-<span class="lineno"> 6</span> <span class="x">    $db[&#39;default&#39;][&#39;hostname&#39;],</span>
-<span class="lineno"> 7</span> <span class="x">    $db[&#39;default&#39;][&#39;username&#39;],</span>
-<span class="lineno"> 8</span> <span class="x">    $db[&#39;default&#39;][&#39;password&#39;])</span>
-<span class="lineno"> 9</span> <span class="x">    or die(&#39;Cannot connect to the database because: &#39; . mysql_error());</span>
-<span class="lineno">10</span> <span class="x">    mysql_select_db ($db[&#39;default&#39;][&#39;database&#39;]);</span>
-<span class="lineno">11</span> 
-<span class="lineno">12</span> <span class="x">    echo &#39;&lt;br /&gt;   Connected OK:&#39;  ;</span>
-<span class="lineno">13</span> <span class="x">    die( &#39;file: &#39; .__FILE__ . &#39; Line: &#39; .__LINE__);</span></code></pre></div>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
+<span class="lineno"> 2</span> <span class="k">echo</span> <span class="s1">&#39;&lt;pre&gt;&#39;</span><span class="p">;</span>
+<span class="lineno"> 3</span> <span class="nb">print_r</span><span class="p">(</span><span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">]);</span>
+<span class="lineno"> 4</span> <span class="k">echo</span> <span class="s1">&#39;&lt;/pre&gt;&#39;</span><span class="p">;</span>
+<span class="lineno"> 5</span> <span class="k">echo</span> <span class="s1">&#39;Connecting to database: &#39;</span> <span class="o">.</span><span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;database&#39;</span><span class="p">];</span>
+<span class="lineno"> 6</span> <span class="nv">$dbh</span><span class="o">=</span><span class="nb">mysql_connect</span><span class="p">(</span>
+<span class="lineno"> 7</span>     <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;hostname&#39;</span><span class="p">],</span>
+<span class="lineno"> 8</span>     <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">],</span>
+<span class="lineno"> 9</span>     <span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">])</span>
+<span class="lineno">10</span>     <span class="k">or</span> <span class="k">die</span><span class="p">(</span><span class="s1">&#39;Cannot connect to the database because: &#39;</span> <span class="o">.</span> <span class="nb">mysql_error</span><span class="p">());</span>
+<span class="lineno">11</span>     <span class="nb">mysql_select_db</span> <span class="p">(</span><span class="nv">$db</span><span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">][</span><span class="s1">&#39;database&#39;</span><span class="p">]);</span>
+<span class="lineno">12</span> 
+<span class="lineno">13</span>     <span class="k">echo</span> <span class="s1">&#39;&lt;br /&gt;   Connected OK:&#39;</span>  <span class="p">;</span>
+<span class="lineno">14</span>     <span class="k">die</span><span class="p">(</span> <span class="s1">&#39;file: &#39;</span> <span class="o">.</span><span class="k">__FILE__</span> <span class="o">.</span> <span class="s1">&#39; Line: &#39;</span> <span class="o">.</span><span class="k">__LINE__</span><span class="p">);</span></code></pre></div>
 
 <p>Nếu bạn gặp cảnh báo <strong>The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead</strong>, để loại bỏ thông báo này, bạn có thể thêm <code>error_reporting(E_ALL ^ E_DEPRECATED);</code> vào đầu file <strong>/application/config/database.php</strong> hoặc chỉnh sửa giá trị của <strong>error_reporting</strong> trong file <strong>php.ini</strong>.
 Xem thêm tại <a href="http://stackoverflow.com/questions/13944956/the-mysql-extension-is-deprecated-and-will-be-removed-in-the-future-use-mysqli">http://stackoverflow.com/questions/13944956/the-mysql-extension-is-deprecated-and-will-be-removed-in-the-future-use-mysqli</a>.</p>
 
 <p>Nếu bạn gặp thông báo lỗi: <strong>mysql_connect(): No such file or directory</strong></p>
 
-<p>Server không kết nối được tới database bởi vì file socket chưa chính xác. File socket của bạn có thể nằm ở /var/mysql/mysql.sock hoặc /tmp/mysql.sock (nếu bạn cài lampp hoặc xampp, nó sẽ là /opt/lampp/var/mysql/mysql.sock), tuy nhiên có thể PHP tìm kiếm sai vị trí.
+<p>Server không kết nối được tới database bởi vì file <strong>socket</strong> chưa chính xác. File <strong>socket</strong> của bạn có thể nằm ở <strong>/var/mysql/mysql.sock</strong> hoặc <strong>/tmp/mysql.sock</strong> (nếu bạn cài lampp hoặc xampp, nó sẽ là <strong>/opt/lampp/var/mysql/mysql.sock</strong>), tuy nhiên có thể PHP tìm kiếm sai vị trí.
 Để giải quyết lỗi này, ta làm như sau:</p>
 
 <ol>
