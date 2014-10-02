@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-10-02T17:45:50+07:00</updated>
+<updated>2014-10-02T19:48:38+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -91,11 +91,23 @@ Application key &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;UrUfH3BuAjvirFTv01
     <uri></uri>
     <email>taly2808@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;Composer là một công cụ để quản lý sự phụ thuộc trong PHP. Nó cho phép developers khai báo các thư viện phụ thuộc mà dự án của họ cần và nó sẽ cài đặt tự động các thư viện đó vào trong dự án thông qua command line (dòng lệnh).&lt;/p&gt;
+  <content type="html">&lt;p&gt;Composer là một công cụ để quản lý sự phụ thuộc trong PHP. Bạn có một project và nó phụ thuộc vào một cơ số các thư viện. Một vài thư viện trong số đó lại phụ thuộc vào các thư viện khác. Việc tải các thư viện cần thiết cho project theo cách thông thường cũng khá tốn thời gian và mệt não. Với Composer, bạn chỉ cần khai báo các thư viện project cần, Composer sẽ tìm các phiên bản tương ứng và download chúng vào vào trong project cho bạn.&lt;/p&gt;
+
+&lt;h2 id=&quot;khai-bo-ph-thuc&quot;&gt;Khai báo phụ thuộc&lt;/h2&gt;
+
+&lt;p&gt;Giả sử, bạn có một dự án và bạn cần thư viện để ghi log. Bạn có thể sử dụng &lt;a href=&quot;https://github.com/Seldaek/monolog&quot;&gt;monolog&lt;/a&gt; hoặc &lt;a href=&quot;http://logging.apache.org/log4php/&quot;&gt;log4php&lt;/a&gt;. Giả nhử bạn quyết định sử dụng &lt;strong&gt;monolog&lt;/strong&gt;. Để thêm thư viện &lt;strong&gt;monolog&lt;/strong&gt; vào trong project, bạn chỉ cần tạo một file &lt;code&gt;composer.json&lt;/code&gt; và liệt kê thư viện phụ thuộc vào đó: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;require&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;monolog/monolog&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.2.*&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Với khai báo như trên, chúng ta nói rằng chúng ta yêu cầu một số gói monolog/monolog của bất kỳ phiên bản nào bắt đầu  bằng 1.2. Composer sẽ tự động tải về và đặt nó trong thư mục &lt;strong&gt;your-project/vendor/&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;system-requirements&quot;&gt;System Requirements&lt;/h2&gt;
 
-&lt;p&gt;Composer yêu cầu máy tính của bạn phải có PHP phiên bản 5.3.2 trở lên. Bạn có thể kiểm tra phiên bản PHP trên máy bằng lệnh &lt;strong&gt;&lt;code&gt;php -v&lt;/code&gt;&lt;/strong&gt; hoặc &lt;strong&gt;php –version&lt;/strong&gt; như sau: &lt;/p&gt;
+&lt;p&gt;Composer yêu cầu máy tính của bạn phải có PHP phiên bản 5.3.2 trở lên. Bạn có thể kiểm tra phiên bản PHP trên máy bằng lệnh &lt;strong&gt;&lt;code&gt;php -v&lt;/code&gt;&lt;/strong&gt; hoặc &lt;strong&gt;&lt;code&gt;php --version&lt;/code&gt;&lt;/strong&gt; như sau: &lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php -v
 PHP 5.5.14-2+deb.sury.org~precise+1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;cli&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;built: Jul  &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2014&lt;/span&gt; 11:56:23&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 

@@ -155,16 +155,28 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Cài đặt Composer trên máy tính</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-09-24T00:00:00+07:00" class="post-time" itemprop="datePublished">24 Sep 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">8.71</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">10.26</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Composer là một công cụ để quản lý sự phụ thuộc trong PHP. Nó cho phép developers khai báo các thư viện phụ thuộc mà dự án của họ cần và nó sẽ cài đặt tự động các thư viện đó vào trong dự án thông qua command line (dòng lệnh).</p>
+                        <p>Composer là một công cụ để quản lý sự phụ thuộc trong PHP. Bạn có một project và nó phụ thuộc vào một cơ số các thư viện. Một vài thư viện trong số đó lại phụ thuộc vào các thư viện khác. Việc tải các thư viện cần thiết cho project theo cách thông thường cũng khá tốn thời gian và mệt não. Với Composer, bạn chỉ cần khai báo các thư viện project cần, Composer sẽ tìm các phiên bản tương ứng và download chúng vào vào trong project cho bạn.</p>
+
+<h2 id="khai-bo-ph-thuc">Khai báo phụ thuộc</h2>
+
+<p>Giả sử, bạn có một dự án và bạn cần thư viện để ghi log. Bạn có thể sử dụng <a href="https://github.com/Seldaek/monolog">monolog</a> hoặc <a href="http://logging.apache.org/log4php/">log4php</a>. Giả nhử bạn quyết định sử dụng <strong>monolog</strong>. Để thêm thư viện <strong>monolog</strong> vào trong project, bạn chỉ cần tạo một file <code>composer.json</code> và liệt kê thư viện phụ thuộc vào đó: </p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;monolog/monolog&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.*&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Với khai báo như trên, chúng ta nói rằng chúng ta yêu cầu một số gói monolog/monolog của bất kỳ phiên bản nào bắt đầu  bằng 1.2. Composer sẽ tự động tải về và đặt nó trong thư mục <strong>your-project/vendor/</strong>.</p>
 
 <h2 id="system-requirements">System Requirements</h2>
 
-<p>Composer yêu cầu máy tính của bạn phải có PHP phiên bản 5.3.2 trở lên. Bạn có thể kiểm tra phiên bản PHP trên máy bằng lệnh <strong><code>php -v</code></strong> hoặc <strong>php –version</strong> như sau: </p>
+<p>Composer yêu cầu máy tính của bạn phải có PHP phiên bản 5.3.2 trở lên. Bạn có thể kiểm tra phiên bản PHP trên máy bằng lệnh <strong><code>php -v</code></strong> hoặc <strong><code>php --version</code></strong> như sau: </p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>php -v
 PHP 5.5.14-2+deb.sury.org~precise+1 <span class="o">(</span>cli<span class="o">)</span> <span class="o">(</span>built: Jul  <span class="m">2</span> <span class="m">2014</span> 11:56:23<span class="o">)</span> 
