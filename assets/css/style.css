@@ -470,6 +470,7 @@ html {
 /* - Brand - */
 .brand img {
   max-height: 120px;
+  border-radius: 50%;
 }
 /* - Blog title and description - */
 .blog-title {
@@ -529,6 +530,7 @@ html {
 .post-template .post-body {
   padding-bottom: 36px;
   margin-bottom: 24px;
+  text-align: justify;
 }
 .post-body img {
   max-width: 100%;

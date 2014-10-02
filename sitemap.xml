@@ -16,6 +16,18 @@
     
     
     <url>
+        <loc>/laravel/bat-dau-voi-laravel-homestead</loc>
+    </url>
+    
+    <url>
+        <loc>/laravel/huong-dan-cai-dat-laravel</loc>
+    </url>
+    
+    <url>
+        <loc>/laravel/huong-dan-cai-dat-composer</loc>
+    </url>
+    
+    <url>
         <loc>/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</loc>
     </url>
     

@@ -9,13 +9,14 @@ indent_mode=2
 [project]
 name=thapsang.github.io-source
 base_path=/opt/projects/thapsang.net/thapsang.github.io-source
+description=
 
 [long line marker]
 long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=-1
+current_page=0
 
 [VTE]
 last_dir=/home/taly

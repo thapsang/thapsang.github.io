@@ -4,13 +4,196 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-09-30T16:51:47+07:00</updated>
+<updated>2014-10-02T16:33:06+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
   <uri>/</uri>
   <email>taly2808@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Bắt đầu với Laravel Homestead]]></title>
+  <link>/laravel/bat-dau-voi-laravel-homestead</link>
+  <id>/laravel/bat-dau-voi-laravel-homestead</id>
+  <published>2014-10-02T00:00:00+07:00</published>
+  <updated>2014-10-02T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Homestead là một cách để phát triển các ứng dụng Laravel trên local. Laravel Homestead đã đóng gói sẵn Vagrant “box” - nó cung cấp môi trường phát triển tuyệt vời mà không cần cài đặt PHP, web server hay bất kỳ một phần mềm server nào khác trên máy tính. Developers không phải lo lắng về việc không tương thích giữa các server software với hệ điều hành của mình. Vagrant boxes hoàn toàn sẵn có, có thể bỏ đi (disposable), nếu bạn cấu hình sai, bạn hoàn toàn có thể hủy nó đi và tạo lại một box mới.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/laravel/bat-dau-voi-laravel-homestead&quot;&gt;Bắt đầu với Laravel Homestead&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 02, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Hướng dẫn cài đặt Laravel 4]]></title>
+  <link>/laravel/huong-dan-cai-dat-laravel</link>
+  <id>/laravel/huong-dan-cai-dat-laravel</id>
+  <published>2014-09-27T00:00:00+07:00</published>
+  <updated>2014-09-27T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Laravel sử dụng Composer để quản lý các thư viện phụ thuộc. Do đó, để cài đặt Laravel thông qua Composer, máy tính của bạn cần đảm bảo đã cài đặt &lt;a href=&quot;http://getcomposer.org/&quot;&gt;Composer&lt;/a&gt;. Bạn có thể tham khảo bài viết &lt;a href=&quot;/laravel/huong-dan-cai-dat-composer&quot;&gt;hướng dẫn cài đặt Composer&lt;/a&gt;. Bạn có thể kiểm tra Composer đã được cài đặt hay chưa bằng cách mở Terminal và chạy lệnh sau (lưu ý dấu $ là dấu nhắc đợi lệnh, không nằm trong lệnh trên):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer --version
+Composer version b33da336ecb7f1c9b15a57285e5a9f09cf5f3dd2 2014-09-30 15:28:01&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nếu kết quả hiển thị như trên thì chắc chắn bạn đã cài composer thành công trên máy tính của mình.&lt;/p&gt;
+
+&lt;h2 id=&quot;ci-t-laravel&quot;&gt;Cài đặt Laravel&lt;/h2&gt;
+
+&lt;p&gt;Giả sử bạn có thư mục &lt;strong&gt;/opt/laravel&lt;/strong&gt; và bạn muốn tạo mới một project có tên &lt;strong&gt;test_laravel&lt;/strong&gt; trong thư mục này. Bạn thực hiện như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt/laravel
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer create-project laravel/laravel test_laravel --prefer-dist
+Installing laravel/laravel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v4.2.0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  - Installing laravel/laravel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v4.2.0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Loading from cache
+
+Created project in test_laravel
+Loading composer repositories with package information
+Installing dependencies &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;including require-dev&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  - Installing symfony/translation &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v2.5.5&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    Downloading: 100%         
+....
+....
+Writing lock file
+Generating autoload files
+Generating optimized class loader
+Compiling common classes
+Compiling views
+Application key &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;UrUfH3BuAjvirFTv015Hd7V9mAA1P5DJ&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;successfully.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Composer sẽ tự động download và cài đặt các thư viện cần thiết để tạo dự án laravel.&lt;/p&gt;
+
+&lt;p&gt;Nếu bạn cài đặt xampp hoặc lampp, bạn có thể tạo dự án trong thư mục htdocs và gõ lên trình duyệt http://localhost/test_laravel/public để xem kết quả. Nếu bạn không muốn phụ thuộc vào xampp hay lampp hoặc giả như bạn không rành về cấu hình server, bạn có thể tham khảo bài viết &lt;a href=&quot;/laravel/bat-dau-voi-laravel-homestead&quot;&gt;Bắt đầu với Laravel Homestead&lt;/a&gt;.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/laravel/huong-dan-cai-dat-laravel&quot;&gt;Hướng dẫn cài đặt Laravel 4&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 27, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Hướng dẫn cài đặt Composer]]></title>
+  <link>/laravel/huong-dan-cai-dat-composer</link>
+  <id>/laravel/huong-dan-cai-dat-composer</id>
+  <published>2014-09-24T00:00:00+07:00</published>
+  <updated>2014-09-24T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Composer là một công cụ để quản lý sự phụ thuộc trong PHP. Nó cho phép developers khai báo các thư viện phụ thuộc mà dự án của họ cần và nó sẽ cài đặt tự động các thư viện đó vào trong dự án thông qua command line (dòng lệnh).&lt;/p&gt;
+
+&lt;h2 id=&quot;system-requirements&quot;&gt;System Requirements&lt;/h2&gt;
+
+&lt;p&gt;Composer yêu cầu máy tính của bạn phải có PHP phiên bản 5.3.2 trở lên. Bạn có thể kiểm tra phiên bản PHP trên máy bằng lệnh &lt;strong&gt;&lt;code&gt;php -v&lt;/code&gt;&lt;/strong&gt; hoặc &lt;strong&gt;php –version&lt;/strong&gt; như sau: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php -v
+PHP 5.5.14-2+deb.sury.org~precise+1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;cli&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;built: Jul  &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2014&lt;/span&gt; 11:56:23&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
+Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 1997-2014 The PHP Group
+Zend Engine v2.5.0, Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 1998-2014 Zend Technologies
+    with Zend OPcache v7.0.4-dev, Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 1999-2014, by Zend Technologies&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nếu kết quả của bạn không tương tự như trên, bạn cần cài đặt PHP trên máy hoặc nâng cấp phiên bản nếu phiên bản của bạn nhỏ hơn 5.3.2.&lt;/p&gt;
+
+&lt;p&gt;Nếu bạn dùng Windows và bạn gặp phải lỗi:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;C:&lt;span class=&quot;se&quot;&gt;\&amp;gt;&lt;/span&gt;php --version
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;php&amp;#39;&lt;/span&gt; is not recognized as an internal or external &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;,
+operable program or batch file.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Khi đó, bạn cần thiết lập &lt;strong&gt;PATH&lt;/strong&gt; với lệnh &lt;code&gt;set PATH=%PATH%;C:\path\to\php&lt;/code&gt; trong đó &lt;code&gt;\path\to\php&lt;/code&gt; là đường dẫn đến thư mục chứa file &lt;code&gt;php.exe&lt;/code&gt;. Giả sử, bạn sử dụng xampp, khi đó bạn nhập vào dòng lệnh sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;C:&lt;span class=&quot;se&quot;&gt;\&amp;gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;%PATH%&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;C:&lt;span class=&quot;se&quot;&gt;\x&lt;/span&gt;ampp&lt;span class=&quot;se&quot;&gt;\p&lt;/span&gt;hp&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Kiểm tra kết quả:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;C:&lt;span class=&quot;se&quot;&gt;\&amp;gt;&lt;/span&gt;php -v
+PHP 5.5.11 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;cli&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;built: Apr  &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2014&lt;/span&gt; 15:07:14&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 1997-2014 The PHP Group
+Zend Engine v2.5.0, Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 1998-2014 Zend Technologies&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ci-t&quot;&gt;Cài đặt&lt;/h2&gt;
+
+&lt;p&gt;Trong bài viết này, tôi hướng dẫn cả 2 phương thức cài đặt locally và globally. Nhưng tôi khuyến nghị bạn nên tiến hành cài đặt theo phương thức &lt;strong&gt;Globally&lt;/strong&gt; trên Linux và sử dụng &lt;strong&gt;Installer&lt;/strong&gt; trên Windows.&lt;/p&gt;
+
+&lt;h3 id=&quot;ci-t-trn-linux&quot;&gt;Cài đặt trên Linux&lt;/h3&gt;
+
+&lt;p&gt;Để cài đặt Composer trên Linux (tôi sử dụng Ubuntu), máy tính của bạn cần có sẵn phần mềm &lt;strong&gt;curl&lt;/strong&gt;. Bạn kiểm tra phần mềm đã được cài đặt hay chưa bằng lệnh: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl --version
+curl 7.22.0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;i686-pc-linux-gnu&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+Protocols: dict file ftp ftps gopher http https imap imaps ldap pop3 pop3s rtmp rtsp smtp smtps telnet tftp 
+Features: GSS-Negotiate IDN IPv6 Largefile NTLM NTLM_WB SSL libz TLS-SRP&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nếu kết quả hiển thị phiên bản của curl như trên thì máy bạn đã được cài đặt. Nếu không, bạn dễ dàng cài đặt &lt;strong&gt;curl&lt;/strong&gt; bằng lệnh sau: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get install curl&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;locally&quot;&gt;Locally&lt;/h4&gt;
+
+&lt;p&gt;Với phương thức này bạn sẽ cài đặt composer cho từng dự án của bạn. Bạn di chuyển đến thư mục chứa project, nhập vào dòng lệnh sau vào Terminal:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl -sS https://getcomposer.org/installer &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; php&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nếu lệnh trên bị lỗi, bạn có thể thay thế bằng lệnh: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php -r &lt;span class=&quot;s2&quot;&gt;&amp;quot;readfile(&amp;#39;https://getcomposer.org/installer&amp;#39;);&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; php&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Máy tính sẽ kiểm tra cấu hình PHP và sau đó sẽ download &lt;strong&gt;composer.phar&lt;/strong&gt; về thư mục project của bạn.&lt;/p&gt;
+
+&lt;p&gt;Bạn cũng có thể cài đặt Composer vào một thư mục cụ thể bằng cách sử dụng option &lt;strong&gt;–install-dir&lt;/strong&gt; và cung cấp đường dẫn tới thư mục đích cho nó (có thể là đường dẫn tương đối hoặc tuyệt đối đều được):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl -sS https://getcomposer.org/installer &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; php -- --install-dir&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;bin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sau đó, bạn chỉ cần chạy &lt;strong&gt;&lt;code&gt;php composer.phar&lt;/code&gt;&lt;/strong&gt; để chạy Composer.&lt;/p&gt;
+
+&lt;h4 id=&quot;globally&quot;&gt;Globally&lt;/h4&gt;
+
+&lt;p&gt;Bạn có thể đặt file &lt;strong&gt;composer.phar&lt;/strong&gt; ở bất cứ đâu. Và nếu bạn đặt nó trong đường dẫn của bạn thì bạn có thể truy cập nó như là biến toàn cục. Để download &lt;strong&gt;composer.phar&lt;/strong&gt; về máy (đặt bất cứ đâu bạn muốn), bạn chạy các lệnh sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl -sS https://getcomposer.org/installer &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; php
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo mv composer.phar /usr/local/bin/composer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sau đó, bạn chỉ cần chạy &lt;strong&gt;&lt;code&gt;composer&lt;/code&gt;&lt;/strong&gt; thay vì phải chạy &lt;strong&gt;&lt;code&gt;php composer.phar&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;ci-t-trn-windows&quot;&gt;Cài đặt trên Windows&lt;/h3&gt;
+
+&lt;h4 id=&quot;using-the-installer&quot;&gt;Using the Installer&lt;/h4&gt;
+
+&lt;p&gt;Đây là cách dễ nhất để bạn cài đặt Composer về máy. Bạn chỉ cần download và chạy file &lt;a href=&quot;https://getcomposer.org/Composer-Setup.exe&quot;&gt;Composer-Setup.exe&lt;/a&gt;. Nó sẽ tự động cài đặt phiên bản Composer mới nhất và thiết lập &lt;strong&gt;PATH&lt;/strong&gt; cho bạn. Giờ đây, bạn có thể chạy lệnh &lt;strong&gt;&lt;code&gt;composer&lt;/code&gt;&lt;/strong&gt; từ bất cứ thư mục nào bằng command line.&lt;/p&gt;
+
+&lt;h4 id=&quot;manual-installation&quot;&gt;Manual Installation&lt;/h4&gt;
+
+&lt;p&gt;Thay đổi đến thư mục bạn muốn và chạy các lệnh sau để download composer.phar:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;C:&lt;span class=&quot;se&quot;&gt;\U&lt;/span&gt;sers&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;sername&amp;gt;cd C:&lt;span class=&quot;se&quot;&gt;\b&lt;/span&gt;in
+C:&lt;span class=&quot;se&quot;&gt;\b&lt;/span&gt;in&amp;gt;php -r &lt;span class=&quot;s2&quot;&gt;&amp;quot;readfile(&amp;#39;https://getcomposer.org/installer&amp;#39;);&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; php&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Lưu ý:&lt;/strong&gt; Nếu câu lệnh trên bị lỗi, bạn thay thế &lt;strong&gt;https&lt;/strong&gt; bằng &lt;strong&gt;http&lt;/strong&gt; hoặc enable &lt;strong&gt;php_openssl.dll&lt;/strong&gt; trong file &lt;strong&gt;php.ini&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Tiếp đến, bạn tạo file &lt;strong&gt;&lt;code&gt;composer.bat&lt;/code&gt;&lt;/strong&gt; ngang hàng với file &lt;strong&gt;&lt;code&gt;composer.phar&lt;/code&gt;&lt;/strong&gt; bằng lệnh sau: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;C:&lt;span class=&quot;se&quot;&gt;\b&lt;/span&gt;in&amp;gt;echo @php &lt;span class=&quot;s2&quot;&gt;&amp;quot;%~dp0composer.phar&amp;quot;&lt;/span&gt; %*&amp;gt;composer.bat&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sau khi cài đặt xong, để kiểm tra việc cài đặt composer, bạn đóng cửa sổ Ternimal hiện tại lại, mở một cửa sổ terminal mới: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;C:&lt;span class=&quot;se&quot;&gt;\U&lt;/span&gt;sers&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;sername&amp;gt;composer --version
+Composer version b33da336ecb7f1c9b15a57285e5a9f09cf5f3dd2 2014-09-30 15:28:01&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Với kết quả hiển thị như trên, bạn đã cài đặt thành công Composer trên máy tính của mình.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/laravel/huong-dan-cai-dat-composer&quot;&gt;Hướng dẫn cài đặt Composer&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 24, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>

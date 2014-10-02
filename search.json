@@ -1,6 +1,30 @@
 [
 	
 		{
+		  "title"      : "Bắt đầu với Laravel Homestead",
+		  "category"   : "",
+		  "url"        : "/laravel/bat-dau-voi-laravel-homestead",
+		  "date"       : "2014-10-02 00:00:00 +0700",
+		  "shortdate"  : "October 02, 2014"
+		} ,
+	
+		{
+		  "title"      : "Hướng dẫn cài đặt Laravel 4",
+		  "category"   : "",
+		  "url"        : "/laravel/huong-dan-cai-dat-laravel",
+		  "date"       : "2014-09-27 00:00:00 +0700",
+		  "shortdate"  : "September 27, 2014"
+		} ,
+	
+		{
+		  "title"      : "Hướng dẫn cài đặt Composer",
+		  "category"   : "",
+		  "url"        : "/laravel/huong-dan-cai-dat-composer",
+		  "date"       : "2014-09-24 00:00:00 +0700",
+		  "shortdate"  : "September 24, 2014"
+		} ,
+	
+		{
 		  "title"      : "Kiểm tra kết nối database với CodeIgniter",
 		  "category"   : "",
 		  "url"        : "/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter",
