@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-10-02T19:48:38+07:00</updated>
+<updated>2014-10-03T17:21:20+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -41,40 +41,158 @@
     <uri></uri>
     <email>taly2808@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;Laravel sử dụng Composer để quản lý các thư viện phụ thuộc. Do đó, để cài đặt Laravel thông qua Composer, máy tính của bạn cần đảm bảo đã cài đặt &lt;a href=&quot;http://getcomposer.org/&quot;&gt;Composer&lt;/a&gt;. Bạn có thể tham khảo bài viết &lt;a href=&quot;/laravel/huong-dan-cai-dat-composer&quot;&gt;hướng dẫn cài đặt Composer&lt;/a&gt;. Bạn có thể kiểm tra Composer đã được cài đặt hay chưa bằng cách mở Terminal và chạy lệnh sau (lưu ý dấu $ là dấu nhắc đợi lệnh, không nằm trong lệnh trên):&lt;/p&gt;
+  <content type="html">&lt;p&gt;Có nhiều cách để cài đặt Laravel. Trong bài viết này, tôi sẽ trình bày các cách cài đặt Laravel trên Linux và trên Windows từ mọi thứ mà Laravel yêu cầu. Bạn sẽ biết cài đặt PHP, MySQL, MCrypt, Composer và mọi thứ để ứng dụng của bạn có thể chạy :).&lt;/p&gt;
+
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#system-requirements&quot;&gt;System Requirements&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#install-php&quot;&gt;Install PHP&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#using-lampp-or-xampp&quot;&gt;Using LAMPP or XAMPP&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#from-scratch&quot;&gt;From Scratch&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#install-composer&quot;&gt;Install Composer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#install-laravel&quot;&gt;Install Laravel&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#via-composer&quot;&gt;Via Composer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#via-laravel-installer&quot;&gt;Via Laravel Installer&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#run-your-fisrt-app&quot;&gt;Run your fisrt app&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;system-requirements&quot;&gt;System Requirements&lt;/h2&gt;
+
+&lt;p&gt;Để chạy được Laravel, chúng ta cần:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;PHP &amp;gt;= 5.4 (phiên bản 5.4 hoặc mới hơn)&lt;/li&gt;
+  &lt;li&gt;MCrypt PHP Extension&lt;/li&gt;
+  &lt;li&gt;Composer&lt;/li&gt;
+  &lt;li&gt;Laravel&lt;/li&gt;
+  &lt;li&gt;Openssl phải được enabled trong file &lt;code&gt;php.ini&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;install-php&quot;&gt;Install PHP&lt;/h2&gt;
+
+&lt;p&gt;Trước hết, bạn kiểm tra PHP đã được cài đặt trên máy hay chưa với lệnh:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php -v&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nếu kết quả hiển thị như dưới đây, tức là bạn đã cài đặt thành công PHP trên máy tính và bạn có thể bỏ qua phần cài đặt PHP này.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;PHP 5.5.11 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;cli&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;built: Apr  &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2014&lt;/span&gt; 15:07:14&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 1997-2014 The PHP Group
+Zend Engine v2.5.0, Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 1998-2014 Zend Technologies&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nếu phiên bản PHP của bạn nhỏ hơn 5.4 hoặc không có phiên bản nào, bạn cần phải cài đặt PHP. Bạn có thể lựa chọn cài đặt đủ bộ AMP (Apache + MySQL + PHP) bằng cách cài đặt LAMPP (cho Linux) hoặc XAMPP (cho Windows). Hoặc bạn có thể cài trực tiếp các thành phần riêng lẻ.&lt;/p&gt;
+
+&lt;h3 id=&quot;using-lampp-or-xampp&quot;&gt;Using LAMPP or XAMPP&lt;/h3&gt;
+
+&lt;p&gt;Nếu bạn ngại phải cài đặt từng thứ rời rạc, và lo ngại không biết mình có cài đặt và cấu hình đúng không, bạn có thể cài đặt XAMPP để có môi trường đã được tích hợp đầy đủ PHP, Apache2, MySQL, Perl với phiên bản mới nhất. Và một điều rất tuyệt nữa đó là &lt;strong&gt;MCrypt&lt;/strong&gt; đã có sẵn trong XAMPP, do đó bạn không còn phải lo lắng về nó nữa.&lt;strong&gt;Nếu bạn dùng Windows, tôi khuyến nghị bạn nên cài đặt PHP theo cách này&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Để cài đặt XAMPP, bạn cần download &lt;a href=&quot;https://www.apachefriends.org/download.html&quot;&gt;XAMPP&lt;/a&gt; phiên bản phù hợp với máy tính của bạn về. Sauu đó tiến hành cài đặt lên máy tính của bạn.&lt;/p&gt;
+
+&lt;p&gt;Sau khi hoàn tất, XAMPP được cài đặt vào trong thư mục &lt;strong&gt;/opt/lampp&lt;/strong&gt; với Linux, và trong thư mục C:\xampp trên Windows (nếu bạn chọn ổ C khi cài đặt). Bạn chạy lại lệnh &lt;code&gt;php -v&lt;/code&gt; để kiểm tra kết quả.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Trên Windows, nếu bạn đã cài đặt XAMPP mà vẫn bị báo lỗi không có phiên bản, bạn cần thiết lập &lt;strong&gt;PATH&lt;/strong&gt; với lệnh &lt;code&gt;set PATH=%PATH%;C:\path\to\php&lt;/code&gt; trong đó &lt;code&gt;\path\to\php&lt;/code&gt; là đường dẫn đến thư mục chứa file &lt;code&gt;php.exe&lt;/code&gt;. Giả sử, bạn sử dụng xampp, khi đó bạn nhập vào dòng lệnh sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;C:&lt;span class=&quot;se&quot;&gt;\&amp;gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;%PATH%&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;C:&lt;span class=&quot;se&quot;&gt;\x&lt;/span&gt;ampp&lt;span class=&quot;se&quot;&gt;\p&lt;/span&gt;hp&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sau khi cài đặt XAMPP, bạn cần &lt;strong&gt;Enable OpenSSL&lt;/strong&gt; bằng cách mở file &lt;code&gt;php.ini&lt;/code&gt; (tại thư mục C:/xampp/php), tìm: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;extension&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;php_openssl.dll&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;và bỏ dấu &lt;code&gt;;&lt;/code&gt; phía trước, khi đó, trông nó thế này:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;extension&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;php_openssl.dll&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Okay, bây giờ thì restart Apache.&lt;/p&gt;
+
+&lt;h3 id=&quot;from-scratch&quot;&gt;From Scratch&lt;/h3&gt;
+&lt;p&gt;(Sử dụng cho Linux).&lt;/p&gt;
+
+&lt;p&gt;Nhập vào Terminal các lệnh sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get update
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get install apache2
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get install php5-common libapache2-mod-php5 php5-cli&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sau đó, bạn chạy lại lệnh &lt;code&gt;php -v&lt;/code&gt; để kiểm tra phiên bản PHP.&lt;/p&gt;
+
+&lt;h2 id=&quot;install-composer&quot;&gt;Install Composer&lt;/h2&gt;
+
+&lt;p&gt;Laravel sử dụng &lt;a href=&quot;http://getcomposer.org/&quot;&gt;Composer&lt;/a&gt; để quản lý các thư viện phụ thuộc. Bạn tham khảo bài viết &lt;a href=&quot;/laravel/huong-dan-cai-dat-composer&quot;&gt;hướng dẫn cài đặt Composer&lt;/a&gt; để có thể cài đặt Composer. Tôi khuyến nghị bạn nên cài đặt Composer sử dụng cho toàn hệ thống (globally). &lt;/p&gt;
+
+&lt;p&gt;Bạn có thể kiểm tra Composer đã được cài đặt hay chưa bằng cách mở Terminal và chạy lệnh sau:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer --version
 Composer version b33da336ecb7f1c9b15a57285e5a9f09cf5f3dd2 2014-09-30 15:28:01&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Nếu kết quả hiển thị như trên thì chắc chắn bạn đã cài composer thành công trên máy tính của mình.&lt;/p&gt;
 
-&lt;h2 id=&quot;ci-t-laravel&quot;&gt;Cài đặt Laravel&lt;/h2&gt;
+&lt;h2 id=&quot;install-laravel&quot;&gt;Install Laravel&lt;/h2&gt;
 
-&lt;p&gt;Giả sử bạn có thư mục &lt;strong&gt;/opt/laravel&lt;/strong&gt; và bạn muốn tạo mới một project có tên &lt;strong&gt;test_laravel&lt;/strong&gt; trong thư mục này. Bạn thực hiện như sau:&lt;/p&gt;
+&lt;p&gt;Bạn có thể cài đặt Laravel bằng 1 trong 3 cách sau:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt/laravel
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer create-project laravel/laravel test_laravel --prefer-dist
-Installing laravel/laravel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v4.2.0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  - Installing laravel/laravel &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v4.2.0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    Loading from cache
+&lt;h3 id=&quot;via-composer&quot;&gt;Via Composer&lt;/h3&gt;
 
-Created project in test_laravel
-Loading composer repositories with package information
-Installing dependencies &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;including require-dev&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  - Installing symfony/translation &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;v2.5.5&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    Downloading: 100%         
-....
-....
-Writing lock file
-Generating autoload files
-Generating optimized class loader
-Compiling common classes
-Compiling views
-Application key &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;UrUfH3BuAjvirFTv015Hd7V9mAA1P5DJ&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;successfully.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nếu bạn dùng XAMPP, bạn cần di chuyển bằng command line đến thư mục webroot ( &lt;code&gt;/opt/lampp/htdocs&lt;/code&gt; trên Linux và &lt;code&gt;C:\xampp\htdocs&lt;/code&gt; trên Windows). Bạn muốn tạo mới một project có tên &lt;strong&gt;test_laravel&lt;/strong&gt;, bạn nhập vào Terminal (trình command line trên Windows) như sau:&lt;/p&gt;
 
-&lt;p&gt;Composer sẽ tự động download và cài đặt các thư viện cần thiết để tạo dự án laravel.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt/lampp/htdocs
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer create-project laravel/laravel test_laravel --prefer-dist&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Nếu bạn cài đặt xampp hoặc lampp, bạn có thể tạo dự án trong thư mục htdocs và gõ lên trình duyệt http://localhost/test_laravel/public để xem kết quả. Nếu bạn không muốn phụ thuộc vào xampp hay lampp hoặc giả như bạn không rành về cấu hình server, bạn có thể tham khảo bài viết &lt;a href=&quot;/laravel/bat-dau-voi-laravel-homestead&quot;&gt;Bắt đầu với Laravel Homestead&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Trên Windows sẽ thế này:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;C:&lt;span class=&quot;se&quot;&gt;\&amp;gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;xampp&lt;span class=&quot;se&quot;&gt;\h&lt;/span&gt;tdocs
+C:&lt;span class=&quot;se&quot;&gt;\x&lt;/span&gt;ampp&lt;span class=&quot;se&quot;&gt;\h&lt;/span&gt;tdocs&amp;gt; composer create-project laravel/laravel test_laravel --prefer-dist&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Composer sẽ tự động tạo project cho bạn, và bạn chỉ cần ngồi đợi thông báo &lt;strong&gt;successfull&lt;/strong&gt; thôi.&lt;/p&gt;
+
+&lt;h3 id=&quot;via-laravel-installer&quot;&gt;Via Laravel Installer&lt;/h3&gt;
+
+&lt;p&gt;Trước tiên, bạn cần download Laravel Installer. Có 2 cách:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Cách 1: Sử dụng Composer. Nhập vào Terminal lệnh sau:&lt;/p&gt;
+
+  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&amp;gt; composer global require &lt;span class=&quot;s2&quot;&gt;&amp;quot;laravel/installer=~1.1&amp;quot;&lt;/span&gt;
+&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Cách 2: Download &lt;a href=&quot;http://laravel.com/laravel.phar&quot;&gt;Laravel Installer&lt;/a&gt; , đổi tên thành &lt;code&gt;laravel&lt;/code&gt;.
+Tiếp đến, copy file &lt;code&gt;laravel&lt;/code&gt; sang thư mục &lt;code&gt;/urs/local/bin&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Tạo project &lt;strong&gt;test_laravel&lt;/strong&gt; bằng câu lệnh:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;laravel new test_laravel&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;run-your-fisrt-app&quot;&gt;Run your fisrt app&lt;/h2&gt;
+
+&lt;p&gt;Bạn đã có project, bạn cần khởi động nó bằng cách sử dụng Artisan - một command line interface của Laravel. Đơn giản là bạn chỉ cần di chuyển đến project:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;test_laravel&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;và thực thi lệnh: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;php artisan server&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Bạn sẽ thấy kết quả: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Laravel development server started on http://localhost:8000&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Mở trình duyệt web và gõ vào địa chỉ &lt;code&gt;http://localhost:8000&lt;/code&gt;, tận hưởng thành quả nào:&lt;/p&gt;
+&lt;figure&gt;
+	&lt;a href=&quot;/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;/assets/img/welcome_laravel.jpg&quot; /&gt;&lt;/a&gt;
+&lt;/figure&gt;
 
   &lt;p&gt;&lt;a href=&quot;/laravel/huong-dan-cai-dat-laravel&quot;&gt;Hướng dẫn cài đặt Laravel 4&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 27, 2014.&lt;/p&gt;</content>
 </entry>
@@ -93,9 +211,35 @@ Application key &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;UrUfH3BuAjvirFTv01
   </author>
   <content type="html">&lt;p&gt;Composer là một công cụ để quản lý sự phụ thuộc trong PHP. Bạn có một project và nó phụ thuộc vào một cơ số các thư viện. Một vài thư viện trong số đó lại phụ thuộc vào các thư viện khác. Việc tải các thư viện cần thiết cho project theo cách thông thường cũng khá tốn thời gian và mệt não. Với Composer, bạn chỉ cần khai báo các thư viện project cần, Composer sẽ tìm các phiên bản tương ứng và download chúng vào vào trong project cho bạn.&lt;/p&gt;
 
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#khai-bo-ph-thuc&quot;&gt;Khai báo phụ thuộc&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#system-requirements&quot;&gt;System Requirements&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ci-t&quot;&gt;Cài đặt&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#ci-t-trn-linux&quot;&gt;Cài đặt trên Linux&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#locally&quot;&gt;Locally&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#globally&quot;&gt;Globally&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#ci-t-trn-windows&quot;&gt;Cài đặt trên Windows&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#using-the-installer&quot;&gt;Using the Installer&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#manual-installation&quot;&gt;Manual Installation&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
 &lt;h2 id=&quot;khai-bo-ph-thuc&quot;&gt;Khai báo phụ thuộc&lt;/h2&gt;
 
-&lt;p&gt;Giả sử, bạn có một dự án và bạn cần thư viện để ghi log. Bạn có thể sử dụng &lt;a href=&quot;https://github.com/Seldaek/monolog&quot;&gt;monolog&lt;/a&gt; hoặc &lt;a href=&quot;http://logging.apache.org/log4php/&quot;&gt;log4php&lt;/a&gt;. Giả nhử bạn quyết định sử dụng &lt;strong&gt;monolog&lt;/strong&gt;. Để thêm thư viện &lt;strong&gt;monolog&lt;/strong&gt; vào trong project, bạn chỉ cần tạo một file &lt;code&gt;composer.json&lt;/code&gt; và liệt kê thư viện phụ thuộc vào đó: &lt;/p&gt;
+&lt;p&gt;Giả sử, bạn có một dự án và bạn cần thư viện để ghi log. Bạn có thể sử dụng &lt;a href=&quot;https://github.com/Seldaek/monolog&quot;&gt;monolog&lt;/a&gt; hoặc &lt;a href=&quot;http://logging.apache.org/log4php/&quot;&gt;log4php&lt;/a&gt;. Giả như bạn quyết định sử dụng &lt;strong&gt;monolog&lt;/strong&gt;. Để thêm thư viện &lt;strong&gt;monolog&lt;/strong&gt; vào trong project, bạn chỉ cần tạo một file &lt;code&gt;composer.json&lt;/code&gt; và liệt kê thư viện phụ thuộc vào đó: &lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;quot;require&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -163,7 +307,7 @@ Features: GSS-Negotiate IDN IPv6 Largefile NTLM NTLM_WB SSL libz TLS-SRP&lt;/cod
 
 &lt;p&gt;Máy tính sẽ kiểm tra cấu hình PHP và sau đó sẽ download &lt;strong&gt;composer.phar&lt;/strong&gt; về thư mục project của bạn.&lt;/p&gt;
 
-&lt;p&gt;Bạn cũng có thể cài đặt Composer vào một thư mục cụ thể bằng cách sử dụng option &lt;strong&gt;–install-dir&lt;/strong&gt; và cung cấp đường dẫn tới thư mục đích cho nó (có thể là đường dẫn tương đối hoặc tuyệt đối đều được):&lt;/p&gt;
+&lt;p&gt;Bạn cũng có thể cài đặt Composer vào một thư mục cụ thể bằng cách sử dụng option &lt;strong&gt;&lt;code&gt;--install-dir&lt;/code&gt;&lt;/strong&gt; và cung cấp đường dẫn tới thư mục đích cho nó (có thể là đường dẫn tương đối hoặc tuyệt đối đều được):&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl -sS https://getcomposer.org/installer &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; php -- --install-dir&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;bin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 

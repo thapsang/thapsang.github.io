@@ -155,16 +155,42 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Cài đặt Composer trên máy tính</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-09-24T00:00:00+07:00" class="post-time" itemprop="datePublished">24 Sep 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">10.26</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">10.35</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
                         <p>Composer là một công cụ để quản lý sự phụ thuộc trong PHP. Bạn có một project và nó phụ thuộc vào một cơ số các thư viện. Một vài thư viện trong số đó lại phụ thuộc vào các thư viện khác. Việc tải các thư viện cần thiết cho project theo cách thông thường cũng khá tốn thời gian và mệt não. Với Composer, bạn chỉ cần khai báo các thư viện project cần, Composer sẽ tìm các phiên bản tương ứng và download chúng vào vào trong project cho bạn.</p>
 
+<section>
+  <header>
+    <h2>Nội dung</h2>
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#khai-bo-ph-thuc">Khai báo phụ thuộc</a></li>
+  <li><a href="#system-requirements">System Requirements</a></li>
+  <li><a href="#ci-t">Cài đặt</a>    <ul>
+      <li><a href="#ci-t-trn-linux">Cài đặt trên Linux</a>        <ul>
+          <li><a href="#locally">Locally</a></li>
+          <li><a href="#globally">Globally</a></li>
+        </ul>
+      </li>
+      <li><a href="#ci-t-trn-windows">Cài đặt trên Windows</a>        <ul>
+          <li><a href="#using-the-installer">Using the Installer</a></li>
+          <li><a href="#manual-installation">Manual Installation</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</section>
+
 <h2 id="khai-bo-ph-thuc">Khai báo phụ thuộc</h2>
 
-<p>Giả sử, bạn có một dự án và bạn cần thư viện để ghi log. Bạn có thể sử dụng <a href="https://github.com/Seldaek/monolog">monolog</a> hoặc <a href="http://logging.apache.org/log4php/">log4php</a>. Giả nhử bạn quyết định sử dụng <strong>monolog</strong>. Để thêm thư viện <strong>monolog</strong> vào trong project, bạn chỉ cần tạo một file <code>composer.json</code> và liệt kê thư viện phụ thuộc vào đó: </p>
+<p>Giả sử, bạn có một dự án và bạn cần thư viện để ghi log. Bạn có thể sử dụng <a href="https://github.com/Seldaek/monolog">monolog</a> hoặc <a href="http://logging.apache.org/log4php/">log4php</a>. Giả như bạn quyết định sử dụng <strong>monolog</strong>. Để thêm thư viện <strong>monolog</strong> vào trong project, bạn chỉ cần tạo một file <code>composer.json</code> và liệt kê thư viện phụ thuộc vào đó: </p>
 
 <div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
     <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -232,7 +258,7 @@ Features: GSS-Negotiate IDN IPv6 Largefile NTLM NTLM_WB SSL libz TLS-SRP</code><
 
 <p>Máy tính sẽ kiểm tra cấu hình PHP và sau đó sẽ download <strong>composer.phar</strong> về thư mục project của bạn.</p>
 
-<p>Bạn cũng có thể cài đặt Composer vào một thư mục cụ thể bằng cách sử dụng option <strong>–install-dir</strong> và cung cấp đường dẫn tới thư mục đích cho nó (có thể là đường dẫn tương đối hoặc tuyệt đối đều được):</p>
+<p>Bạn cũng có thể cài đặt Composer vào một thư mục cụ thể bằng cách sử dụng option <strong><code>--install-dir</code></strong> và cung cấp đường dẫn tới thư mục đích cho nó (có thể là đường dẫn tương đối hoặc tuyệt đối đều được):</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>curl -sS https://getcomposer.org/installer <span class="p">|</span> php -- --install-dir<span class="o">=</span>bin</code></pre></div>
 

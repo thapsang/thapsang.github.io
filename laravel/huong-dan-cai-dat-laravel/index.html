@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <title>Hướng dẫn cài đặt Laravel 4 &#8211; THAPSANG.NET</title>
-<meta name="description" content="Hướng dẫn cài đặt Laravel 4 bằng Composer.">
+<meta name="description" content="Các cách cài đặt Laravel trên local.">
 <meta name="keywords" content="installation, laravel">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/my-candle.png">
 <meta name="twitter:title" content="Hướng dẫn cài đặt Laravel 4">
-<meta name="twitter:description" content="Hướng dẫn cài đặt Laravel 4 bằng Composer.">
+<meta name="twitter:description" content="Các cách cài đặt Laravel trên local.">
 <meta name="twitter:creator" content="@taly2808">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hướng dẫn cài đặt Laravel 4">
-<meta property="og:description" content="Hướng dẫn cài đặt Laravel 4 bằng Composer.">
+<meta property="og:description" content="Các cách cài đặt Laravel trên local.">
 <meta property="og:url" content="/laravel/huong-dan-cai-dat-laravel">
 <meta property="og:site_name" content="THAPSANG.NET">
 <meta property="og:image" content="/images/picture-2.jpg">
@@ -152,48 +152,166 @@
                         
                         <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Hướng dẫn cài đặt Laravel 4</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Hướng dẫn cài đặt Laravel 4 bằng Composer.</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">Các cách cài đặt Laravel trên local.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-09-27T00:00:00+07:00" class="post-time" itemprop="datePublished">27 Sep 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">2.94</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">9.53</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Laravel sử dụng Composer để quản lý các thư viện phụ thuộc. Do đó, để cài đặt Laravel thông qua Composer, máy tính của bạn cần đảm bảo đã cài đặt <a href="http://getcomposer.org/">Composer</a>. Bạn có thể tham khảo bài viết <a href="/laravel/huong-dan-cai-dat-composer">hướng dẫn cài đặt Composer</a>. Bạn có thể kiểm tra Composer đã được cài đặt hay chưa bằng cách mở Terminal và chạy lệnh sau (lưu ý dấu $ là dấu nhắc đợi lệnh, không nằm trong lệnh trên):</p>
+                        <p>Có nhiều cách để cài đặt Laravel. Trong bài viết này, tôi sẽ trình bày các cách cài đặt Laravel trên Linux và trên Windows từ mọi thứ mà Laravel yêu cầu. Bạn sẽ biết cài đặt PHP, MySQL, MCrypt, Composer và mọi thứ để ứng dụng của bạn có thể chạy :).</p>
+
+<section>
+  <header>
+    <h2>Nội dung</h2>
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#system-requirements">System Requirements</a></li>
+  <li><a href="#install-php">Install PHP</a>    <ul>
+      <li><a href="#using-lampp-or-xampp">Using LAMPP or XAMPP</a></li>
+      <li><a href="#from-scratch">From Scratch</a></li>
+    </ul>
+  </li>
+  <li><a href="#install-composer">Install Composer</a></li>
+  <li><a href="#install-laravel">Install Laravel</a>    <ul>
+      <li><a href="#via-composer">Via Composer</a></li>
+      <li><a href="#via-laravel-installer">Via Laravel Installer</a></li>
+    </ul>
+  </li>
+  <li><a href="#run-your-fisrt-app">Run your fisrt app</a></li>
+</ul>
+
+  </div>
+</section>
+
+<h2 id="system-requirements">System Requirements</h2>
+
+<p>Để chạy được Laravel, chúng ta cần:</p>
+
+<ol>
+  <li>PHP &gt;= 5.4 (phiên bản 5.4 hoặc mới hơn)</li>
+  <li>MCrypt PHP Extension</li>
+  <li>Composer</li>
+  <li>Laravel</li>
+  <li>Openssl phải được enabled trong file <code>php.ini</code></li>
+</ol>
+
+<h2 id="install-php">Install PHP</h2>
+
+<p>Trước hết, bạn kiểm tra PHP đã được cài đặt trên máy hay chưa với lệnh:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>php -v</code></pre></div>
+
+<p>Nếu kết quả hiển thị như dưới đây, tức là bạn đã cài đặt thành công PHP trên máy tính và bạn có thể bỏ qua phần cài đặt PHP này.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">PHP 5.5.11 <span class="o">(</span>cli<span class="o">)</span> <span class="o">(</span>built: Apr  <span class="m">8</span> <span class="m">2014</span> 15:07:14<span class="o">)</span>
+Copyright <span class="o">(</span>c<span class="o">)</span> 1997-2014 The PHP Group
+Zend Engine v2.5.0, Copyright <span class="o">(</span>c<span class="o">)</span> 1998-2014 Zend Technologies</code></pre></div>
+
+<p>Nếu phiên bản PHP của bạn nhỏ hơn 5.4 hoặc không có phiên bản nào, bạn cần phải cài đặt PHP. Bạn có thể lựa chọn cài đặt đủ bộ AMP (Apache + MySQL + PHP) bằng cách cài đặt LAMPP (cho Linux) hoặc XAMPP (cho Windows). Hoặc bạn có thể cài trực tiếp các thành phần riêng lẻ.</p>
+
+<h3 id="using-lampp-or-xampp">Using LAMPP or XAMPP</h3>
+
+<p>Nếu bạn ngại phải cài đặt từng thứ rời rạc, và lo ngại không biết mình có cài đặt và cấu hình đúng không, bạn có thể cài đặt XAMPP để có môi trường đã được tích hợp đầy đủ PHP, Apache2, MySQL, Perl với phiên bản mới nhất. Và một điều rất tuyệt nữa đó là <strong>MCrypt</strong> đã có sẵn trong XAMPP, do đó bạn không còn phải lo lắng về nó nữa.<strong>Nếu bạn dùng Windows, tôi khuyến nghị bạn nên cài đặt PHP theo cách này</strong>.</p>
+
+<p>Để cài đặt XAMPP, bạn cần download <a href="https://www.apachefriends.org/download.html">XAMPP</a> phiên bản phù hợp với máy tính của bạn về. Sauu đó tiến hành cài đặt lên máy tính của bạn.</p>
+
+<p>Sau khi hoàn tất, XAMPP được cài đặt vào trong thư mục <strong>/opt/lampp</strong> với Linux, và trong thư mục C:\xampp trên Windows (nếu bạn chọn ổ C khi cài đặt). Bạn chạy lại lệnh <code>php -v</code> để kiểm tra kết quả.</p>
+
+<p><strong>Note:</strong> Trên Windows, nếu bạn đã cài đặt XAMPP mà vẫn bị báo lỗi không có phiên bản, bạn cần thiết lập <strong>PATH</strong> với lệnh <code>set PATH=%PATH%;C:\path\to\php</code> trong đó <code>\path\to\php</code> là đường dẫn đến thư mục chứa file <code>php.exe</code>. Giả sử, bạn sử dụng xampp, khi đó bạn nhập vào dòng lệnh sau:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">C:<span class="se">\&gt;</span><span class="nb">set </span><span class="nv">PATH</span><span class="o">=</span>%PATH%<span class="p">;</span>C:<span class="se">\x</span>ampp<span class="se">\p</span>hp</code></pre></div>
+
+<p>Sau khi cài đặt XAMPP, bạn cần <strong>Enable OpenSSL</strong> bằng cách mở file <code>php.ini</code> (tại thư mục C:/xampp/php), tìm: </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="p">;</span><span class="nv">extension</span><span class="o">=</span>php_openssl.dll</code></pre></div>
+
+<p>và bỏ dấu <code>;</code> phía trước, khi đó, trông nó thế này:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">extension</span><span class="o">=</span>php_openssl.dll</code></pre></div>
+
+<p>Okay, bây giờ thì restart Apache.</p>
+
+<h3 id="from-scratch">From Scratch</h3>
+<p>(Sử dụng cho Linux).</p>
+
+<p>Nhập vào Terminal các lệnh sau:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get install apache2
+<span class="nv">$ </span>sudo apt-get install php5-common libapache2-mod-php5 php5-cli</code></pre></div>
+
+<p>Sau đó, bạn chạy lại lệnh <code>php -v</code> để kiểm tra phiên bản PHP.</p>
+
+<h2 id="install-composer">Install Composer</h2>
+
+<p>Laravel sử dụng <a href="http://getcomposer.org/">Composer</a> để quản lý các thư viện phụ thuộc. Bạn tham khảo bài viết <a href="/laravel/huong-dan-cai-dat-composer">hướng dẫn cài đặt Composer</a> để có thể cài đặt Composer. Tôi khuyến nghị bạn nên cài đặt Composer sử dụng cho toàn hệ thống (globally). </p>
+
+<p>Bạn có thể kiểm tra Composer đã được cài đặt hay chưa bằng cách mở Terminal và chạy lệnh sau:</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>composer --version
 Composer version b33da336ecb7f1c9b15a57285e5a9f09cf5f3dd2 2014-09-30 15:28:01</code></pre></div>
 
 <p>Nếu kết quả hiển thị như trên thì chắc chắn bạn đã cài composer thành công trên máy tính của mình.</p>
 
-<h2 id="ci-t-laravel">Cài đặt Laravel</h2>
+<h2 id="install-laravel">Install Laravel</h2>
 
-<p>Giả sử bạn có thư mục <strong>/opt/laravel</strong> và bạn muốn tạo mới một project có tên <strong>test_laravel</strong> trong thư mục này. Bạn thực hiện như sau:</p>
+<p>Bạn có thể cài đặt Laravel bằng 1 trong 3 cách sau:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd</span> /opt/laravel
-<span class="nv">$ </span>composer create-project laravel/laravel test_laravel --prefer-dist
-Installing laravel/laravel <span class="o">(</span>v4.2.0<span class="o">)</span>
-  - Installing laravel/laravel <span class="o">(</span>v4.2.0<span class="o">)</span>
-    Loading from cache
+<h3 id="via-composer">Via Composer</h3>
 
-Created project in test_laravel
-Loading composer repositories with package information
-Installing dependencies <span class="o">(</span>including require-dev<span class="o">)</span>
-  - Installing symfony/translation <span class="o">(</span>v2.5.5<span class="o">)</span>
-    Downloading: 100%         
-....
-....
-Writing lock file
-Generating autoload files
-Generating optimized class loader
-Compiling common classes
-Compiling views
-Application key <span class="o">[</span>UrUfH3BuAjvirFTv015Hd7V9mAA1P5DJ<span class="o">]</span> <span class="nb">set </span>successfully.</code></pre></div>
+<p>Nếu bạn dùng XAMPP, bạn cần di chuyển bằng command line đến thư mục webroot ( <code>/opt/lampp/htdocs</code> trên Linux và <code>C:\xampp\htdocs</code> trên Windows). Bạn muốn tạo mới một project có tên <strong>test_laravel</strong>, bạn nhập vào Terminal (trình command line trên Windows) như sau:</p>
 
-<p>Composer sẽ tự động download và cài đặt các thư viện cần thiết để tạo dự án laravel.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd</span> /opt/lampp/htdocs
+<span class="nv">$ </span>composer create-project laravel/laravel test_laravel --prefer-dist</code></pre></div>
 
-<p>Nếu bạn cài đặt xampp hoặc lampp, bạn có thể tạo dự án trong thư mục htdocs và gõ lên trình duyệt http://localhost/test_laravel/public để xem kết quả. Nếu bạn không muốn phụ thuộc vào xampp hay lampp hoặc giả như bạn không rành về cấu hình server, bạn có thể tham khảo bài viết <a href="/laravel/bat-dau-voi-laravel-homestead">Bắt đầu với Laravel Homestead</a>.</p>
+<p>Trên Windows sẽ thế này:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">C:<span class="se">\&gt;</span><span class="nb">cd </span>xampp<span class="se">\h</span>tdocs
+C:<span class="se">\x</span>ampp<span class="se">\h</span>tdocs&gt; composer create-project laravel/laravel test_laravel --prefer-dist</code></pre></div>
+
+<p>Composer sẽ tự động tạo project cho bạn, và bạn chỉ cần ngồi đợi thông báo <strong>successfull</strong> thôi.</p>
+
+<h3 id="via-laravel-installer">Via Laravel Installer</h3>
+
+<p>Trước tiên, bạn cần download Laravel Installer. Có 2 cách:</p>
+
+<blockquote>
+  <p>Cách 1: Sử dụng Composer. Nhập vào Terminal lệnh sau:</p>
+
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash">&gt; composer global require <span class="s2">&quot;laravel/installer=~1.1&quot;</span>
+&gt;</code></pre></div>
+</blockquote>
+
+<blockquote>
+  <p>Cách 2: Download <a href="http://laravel.com/laravel.phar">Laravel Installer</a> , đổi tên thành <code>laravel</code>.
+Tiếp đến, copy file <code>laravel</code> sang thư mục <code>/urs/local/bin</code>.</p>
+</blockquote>
+
+<p>Tạo project <strong>test_laravel</strong> bằng câu lệnh:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">laravel new test_laravel</code></pre></div>
+
+<h2 id="run-your-fisrt-app">Run your fisrt app</h2>
+
+<p>Bạn đã có project, bạn cần khởi động nó bằng cách sử dụng Artisan - một command line interface của Laravel. Đơn giản là bạn chỉ cần di chuyển đến project:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>test_laravel</code></pre></div>
+
+<p>và thực thi lệnh: </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">php artisan server</code></pre></div>
+
+<p>Bạn sẽ thấy kết quả: </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Laravel development server started on http://localhost:8000</code></pre></div>
+
+<p>Mở trình duyệt web và gõ vào địa chỉ <code>http://localhost:8000</code>, tận hưởng thành quả nào:</p>
+<figure>
+	<a href="/assets/img/welcome_laravel.jpg"><img src="/assets/img/welcome_laravel.jpg" /></a>
+</figure>
 
                         <br>
                     
