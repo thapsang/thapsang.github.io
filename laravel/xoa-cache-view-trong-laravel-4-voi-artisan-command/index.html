@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Bắt đầu với Laravel Homestead &#8211; THAPSANG.NET</title>
-<meta name="description" content="Hướng dẫn cài đặt và sử dụng homestead.">
-<meta name="keywords" content="homestead, laravel">
+<title>Xóa cache views trong laravel 4 với Artisan command &#8211; THAPSANG.NET</title>
+<meta name="description" content="Xóa cache views bằng dòng lệnh.">
+<meta name="keywords" content="clear cache views, laravel, artisan command">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/my-candle.png">
-<meta name="twitter:title" content="Bắt đầu với Laravel Homestead">
-<meta name="twitter:description" content="Hướng dẫn cài đặt và sử dụng homestead.">
+<meta name="twitter:title" content="Xóa cache views trong laravel 4 với Artisan command">
+<meta name="twitter:description" content="Xóa cache views bằng dòng lệnh.">
 <meta name="twitter:creator" content="@taly2808">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bắt đầu với Laravel Homestead">
-<meta property="og:description" content="Hướng dẫn cài đặt và sử dụng homestead.">
-<meta property="og:url" content="/laravel/bat-dau-voi-laravel-homestead">
+<meta property="og:title" content="Xóa cache views trong laravel 4 với Artisan command">
+<meta property="og:description" content="Xóa cache views bằng dòng lệnh.">
+<meta property="og:url" content="/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command">
 <meta property="og:site_name" content="THAPSANG.NET">
 <meta property="og:image" content="/images/picture-2.jpg">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/laravel/bat-dau-voi-laravel-homestead">
+<link rel="canonical" href="/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="THAPSANG.NET Feed">
 <link rel="author" href="https://plus.google.com/+TaLy2808?rel=author">
 
@@ -150,24 +150,65 @@
                     <header class="post-header entry-header">
                     
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Bắt đầu với Laravel Homestead</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Xóa cache views trong laravel 4 với Artisan command</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Hướng dẫn cài đặt và sử dụng homestead.</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">Xóa cache views bằng dòng lệnh.</div>
                         <div class="post-info text-center small">
-                            <span class="entry-date date published updated"><time datetime="2014-10-02T00:00:00+07:00" class="post-time" itemprop="datePublished">02 Oct 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;1 minute read</span>
+                            <span class="entry-date date published updated"><time datetime="2014-10-03T00:00:00+07:00" class="post-time" itemprop="datePublished">03 Oct 2014</time><span>
+                            in <span class="post-tags"><a href="/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">3.44</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Homestead là một cách để phát triển các ứng dụng Laravel trên local. Laravel Homestead đã đóng gói sẵn Vagrant “box” - nó cung cấp môi trường phát triển tuyệt vời mà không cần cài đặt PHP, web server hay bất kỳ một phần mềm server nào khác trên máy tính. Developers không phải lo lắng về việc không tương thích giữa các server software với hệ điều hành của mình. Vagrant boxes hoàn toàn sẵn có, có thể bỏ đi (disposable), nếu bạn cấu hình sai, bạn hoàn toàn có thể hủy nó đi và tạo lại một box mới.</p>
+                        <p>Khi phát triển ứng dụng với laravel 4, có sự thay đổi trên view nhưng khi reload ứng dụng thì bạn không hề thấy có sự thay đổi. Mặc dù đã xóa cache với lệnh <code>php artisan cache:clear</code> nhưng vẫn không khả quan hơn. Lý do là ứng dụng của chúng ta còn lưu lại cache của views trong thư mục <code>app/storage/views</code>. Bạn có thể truy cập vào thư mục <code>app/storage/views</code> và xóa hết các files trong thư mục này đi. Với cách làm thủ công này chắc chắn sẽ khiến bạn phát rồ lên. Trong bài này, tôi sẽ chỉ cho bạn cách xóa views cache dễ như ăn kẹo vậy :).</p>
+
+<p>Chúng ta sẽ chỉ cần chạy lệnh <code>php artisan views:clear</code> là giải quyết được vấn đề với views cache. Để làm được việc đó, chúng ta cần làm những việc sau:</p>
+
+<section>
+  <header>
+    <h2>Nội dung</h2>
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#building-a-command">Building A Command</a></li>
+  <li><a href="#registering-command">Registering Command</a></li>
+  <li><a href="#run-command">Run Command</a></li>
+</ul>
+
+  </div>
+</section>
+
+<h2 id="building-a-command">Building A Command</h2>
+
+<p>Laravel cho phép chúng ta tự tạo ra các lệnh của riêng mình. Để tạo một lệnh mới, bạn mở trình Terminal lên, di chuyển đến thư mục chứa project và nhập vào dòng lệnh sau:</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">php artisan command:make ViewsCommand</span></code></pre></div>
+
+<p>Với lệnh trên, file <code>ViewsCommand.php</code> sẽ được generate vào thư mục <code>app/commands</code>. Tiếp đến, bạn copy đoạn code dưới đây vào file <code>ViewsCommand.php</code>. Bạn có thể xem thêm chi tiết về cách viết Artisan Command tại <a href="http://laravel.com/docs/4.2/commands">Artisan Development</a> :</p>
+
+<script src="https://gist.github.com/taly2808/ae1317a7ef1fbde9b575.js"></script>
+
+<h2 id="registering-command">Registering Command</h2>
+
+<p>Sau khi <code>ViewsCommand</code> được hoàn tất, bạn cần đăng ký nó với Artisan để có thể sử dụng nó. Bạn mở file <code>app/start/artisan.php</code> và sử dụng method <code>Artisan::add</code> để đăng ký như sau:</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">Artisan::add(new ViewsCommand);</span></code></pre></div>
+
+<h2 id="run-command">Run Command</h2>
+
+<p>Bây giờ, bạn đã có thể xóa cache views một cách dễ dàng bằng cách chạy lệnh <code>php artisan views:clear</code>. Kết quả như sau:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>php artisan views:clear
+Views deleted from cache</code></pre></div>
+
+<p>Hy vọng có thể giúp các bạn giải quyết được vấn đề của mình. Have fun! ;)</p>
 
                         <br>
                     
                     
                     <div class="entry-tags text-center">
                     
-                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#homestead" data-toggle="tooltip" title="Posts tagged with homestead" rel="tag">homestead</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#laravel" data-toggle="tooltip" title="Posts tagged with laravel" rel="tag">laravel</a>
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#clear cache views" data-toggle="tooltip" title="Posts tagged with clear cache views" rel="tag">clear cache views</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#laravel" data-toggle="tooltip" title="Posts tagged with laravel" rel="tag">laravel</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#artisan command" data-toggle="tooltip" title="Posts tagged with artisan command" rel="tag">artisan command</a>
                     
                     </div>
                     
@@ -180,19 +221,19 @@
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Bắt đầu với Laravel Homestead&quot;%20/laravel/bat-dau-voi-laravel-homestead%20via%20&#64;taly2808"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Xóa cache views trong laravel 4 với Artisan command&quot;%20/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command%20via%20&#64;taly2808"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>
         </li>
         <li>
-            <a  href="https://www.facebook.com/sharer/sharer.php?u=/laravel/bat-dau-voi-laravel-homestead"
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
                 <i class="icon-facebook"></i>
             </a>
         </li>
         <li>
-            <a href="https://plus.google.com/share?url=/laravel/bat-dau-voi-laravel-homestead"
+            <a href="https://plus.google.com/share?url=/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
                 <i class="icon-google-plus"></i>
             </a>

@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-10-03T17:21:20+07:00</updated>
+<updated>2014-10-07T17:55:52+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -14,19 +14,60 @@
 
 
 <entry>
-  <title type="html"><![CDATA[Bắt đầu với Laravel Homestead]]></title>
-  <link>/laravel/bat-dau-voi-laravel-homestead</link>
-  <id>/laravel/bat-dau-voi-laravel-homestead</id>
-  <published>2014-10-02T00:00:00+07:00</published>
-  <updated>2014-10-02T00:00:00+07:00</updated>
+  <title type="html"><![CDATA[Xóa cache views trong laravel 4 với Artisan command]]></title>
+  <link>/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</link>
+  <id>/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</id>
+  <published>2014-10-03T00:00:00+07:00</published>
+  <updated>2014-10-03T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
     <uri></uri>
     <email>taly2808@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;Homestead là một cách để phát triển các ứng dụng Laravel trên local. Laravel Homestead đã đóng gói sẵn Vagrant “box” - nó cung cấp môi trường phát triển tuyệt vời mà không cần cài đặt PHP, web server hay bất kỳ một phần mềm server nào khác trên máy tính. Developers không phải lo lắng về việc không tương thích giữa các server software với hệ điều hành của mình. Vagrant boxes hoàn toàn sẵn có, có thể bỏ đi (disposable), nếu bạn cấu hình sai, bạn hoàn toàn có thể hủy nó đi và tạo lại một box mới.&lt;/p&gt;
+  <content type="html">&lt;p&gt;Khi phát triển ứng dụng với laravel 4, có sự thay đổi trên view nhưng khi reload ứng dụng thì bạn không hề thấy có sự thay đổi. Mặc dù đã xóa cache với lệnh &lt;code&gt;php artisan cache:clear&lt;/code&gt; nhưng vẫn không khả quan hơn. Lý do là ứng dụng của chúng ta còn lưu lại cache của views trong thư mục &lt;code&gt;app/storage/views&lt;/code&gt;. Bạn có thể truy cập vào thư mục &lt;code&gt;app/storage/views&lt;/code&gt; và xóa hết các files trong thư mục này đi. Với cách làm thủ công này chắc chắn sẽ khiến bạn phát rồ lên. Trong bài này, tôi sẽ chỉ cho bạn cách xóa views cache dễ như ăn kẹo vậy :).&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/laravel/bat-dau-voi-laravel-homestead&quot;&gt;Bắt đầu với Laravel Homestead&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 02, 2014.&lt;/p&gt;</content>
+&lt;p&gt;Chúng ta sẽ chỉ cần chạy lệnh &lt;code&gt;php artisan views:clear&lt;/code&gt; là giải quyết được vấn đề với views cache. Để làm được việc đó, chúng ta cần làm những việc sau:&lt;/p&gt;
+
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#building-a-command&quot;&gt;Building A Command&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#registering-command&quot;&gt;Registering Command&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#run-command&quot;&gt;Run Command&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;building-a-command&quot;&gt;Building A Command&lt;/h2&gt;
+
+&lt;p&gt;Laravel cho phép chúng ta tự tạo ra các lệnh của riêng mình. Để tạo một lệnh mới, bạn mở trình Terminal lên, di chuyển đến thư mục chứa project và nhập vào dòng lệnh sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;php artisan command:make ViewsCommand&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Với lệnh trên, file &lt;code&gt;ViewsCommand.php&lt;/code&gt; sẽ được generate vào thư mục &lt;code&gt;app/commands&lt;/code&gt;. Tiếp đến, bạn copy đoạn code dưới đây vào file &lt;code&gt;ViewsCommand.php&lt;/code&gt;. Bạn có thể xem thêm chi tiết về cách viết Artisan Command tại &lt;a href=&quot;http://laravel.com/docs/4.2/commands&quot;&gt;Artisan Development&lt;/a&gt; :&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/taly2808/ae1317a7ef1fbde9b575.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;registering-command&quot;&gt;Registering Command&lt;/h2&gt;
+
+&lt;p&gt;Sau khi &lt;code&gt;ViewsCommand&lt;/code&gt; được hoàn tất, bạn cần đăng ký nó với Artisan để có thể sử dụng nó. Bạn mở file &lt;code&gt;app/start/artisan.php&lt;/code&gt; và sử dụng method &lt;code&gt;Artisan::add&lt;/code&gt; để đăng ký như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;Artisan::add(new ViewsCommand);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;run-command&quot;&gt;Run Command&lt;/h2&gt;
+
+&lt;p&gt;Bây giờ, bạn đã có thể xóa cache views một cách dễ dàng bằng cách chạy lệnh &lt;code&gt;php artisan views:clear&lt;/code&gt;. Kết quả như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php artisan views:clear
+Views deleted from cache&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Hy vọng có thể giúp các bạn giải quyết được vấn đề của mình. Have fun! ;)&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command&quot;&gt;Xóa cache views trong laravel 4 với Artisan command&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 03, 2014.&lt;/p&gt;</content>
 </entry>
 
 
@@ -121,7 +162,6 @@ Zend Engine v2.5.0, Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;c&lt
 &lt;p&gt;Nhập vào Terminal các lệnh sau:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get update
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get install apache2
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get install php5-common libapache2-mod-php5 php5-cli&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Sau đó, bạn chạy lại lệnh &lt;code&gt;php -v&lt;/code&gt; để kiểm tra phiên bản PHP.&lt;/p&gt;
@@ -139,9 +179,11 @@ Composer version b33da336ecb7f1c9b15a57285e5a9f09cf5f3dd2 2014-09-30 15:28:01&lt
 
 &lt;h2 id=&quot;install-laravel&quot;&gt;Install Laravel&lt;/h2&gt;
 
-&lt;p&gt;Bạn có thể cài đặt Laravel bằng 1 trong 3 cách sau:&lt;/p&gt;
+&lt;p&gt;Bạn có thể cài đặt Laravel bằng 1 trong 2 cách dưới đây:&lt;/p&gt;
 
 &lt;h3 id=&quot;via-composer&quot;&gt;Via Composer&lt;/h3&gt;
+
+&lt;p&gt;(Khuyến nghị bạn nên sử dụng cách này).&lt;/p&gt;
 
 &lt;p&gt;Nếu bạn dùng XAMPP, bạn cần di chuyển bằng command line đến thư mục webroot ( &lt;code&gt;/opt/lampp/htdocs&lt;/code&gt; trên Linux và &lt;code&gt;C:\xampp\htdocs&lt;/code&gt; trên Windows). Bạn muốn tạo mới một project có tên &lt;strong&gt;test_laravel&lt;/strong&gt;, bạn nhập vào Terminal (trình command line trên Windows) như sau:&lt;/p&gt;
 
