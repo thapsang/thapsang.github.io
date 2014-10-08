@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline",
+		  "category"   : "",
+		  "url"        : "/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline",
+		  "date"       : "2014-10-04 00:00:00 +0700",
+		  "shortdate"  : "October 04, 2014"
+		} ,
+	
+		{
 		  "title"      : "Xóa cache views trong laravel 4 với Artisan command",
 		  "category"   : "",
 		  "url"        : "/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command",

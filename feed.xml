@@ -4,13 +4,138 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-10-07T18:01:16+07:00</updated>
+<updated>2014-10-08T15:16:53+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
   <uri>/</uri>
   <email>taly2808@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline]]></title>
+  <link>/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</link>
+  <id>/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</id>
+  <published>2014-10-04T00:00:00+07:00</published>
+  <updated>2014-10-04T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Trong laravel 4, có nhiều cách để bạn quản lý các tài nguyên css, js, hình ảnh của mình. Trong bài này, tôi sẽ giới thiệu với bạn một cách để quản lý các tài nguyên (assets) để chúng có thể phục vụ trình duyệt một cách hiệu quả nhất có thể với Asset Pipeline.&lt;/p&gt;
+
+&lt;p&gt;Laravel 4 không có sẵn tính năng này. Nhưng bạn hoàn toàn có thể cài đặt một package từ cộng đồng để có được chức năng tuyệt vời này trong project của bạn.&lt;/p&gt;
+
+&lt;p&gt;Note: &lt;strong&gt;Asset Pipeline&lt;/strong&gt; có thể hiểu là đường ống dẫn tài nguyên. Trong khuôn khổ bài viết, tôi sẽ sử dụng từ &lt;strong&gt;Asset Pipeline&lt;/strong&gt; để bạn có thể quen với từ này và tìm kiếm tài liệu cũng như kiến thức liên quan bằng tiếng Anh được dễ hơn.&lt;/p&gt;
+
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#what-is-an-asset-pipeline&quot;&gt;What is an asset pipeline?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#install-asset-pipeline&quot;&gt;Install Asset Pipeline&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#working-with-asset-pipeline&quot;&gt;Working with asset pipeline&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#configuration-options&quot;&gt;Configuration options&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;what-is-an-asset-pipeline&quot;&gt;What is an asset pipeline?&lt;/h2&gt;
+
+&lt;p&gt;Trước tiên, có lẽ tôi nên giải thích chính xác thì nó là cái gì.&lt;/p&gt;
+
+&lt;p&gt;Khi triển khai một website trên Internet, trình duyệt phải lấy tất cả các assets (bao gồm các file css, js, images) để tạo nên trang web. Do đó, để lấy được mỗi tập tin CSS hay Javascript, trình duyệt cần tạo ra các request riêng. Theo thời gian, các file CSS và Javascript có thể sẽ lớn dần lên, nếu bạn làm với các project lớn.&lt;/p&gt;
+
+&lt;p&gt;Asset pipeline sẽ tự động kết hợp tất cả các files tài nguyên vào trong một file duy nhất và tối thiểu hóa (minify) code trong đó. Điều đó có nghĩa là trình duyệt chỉ phải thực hiện &lt;strong&gt;1&lt;/strong&gt; request duy nhất, kích cỡ file cũng giảm đi đáng kể và nó sẽ có ảnh hưởng lớn đến hiệu năng của trang web.&lt;/p&gt;
+
+&lt;p&gt;Thời gian gần đây, các developers có xu hướng viết CSS sử dụng LESS hoặc SASS, hoặc họ dùng CoffeeScript thay vì Javascript thông thường. Asset pipeline cũng sẽ tự động biên dịch tất cả chúng thành một file CSS hoặc Javascript thông thường.&lt;/p&gt;
+
+&lt;p&gt;Thêm nữa là, asset pipeline cũng sẽ tự động cache các files stylesheets và javascripts khi bạn triển khai trong môi trường production. Do đó, các files này sẽ không phải download lại mỗi lần tải lại trang nếu chúng không có gì thay đổi.&lt;/p&gt;
+
+&lt;p&gt;Đó là các lý do tại sao bạn nên sử dụng asset pipeline. Asset pipeline có rất nhiều lợi ích tuyệt vời, ngay cả khi bạn không có ý định sử dụng một bộ tiền xử lý (preprocessor) (như LESS hay SASS) hay chỉ muốn viết javascript thuần :).&lt;/p&gt;
+
+&lt;h2 id=&quot;install-asset-pipeline&quot;&gt;Install Asset Pipeline&lt;/h2&gt;
+
+&lt;p&gt;Hiện tại, tôi đang sử dụng package &lt;a href=&quot;https://github.com/CodeSleeve/asset-pipeline&quot;&gt;Asset Pipeline&lt;/a&gt; này trong các project của mình.&lt;/p&gt;
+
+&lt;p&gt;Để cài đặt package, đơn giản là bạn chỉ cần thêm dòng sau dưới đây vào file &lt;code&gt;composer.json&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;require&amp;quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;quot;codesleeve/asset-pipeline&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;dev-master&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Tiếp đó, bạn chạy lệnh sau để cập nhật các phụ thuộc và tải package &lt;strong&gt;asset pineline&lt;/strong&gt; về:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;composer update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Tiếp đến, chúng ta cần nói cho Laravel biết về service provider (người cung cấp dịch vụ). Bạn thêm dòng code dưới dây vào phần &lt;code&gt;providers&lt;/code&gt; trong file &lt;code&gt;app/config/app.php&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;Codesleeve\AssetPipeline\AssetPipelineServiceProvider&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sau đó, asset pipeline sẽ có các cách hành xử khác nhau phụ thuộc vào môi trường bạn đang thiết lập. Trong môi trường production, tất cả các file của bạn sẽ được nén lại (compress), ghép nối với nhau (concatenate) và sao lưu (cache). Nếu bạn không muốn điều đó xảy ra trong môi trường developing, bạn cần thiết lập chính xác môi trường triển khai của mình. Để chắc chắn rằng bạn đang thiết lập môi trường &lt;strong&gt;local&lt;/strong&gt; cho project của mình, bạn kiểm tra phần thiết lập môi trường trong file &lt;code&gt;bootstrap/start.php&lt;/code&gt; như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;$env = $app-&amp;gt;detectEnvironment(array(&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;	&amp;#39;local&amp;#39; =&amp;gt; array(&amp;#39;localhost&amp;#39;),&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Cuối cùng, bạn cần tạo ra các files asset của riêng mình bằng cách nhập vào lệnh sau từ Terminal: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php artisan assets:setup&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;working-with-asset-pipeline&quot;&gt;Working with asset pipeline&lt;/h2&gt;
+
+&lt;p&gt;Và giờ, project của bạn đã được cài đặt asset pipeline. Bạn sẽ thấy có thêm vài thư mục mới trong project. Đó là thư mục &lt;code&gt;assets&lt;/code&gt; ở dưới thư mục &lt;code&gt;app/&lt;/code&gt;, và thư mục &lt;code&gt;provider/&lt;/code&gt; ngang hàng với thư mục &lt;code&gt;app/&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;/provider/assets/javascripts/jquery.min.js
+/provider/assets/stylesheets/readme.txt
+/app/assets/javascripts/application.js
+/app/assets/images/readme.txt
+/app/assets/stylesheets/application.css&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Hai files &lt;code&gt;/app/assets/javascripts/application.js&lt;/code&gt; và &lt;code&gt;/app/assets/stylesheets/application.css&lt;/code&gt; sẽ bao gồm tất cả các files tài nguyên khác trong cùng thư mục và chúng ta sử dụng chúng để cung cấp các tài nguyên cho trang web.&lt;/p&gt;
+
+&lt;p&gt;Để thêm các asset files vào trong HTML template, bạn thêm hai thẻ sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stylesheet_link_tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;javascript_include_tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Hai thẻ trên sẽ generate ra chính xác thẻ &lt;code&gt;link&lt;/code&gt; và &lt;code&gt;script&lt;/code&gt; khi bạn chạy trên trình duyệt:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://localhost:8000/assets/application.css&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://localhost:8000/assets/application.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Bạn có thể thêm hình ảnh vào views một cách dễ dàng với thẻ &lt;code&gt;image_tag()&lt;/code&gt;. Giả sử, bạn có hình ảnh về chú chim Tweety đặt trong file &lt;code&gt;app/assets/images/tweety.png&lt;/code&gt;, bạn sẽ thay thế hình ảnh icon Laravel bằng hình ảnh Tweety Bird. Bạn thay thế nội dung trong phần body của file &lt;code&gt;app/views/hello.php&lt;/code&gt; thành: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;x&quot;&gt;&amp;lt;div class=&amp;quot;welcome&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;image_tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;tweety.png&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;alt&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Tweety&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;h1&amp;gt;You have arrived.&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Bạn mở trình duyệt và gõ vào địa chỉ &lt;code&gt;http://localhost:8080&lt;/code&gt; (tùy thuộc vào cổng khi bạn chạy lệnh &lt;code&gt;php artisan serve&lt;/code&gt; nhé :D) và Enter, kết quả sẽ như thế này: &lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;a href=&quot;/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;/assets/img/image-tag-demo.png&quot; /&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Hình ảnh chú Tweety Bird của bạn sẽ được tải lên với đường dẫn &lt;code&gt;http://localhost:8000/assets/tweety.png&lt;/code&gt;. Bạn có thể sử dụng Bug Tool để xác nhận lại ;).&lt;/p&gt;
+
+&lt;h2 id=&quot;configuration-options&quot;&gt;Configuration options&lt;/h2&gt;
+
+&lt;p&gt;Package &lt;strong&gt;asset pipeline&lt;/strong&gt; này cũng cho phép bạn cấu hình nó. Để làm được việc đó, bạn chạy dòng lệnh sau: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php artisan config:publish codesleeve/asset-pipeline&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Với việc thi hành lệnh trên, nó sẽ generate ra file cấu hình asset pipeline cho project cụ thể của bạn và nó sẽ tự động ghi đè lên các thiết lập mặc định. Bạn sẽ tìm thấy file cấu hình mà bạn có thể sửa trong thư mục &lt;code&gt;app/config/packages&lt;/code&gt;. Bạn hãy xem thêm &lt;a href=&quot;https://github.com/CodeSleeve/asset-pipeline#configuration&quot;&gt;tài liệu&lt;/a&gt; để có những giải thích chi tiết hơn về các tùy chọn cấu hình.&lt;/p&gt;
+
+&lt;p&gt;Hy vọng bạn đã có thể quản lý các asset của mình một cách dễ dàng. Have fun! ;)&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline&quot;&gt;Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 04, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>

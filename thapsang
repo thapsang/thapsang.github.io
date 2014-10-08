@@ -16,10 +16,9 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
-FILE_NAME_0=317;YAML;0;16;1;1;0;/opt/homestead/Homestead.yaml;0;4
-FILE_NAME_1=121;None;0;16;1;1;0;/opt/homestead/Vagrantfile;0;4
-FILE_NAME_2=415;Ruby;0;16;1;1;0;/opt/homestead/scripts/homestead.rb;0;4
+current_page=1
+FILE_NAME_0=3623;Markdown;0;16;1;1;0;/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-09-27-huong-dan-cai-dat-laravel.md;0;4
+FILE_NAME_1=1199;Markdown;0;16;1;1;0;/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-03-xoa-cache-view-trong-laravel-4-voi-artisan-command.md;0;4
 
 [VTE]
 last_dir=/home/taly
