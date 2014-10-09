@@ -16,9 +16,10 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=1
-FILE_NAME_0=3623;Markdown;0;16;1;1;0;/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-09-27-huong-dan-cai-dat-laravel.md;0;4
-FILE_NAME_1=1199;Markdown;0;16;1;1;0;/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-03-xoa-cache-view-trong-laravel-4-voi-artisan-command.md;0;4
+current_page=0
+FILE_NAME_0=379;Markdown;0;16;1;1;1;/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-04-quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline.md;0;4
+FILE_NAME_1=6772;Markdown;0;16;1;1;0;/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-09-27-huong-dan-cai-dat-laravel.md;0;4
+FILE_NAME_2=213;Markdown;0;16;1;1;0;/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-09-sample-gallery-post.md;0;4
 
 [VTE]
 last_dir=/home/taly
