@@ -2,23 +2,23 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline &#8211; THAPSANG.NET</title>
-<meta name="description" content="Cách thức quản lý các tài nguyên public gồm css files, js files, images,...">
-<meta name="keywords" content="asset pipeline, laravel">
+<title>Xây dựng ứng dụng bằng AngularJS &#8211; THAPSANG.NET</title>
+<meta name="description" content="Tạo khung ứng dụng AngularJS.">
+<meta name="keywords" content="create app, angularjs">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/my-candle.png">
-<meta name="twitter:title" content="Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline">
-<meta name="twitter:description" content="Cách thức quản lý các tài nguyên public gồm css files, js files, images,...">
+<meta name="twitter:title" content="Xây dựng ứng dụng bằng AngularJS">
+<meta name="twitter:description" content="Tạo khung ứng dụng AngularJS.">
 <meta name="twitter:creator" content="@taly2808">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline">
-<meta property="og:description" content="Cách thức quản lý các tài nguyên public gồm css files, js files, images,...">
-<meta property="og:url" content="/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline">
+<meta property="og:title" content="Xây dựng ứng dụng bằng AngularJS">
+<meta property="og:description" content="Tạo khung ứng dụng AngularJS.">
+<meta property="og:url" content="/angularjs/xay-dung-ung-dung-bang-angularjs">
 <meta property="og:site_name" content="THAPSANG.NET">
 <meta property="og:image" content="/images/picture-2.jpg">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline">
+<link rel="canonical" href="/angularjs/xay-dung-ung-dung-bang-angularjs">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="THAPSANG.NET Feed">
 <link rel="author" href="https://plus.google.com/+TaLy2808?rel=author">
 
@@ -150,25 +150,17 @@
                     <header class="post-header entry-header">
                     
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Xây dựng ứng dụng bằng AngularJS</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Cách thức quản lý các tài nguyên public gồm css files, js files, images,...</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">Tạo khung ứng dụng AngularJS.</div>
                         <div class="post-info text-center small">
-                            <span class="entry-date date published updated"><time datetime="2014-10-04T00:00:00+07:00" class="post-time" itemprop="datePublished">04 Oct 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">10.79</span> minutes read</span>
+                            <span class="entry-date date published updated"><time datetime="2014-10-12T00:00:00+07:00" class="post-time" itemprop="datePublished">12 Oct 2014</time><span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">9.91</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <figure>
-	<a href="/assets/img/pipeline.jpg"><img src="/assets/img/pipeline.jpg" /></a>
-</figure>
-
-<p>Trong laravel 4, có nhiều cách để bạn quản lý các tài nguyên css, js, hình ảnh của mình. Trong bài này, tôi sẽ giới thiệu với bạn một cách để quản lý các tài nguyên (assets) để chúng có thể phục vụ trình duyệt một cách hiệu quả nhất có thể với Asset Pipeline.</p>
-
-<p>Laravel 4 không có sẵn tính năng này. Nhưng bạn hoàn toàn có thể cài đặt một package từ cộng đồng để có được chức năng tuyệt vời này trong project của bạn.</p>
-
-<p>Note: <strong>Asset Pipeline</strong> có thể hiểu là đường ống dẫn tài nguyên. Trong khuôn khổ bài viết, tôi sẽ sử dụng từ <strong>Asset Pipeline</strong> để bạn có thể quen với từ này và tìm kiếm tài liệu cũng như kiến thức liên quan bằng tiếng Anh được dễ hơn.</p>
+                        <p>Khi bắt đầu xây dựng một ứng dụng AngularJS, có thể bạn không biết chính xác cách thức tổ chức các files, hoặc thậm chí là không biết mình cần những files nào. Do đó, đội phát triển AngularJS đã tạo ra một dự án mẫu có tên <strong><code>angular-seed</code></strong>, cung cấp cấu trúc khung cơ bản của một ứng dụng AngularJS. </p>
 
 <section>
   <header>
@@ -176,110 +168,135 @@
   </header>
 <div id="drawer">
 <ul id="markdown-toc">
-  <li><a href="#what-is-an-asset-pipeline">What is an asset pipeline?</a></li>
-  <li><a href="#install-asset-pipeline">Install Asset Pipeline</a></li>
-  <li><a href="#working-with-asset-pipeline">Working with asset pipeline</a></li>
-  <li><a href="#configuration-options">Configuration options</a></li>
+  <li><a href="#download-khung-mu">Download khung mẫu</a></li>
+  <li><a href="#ci-t-cng-c">Cài đặt công cụ</a>    <ul>
+      <li><a href="#ci-t-nodejs">Cài đặt Node.js</a></li>
+      <li><a href="#ci-t-grunt-cli">Cài đặt Grunt CLI</a></li>
+      <li><a href="#ci-t-bower">Cài đặt Bower</a></li>
+    </ul>
+  </li>
+  <li><a href="#ci-t-ph-thuc">Cài đặt phụ thuộc</a></li>
+  <li><a href="#chy-ng-dng">Chạy ứng dụng</a></li>
 </ul>
 
   </div>
 </section>
 
-<h2 id="what-is-an-asset-pipeline">What is an asset pipeline?</h2>
+<h2 id="download-khung-mu">Download khung mẫu</h2>
 
-<p>Trước tiên, có lẽ tôi nên giải thích chính xác thì nó là cái gì.</p>
+<p>Để bắt đầu xây dựng các ứng dụng với AngularJS, bạn có thể download hoặc clone ứng dụng mẫu <a href="https://github.com/angular/angular-seed">angular-seed</a> trên kho github. Máy tính của bạn cần phải cài đặt git. Bạn có thể tham khảo cách cài đặt git <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">tại đây</a>. Nhập vào Terminal lệnh sau:</p>
 
-<p>Khi triển khai một website trên Internet, trình duyệt phải lấy tất cả các assets (bao gồm các file css, js, images) để tạo nên trang web. Do đó, để lấy được mỗi tập tin CSS hay Javascript, trình duyệt cần tạo ra các request riêng. Theo thời gian, các file CSS và Javascript có thể sẽ lớn dần lên, nếu bạn làm với các project lớn.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git clone https://github.com/angular/angular-seed.git</code></pre></div>
 
-<p>Asset pipeline sẽ tự động kết hợp tất cả các files tài nguyên vào trong một file duy nhất và tối thiểu hóa (minify) code trong đó. Điều đó có nghĩa là trình duyệt chỉ phải thực hiện <strong>1</strong> request duy nhất, kích cỡ file cũng giảm đi đáng kể và nó sẽ có ảnh hưởng lớn đến hiệu năng của trang web.</p>
+<h2 id="ci-t-cng-c">Cài đặt công cụ</h2>
 
-<p>Thời gian gần đây, các developers có xu hướng viết CSS sử dụng LESS hoặc SASS, hoặc họ dùng CoffeeScript thay vì Javascript thông thường. Asset pipeline cũng sẽ tự động biên dịch tất cả chúng thành một file CSS hoặc Javascript thông thường.</p>
+<p>Để chạy được ứng dụng trên local, máy tính của bạn cần cài đặt Node.js, Grunt CLI và Bower.</p>
 
-<p>Thêm nữa là, asset pipeline cũng sẽ tự động cache các files stylesheets và javascripts khi bạn triển khai trong môi trường production. Do đó, các files này sẽ không phải download lại mỗi lần tải lại trang nếu chúng không có gì thay đổi.</p>
+<h3 id="ci-t-nodejs">Cài đặt Node.js</h3>
 
-<p>Đó là các lý do tại sao bạn nên sử dụng asset pipeline. Asset pipeline có rất nhiều lợi ích tuyệt vời, ngay cả khi bạn không có ý định sử dụng một bộ tiền xử lý (preprocessor) (như LESS hay SASS) hay chỉ muốn viết javascript thuần :).</p>
+<p>Chúng ta cần cài đặt Nodejs để sử dụng NPM - Node Package Management - để tải những thứ mà ứng dụng cần (dependencies) trong quá trình phát triển. Bạn có thể download về phiên bản mới nhất của Node.js tại địa chỉ <a href="http://www.nodejs.org/download/">http://www.nodejs.org/download/</a> và tiến hành cài đặt nó.</p>
 
-<h2 id="install-asset-pipeline">Install Asset Pipeline</h2>
+<p>Nếu bạn sử dụng Linux, bạn có thể cài đặt Node.js bằng command line như sau:</p>
 
-<p>Hiện tại, tôi đang sử dụng package <a href="https://github.com/CodeSleeve/asset-pipeline">Asset Pipeline</a> này trong các project của mình.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> <span class="nv">$ </span>sudo apt-get install python-software-properties
+<span class="lineno">2</span> <span class="nv">$ </span>sudo apt-add-repository ppa:chris-lea/node.js
+<span class="lineno">3</span> <span class="nv">$ </span>sudo apt-get update
+<span class="lineno">4</span> <span class="nv">$ </span>apt-get install nodejs</code></pre></div>
 
-<p>Để cài đặt package, đơn giản là bạn chỉ cần thêm dòng sau dưới đây vào file <code>composer.json</code>:</p>
+<p>Tiếp đến, bạn xác nhận nodejs đã được cài đặt thành công hay chưa với lệnh: </p>
 
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">&quot;require&quot;</span><span class="err">:</span> <span class="p">{</span>
-  <span class="nt">&quot;codesleeve/asset-pipeline&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-master&quot;</span>
-<span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>node -v</code></pre></div>
 
-<p>Tiếp đó, bạn chạy lệnh sau để cập nhật các phụ thuộc và tải package <strong>asset pineline</strong> về:</p>
+<p>Kết quả hiển thị như sau:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">composer update</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">v0.10.32</code></pre></div>
 
-<p>Tiếp đến, chúng ta cần nói cho Laravel biết về service provider (người cung cấp dịch vụ). Bạn thêm dòng code dưới dây vào phần <code>providers</code> trong file <code>app/config/app.php</code>:</p>
+<p>Tiếp đến, bạn kiểm tra version của npm với lệnh:</p>
 
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="err">&#39;Codesleeve\AssetPipeline\AssetPipelineServiceProvider&#39;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm -v</code></pre></div>
 
-<p>Sau đó, asset pipeline sẽ có các cách hành xử khác nhau phụ thuộc vào môi trường bạn đang thiết lập. Trong môi trường production, tất cả các file của bạn sẽ được nén lại (compress), ghép nối với nhau (concatenate) và sao lưu (cache). Nếu bạn không muốn điều đó xảy ra trong môi trường developing, bạn cần thiết lập chính xác môi trường triển khai của mình. Để chắc chắn rằng bạn đang thiết lập môi trường <strong>local</strong> cho project của mình, bạn kiểm tra phần thiết lập môi trường trong file <code>bootstrap/start.php</code> như sau:</p>
+<p>Kết quả hiển thị như sau: </p>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">$env = $app-&gt;detectEnvironment(array(</span>
-<span class="x">	&#39;local&#39; =&gt; array(&#39;localhost&#39;),</span>
-<span class="x">));</span></code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">1.4.28</code></pre></div>
 
-<p>Cuối cùng, bạn cần tạo ra các files asset của riêng mình bằng cách nhập vào lệnh sau từ Terminal: </p>
+<p>Nếu câu lệnh thực hiện trên máy bạn không trả lại phiên bản của npm, bạn tiến hành cài đặt npm với lệnh sau: </p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>php artisan assets:setup</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo apt-get install npm</code></pre></div>
 
-<h2 id="working-with-asset-pipeline">Working with asset pipeline</h2>
+<h3 id="ci-t-grunt-cli">Cài đặt Grunt CLI</h3>
 
-<p>Và giờ, project của bạn đã được cài đặt asset pipeline. Bạn sẽ thấy có thêm vài thư mục mới trong project. Đó là thư mục <code>assets</code> ở dưới thư mục <code>app/</code>, và thư mục <code>provider/</code> ngang hàng với thư mục <code>app/</code>:</p>
+<p><a href="http://gruntjs.com/">Grunt CLI</a> là một module của Node.js, nó là một công cụ để tự động hóa các công việc lặp đi lặp lại của việc xây dựng một ứng dụng web bằng dòng lệnh. Chẳng hạn như, mỗi lần bạn lưu lại file Sass hoặc Javascript, Grunt sẽ tự động biên dịch file Sass thành file CSS và tự động kiểm tra và thực hiện các unit test trong kịch bản file Javascript mà bạn không cần tải lại trình duyệt. Có thể hiểu <strong>Grunt là một công cụ thực thi các tác vụ javascript</strong>.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">/provider/assets/javascripts/jquery.min.js
-/provider/assets/stylesheets/readme.txt
-/app/assets/javascripts/application.js
-/app/assets/images/readme.txt
-/app/assets/stylesheets/application.css</code></pre></div>
+<p>Grunt là một NPM package. Để cài đặt Grunt CLI, bạn chạy dòng lệnh sau:</p>
 
-<p>Hai files <code>/app/assets/javascripts/application.js</code> và <code>/app/assets/stylesheets/application.css</code> sẽ bao gồm tất cả các files tài nguyên khác trong cùng thư mục và chúng ta sử dụng chúng để cung cấp các tài nguyên cho trang web.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install -g grunt-cli</code></pre></div>
 
-<p>Để thêm các asset files vào trong HTML template, bạn thêm hai thẻ sau:</p>
+<h3 id="ci-t-bower">Cài đặt Bower</h3>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">stylesheet_link_tag</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">javascript_include_tag</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+<p><strong><a href="http://bower.io/">Bower</a> là công cụ quản lý các thành phần phía người dùng (front-end)</strong> như html, css, js, etc. Bower liệt kê danh sách các thành phần phụ thuộc trong file <code>bower.json</code>. Trong trường hợp các phụ thuộc của frontend được bằng cách chạy lệnh <code>bower install</code> thì mặc định chúng sẽ được cài đặt vào trong thư mục có tên <code>bower_components</code>.</p>
 
-<p>Hai thẻ trên sẽ generate ra chính xác thẻ <code>link</code> và <code>script</code> khi bạn chạy trên trình duyệt:</p>
+<p>Chúng ta cài đặt Bower thông qua NPM tương tự như cách cài đặt Grunt CLI: </p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;http://localhost:8000/assets/application.css&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://localhost:8000/assets/application.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm install -g bower</code></pre></div>
 
-<p>Bạn có thể thêm hình ảnh vào views một cách dễ dàng với thẻ <code>image_tag()</code>. Giả sử, bạn có hình ảnh về chú chim Tweety đặt trong file <code>app/assets/images/tweety.png</code>, bạn sẽ thay thế hình ảnh icon Laravel bằng hình ảnh Tweety Bird. Bạn thay thế nội dung trong phần body của file <code>app/views/hello.php</code> thành: </p>
+<h2 id="ci-t-ph-thuc">Cài đặt phụ thuộc</h2>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&lt;div class=&quot;welcome&quot;&gt;</span>
-<span class="x">	</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">image_tag</span><span class="p">(</span><span class="s1">&#39;tweety.png&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;alt&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Tweety&#39;</span><span class="p">])</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&lt;h1&gt;You have arrived.&lt;/h1&gt;</span>
-<span class="x">&lt;/div&gt;</span></code></pre></div>
+<p>Sau khi cài đặt xong các công cụ NPM, Grunt, Bower, chúng ta cần cài đặt các phụ thuộc của ứng dụng bằng cách chạy lệnh sau:</p>
 
-<p>Bạn mở trình duyệt và gõ vào địa chỉ <code>http://localhost:8000</code> (tùy thuộc vào cổng khi bạn chạy lệnh <code>php artisan serve</code> nhé :D) và Enter, kết quả sẽ như thế này: </p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>angular-seed
+<span class="nv">$ </span>npm install</code></pre></div>
 
-<figure>
-	<a href="/assets/img/welcome_laravel.jpg"><img src="/assets/img/image-tag-demo.png" /></a>
-</figure>
+<p>Với việc thực thi lệnh <code>npm install</code>, nó cũng thực thi luôn lệnh <code>bower install</code>. Chúng ta sẽ tìm thấy 2 thư mục mới trong ứng dụng: </p>
 
-<p>Hình ảnh chú Tweety Bird của bạn sẽ được tải lên với đường dẫn <code>http://localhost:8000/assets/tweety.png</code>. Bạn có thể sử dụng Bug Tool để xác nhận lại ;).</p>
+<ul>
+  <li><code>node_modules</code>: chứa các npm package là các công cụ chúng ta sử dụng.</li>
+  <li><code>app/bower_components</code>: chứa các files của khung ứng dụng angularjs.</li>
+</ul>
 
-<h2 id="configuration-options">Configuration options</h2>
+<h2 id="chy-ng-dng">Chạy ứng dụng</h2>
 
-<p>Bạn cũng có thể thay đổi các cấu hình mặc định của package <strong>asset pipeline</strong> này. Để làm được việc đó, bạn chạy dòng lệnh sau: </p>
+<p>Chúng ta tiến hành khởi động máy chủ web bằng cách thực thi lệnh sau:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>php artisan config:publish codesleeve/asset-pipeline</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>npm start</code></pre></div>
 
-<p>Với việc thi hành lệnh trên, nó sẽ generate ra file cấu hình asset pipeline cho project cụ thể của bạn và nó sẽ tự động ghi đè lên các thiết lập mặc định. Bạn sẽ tìm thấy file cấu hình mà bạn có thể sửa trong thư mục <code>app/config/packages</code>. Bạn hãy xem thêm <a href="https://github.com/CodeSleeve/asset-pipeline#configuration">tài liệu</a> để có những giải thích chi tiết hơn về các tùy chọn cấu hình.</p>
+<p>Trên trình duyệt, ứng dụng được chạy tại địa chỉ <code>http://localhost:8000/app/index.html</code>.</p>
 
-<p>Hy vọng bạn đã có thể quản lý các asset của mình một cách dễ dàng. Have fun! ;)</p>
+<p>Dưới đây là cấu trúc ban đầu của ứng dụng angular-seed:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">app/                    --&gt; thư mục chứa mã nguồn của ứng dụng
+----app.css               --&gt; stylesheet mặc định
+----components/           --&gt; thư mục chứa các modules cụ thể của ứng dụng
+--------version/              --&gt; component liên quan đến version
+------------version.js                 --&gt; khai báo module và giá trị của version
+------------version_test.js            --&gt; service <span class="nb">test</span> <span class="s2">&quot;version&quot;</span>
+------------version-directive.js       --&gt; directive dành riêng cho <span class="s2">&quot;version&quot;</span>
+------------version-directive_test.js  --&gt; version directive tests
+------------interpolate-filter.js      --&gt; custom interpolation filter
+------------interpolate-filter_test.js --&gt; interpolate filter tests
+----view1/                --&gt; the view1 view template and logic
+--------view1.html            --&gt; the partial template
+--------view1.js              --&gt; the controller logic
+--------view1_test.js         --&gt; tests of the controller
+----view2/                --&gt; the view2 view template and logic
+--------view2.html            --&gt; the partial template
+--------view2.js              --&gt; the controller logic
+--------view2_test.js         --&gt; tests of the controller
+----app.js                --&gt; main application module
+----index.html            --&gt; app layout file <span class="o">(</span>the main html template file of the app<span class="o">)</span>
+----index-async.html      --&gt; just like index.html, but loads js files asynchronously
+karma.conf.js         --&gt; config file <span class="k">for</span> running unit tests with Karma
+e2e-tests/            --&gt; end-to-end tests
+----protractor-conf.js    --&gt; Protractor config file
+----scenarios.js          --&gt; end-to-end scenarios to be run by Protractor</code></pre></div>
+
+<p>Có rất nhiều cách để tổ chức cấu trúc thư mục ứng dụng. Chúng ta có thể tổ chức các folder theo kiểu (type) hoặc theo đặc tính (feature). Theo quan điểm của tôi, chúng ta nên tổ chức các folder theo đặc tính. Bạn có thể tham khảo thêm các cách tổ chức cấu trúc thư mục ứng dụng khác nhau như <a href="http://scotch.io/tutorials/javascript/angularjs-best-practices-directory-structure">AngularJS Best Practices: Directory Structure</a> hay của <a href="https://github.com/johnpapa/angularjs-styleguide#application-structure-lift-principle">Johnpapa</a> để có thể quyết định tổ chức ứng dụng của mình như thế nào cho hợp lý.</p>
 
                         <br>
                     
                     
                     <div class="entry-tags text-center">
                     
-                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#asset pipeline" data-toggle="tooltip" title="Posts tagged with asset pipeline" rel="tag">asset pipeline</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#laravel" data-toggle="tooltip" title="Posts tagged with laravel" rel="tag">laravel</a>
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#create app" data-toggle="tooltip" title="Posts tagged with create app" rel="tag">create app</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#angularjs" data-toggle="tooltip" title="Posts tagged with angularjs" rel="tag">angularjs</a>
                     
                     </div>
                     
@@ -292,19 +309,19 @@
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline&quot;%20/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline%20via%20&#64;taly2808"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Xây dựng ứng dụng bằng AngularJS&quot;%20/angularjs/xay-dung-ung-dung-bang-angularjs%20via%20&#64;taly2808"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>
         </li>
         <li>
-            <a  href="https://www.facebook.com/sharer/sharer.php?u=/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline"
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=/angularjs/xay-dung-ung-dung-bang-angularjs"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
                 <i class="icon-facebook"></i>
             </a>
         </li>
         <li>
-            <a href="https://plus.google.com/share?url=/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline"
+            <a href="https://plus.google.com/share?url=/angularjs/xay-dung-ung-dung-bang-angularjs"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
                 <i class="icon-google-plus"></i>
             </a>

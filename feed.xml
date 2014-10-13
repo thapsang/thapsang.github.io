@@ -4,13 +4,192 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-10-09T17:48:23+07:00</updated>
+<updated>2014-10-13T14:15:50+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
   <uri>/</uri>
   <email>taly2808@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Xây dựng ứng dụng bằng AngularJS]]></title>
+  <link>/angularjs/xay-dung-ung-dung-bang-angularjs</link>
+  <id>/angularjs/xay-dung-ung-dung-bang-angularjs</id>
+  <published>2014-10-12T00:00:00+07:00</published>
+  <updated>2014-10-12T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Khi bắt đầu xây dựng một ứng dụng AngularJS, có thể bạn không biết chính xác cách thức tổ chức các files, hoặc thậm chí là không biết mình cần những files nào. Do đó, đội phát triển AngularJS đã tạo ra một dự án mẫu có tên &lt;strong&gt;&lt;code&gt;angular-seed&lt;/code&gt;&lt;/strong&gt;, cung cấp cấu trúc khung cơ bản của một ứng dụng AngularJS. &lt;/p&gt;
+
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#download-khung-mu&quot;&gt;Download khung mẫu&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ci-t-cng-c&quot;&gt;Cài đặt công cụ&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#ci-t-nodejs&quot;&gt;Cài đặt Node.js&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#ci-t-grunt-cli&quot;&gt;Cài đặt Grunt CLI&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#ci-t-bower&quot;&gt;Cài đặt Bower&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ci-t-ph-thuc&quot;&gt;Cài đặt phụ thuộc&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#chy-ng-dng&quot;&gt;Chạy ứng dụng&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;download-khung-mu&quot;&gt;Download khung mẫu&lt;/h2&gt;
+
+&lt;p&gt;Để bắt đầu xây dựng các ứng dụng với AngularJS, bạn có thể download hoặc clone ứng dụng mẫu &lt;a href=&quot;https://github.com/angular/angular-seed&quot;&gt;angular-seed&lt;/a&gt; trên kho github. Máy tính của bạn cần phải cài đặt git. Bạn có thể tham khảo cách cài đặt git &lt;a href=&quot;http://git-scm.com/book/en/Getting-Started-Installing-Git&quot;&gt;tại đây&lt;/a&gt;. Nhập vào Terminal lệnh sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone https://github.com/angular/angular-seed.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ci-t-cng-c&quot;&gt;Cài đặt công cụ&lt;/h2&gt;
+
+&lt;p&gt;Để chạy được ứng dụng trên local, máy tính của bạn cần cài đặt Node.js, Grunt CLI và Bower.&lt;/p&gt;
+
+&lt;h3 id=&quot;ci-t-nodejs&quot;&gt;Cài đặt Node.js&lt;/h3&gt;
+
+&lt;p&gt;Chúng ta cần cài đặt Nodejs để sử dụng NPM - Node Package Management - để tải những thứ mà ứng dụng cần (dependencies) trong quá trình phát triển. Bạn có thể download về phiên bản mới nhất của Node.js tại địa chỉ &lt;a href=&quot;http://www.nodejs.org/download/&quot;&gt;http://www.nodejs.org/download/&lt;/a&gt; và tiến hành cài đặt nó.&lt;/p&gt;
+
+&lt;p&gt;Nếu bạn sử dụng Linux, bạn có thể cài đặt Node.js bằng command line như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get install python-software-properties
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-add-repository ppa:chris-lea/node.js
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get update
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;apt-get install nodejs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Tiếp đến, bạn xác nhận nodejs đã được cài đặt thành công hay chưa với lệnh: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node -v&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Kết quả hiển thị như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;v0.10.32&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Tiếp đến, bạn kiểm tra version của npm với lệnh:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm -v&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Kết quả hiển thị như sau: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;1.4.28&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nếu câu lệnh thực hiện trên máy bạn không trả lại phiên bản của npm, bạn tiến hành cài đặt npm với lệnh sau: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get install npm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;ci-t-grunt-cli&quot;&gt;Cài đặt Grunt CLI&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt CLI&lt;/a&gt; là một module của Node.js, nó là một công cụ để tự động hóa các công việc lặp đi lặp lại của việc xây dựng một ứng dụng web bằng dòng lệnh. Chẳng hạn như, mỗi lần bạn lưu lại file Sass hoặc Javascript, Grunt sẽ tự động biên dịch file Sass thành file CSS và tự động kiểm tra và thực hiện các unit test trong kịch bản file Javascript mà bạn không cần tải lại trình duyệt. Có thể hiểu &lt;strong&gt;Grunt là một công cụ thực thi các tác vụ javascript&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Grunt là một NPM package. Để cài đặt Grunt CLI, bạn chạy dòng lệnh sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install -g grunt-cli&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;ci-t-bower&quot;&gt;Cài đặt Bower&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://bower.io/&quot;&gt;Bower&lt;/a&gt; là công cụ quản lý các thành phần phía người dùng (front-end)&lt;/strong&gt; như html, css, js, etc. Bower liệt kê danh sách các thành phần phụ thuộc trong file &lt;code&gt;bower.json&lt;/code&gt;. Trong trường hợp các phụ thuộc của frontend được bằng cách chạy lệnh &lt;code&gt;bower install&lt;/code&gt; thì mặc định chúng sẽ được cài đặt vào trong thư mục có tên &lt;code&gt;bower_components&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Chúng ta cài đặt Bower thông qua NPM tương tự như cách cài đặt Grunt CLI: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install -g bower&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ci-t-ph-thuc&quot;&gt;Cài đặt phụ thuộc&lt;/h2&gt;
+
+&lt;p&gt;Sau khi cài đặt xong các công cụ NPM, Grunt, Bower, chúng ta cần cài đặt các phụ thuộc của ứng dụng bằng cách chạy lệnh sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;angular-seed
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Với việc thực thi lệnh &lt;code&gt;npm install&lt;/code&gt;, nó cũng thực thi luôn lệnh &lt;code&gt;bower install&lt;/code&gt;. Chúng ta sẽ tìm thấy 2 thư mục mới trong ứng dụng: &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;node_modules&lt;/code&gt;: chứa các npm package là các công cụ chúng ta sử dụng.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;app/bower_components&lt;/code&gt;: chứa các files của khung ứng dụng angularjs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;chy-ng-dng&quot;&gt;Chạy ứng dụng&lt;/h2&gt;
+
+&lt;p&gt;Chúng ta tiến hành khởi động máy chủ web bằng cách thực thi lệnh sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Trên trình duyệt, ứng dụng được chạy tại địa chỉ &lt;code&gt;http://localhost:8000/app/index.html&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Dưới đây là cấu trúc ban đầu của ứng dụng angular-seed:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;app/                    --&amp;gt; thư mục chứa mã nguồn của ứng dụng
+----app.css               --&amp;gt; stylesheet mặc định
+----components/           --&amp;gt; thư mục chứa các modules cụ thể của ứng dụng
+--------version/              --&amp;gt; component liên quan đến version
+------------version.js                 --&amp;gt; khai báo module và giá trị của version
+------------version_test.js            --&amp;gt; service &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;
+------------version-directive.js       --&amp;gt; directive dành riêng cho &lt;span class=&quot;s2&quot;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;
+------------version-directive_test.js  --&amp;gt; version directive tests
+------------interpolate-filter.js      --&amp;gt; custom interpolation filter
+------------interpolate-filter_test.js --&amp;gt; interpolate filter tests
+----view1/                --&amp;gt; the view1 view template and logic
+--------view1.html            --&amp;gt; the partial template
+--------view1.js              --&amp;gt; the controller logic
+--------view1_test.js         --&amp;gt; tests of the controller
+----view2/                --&amp;gt; the view2 view template and logic
+--------view2.html            --&amp;gt; the partial template
+--------view2.js              --&amp;gt; the controller logic
+--------view2_test.js         --&amp;gt; tests of the controller
+----app.js                --&amp;gt; main application module
+----index.html            --&amp;gt; app layout file &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;the main html template file of the app&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+----index-async.html      --&amp;gt; just like index.html, but loads js files asynchronously
+karma.conf.js         --&amp;gt; config file &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; running unit tests with Karma
+e2e-tests/            --&amp;gt; end-to-end tests
+----protractor-conf.js    --&amp;gt; Protractor config file
+----scenarios.js          --&amp;gt; end-to-end scenarios to be run by Protractor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Có rất nhiều cách để tổ chức cấu trúc thư mục ứng dụng. Chúng ta có thể tổ chức các folder theo kiểu (type) hoặc theo đặc tính (feature). Theo quan điểm của tôi, chúng ta nên tổ chức các folder theo đặc tính. Bạn có thể tham khảo thêm các cách tổ chức cấu trúc thư mục ứng dụng khác nhau như &lt;a href=&quot;http://scotch.io/tutorials/javascript/angularjs-best-practices-directory-structure&quot;&gt;AngularJS Best Practices: Directory Structure&lt;/a&gt; hay của &lt;a href=&quot;https://github.com/johnpapa/angularjs-styleguide#application-structure-lift-principle&quot;&gt;Johnpapa&lt;/a&gt; để có thể quyết định tổ chức ứng dụng của mình như thế nào cho hợp lý.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/angularjs/xay-dung-ung-dung-bang-angularjs&quot;&gt;Xây dựng ứng dụng bằng AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 12, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Tạo dữ liệu với database seed trong Laravel 4]]></title>
+  <link>/laravel/tao-du-lieu-voi-database-seeding</link>
+  <id>/laravel/tao-du-lieu-voi-database-seeding</id>
+  <published>2014-10-05T00:00:00+07:00</published>
+  <updated>2014-10-05T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#what-is-an-asset-pipeline&quot;&gt;What is an asset pipeline?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#install-asset-pipeline&quot;&gt;Install Asset Pipeline&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;what-is-an-asset-pipeline&quot;&gt;What is an asset pipeline?&lt;/h2&gt;
+
+&lt;h2 id=&quot;install-asset-pipeline&quot;&gt;Install Asset Pipeline&lt;/h2&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/laravel/tao-du-lieu-voi-database-seeding&quot;&gt;Tạo dữ liệu với database seed trong Laravel 4&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 05, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -25,7 +204,7 @@
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;figure&gt;
-	&lt;a href=&quot;/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;/assets/img/pipeline.jpg&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;/assets/img/pipeline.jpg&quot;&gt;&lt;img src=&quot;/assets/img/pipeline.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Trong laravel 4, có nhiều cách để bạn quản lý các tài nguyên css, js, hình ảnh của mình. Trong bài này, tôi sẽ giới thiệu với bạn một cách để quản lý các tài nguyên (assets) để chúng có thể phục vụ trình duyệt một cách hiệu quả nhất có thể với Asset Pipeline.&lt;/p&gt;

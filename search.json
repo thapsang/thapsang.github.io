@@ -1,6 +1,22 @@
 [
 	
 		{
+		  "title"      : "Xây dựng ứng dụng bằng AngularJS",
+		  "category"   : "",
+		  "url"        : "/angularjs/xay-dung-ung-dung-bang-angularjs",
+		  "date"       : "2014-10-12 00:00:00 +0700",
+		  "shortdate"  : "October 12, 2014"
+		} ,
+	
+		{
+		  "title"      : "Tạo dữ liệu với database seed trong Laravel 4",
+		  "category"   : "",
+		  "url"        : "/laravel/tao-du-lieu-voi-database-seeding",
+		  "date"       : "2014-10-05 00:00:00 +0700",
+		  "shortdate"  : "October 05, 2014"
+		} ,
+	
+		{
 		  "title"      : "Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline",
 		  "category"   : "",
 		  "url"        : "/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline",
