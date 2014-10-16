@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-10-13T14:15:50+07:00</updated>
+<updated>2014-10-16T10:57:44+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -153,7 +153,7 @@ e2e-tests/            --&amp;gt; end-to-end tests
 ----protractor-conf.js    --&amp;gt; Protractor config file
 ----scenarios.js          --&amp;gt; end-to-end scenarios to be run by Protractor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Có rất nhiều cách để tổ chức cấu trúc thư mục ứng dụng. Chúng ta có thể tổ chức các folder theo kiểu (type) hoặc theo đặc tính (feature). Theo quan điểm của tôi, chúng ta nên tổ chức các folder theo đặc tính. Bạn có thể tham khảo thêm các cách tổ chức cấu trúc thư mục ứng dụng khác nhau như &lt;a href=&quot;http://scotch.io/tutorials/javascript/angularjs-best-practices-directory-structure&quot;&gt;AngularJS Best Practices: Directory Structure&lt;/a&gt; hay của &lt;a href=&quot;https://github.com/johnpapa/angularjs-styleguide#application-structure-lift-principle&quot;&gt;Johnpapa&lt;/a&gt; để có thể quyết định tổ chức ứng dụng của mình như thế nào cho hợp lý.&lt;/p&gt;
+&lt;p&gt;Có rất nhiều cách để tổ chức cấu trúc thư mục ứng dụng. Chúng ta có thể tổ chức các folder theo kiểu (type) hoặc theo đặc tính (feature). Theo quan điểm của tôi, chúng ta nên tổ chức các folder theo feature. Bạn có thể tham khảo thêm các cách tổ chức cấu trúc thư mục ứng dụng khác nhau như &lt;a href=&quot;http://scotch.io/tutorials/javascript/angularjs-best-practices-directory-structure&quot;&gt;AngularJS Best Practices: Directory Structure&lt;/a&gt; hay của &lt;a href=&quot;https://github.com/johnpapa/angularjs-styleguide#application-structure-lift-principle&quot;&gt;Johnpapa&lt;/a&gt; để có thể quyết định tổ chức ứng dụng của mình như thế nào cho hợp lý.&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;/angularjs/xay-dung-ung-dung-bang-angularjs&quot;&gt;Xây dựng ứng dụng bằng AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 12, 2014.&lt;/p&gt;</content>
 </entry>
@@ -521,6 +521,10 @@ Tiếp đến, copy file &lt;code&gt;laravel&lt;/code&gt; sang thư mục &lt;co
 &lt;p&gt;Tạo project &lt;strong&gt;test_laravel&lt;/strong&gt; bằng câu lệnh:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;laravel new test_laravel&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sau khi tạo xong project, bạn cần cấp quyền ghi cho web server vào thư mục &lt;code&gt;app/storage&lt;/code&gt;. Nếu bạn dùng Linux, bạn di chuyển đến thư mục chứa project và sử dụng lệnh sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo chmod -R &lt;span class=&quot;m&quot;&gt;777&lt;/span&gt; app/storage&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;run-your-fisrt-app&quot;&gt;Run your fisrt app&lt;/h2&gt;
 

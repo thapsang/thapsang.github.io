@@ -155,7 +155,7 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Các cách cài đặt Laravel trên local.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-09-27T00:00:00+07:00" class="post-time" itemprop="datePublished">27 Sep 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">9.57</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">10.04</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
@@ -294,6 +294,10 @@ Tiếp đến, copy file <code>laravel</code> sang thư mục <code>/urs/local/b
 <p>Tạo project <strong>test_laravel</strong> bằng câu lệnh:</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">laravel new test_laravel</code></pre></div>
+
+<p>Sau khi tạo xong project, bạn cần cấp quyền ghi cho web server vào thư mục <code>app/storage</code>. Nếu bạn dùng Linux, bạn di chuyển đến thư mục chứa project và sử dụng lệnh sau:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo chmod -R <span class="m">777</span> app/storage</code></pre></div>
 
 <h2 id="run-your-fisrt-app">Run your fisrt app</h2>
 
