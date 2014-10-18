@@ -2,21 +2,21 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Cấu trúc thư mục với ứng dụng AngularJS &#8211; THAPSANG.NET</title>
+<title>Cấu trúc thư mục cho ứng dụng AngularJS &#8211; THAPSANG.NET</title>
 <meta name="description" content="Xây dựng cấu trúc thư mục cho ứng dụng AngularJS.">
 <meta name="keywords" content="create app, angularjs">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/my-candle.png">
-<meta name="twitter:title" content="Cấu trúc thư mục với ứng dụng AngularJS">
+<meta name="twitter:title" content="Cấu trúc thư mục cho ứng dụng AngularJS">
 <meta name="twitter:description" content="Xây dựng cấu trúc thư mục cho ứng dụng AngularJS.">
 <meta name="twitter:creator" content="@taly2808">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cấu trúc thư mục với ứng dụng AngularJS">
+<meta property="og:title" content="Cấu trúc thư mục cho ứng dụng AngularJS">
 <meta property="og:description" content="Xây dựng cấu trúc thư mục cho ứng dụng AngularJS.">
 <meta property="og:url" content="/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs">
 <meta property="og:site_name" content="THAPSANG.NET">
@@ -150,12 +150,12 @@
                     <header class="post-header entry-header">
                     
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Cấu trúc thư mục với ứng dụng AngularJS</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Cấu trúc thư mục cho ứng dụng AngularJS</h1>
                         
                         <div class="cursive" style="color: #000; font-style:italic;">Xây dựng cấu trúc thư mục cho ứng dụng AngularJS.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-10-12T00:00:00+07:00" class="post-time" itemprop="datePublished">12 Oct 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">7.84</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">8.26</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
@@ -176,7 +176,7 @@
 
 <h2 id="typical-struture">Typical Struture</h2>
 
-<p>Trong đa số các tutorial hướng dẫn với angularjs, cấu trúc thư mục được áp dụng như sau: </p>
+<p>Trong đa số các tutorial hướng dẫn về angularjs, cấu trúc thư mục được áp dụng như sau: </p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">app/
 ----- controllers/
@@ -192,12 +192,17 @@
 ---------- bootstrap.js
 ---------- jquery.js
 ----- app.js
+assets/
+----- img/      // Images and icons <span class="k">for</span> your app
+----- css/      // All styles and style related files <span class="o">(</span>SCSS or LESS files<span class="o">)</span>
+----- js/       // JavaScript files written <span class="k">for</span> your app that are not <span class="k">for</span> angular
+----- libs/     // Third-party libraries such as jQuery, Moment, Underscore, etc.
 views/
 ----- mainView.html
 ----- otherView.html
 ----- index.html</code></pre></div>
 
-<p>Đây là cấu trúc đặc trưng thường thấy. Với cấu trúc này, chúng ta tách riêng các vấn đề có liên quan đến nhau cho vào chung 1 thư mục, controllers có thư mục riêng cho controllers, directives có thư mục riêng cho directives, …. Nó khá giống với cách tổ chức của các MVC framework. Cấu trúc này phù hợp với các ví dụ và các <strong>ứng dụng nhỏ</strong> vì nó giúp cho người đọc dễ hình dung và có thể khái quát hóa các khái niệm đang được nghiên cứu.</p>
+<p>Đây là cấu trúc đặc trưng thường thấy. Với cấu trúc này, chúng ta tách riêng từng loại file vào chung một thư mục, controllers có thư mục riêng cho controllers, directives có thư mục riêng cho directives, …. Nó khá giống với cách tổ chức của các MVC framework. Cấu trúc này phù hợp với các ví dụ và các <strong>ứng dụng nhỏ</strong> vì nó giúp cho người đọc dễ hình dung và có thể khái quát hóa các khái niệm đang được nghiên cứu.</p>
 
 <h2 id="nguyn-tc-lift">Nguyên tắc LIFT</h2>
 
@@ -247,7 +252,7 @@ views/
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Cấu trúc thư mục với ứng dụng AngularJS&quot;%20/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs%20via%20&#64;taly2808"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Cấu trúc thư mục cho ứng dụng AngularJS&quot;%20/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs%20via%20&#64;taly2808"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>
