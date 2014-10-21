@@ -155,12 +155,32 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Xây dựng cấu trúc thư mục cho ứng dụng AngularJS.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-10-12T00:00:00+07:00" class="post-time" itemprop="datePublished">12 Oct 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">8.26</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">8.45</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
                         <p>Khi bắt đầu xây dựng một ứng dụng AngularJS, có thể bạn không biết chính xác cách thức tổ chức các files, hoặc thậm chí là không biết mình cần những files nào. Trong bài viết này, tôi sẽ trình bày về cách tạo ra một ứng dụng bằng AngularJS và cách tổ chức cấu trúc thư mục với các ứng dụng ở các mức độ khác nhau.</p>
+
+<section>
+  <header>
+    <h2>Nội dung</h2>
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#to-ng-dng-n-gin">Tạo ứng dụng đơn giản</a></li>
+  <li><a href="#typical-struture">Typical Struture</a></li>
+  <li><a href="#nguyn-tc-lift">Nguyên tắc LIFT</a></li>
+  <li><a href="#la-chn-cu-trc-khi-ng-dng-ln-dn-ln">Lựa chọn cấu trúc khi ứng dụng lớn dần lên</a>    <ul>
+      <li><a href="#cu-trc-by-type">Cấu trúc by type</a></li>
+      <li><a href="#cu-trc-by-feature">Cấu trúc by feature</a></li>
+    </ul>
+  </li>
+  <li><a href="#kt-lun">Kết luận</a></li>
+</ul>
+
+  </div>
+</section>
 
 <h2 id="to-ng-dng-n-gin">Tạo ứng dụng đơn giản</h2>
 
@@ -202,7 +222,7 @@ views/
 ----- otherView.html
 ----- index.html</code></pre></div>
 
-<p>Đây là cấu trúc đặc trưng thường thấy. Với cấu trúc này, chúng ta tách riêng từng loại file vào chung một thư mục, controllers có thư mục riêng cho controllers, directives có thư mục riêng cho directives, …. Nó khá giống với cách tổ chức của các MVC framework. Cấu trúc này phù hợp với các ví dụ và các <strong>ứng dụng nhỏ</strong> vì nó giúp cho người đọc dễ hình dung và có thể khái quát hóa các khái niệm đang được nghiên cứu.</p>
+<p>Đây là cấu trúc đặc trưng thường thấy. Với cấu trúc này, chúng ta tách riêng từng loại file vào chung một thư mục, controllers có thư mục riêng cho controllers, directives có thư mục riêng cho directives, …. Nó khá giống với cách tổ chức của các MVC framework. Cấu trúc này phù hợp với các ví dụ và các <strong>ứng dụng nhỏ</strong> và cho những người mới bắt đầu tìm hiểu AngularJS vì nó giúp cho người đọc dễ hình dung và có thể khái quát hóa các khái niệm đang được nghiên cứu.</p>
 
 <h2 id="nguyn-tc-lift">Nguyên tắc LIFT</h2>
 

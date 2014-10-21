@@ -1,0 +1,435 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"s",
+				"src"
+			],
+			[
+				"todo",
+				"todoList"
+			],
+			[
+				"is",
+				"isLogged"
+			],
+			[
+				"un",
+				"uncacheSession"
+			],
+			[
+				"log",
+				"logout"
+			],
+			[
+				"au",
+				"authenticated"
+			],
+			[
+				"se",
+				"sessionStorage"
+			],
+			[
+				"lo",
+				"login"
+			],
+			[
+				"rou",
+				"routeThatRequireAuth"
+			],
+			[
+				"r",
+				"rootScope"
+			],
+			[
+				"d",
+				"DashboardController"
+			],
+			[
+				"at",
+				"AuthenticationService"
+			],
+			[
+				"arr",
+				"array"
+			],
+			[
+				"arra",
+				"array	$… = array (…)"
+			],
+			[
+				"prex",
+				"prefix"
+			],
+			[
+				"loc",
+				"locationProvider"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"com",
+				"commentService"
+			],
+			[
+				"tr",
+				"true"
+			],
+			[
+				"array",
+				"array"
+			],
+			[
+				"fo",
+				"footer	Tag"
+			],
+			[
+				"head",
+				"header	Tag"
+			],
+			[
+				"v",
+				"vm"
+			],
+			[
+				"to",
+				"todos"
+			],
+			[
+				"for",
+				"form	Tag"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"a",
+				"app"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "_posts/2014-10-12-cau-truc-thu-muc-voi-ung-dung-angularjs.md",
+			"settings":
+			{
+				"buffer_size": 4944,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_posts/2014-10-03-xoa-cache-view-trong-laravel-4-voi-artisan-command.md",
+			"settings":
+			{
+				"buffer_size": 2226,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 75.0,
+		"selected_items":
+		[
+			[
+				"Package Control: sn",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 155.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/opt/projects/thapsang.net/thapsang.github.io-source",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts"
+	],
+	"file_history":
+	[
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-05-hieu-ve-migration-va-database-seed-trong-laravel.md",
+		"/opt/angularjs/todo/app/index.html",
+		"/opt/angularjs/todo/app/app.js",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-12-xay-dung-ung-dung-bang-angularjs.md",
+		"/opt/laravel/opentourguide/public/app/libs/angular/angular.min.js.map",
+		"/opt/lampp/htdocs/opentourguide/public/admin/index.html",
+		"/opt/lampp/htdocs/opentourguide/public/js/app.js",
+		"/opt/angularjs/html5-boilerplate/src/index.html",
+		"/opt/lampp/htdocs/opentourguide/public/admin/app.js",
+		"/opt/lampp/htdocs/opentourguide/public/admin/home.html",
+		"/opt/lampp/htdocs/opentourguide/public/admin/templates/navbar-toplink.html",
+		"/opt/lampp/htdocs/opentourguide/app/routes.php",
+		"/opt/lampp/htdocs/opentourguide/public/templates/login.html",
+		"/opt/laravel/end-to-end-with-angularjs/public/js/app.js",
+		"/opt/angularjs/laravel4-angularjs-security/public/app/lib/angular/angular.min.js",
+		"/opt/lampp/htdocs/opentourguide/public/admin/templates/nav.html",
+		"/opt/lampp/htdocs/opentourguide/public/partials/admin/dashboard.html",
+		"/opt/lampp/htdocs/opentourguide/app/controllers/AuthController.php",
+		"/home/taly/Downloads/sb-admin-2/index.html",
+		"/opt/lampp/htdocs/opentourguide/public/js/sb-admin-2.js",
+		"/opt/lampp/htdocs/opentourguide/public/templates/admin/navbar-toplink.html",
+		"/opt/lampp/htdocs/opentourguide/public/templates/admin/nav-sidebar.html",
+		"/opt/lampp/htdocs/opentourguide/public/templates/admin/nav.html",
+		"/opt/lampp/htdocs/opentourguide/public/admin/admin.js",
+		"/opt/lampp/htdocs/opentourguide/public/templates/home.html",
+		"/opt/lampp/htdocs/opentourguide/public/admin.php",
+		"/opt/lampp/htdocs/opentourguide/app/database/seeds/UsersTableSeeder.php",
+		"/opt/laravel/end-to-end-with-angularjs/app/database/seeds/UsersTableSeeder.php",
+		"/opt/lampp/htdocs/opentourguide/app/database/migrations/2014_08_19_031153_create_users_table.php",
+		"/opt/lampp/htdocs/opentourguide/app/database/seeds/CommentTableSeeder.php",
+		"/opt/laravel/laecom/app/database/seeds/UsersTableSeeder.php",
+		"/opt/lampp/htdocs/opentourguide/app/database/seeds/DatabaseSeeder.php",
+		"/opt/lampp/htdocs/opentourguide/app/views/admin.php",
+		"/opt/lampp/htdocs/opentourguide/app/views/index.php",
+		"/opt/laravel/end-to-end-with-angularjs/app/routes.php",
+		"/opt/lampp/htdocs/opentourguide/public/login.html",
+		"/opt/angularjs/angular-seed/app/app.js",
+		"/opt/angularjs/angular-seed/app/view1/view1.js",
+		"/opt/angularjs/T0021-airpair-angularjs-tutorial/app/js/main.js",
+		"/opt/laravel/end-to-end-with-angularjs/README.md",
+		"/opt/laravel/tutorial-laravel-4-e-commerce/app/views/index.blade.php",
+		"/opt/laravel/tutorial-laravel-4-e-commerce/public/index.php",
+		"/opt/lampp/htdocs/opentourguide/app/config/database.php",
+		"/opt/lampp/htdocs/opentourguide/public/js/mainCtrl.js",
+		"/opt/lampp/htdocs/opentourguide/public/js/commentService.js",
+		"/opt/laravel/laravel-angular-comment-app/app/routes.php",
+		"/opt/lampp/htdocs/opentourguide/public/js/app.config.js",
+		"/opt/laravel/laravel-angular-comment-app/app/views/index.php",
+		"/opt/lampp/htdocs/opentourguide/public/index.php",
+		"/opt/lampp/htdocs/opentourguide/app/controllers/CommentController.php",
+		"/opt/lampp/htdocs/opentourguide/app/config/app.php",
+		"/opt/lampp/htdocs/opentourguide/app/config/local/database.php",
+		"/opt/lampp/htdocs/opentourguide/app/start/local.php",
+		"/opt/lampp/htdocs/opentourguide/app/database/migrations/2014_10_14_032614_create_comments_table.php",
+		"/opt/lampp/htdocs/opentourguide/app/models/Comment.php",
+		"/opt/angularjs/T0021-airpair-angularjs-tutorial/app/index.html",
+		"/opt/lampp/htdocs/opentourguide/app/views/layouts/base.blade.php",
+		"/opt/lampp/htdocs/opentourguide/public/js/main.js",
+		"/opt/lampp/htdocs/opentourguide/public/css/main.css",
+		"/opt/lampp/htdocs/opentourguide/app/views/includes/header.html",
+		"/opt/lampp/htdocs/opentourguide/app/views/abc.php",
+		"/opt/lampp/htdocs/opentourguide/app/views/includes/head.php",
+		"/opt/lampp/htdocs/opentourguide/app/views/hello.php",
+		"/opt/lampp/htdocs/opentourguide/app/views/includes/footer.blade.php",
+		"/opt/lampp/htdocs/opentourguide/app/views/register/index.blade.php",
+		"/opt/laravel/laravel-angular-comment-app/app/config/database.php",
+		"/opt/lampp/htdocs/opentourguide/composer.json",
+		"/opt/angularjs/T0021-airpair-angularjs-tutorial/index.html",
+		"/opt/angularjs/ng-modern-business/index.html",
+		"/opt/angularjs/ng-modern-business/package.json",
+		"/opt/angularjs/ng-modern-business/bower.json",
+		"/home/taly/Downloads/modern-business/index.html",
+		"/opt/angularjs/todo/app/app.css",
+		"/opt/angularjs/angular-seed/app/index.html",
+		"/opt/angularjs/todo/app.js",
+		"/opt/angularjs/angular-seed/app/view2/view2.html",
+		"/opt/angularjs/angular-seed/app/view1/view1.html",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-05-tao-du-lieu-voi-database-seeding.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-12-xay-dung-ung-dung-bang-angularjs.md"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"csrf"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "_posts/2014-10-12-cau-truc-thu-muc-voi-ung-dung-angularjs.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4944,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								662,
+								662
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "_posts/2014-10-03-xoa-cache-view-trong-laravel-4-voi-artisan-command.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2226,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1010,
+								1010
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 170.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "thapsang.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 250.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

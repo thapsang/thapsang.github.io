@@ -1,19 +1,19 @@
 [
 	
 		{
+		  "title"      : "Routing trong AngularJS với ngRoute method",
+		  "category"   : "",
+		  "url"        : "/angularjs/single-page-apps-voi-angularjs-routing-va-template",
+		  "date"       : "2014-10-21 00:00:00 +0700",
+		  "shortdate"  : "October 21, 2014"
+		} ,
+	
+		{
 		  "title"      : "Cấu trúc thư mục cho ứng dụng AngularJS",
 		  "category"   : "",
 		  "url"        : "/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs",
 		  "date"       : "2014-10-12 00:00:00 +0700",
 		  "shortdate"  : "October 12, 2014"
-		} ,
-	
-		{
-		  "title"      : "Tạo dữ liệu với database seed trong Laravel 4",
-		  "category"   : "",
-		  "url"        : "/laravel/tao-du-lieu-voi-database-seeding",
-		  "date"       : "2014-10-05 00:00:00 +0700",
-		  "shortdate"  : "October 05, 2014"
 		} ,
 	
 		{
