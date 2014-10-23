@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"ta",
+				"target	Attr"
+			],
+			[
 				"s",
 				"src"
 			],
@@ -120,18 +124,10 @@
 	"buffers":
 	[
 		{
-			"file": "_posts/2014-10-12-cau-truc-thu-muc-voi-ung-dung-angularjs.md",
+			"file": "_posts/2014-10-21-single-page-apps-voi-angularjs-routing-va-template.md",
 			"settings":
 			{
-				"buffer_size": 4944,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_posts/2014-10-03-xoa-cache-view-trong-laravel-4-voi-artisan-command.md",
-			"settings":
-			{
-				"buffer_size": 2226,
+				"buffer_size": 6580,
 				"line_ending": "Unix"
 			}
 		}
@@ -174,12 +170,17 @@
 	"expanded_folders":
 	[
 		"/opt/projects/thapsang.net/thapsang.github.io-source",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts"
 	],
 	"file_history":
 	[
-		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-05-hieu-ve-migration-va-database-seed-trong-laravel.md",
+		"/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-10-theme-elements.md",
 		"/opt/angularjs/todo/app/index.html",
+		"/home/taly/Desktop/dongdiemthuy-blog/_posts/2014-10-19-controller-trong-angularjs.md",
+		"/home/taly/Desktop/dongdiemthuy-blog/_posts/2014-09-30-su-dung-javadoc-va-maven-de-tao-tai-lieu-du-an.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-03-xoa-cache-view-trong-laravel-4-voi-artisan-command.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-05-hieu-ve-migration-va-database-seed-trong-laravel.md",
 		"/opt/angularjs/todo/app/app.js",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-12-xay-dung-ung-dung-bang-angularjs.md",
 		"/opt/laravel/opentourguide/public/app/libs/angular/angular.min.js.map",
@@ -274,6 +275,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			".\n",
 			"csrf"
 		],
 		"highlight": true,
@@ -292,24 +294,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "_posts/2014-10-12-cau-truc-thu-muc-voi-ung-dung-angularjs.md",
+					"file": "_posts/2014-10-21-single-page-apps-voi-angularjs-routing-va-template.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4944,
+						"buffer_size": 6580,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								662,
-								662
+								5941,
+								5941
 							]
 						],
 						"settings":
@@ -317,35 +319,7 @@
 							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "_posts/2014-10-03-xoa-cache-view-trong-laravel-4-voi-artisan-command.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2226,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1010,
-								1010
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 170.0,
+						"translation.y": 1887.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

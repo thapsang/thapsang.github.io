@@ -18,7 +18,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Routing trong AngularJS với ngRoute method">
 <meta property="og:description" content="Xây dựng ứng dụng SPA với AngularJS Routing và Templating.">
-<meta property="og:url" content="/angularjs/single-page-apps-voi-angularjs-routing-va-template">
+<meta property="og:url" content="/angularjs/routing-trong-angularjs-voi-ngRoute-method">
 <meta property="og:site_name" content="THAPSANG.NET">
 <meta property="og:image" content="/images/picture-2.jpg">
 
@@ -26,7 +26,7 @@
 
 
 
-<link rel="canonical" href="/angularjs/single-page-apps-voi-angularjs-routing-va-template">
+<link rel="canonical" href="/angularjs/routing-trong-angularjs-voi-ngRoute-method">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="THAPSANG.NET Feed">
 <link rel="author" href="https://plus.google.com/+TaLy2808?rel=author">
 
@@ -155,12 +155,13 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Xây dựng ứng dụng SPA với AngularJS Routing và Templating.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-10-21T00:00:00+07:00" class="post-time" itemprop="datePublished">21 Oct 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">5.57</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">10.44</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Phát triển các ứng dụng Single Page Applications với các views khác nhau thì việc định tuyến (routing) là điều hẳn nhiên phải có. Routing trong AngularJS có thể được sử dụng với module <a href="https://docs.angularjs.org/api/ngRoute">ngRoute</a> hoặc sử dụng <a href="https://github.com/angular-ui/ui-router">UI Route</a>. Trong bài viết này, tôi sẽ sử dụng routing của module <strong>ngRoute</strong>.</p>
+                        <p>Các ứng dụng Single Page ngày càng trở nên phổ biến. Khi ứng dụng của chúng ta lớn dần, việc đặt tất cả các views vào trong một file sẽ khiến chúng ta rất khó quản lý. Việc chia nhỏ chúng vào trong Views và sử dụng Routing để tải các phần khác nhau của ứng dụng giúp chúng ta phân chia ứng dụng hợp lý và quản lý dễ dàng hơn.
+Routing trong AngularJS có thể được sử dụng với module <a href="https://docs.angularjs.org/api/ngRoute">ngRoute</a> hoặc sử dụng <a href="https://github.com/angular-ui/ui-router">UI Route</a>. Trong bài viết này, tôi sẽ sử dụng routing của module <strong>ngRoute</strong>. Chúng ta sẽ tìm hiểu cách thức chia nhỏ một SPA thành nhiều views như thế nào.</p>
 
 <section>
   <header>
@@ -168,23 +169,43 @@
   </header>
 <div id="drawer">
 <ul id="markdown-toc">
-  <li><a href="#ng-dng-n-gin">Ứng dụng đơn giản</a></li>
-  <li><a href="#cu-trc-th-mc">Cấu trúc thư mục</a></li>
-  <li><a href="#html">HTML</a></li>
-  <li><a href="#cu-hnh-routes-v-views">Cấu hình Routes và Views</a></li>
+  <li><a href="#gii-thiu-v-routeprovider">Giới thiệu về $routeProvider</a>    <ul>
+      <li><a href="#ng-dng-n-gin">Ứng dụng đơn giản</a></li>
+      <li><a href="#cu-trc-th-mc">Cấu trúc thư mục</a></li>
+      <li><a href="#html">HTML</a></li>
+      <li><a href="#cu-hnh-routes-v-views">Cấu hình Routes và Views</a></li>
+      <li><a href="#thm-cc-file-templates-html">Thêm các file templates HTML</a></li>
+    </ul>
+  </li>
+  <li><a href="#cch-thc-truyn-tham-s-vo-trong-route-urls">Cách thức truyền tham số vào trong Route Urls</a></li>
+  <li><a href="#ti-liu-tham-kho">Tài liệu tham khảo</a></li>
 </ul>
 
   </div>
 </section>
 
-<p class="text-center"><a class="btn btn-info btn-large" href="http://plnkr.co/edit/tVKCg2gr1VlA3ickPBTN?p=preview"><span class="fa fa-code"></span> View Code</a>
-<a class="btn btn-success btn-large" href="http://embed.plnkr.co/tVKCg2gr1VlA3ickPBTN/">View Demo</a></p>
+<h2 id="gii-thiu-v-routeprovider">Giới thiệu về $routeProvider</h2>
 
-<h2 id="ng-dng-n-gin">Ứng dụng đơn giản</h2>
+<p>Sự kỳ diệu của Routing được thực hiện bởi một service provider do Angular cung cấp có tên là <code>$routeProvider</code>. Một <code>Angular's service</code> là một đối tượng đơn nhất (singleton object) được tạo ra bởi một service factory. Các service factory này do một service provider tạo ra. Các service providers là các hàm cấu tử (constructror functions). Khi tạo đối tượng, chúng phải chứa một thuộc tính $get để nắm giữ các service factory function. Để hiểu rõ hơn về các khái niệm trên, bạn có thể tham khảo bài viết <a href="http://acegik.net/blog/javascript/angularjs/tong-quan-ve-dependency-injection-trong-angularjs-p2.html">Tổng quan về Dependency Injection trong AngularJS</a>.</p>
 
-<p>Để dễ hình dung, chúng ta sẽ xây dựng một site đơn giản với ba trang: home, about, contact. Chúng ta sẽ xây dựng site này trên một trang, nội dung các trang sẽ thay đổi tương ứng nhưng trình duyệt không cần reload. AngularJS cho phép xây dựng các ứng dụng nhiều chức năng hơn, nhưng trong ví dụ này, tôi sẽ trình bày những thứ chúng ta cần để có thể phát triển các ứng dụng lớn hơn.</p>
+<p>Định tuyến ứng dụng trong AngularJS được khai báo thông qua <code>$routeProvider</code>. $routeProvider là nhà cung cấp các dịch vụ <code>$route</code>. Dịch vụ này cho phép kết nối các controllers, view templates và các địa chỉ URL hiện tại trên trình duyệt lại với nhau một cách dễ dàng. Với tính năng này, chúng ta có thể thực hiện các liên kết sâu trên trình duyệt  - <a href="http://en.wikipedia.org/wiki/Deep_linking">deep linking</a> - để sử dụng lịch sử của trình duyệt và đánh dấu (bookmark).</p>
 
-<h2 id="cu-trc-th-mc">Cấu trúc thư mục</h2>
+<h3 id="ng-dng-n-gin">Ứng dụng đơn giản</h3>
+
+<p class="text-center"><a class="btn btn-info btn-large" href="http://plnkr.co/edit/tVKCg2gr1VlA3ickPBTN?p=preview" target="_blank"><span class="fa fa-code"></span> View Code</a>
+<a class="btn btn-success btn-large" href="http://embed.plnkr.co/tVKCg2gr1VlA3ickPBTN/" target="_blank">View Demo</a></p>
+
+<p>Để dễ hình dung, chúng ta sẽ xây dựng một site đơn giản với ba trang: home, about, contact. Chúng ta sẽ xây dựng site này trên một trang, nội dung các trang sẽ thay đổi tương ứng mà không cần refresh trình duyệt. AngularJS cho phép xây dựng các ứng dụng nhiều chức năng hơn, nhưng trong ví dụ này, tôi sẽ trình bày những thứ chúng ta cần để có thể phát triển các ứng dụng lớn hơn.</p>
+
+<p>Routing giúp chúng ta chia nhỏ ứng dụng của mình thành các views một cách logic và móc nối các views khác nhau với các Controller tương ứng.</p>
+
+<figure>
+	<a href="https://docs.google.com/drawings/d/1WQWuJ2UnLI6hcZHM2CXQ0BRjNEqqqXNeGLgJz-vv5EM/pub?w=480&amp;h=360"><img src="https://docs.google.com/drawings/d/1WQWuJ2UnLI6hcZHM2CXQ0BRjNEqqqXNeGLgJz-vv5EM/pub?w=960&amp;h=720" /></a>
+</figure>
+
+<p>Trong sơ đồ trên, chúng ta tạo ra ba Route url: /home, /about, và /contact. Mỗi route sẽ sử dụng một view cụ thể và được quản lý bởi một controller.</p>
+
+<h3 id="cu-trc-th-mc">Cấu trúc thư mục</h3>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">index.html
 script.js
@@ -193,115 +214,73 @@ pages/
 ---- about.html
 ---- contact.html</code></pre></div>
 
-<h2 id="html">HTML</h2>
+<h3 id="html">HTML</h3>
 
 <p>Trong ví dụ này, tôi sử dụng CSS Framework <a href="http://getbootstrap.com/">Twitter Bootstrap</a> và <a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome</a>. Từ phiên bản Angular1.2, <code>ngRoute</code> được tách riêng thành một module, do đó chúng ta cần có lời gọi đến nó trong phần header. Và chúng ta phải có các chỉ thị lệnh (directive) của Angular (<code>ng-app</code>). Nội dung file <code>index.html</code> như sau:</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno"> 1</span> <span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="lineno"> 2</span> <span class="nt">&lt;html</span> <span class="na">ng-app=</span><span class="s">&quot;spaApp&quot;</span><span class="nt">&gt;</span>
-<span class="lineno"> 3</span> 
-<span class="lineno"> 4</span> <span class="nt">&lt;head&gt;</span>
-<span class="lineno"> 5</span>   <span class="nt">&lt;title&gt;</span>Simple SPA<span class="nt">&lt;/title&gt;</span>
-<span class="lineno"> 6</span>   <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css&quot;</span> <span class="nt">/&gt;</span>
-<span class="lineno"> 7</span>   <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css&quot;</span> <span class="nt">/&gt;</span>
-<span class="lineno"> 8</span> 
-<span class="lineno"> 9</span>   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://code.angularjs.org/1.2.25/angular.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="lineno">10</span>   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://code.angularjs.org/1.2.25/angular-route.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="lineno">11</span>   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;script.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="lineno">12</span> <span class="nt">&lt;/head&gt;</span>
-<span class="lineno">13</span> 
-<span class="lineno">14</span> <span class="nt">&lt;body&gt;</span>
-<span class="lineno">15</span>   <span class="nt">&lt;header&gt;</span>
-<span class="lineno">16</span>     <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">&quot;navbar navbar-default&quot;</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">17</span>       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container-fluid&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">18</span> 
-<span class="lineno">19</span>         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navbar-header&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">20</span>           <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Simple Routing<span class="nt">&lt;/a&gt;</span>
-<span class="lineno">21</span>         <span class="nt">&lt;/div&gt;</span>
-<span class="lineno">22</span> 
-<span class="lineno">23</span>         <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav navbar-nav nav-right&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">24</span>           <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#home&quot;</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">&quot;fa fa-home&quot;</span><span class="nt">&gt;&lt;/i&gt;</span> Home<span class="nt">&lt;/a&gt;</span>
-<span class="lineno">25</span>           <span class="nt">&lt;/li&gt;</span>
-<span class="lineno">26</span>           <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#about&quot;</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">&quot;fa fa-shield&quot;</span><span class="nt">&gt;&lt;/i&gt;</span> About<span class="nt">&lt;/a&gt;</span>
-<span class="lineno">27</span>           <span class="nt">&lt;/li&gt;</span>
-<span class="lineno">28</span>           <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#contact&quot;</span><span class="nt">&gt;&lt;i</span> <span class="na">class=</span><span class="s">&quot;fa fa-envelope&quot;</span><span class="nt">&gt;&lt;/i&gt;</span> Contact<span class="nt">&lt;/a&gt;</span>
-<span class="lineno">29</span>           <span class="nt">&lt;/li&gt;</span>
-<span class="lineno">30</span>         <span class="nt">&lt;/ul&gt;</span>
-<span class="lineno">31</span>       <span class="nt">&lt;/div&gt;</span>
-<span class="lineno">32</span>     <span class="nt">&lt;/nav&gt;</span>
-<span class="lineno">33</span>   <span class="nt">&lt;/header&gt;</span>
-<span class="lineno">34</span> 
-<span class="lineno">35</span>   <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">36</span>     <span class="nt">&lt;div</span> <span class="na">ng-view</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="lineno">37</span>   <span class="nt">&lt;/div&gt;</span>
-<span class="lineno">38</span> 
-<span class="lineno">39</span> <span class="nt">&lt;/body&gt;</span>
-<span class="lineno">40</span> 
-<span class="lineno">41</span> <span class="nt">&lt;/html&gt;</span></code></pre></div>
+<script src="https://gist.github.com/taly2808/0376169f72e2d37ae3de.js"></script>
 
 <p>Trong đường link dẫn đến các trang, chúng ta sử dụng dấu <code>#</code> (hash addres) để trình duyệt không chuyển đến trang home.html, about.html, contact.html. Và trong nội dung của thẻ div có <code>id="main"</code>, chúng ta cần thêm thẻ div với chỉ thị lệnh <code>ng-view</code> để include template của các route (/home, /about, /contact) trong file layout chính (<code>index.html</code>).</p>
 
-<h2 id="cu-hnh-routes-v-views">Cấu hình Routes và Views</h2>
+<h3 id="cu-hnh-routes-v-views">Cấu hình Routes và Views</h3>
+<p>Chúng ta định nghĩa một ứng dụng angular <code>spaApp</code> sử dụng phương thức <code>angular.module</code>. Tiếp đến, chúng ta sử dụng phương thức <code>config()</code> để cấu hình <code>$routeProvider</code>. $routeProvider cung cấp các phương thức <code>when()</code>, <code>otherwise()</code> để định nghĩa các routes trong ứng dụng của chúng ta. Nội dung của file <code>script.js</code> như sau:</p>
 
-<p>Trong file chứa code AngularJS (<code>script.js</code>), chúng ta sử dụng <a href="http://docs.angularjs.org/api/ngRoute.$routeProvider">$routerProvider</a> trong AngularJS để định tuyến. Bằng cách này, mỗi khi có một yêu cầu đến một địa chỉ nào đó, Angular sẽ tìm đến file template tương ứng và bơm chúng vào trong layout chính.</p>
+<script src="https://gist.github.com/taly2808/83d19aa063bf87d4bac2.js"></script>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">//script.js</span>
-<span class="lineno"> 2</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;spaApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ngRoute&#39;</span><span class="p">])</span>
-<span class="lineno"> 3</span>   <span class="p">.</span><span class="nx">config</span><span class="p">([</span><span class="s1">&#39;$routeProvider&#39;</span><span class="p">,</span>
-<span class="lineno"> 4</span>     <span class="kd">function</span><span class="p">(</span><span class="nx">$routeProvider</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno"> 5</span>       <span class="nx">$routeProvider</span>
-<span class="lineno"> 6</span>         <span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s1">&#39;/home&#39;</span><span class="p">,</span> <span class="p">{</span>
-<span class="lineno"> 7</span>           <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;pages/home.html&#39;</span><span class="p">,</span>
-<span class="lineno"> 8</span>           <span class="nx">controller</span><span class="o">:</span> <span class="s1">&#39;HomeController&#39;</span>
-<span class="lineno"> 9</span>         <span class="p">})</span>
-<span class="lineno">10</span>         <span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s1">&#39;/about&#39;</span><span class="p">,</span> <span class="p">{</span>
-<span class="lineno">11</span>           <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;pages/about.html&#39;</span><span class="p">,</span>
-<span class="lineno">12</span>           <span class="nx">controller</span><span class="o">:</span> <span class="s1">&#39;AboutController&#39;</span>
-<span class="lineno">13</span>         <span class="p">})</span>
-<span class="lineno">14</span>         <span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s1">&#39;/contact&#39;</span><span class="p">,</span> <span class="p">{</span>
-<span class="lineno">15</span>           <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;pages/contact.html&#39;</span><span class="p">,</span>
-<span class="lineno">16</span>           <span class="nx">controller</span><span class="o">:</span> <span class="s1">&#39;ContactController&#39;</span>
-<span class="lineno">17</span>         <span class="p">})</span>
-<span class="lineno">18</span>         <span class="p">.</span><span class="nx">otherwise</span><span class="p">({</span>
-<span class="lineno">19</span>           <span class="nx">redirectTo</span><span class="o">:</span> <span class="s1">&#39;/home&#39;</span>
-<span class="lineno">20</span>         <span class="p">});</span>
-<span class="lineno">21</span>     <span class="p">}</span>
-<span class="lineno">22</span>   <span class="p">])</span>
-<span class="lineno">23</span>   <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;HomeController&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">24</span>     <span class="nx">$scope</span><span class="p">.</span><span class="nx">flash</span> <span class="o">=</span> <span class="s1">&#39;Hello world! I am Tweedy bird.&#39;</span><span class="p">;</span>
-<span class="lineno">25</span>     <span class="nx">$scope</span><span class="p">.</span><span class="nx">img</span> <span class="o">=</span> <span class="s1">&#39;http://img2.wikia.nocookie.net/__cb20121120221843/scratchpad/images/thumb/5/54/Tweety.gif/180px-Tweety.gif&#39;</span><span class="p">;</span>
-<span class="lineno">26</span>   <span class="p">})</span>
-<span class="lineno">27</span>   <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;AboutController&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">28</span>     <span class="nx">$scope</span><span class="p">.</span><span class="nx">flash</span> <span class="o">=</span> <span class="s1">&#39;This is about page, hihi!&#39;</span><span class="p">;</span>
-<span class="lineno">29</span>   <span class="p">})</span>
-<span class="lineno">30</span>   <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ContactController&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">31</span>     <span class="nx">$scope</span><span class="p">.</span><span class="nx">flash</span> <span class="o">=</span> <span class="s1">&#39;Contact with me at here!&#39;</span><span class="p">;</span>
-<span class="lineno">32</span>   <span class="p">});</span></code></pre></div>
+<p>Trong kịch bản trên, chúng ta định nghĩa ba urls <code>/home</code>, <code>/about</code> và <code>/contact</code> và ánh xạ chúng tới các views tương ứng <code>pages/home.html</code>, <code>pages/about.html</code> và <code>pages/contact.html</code>. Khi chúng ta nhập vào địa chỉ <code>http:myapp/#home</code> trên trình duyệt, Angular sẽ tự động khớp nó với route mà chúng ta cấu hình và tải template <code>pages/home.html</code>. Sau đó nó gọi đến HomeController xử lý các tác vụ liên quan đến Home View.</p>
 
-<p>Chúng ta có thể thấy, với mỗi route cụ thể, template và controller được sử dụng. Do đó, mỗi phần trong ứng dụng của chúng ta sẽ sử dụng view và controller của riêng nó.</p>
+<p>Chúng ta sử dụng phương thức <code>otherwise()</code> để định nghĩa route mặc định (default route). Trong trường hợp routeProvider không phù hợp với bất kỳ url nào, nó sẽ chuyển đến default route.</p>
 
-<p>Và cuối cùng, chúng ta cần định nghĩa các trang sẽ được bơm vào layout chính.</p>
+<h3 id="thm-cc-file-templates-html">Thêm các file templates HTML</h3>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> // pages/home.html
-<span class="lineno">2</span> <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container-fluid&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">3</span>   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;jumbotron&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">4</span>   <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
-<span class="lineno">5</span>     <span class="nt">&lt;h1&gt;&lt;/h1&gt;</span>
-<span class="lineno">6</span>   <span class="nt">&lt;/div&gt;</span>
-<span class="lineno">7</span> <span class="nt">&lt;/div&gt;</span></code></pre></div>
+<p>Chúng ta cần thêm các file templates sẽ được bơm vào layout chính.</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> // pages/about.html
-<span class="lineno">2</span> <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container-fluid&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">3</span>   <span class="nt">&lt;h2&gt;&lt;/h2&gt;</span>
-<span class="lineno">4</span> <span class="nt">&lt;/div&gt;</span></code></pre></div>
+<p><em>pages/home.html</em>
+<script src="https://gist.github.com/taly2808/0498e77df4156ebbabde.js"></script></p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="lineno">1</span> // pages/contact.html
-<span class="lineno">2</span> <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container-fluid&quot;</span><span class="nt">&gt;</span>
-<span class="lineno">3</span>   <span class="nt">&lt;h3&gt;&lt;/h3&gt;</span>
-<span class="lineno">4</span>   <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">&quot;fa fa-envelope fa-5x fa-spin&quot;</span> <span class="na">style=</span><span class="s">&quot;color: red;&quot;</span><span class="nt">&gt;&lt;/i&gt;</span>
-<span class="lineno">5</span> <span class="nt">&lt;/div&gt;</span></code></pre></div>
+<p><em>pages/about.html</em>
+<script src="https://gist.github.com/taly2808/7b34b8adfac19f4ac538.js"></script></p>
+
+<p><em>pages/contact.html</em>
+<script src="https://gist.github.com/taly2808/a6102a2f6f67654e769e.js"></script></p>
 
 <p><strong>Chạy ứng dụng trên local</strong>: Angular routing chỉ có thể làm việc trong môi trường có web server. Do đó, nếu bạn chạy ứng dụng trên local thì cần chắc chắn rằng bạn sử dụng <code>http://localhost</code> hoặc thiết lập môi trường cho nó.</p>
+
+<h2 id="cch-thc-truyn-tham-s-vo-trong-route-urls">Cách thức truyền tham số vào trong Route Urls</h2>
+
+<p>Trong ví dụ trên, chúng ta đã tìm hiểu cách định nghĩa route. Bây giờ chúng ta sẽ tìm hiểu cách định nghĩa tham số trong route urls.</p>
+
+<p><img src="https://docs.google.com/drawings/d/1Ie7HOi_fo-J2XycDIG3T2JAYmmXw2L7ivfRf_6Qx5ms/pub?w=923&amp;h=194" /></p>
+
+<p>Chúng ta muốn hiển thị chi tiết thông tin của các contact khác nhau. Dựa trên tham số userId, chúng ta sẽ định nghĩa contact detail trên view. Trong Angular, khi định nghĩa route, chúng ta có thể định nghĩa tham số <code>userId</code> trong url. Trong file <code>script.js</code>, chúng ta bổ sung phần định tuyến cho contact detail như sau: </p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s1">&#39;/contact/:userId&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">templateUrl</span><span class="o">:</span> <span class="s1">&#39;pages/contact-detail.html&#39;</span><span class="p">,</span>
+  <span class="nx">controller</span><span class="o">:</span> <span class="s1">&#39;ContactDetailController&#39;</span>
+<span class="p">})</span></code></pre></div>
+
+<p>Và chúng ta đọc tham số này trong ContactDetailController bằng cách sử dụng <code>$routeParams.userId</code>. Khi đó, phần định nghĩa ContactDetailController trong file <code>script.js</code> như sau:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ContactDetailController&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="s1">&#39;$routeParams&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$routeParams</span><span class="p">){</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">userId</span> <span class="o">=</span> <span class="nx">$routeParams</span><span class="p">.</span><span class="nx">userId</span><span class="p">;</span>
+<span class="p">}])</span></code></pre></div>
+
+<p>Lưu ý: chúng ta cần truyền tham số <code>$routeParams</code> vào trong controller, nếu không chúng ta sẽ không thể dùng được nó để lấy tham số truyền vào thông qua url.</p>
+
+<p>Trong file template <code>pages/contact.html</code>, nội dung thay đổi như sau:</p>
+
+<script src="https://gist.github.com/taly2808/6cab4af46d134eed7120.js"></script>
+
+<p>Nội dung của <code>pages/contact-detail.html</code> như sau:</p>
+
+<script src="https://gist.github.com/taly2808/22211dc7315bf948a74c.js"></script>
+
+<h2 id="ti-liu-tham-kho">Tài liệu tham khảo</h2>
+
+<ol>
+  <li><a href="https://docs.angularjs.org/api/ngRoute/provider/$routeProvider">AngularJS’s document on $routeProvider</a></li>
+  <li><a href="https://docs.angularjs.org/tutorial/step_07">AngularJS’s document on Routing &amp; Multiple Views</a></li>
+</ol>
 
                         <br>
                     
@@ -321,19 +300,19 @@ pages/
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Routing trong AngularJS với ngRoute method&quot;%20/angularjs/single-page-apps-voi-angularjs-routing-va-template%20via%20&#64;taly2808"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Routing trong AngularJS với ngRoute method&quot;%20/angularjs/routing-trong-angularjs-voi-ngRoute-method%20via%20&#64;taly2808"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>
         </li>
         <li>
-            <a  href="https://www.facebook.com/sharer/sharer.php?u=/angularjs/single-page-apps-voi-angularjs-routing-va-template"
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=/angularjs/routing-trong-angularjs-voi-ngRoute-method"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
                 <i class="icon-facebook"></i>
             </a>
         </li>
         <li>
-            <a href="https://plus.google.com/share?url=/angularjs/single-page-apps-voi-angularjs-routing-va-template"
+            <a href="https://plus.google.com/share?url=/angularjs/routing-trong-angularjs-voi-ngRoute-method"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
                 <i class="icon-google-plus"></i>
             </a>
