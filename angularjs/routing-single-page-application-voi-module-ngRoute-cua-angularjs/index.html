@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="google-site-verification" content="vy14mO9wf2bjKiZs8BIxCFXKJDP40DqGTqiwxscMctw" />
-<title>Routing trong AngularJS với ngRoute method &#8211; THAPSANG.NET</title>
+<title>Routing Single Page Application với module ngRoute của AngularJS &#8211; THAPSANG.NET</title>
 <meta name="description" content="Xây dựng ứng dụng SPA với AngularJS Routing và Templating.">
 <meta name="keywords" content="ngRoute, angularjs">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/my-candle.png">
-<meta name="twitter:title" content="Routing trong AngularJS với ngRoute method">
+<meta name="twitter:title" content="Routing Single Page Application với module ngRoute của AngularJS">
 <meta name="twitter:description" content="Xây dựng ứng dụng SPA với AngularJS Routing và Templating.">
 <meta name="twitter:creator" content="@taly2808">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Routing trong AngularJS với ngRoute method">
+<meta property="og:title" content="Routing Single Page Application với module ngRoute của AngularJS">
 <meta property="og:description" content="Xây dựng ứng dụng SPA với AngularJS Routing và Templating.">
-<meta property="og:url" content="/angularjs/routing-trong-angularjs-voi-ngRoute-method">
+<meta property="og:url" content="/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs">
 <meta property="og:site_name" content="THAPSANG.NET">
 <meta property="og:image" content="/images/picture-2.jpg">
 
@@ -27,7 +27,7 @@
 
 
 
-<link rel="canonical" href="/angularjs/routing-trong-angularjs-voi-ngRoute-method">
+<link rel="canonical" href="/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="THAPSANG.NET Feed">
 <link rel="author" href="https://plus.google.com/+TaLy2808?rel=author">
 
@@ -151,12 +151,12 @@
                     <header class="post-header entry-header">
                     
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Routing trong AngularJS với ngRoute method</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Routing Single Page Application với module ngRoute của AngularJS</h1>
                         
                         <div class="cursive" style="color: #000; font-style:italic;">Xây dựng ứng dụng SPA với AngularJS Routing và Templating.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-10-21T00:00:00+07:00" class="post-time" itemprop="datePublished">21 Oct 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">10.44</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">11.1</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
@@ -221,7 +221,7 @@ pages/
 
 <script src="https://gist.github.com/taly2808/0376169f72e2d37ae3de.js"></script>
 
-<p>Trong đường link dẫn đến các trang, chúng ta sử dụng dấu <code>#</code> (hash addres) để trình duyệt không chuyển đến trang home.html, about.html, contact.html. Và trong nội dung của thẻ div có <code>id="main"</code>, chúng ta cần thêm thẻ div với chỉ thị lệnh <code>ng-view</code> để include template của các route (/home, /about, /contact) trong file layout chính (<code>index.html</code>).</p>
+<p>Trong đường link dẫn đến các trang, chúng ta sử dụng dấu <code>#</code> (hash address) để trình duyệt không chuyển đến trang home.html, about.html, contact.html. Và trong nội dung của thẻ div có <code>id="main"</code>, chúng ta cần thêm thẻ div với chỉ thị lệnh <code>ng-view</code> để include template của các route (/home, /about, /contact) trong file layout chính (<code>index.html</code>).</p>
 
 <h3 id="cu-hnh-routes-v-views">Cấu hình Routes và Views</h3>
 <p>Chúng ta định nghĩa một ứng dụng angular <code>spaApp</code> sử dụng phương thức <code>angular.module</code>. Tiếp đến, chúng ta sử dụng phương thức <code>config()</code> để cấu hình <code>$routeProvider</code>. $routeProvider cung cấp các phương thức <code>when()</code>, <code>otherwise()</code> để định nghĩa các routes trong ứng dụng của chúng ta. Nội dung của file <code>script.js</code> như sau:</p>
@@ -230,11 +230,11 @@ pages/
 
 <p>Trong kịch bản trên, chúng ta định nghĩa ba urls <code>/home</code>, <code>/about</code> và <code>/contact</code> và ánh xạ chúng tới các views tương ứng <code>pages/home.html</code>, <code>pages/about.html</code> và <code>pages/contact.html</code>. Khi chúng ta nhập vào địa chỉ <code>http:myapp/#home</code> trên trình duyệt, Angular sẽ tự động khớp nó với route mà chúng ta cấu hình và tải template <code>pages/home.html</code>. Sau đó nó gọi đến HomeController xử lý các tác vụ liên quan đến Home View.</p>
 
-<p>Chúng ta sử dụng phương thức <code>otherwise()</code> để định nghĩa route mặc định (default route). Trong trường hợp routeProvider không phù hợp với bất kỳ url nào, nó sẽ chuyển đến default route.</p>
+<p>Chúng ta sử dụng phương thức <code>otherwise()</code> để định nghĩa route mặc định (default route). Trong trường hợp routeProvider gặp url không phù hợp với bất kỳ url nào đã được khai báo, nó sẽ chuyển đến default route.</p>
 
 <h3 id="thm-cc-file-templates-html">Thêm các file templates HTML</h3>
 
-<p>Chúng ta cần thêm các file templates sẽ được bơm vào layout chính.</p>
+<p>Chúng ta cần thêm các file templates, các templates này sẽ được bơm vào layout chính.</p>
 
 <p><em>pages/home.html</em>
 <script src="https://gist.github.com/taly2808/0498e77df4156ebbabde.js"></script></p>
@@ -276,6 +276,8 @@ pages/
 
 <script src="https://gist.github.com/taly2808/22211dc7315bf948a74c.js"></script>
 
+<p>Trong bài viết này, tôi đã đưa ra một ví dụ đơn giản về routing để mọi người có thể định hình được chức năng cơ bản của module <code>ngRoute</code> trong AngularJS. Trong bài <a href="/angularjs/tim-hieu-module-ngRoute-trong-angularjs">Tìm hiểu module ngRoute trong AngularJS</a> chúng ta sẽ đi sâu vào tìm hiểu các thành phần trong module <code>ngRoute</code>.</p>
+
 <h2 id="ti-liu-tham-kho">Tài liệu tham khảo</h2>
 
 <ol>
@@ -301,19 +303,19 @@ pages/
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Routing trong AngularJS với ngRoute method&quot;%20/angularjs/routing-trong-angularjs-voi-ngRoute-method%20via%20&#64;taly2808"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Routing Single Page Application với module ngRoute của AngularJS&quot;%20/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs%20via%20&#64;taly2808"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>
         </li>
         <li>
-            <a  href="https://www.facebook.com/sharer/sharer.php?u=/angularjs/routing-trong-angularjs-voi-ngRoute-method"
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
                 <i class="icon-facebook"></i>
             </a>
         </li>
         <li>
-            <a href="https://plus.google.com/share?url=/angularjs/routing-trong-angularjs-voi-ngRoute-method"
+            <a href="https://plus.google.com/share?url=/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
                 <i class="icon-google-plus"></i>
             </a>

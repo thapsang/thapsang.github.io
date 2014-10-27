@@ -156,12 +156,12 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Chi tiết các thành phần trong module ngRoute.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-10-23T00:00:00+07:00" class="post-time" itemprop="datePublished">23 Oct 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">8.17</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">8.76</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p><a href="https://docs.angularjs.org/api/ngRoute">ngRoute</a> là một module trong AngularJS cung cấp dịch vụ định tuyến (routing), <a href="http://en.wikipedia.org/wiki/Deep_linking">deep linking</a> và các chỉ thị lệnh (directives) cho các ứng dụng angular. Trong nội dung bài này, tôi sẽ đi vào tìm hiểu chi tiết về các thành phần <strong>provider</strong>, <strong>services</strong> và <strong>ngView directive</strong> trong module ngRoute.</p>
+                        <p><a href="https://docs.angularjs.org/api/ngRoute">ngRoute</a> là một module trong AngularJS cung cấp dịch vụ định tuyến (routing), <a href="http://en.wikipedia.org/wiki/Deep_linking">deep linking</a> và các chỉ thị lệnh (directives) cho các ứng dụng angular. Trong <a href="/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs">bài trước</a>, chúng ta đã có một ví dụ đơn giản về routing trong SPA với AngularJS. Trong nội dung bài này, chúng ta sẽ đi vào tìm hiểu chi tiết về các thành phần <strong>provider</strong>, <strong>services</strong> và <strong>ngView directive</strong> trong module ngRoute.</p>
 
 <section>
   <header>
@@ -202,7 +202,7 @@
 
 <p><a href="https://docs.angularjs.org/api/ngRoute/directive/ngView">ngView</a> là một chỉ thị lệnh (directive) bổ sung cho $route service bằng cách bao gồm các template đã được biểu diễn (rendered) của route hiện tại (current route) vào trong file layout chính (thường là index.html). Mỗi lần thay đổi current route, view đi kèm với nó cũng thay đổi theo phù hợp với cấu hình của $route service.</p>
 
-<p>Trong ứng dụng angular, chúng ta cần định nghĩa <code>ngView</code> directive một lần. Đây là phần giữ chỗ cho các views. Có ba cách để định nghĩa ngView trong file html chính như sau:</p>
+<p>Trong ứng dụng angular, chúng ta cần định nghĩa <code>ngView</code> directive <strong>một lần</strong>. Đây là phần giữ chỗ cho các views. Có ba cách để định nghĩa ngView trong file html chính như sau:</p>
 
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">ng-view</span><span class="nt">&gt;&lt;/div&gt;</span> 		// as attribute
 ...
@@ -210,11 +210,13 @@
 ...
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;ng-view&quot;</span><span class="nt">&gt;&lt;/div&gt;</span> 	// as CSS class</code></pre></div>
 
+<p><strong>Lưu ý</strong>: Trong toàn bộ một ứng dụng SPA, <code>ngView</code> directive <strong>chỉ được sử dụng duy nhất một lần</strong>.</p>
+
 <h2 id="routeprovider-provider">$routeProvider provider</h2>
 
-<p>Trong ứng dụng angularjs, các provider được bơm vào (inject) trong hàm <strong>config()</strong>. Khi $routeProvider được khai báo, chúng ta có thể sử dụng các service mà nó cung cấp là $route service để định tuyến.</p>
+<p>Trong ứng dụng angularjs, các provider được bơm vào (inject) trong hàm <strong>config()</strong>. Khi $routeProvider được khai báo, chúng ta có thể sử dụng các service mà nó cung cấp là <code>$route</code> service và <code>$routeParams</code> service để định tuyến.</p>
 
-<p>$routeProvider sử dụng phương thức <code>$routeProvider.when()</code> để khớp một mấu hình (pattern) URL với một view và phương thức <code>$routeProvider.otherwise()</code> để trả lại một view khi current url không khớp với bất kỳ mẫu hình URL nào được đưa ra.</p>
+<p>$routeProvider sử dụng phương thức <code>$routeProvider.when()</code> để khớp một mẫu hình (pattern) URL với một view và phương thức <code>$routeProvider.otherwise()</code> để trả lại một view khi current url không khớp với bất kỳ mẫu hình URL nào được đưa ra.</p>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ngRoute&#39;</span><span class="p">])</span>
   <span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$routeProvider</span><span class="p">)</span> <span class="p">{</span>
@@ -243,7 +245,7 @@
 <p><strong>route</strong> là một đối tượng Javascript, nó bao gồm các thuộc tính sau:</p>
 
 <ul>
-  <li><strong>templateUrl</strong>: là một đường dẫn (path) hoặc một function trả về một đường dẫn đến một template html. Ví dụ:</li>
+  <li><strong>templateUrl</strong>: là một đường dẫn (path) hoặc một function trả về một đường dẫn đến một template html. Và đường dẫn này là đường dẫn tương đối so với file layout chính (index.html). Ví dụ:</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;myApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ngRoute&#39;</span><span class="p">])</span>
@@ -300,9 +302,9 @@
   <span class="nx">$routeProvider</span>
     <span class="p">.</span><span class="nx">when</span><span class="p">(</span><span class="s1">&#39;/author/:authorName/books/:bookId&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nx">redirectTo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">routeParams</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">search</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// &lt;------- is function</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="nx">routeParams</span><span class="p">);</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="nx">search</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">routeParams</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">search</span><span class="p">);</span>
         <span class="k">return</span> <span class="s1">&#39;/author/&#39;</span> <span class="o">+</span> <span class="nx">routeParams</span><span class="p">.</span><span class="nx">authorName</span><span class="p">;</span>
       <span class="p">}</span>
     <span class="p">})</span>

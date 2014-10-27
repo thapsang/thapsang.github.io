@@ -4,6 +4,110 @@
 		"selected_items":
 		[
 			[
+				"se",
+				"search"
+			],
+			[
+				"l",
+				"location"
+			],
+			[
+				"ph",
+				"phương"
+			],
+			[
+				"f",
+				"figure"
+			],
+			[
+				"pa",
+				"path"
+			],
+			[
+				"routeP",
+				"routeParams"
+			],
+			[
+				"m",
+				"một"
+			],
+			[
+				"te",
+				"templateUrl"
+			],
+			[
+				"tem",
+				"template"
+			],
+			[
+				"khi",
+				"khiển"
+			],
+			[
+				"ho",
+				"hoặc"
+			],
+			[
+				"bo",
+				"bookId"
+			],
+			[
+				"re",
+				"redirectTo"
+			],
+			[
+				"c",
+				"controller"
+			],
+			[
+				"ro",
+				"route"
+			],
+			[
+				"th",
+				"thức"
+			],
+			[
+				"ng",
+				"ngRoute"
+			],
+			[
+				"angu",
+				"angular"
+			],
+			[
+				"cu",
+				"current"
+			],
+			[
+				"ser",
+				"services"
+			],
+			[
+				"pr",
+				"provider"
+			],
+			[
+				"ch",
+				"chúng"
+			],
+			[
+				"tr",
+				"Trong"
+			],
+			[
+				"và",
+				"vào"
+			],
+			[
+				"đ",
+				"được"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
 				"ta",
 				"target	Attr"
 			],
@@ -30,10 +134,6 @@
 			[
 				"au",
 				"authenticated"
-			],
-			[
-				"se",
-				"sessionStorage"
 			],
 			[
 				"lo",
@@ -80,10 +180,6 @@
 				"commentService"
 			],
 			[
-				"tr",
-				"true"
-			],
-			[
 				"array",
 				"array"
 			],
@@ -124,10 +220,26 @@
 	"buffers":
 	[
 		{
-			"file": "_posts/2014-10-21-single-page-apps-voi-angularjs-routing-va-template.md",
+			"file": "_posts/2014-10-23-tim-hieu-module-ngRoute-trong-angularjs.md",
 			"settings":
 			{
-				"buffer_size": 6580,
+				"buffer_size": 6254,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_posts/2014-10-21-routing-trong-angularjs-voi-ngRoute-method.md",
+			"settings":
+			{
+				"buffer_size": 7939,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-10-theme-elements.md",
+			"settings":
+			{
+				"buffer_size": 8684,
 				"line_ending": "Unix"
 			}
 		}
@@ -170,11 +282,15 @@
 	"expanded_folders":
 	[
 		"/opt/projects/thapsang.net/thapsang.github.io-source",
-		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts"
 	],
 	"file_history":
 	[
+		"/home/taly/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/opt/laravel/opentourguide/public/app/js/app.js",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/assets/css/style.css",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/index.html",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/head.html",
 		"/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-10-theme-elements.md",
 		"/opt/angularjs/todo/app/index.html",
 		"/home/taly/Desktop/dongdiemthuy-blog/_posts/2014-10-19-controller-trong-angularjs.md",
@@ -261,7 +377,7 @@
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -275,6 +391,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"  -",
+			"tab_size",
 			".\n",
 			"csrf"
 		],
@@ -299,19 +417,48 @@
 			[
 				{
 					"buffer": 0,
-					"file": "_posts/2014-10-21-single-page-apps-voi-angularjs-routing-va-template.md",
+					"file": "_posts/2014-10-23-tim-hieu-module-ngRoute-trong-angularjs.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6580,
+						"buffer_size": 6254,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5941,
-								5941
+								5831,
+								5831
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"tab_size": 4
+						},
+						"translation.x": 0.0,
+						"translation.y": 2543.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "_posts/2014-10-21-routing-trong-angularjs-voi-ngRoute-method.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7939,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3015,
+								3015
 							]
 						],
 						"settings":
@@ -319,10 +466,40 @@
 							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1887.0,
+						"translation.y": 663.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-10-theme-elements.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8684,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								932,
+								932
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 357.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]

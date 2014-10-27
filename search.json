@@ -9,9 +9,9 @@
 		} ,
 	
 		{
-		  "title"      : "Routing trong AngularJS với ngRoute method",
+		  "title"      : "Routing Single Page Application với module ngRoute của AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/routing-trong-angularjs-voi-ngRoute-method",
+		  "url"        : "/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs",
 		  "date"       : "2014-10-21 00:00:00 +0700",
 		  "shortdate"  : "October 21, 2014"
 		} ,

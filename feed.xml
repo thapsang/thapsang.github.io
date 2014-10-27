@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-10-25T07:17:30+07:00</updated>
+<updated>2014-10-27T10:39:49+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -24,7 +24,7 @@
     <uri></uri>
     <email>taly2808@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ngRoute&quot;&gt;ngRoute&lt;/a&gt; là một module trong AngularJS cung cấp dịch vụ định tuyến (routing), &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_linking&quot;&gt;deep linking&lt;/a&gt; và các chỉ thị lệnh (directives) cho các ứng dụng angular. Trong nội dung bài này, tôi sẽ đi vào tìm hiểu chi tiết về các thành phần &lt;strong&gt;provider&lt;/strong&gt;, &lt;strong&gt;services&lt;/strong&gt; và &lt;strong&gt;ngView directive&lt;/strong&gt; trong module ngRoute.&lt;/p&gt;
+  <content type="html">&lt;p&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ngRoute&quot;&gt;ngRoute&lt;/a&gt; là một module trong AngularJS cung cấp dịch vụ định tuyến (routing), &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_linking&quot;&gt;deep linking&lt;/a&gt; và các chỉ thị lệnh (directives) cho các ứng dụng angular. Trong &lt;a href=&quot;/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs&quot;&gt;bài trước&lt;/a&gt;, chúng ta đã có một ví dụ đơn giản về routing trong SPA với AngularJS. Trong nội dung bài này, chúng ta sẽ đi vào tìm hiểu chi tiết về các thành phần &lt;strong&gt;provider&lt;/strong&gt;, &lt;strong&gt;services&lt;/strong&gt; và &lt;strong&gt;ngView directive&lt;/strong&gt; trong module ngRoute.&lt;/p&gt;
 
 &lt;section&gt;
   &lt;header&gt;
@@ -65,7 +65,7 @@
 
 &lt;p&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ngRoute/directive/ngView&quot;&gt;ngView&lt;/a&gt; là một chỉ thị lệnh (directive) bổ sung cho $route service bằng cách bao gồm các template đã được biểu diễn (rendered) của route hiện tại (current route) vào trong file layout chính (thường là index.html). Mỗi lần thay đổi current route, view đi kèm với nó cũng thay đổi theo phù hợp với cấu hình của $route service.&lt;/p&gt;
 
-&lt;p&gt;Trong ứng dụng angular, chúng ta cần định nghĩa &lt;code&gt;ngView&lt;/code&gt; directive một lần. Đây là phần giữ chỗ cho các views. Có ba cách để định nghĩa ngView trong file html chính như sau:&lt;/p&gt;
+&lt;p&gt;Trong ứng dụng angular, chúng ta cần định nghĩa &lt;code&gt;ngView&lt;/code&gt; directive &lt;strong&gt;một lần&lt;/strong&gt;. Đây là phần giữ chỗ cho các views. Có ba cách để định nghĩa ngView trong file html chính như sau:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-view&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt; 		// as attribute
 ...
@@ -73,11 +73,13 @@
 ...
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;ng-view&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt; 	// as CSS class&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;strong&gt;Lưu ý&lt;/strong&gt;: Trong toàn bộ một ứng dụng SPA, &lt;code&gt;ngView&lt;/code&gt; directive &lt;strong&gt;chỉ được sử dụng duy nhất một lần&lt;/strong&gt;.&lt;/p&gt;
+
 &lt;h2 id=&quot;routeprovider-provider&quot;&gt;$routeProvider provider&lt;/h2&gt;
 
-&lt;p&gt;Trong ứng dụng angularjs, các provider được bơm vào (inject) trong hàm &lt;strong&gt;config()&lt;/strong&gt;. Khi $routeProvider được khai báo, chúng ta có thể sử dụng các service mà nó cung cấp là $route service để định tuyến.&lt;/p&gt;
+&lt;p&gt;Trong ứng dụng angularjs, các provider được bơm vào (inject) trong hàm &lt;strong&gt;config()&lt;/strong&gt;. Khi $routeProvider được khai báo, chúng ta có thể sử dụng các service mà nó cung cấp là &lt;code&gt;$route&lt;/code&gt; service và &lt;code&gt;$routeParams&lt;/code&gt; service để định tuyến.&lt;/p&gt;
 
-&lt;p&gt;$routeProvider sử dụng phương thức &lt;code&gt;$routeProvider.when()&lt;/code&gt; để khớp một mấu hình (pattern) URL với một view và phương thức &lt;code&gt;$routeProvider.otherwise()&lt;/code&gt; để trả lại một view khi current url không khớp với bất kỳ mẫu hình URL nào được đưa ra.&lt;/p&gt;
+&lt;p&gt;$routeProvider sử dụng phương thức &lt;code&gt;$routeProvider.when()&lt;/code&gt; để khớp một mẫu hình (pattern) URL với một view và phương thức &lt;code&gt;$routeProvider.otherwise()&lt;/code&gt; để trả lại một view khi current url không khớp với bất kỳ mẫu hình URL nào được đưa ra.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myApp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ngRoute&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$routeProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -106,7 +108,7 @@
 &lt;p&gt;&lt;strong&gt;route&lt;/strong&gt; là một đối tượng Javascript, nó bao gồm các thuộc tính sau:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;templateUrl&lt;/strong&gt;: là một đường dẫn (path) hoặc một function trả về một đường dẫn đến một template html. Ví dụ:&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;templateUrl&lt;/strong&gt;: là một đường dẫn (path) hoặc một function trả về một đường dẫn đến một template html. Và đường dẫn này là đường dẫn tương đối so với file layout chính (index.html). Ví dụ:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myApp&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ngRoute&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
@@ -163,9 +165,9 @@
   &lt;span class=&quot;nx&quot;&gt;$routeProvider&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;when&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/author/:authorName/books/:bookId&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;nx&quot;&gt;redirectTo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;routeParams&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// &amp;lt;------- is function&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;routeParams&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;routeParams&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/author/&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;routeParams&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;authorName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
@@ -198,9 +200,9 @@
 
 
 <entry>
-  <title type="html"><![CDATA[Routing trong AngularJS với ngRoute method]]></title>
-  <link>/angularjs/routing-trong-angularjs-voi-ngRoute-method</link>
-  <id>/angularjs/routing-trong-angularjs-voi-ngRoute-method</id>
+  <title type="html"><![CDATA[Routing Single Page Application với module ngRoute của AngularJS]]></title>
+  <link>/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</link>
+  <id>/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</id>
   <published>2014-10-21T00:00:00+07:00</published>
   <updated>2014-10-21T00:00:00+07:00</updated>
   <author>
@@ -268,7 +270,7 @@ pages/
 
 &lt;script src=&quot;https://gist.github.com/taly2808/0376169f72e2d37ae3de.js&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;Trong đường link dẫn đến các trang, chúng ta sử dụng dấu &lt;code&gt;#&lt;/code&gt; (hash addres) để trình duyệt không chuyển đến trang home.html, about.html, contact.html. Và trong nội dung của thẻ div có &lt;code&gt;id=&quot;main&quot;&lt;/code&gt;, chúng ta cần thêm thẻ div với chỉ thị lệnh &lt;code&gt;ng-view&lt;/code&gt; để include template của các route (/home, /about, /contact) trong file layout chính (&lt;code&gt;index.html&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Trong đường link dẫn đến các trang, chúng ta sử dụng dấu &lt;code&gt;#&lt;/code&gt; (hash address) để trình duyệt không chuyển đến trang home.html, about.html, contact.html. Và trong nội dung của thẻ div có &lt;code&gt;id=&quot;main&quot;&lt;/code&gt;, chúng ta cần thêm thẻ div với chỉ thị lệnh &lt;code&gt;ng-view&lt;/code&gt; để include template của các route (/home, /about, /contact) trong file layout chính (&lt;code&gt;index.html&lt;/code&gt;).&lt;/p&gt;
 
 &lt;h3 id=&quot;cu-hnh-routes-v-views&quot;&gt;Cấu hình Routes và Views&lt;/h3&gt;
 &lt;p&gt;Chúng ta định nghĩa một ứng dụng angular &lt;code&gt;spaApp&lt;/code&gt; sử dụng phương thức &lt;code&gt;angular.module&lt;/code&gt;. Tiếp đến, chúng ta sử dụng phương thức &lt;code&gt;config()&lt;/code&gt; để cấu hình &lt;code&gt;$routeProvider&lt;/code&gt;. $routeProvider cung cấp các phương thức &lt;code&gt;when()&lt;/code&gt;, &lt;code&gt;otherwise()&lt;/code&gt; để định nghĩa các routes trong ứng dụng của chúng ta. Nội dung của file &lt;code&gt;script.js&lt;/code&gt; như sau:&lt;/p&gt;
@@ -277,11 +279,11 @@ pages/
 
 &lt;p&gt;Trong kịch bản trên, chúng ta định nghĩa ba urls &lt;code&gt;/home&lt;/code&gt;, &lt;code&gt;/about&lt;/code&gt; và &lt;code&gt;/contact&lt;/code&gt; và ánh xạ chúng tới các views tương ứng &lt;code&gt;pages/home.html&lt;/code&gt;, &lt;code&gt;pages/about.html&lt;/code&gt; và &lt;code&gt;pages/contact.html&lt;/code&gt;. Khi chúng ta nhập vào địa chỉ &lt;code&gt;http:myapp/#home&lt;/code&gt; trên trình duyệt, Angular sẽ tự động khớp nó với route mà chúng ta cấu hình và tải template &lt;code&gt;pages/home.html&lt;/code&gt;. Sau đó nó gọi đến HomeController xử lý các tác vụ liên quan đến Home View.&lt;/p&gt;
 
-&lt;p&gt;Chúng ta sử dụng phương thức &lt;code&gt;otherwise()&lt;/code&gt; để định nghĩa route mặc định (default route). Trong trường hợp routeProvider không phù hợp với bất kỳ url nào, nó sẽ chuyển đến default route.&lt;/p&gt;
+&lt;p&gt;Chúng ta sử dụng phương thức &lt;code&gt;otherwise()&lt;/code&gt; để định nghĩa route mặc định (default route). Trong trường hợp routeProvider gặp url không phù hợp với bất kỳ url nào đã được khai báo, nó sẽ chuyển đến default route.&lt;/p&gt;
 
 &lt;h3 id=&quot;thm-cc-file-templates-html&quot;&gt;Thêm các file templates HTML&lt;/h3&gt;
 
-&lt;p&gt;Chúng ta cần thêm các file templates sẽ được bơm vào layout chính.&lt;/p&gt;
+&lt;p&gt;Chúng ta cần thêm các file templates, các templates này sẽ được bơm vào layout chính.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;pages/home.html&lt;/em&gt;
 &lt;script src=&quot;https://gist.github.com/taly2808/0498e77df4156ebbabde.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
@@ -323,6 +325,8 @@ pages/
 
 &lt;script src=&quot;https://gist.github.com/taly2808/22211dc7315bf948a74c.js&quot;&gt;&lt;/script&gt;
 
+&lt;p&gt;Trong bài viết này, tôi đã đưa ra một ví dụ đơn giản về routing để mọi người có thể định hình được chức năng cơ bản của module &lt;code&gt;ngRoute&lt;/code&gt; trong AngularJS. Trong bài &lt;a href=&quot;/angularjs/tim-hieu-module-ngRoute-trong-angularjs&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt; chúng ta sẽ đi sâu vào tìm hiểu các thành phần trong module &lt;code&gt;ngRoute&lt;/code&gt;.&lt;/p&gt;
+
 &lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
 
 &lt;ol&gt;
@@ -330,7 +334,7 @@ pages/
   &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/tutorial/step_07&quot;&gt;AngularJS’s document on Routing &amp;amp; Multiple Views&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/routing-trong-angularjs-voi-ngRoute-method&quot;&gt;Routing trong AngularJS với ngRoute method&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 21, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs&quot;&gt;Routing Single Page Application với module ngRoute của AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 21, 2014.&lt;/p&gt;</content>
 </entry>
 
 
