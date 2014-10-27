@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Tìm hiểu module ngRoute trong AngularJS",
+		  "category"   : "",
+		  "url"        : "/angularjs/tim-hieu-module-ngRoute-trong-angularjs",
+		  "date"       : "2014-10-23 00:00:00 +0700",
+		  "shortdate"  : "October 23, 2014"
+		} ,
+	
+		{
 		  "title"      : "Routing trong AngularJS với ngRoute method",
 		  "category"   : "",
 		  "url"        : "/angularjs/routing-trong-angularjs-voi-ngRoute-method",
