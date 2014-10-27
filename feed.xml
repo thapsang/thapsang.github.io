@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-10-27T17:34:33+07:00</updated>
+<updated>2014-10-27T23:44:04+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -40,7 +40,12 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#services-in-ngroute&quot;&gt;Services in ngRoute&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#route-service&quot;&gt;$route service&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#route-service&quot;&gt;$route service&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#methods&quot;&gt;Methods&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#events&quot;&gt;Events&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#properties&quot;&gt;Properties&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#routeparams-service&quot;&gt;$routeParams service&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -180,7 +185,15 @@
 &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;resolve&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;resolve&lt;/strong&gt;: thuộc tính này rất hữu ích khi chúng ta cần phải tải một số dữ liệu trả trước (data upfront) trước khi khởi tạo controller và render view. Chúng ta sẽ tìm hiểu chi tiết về thuộc tính này trong một bài riêng tôi sẽ viết tới đây.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;reloadOnSearch&lt;/strong&gt;: thuộc tính này được thiết lập mặc định giá trị &lt;em&gt;true&lt;/em&gt;. Thuộc tính này cho phép tải lại route khi $location.search() hoặc $location.hash() thay đổi.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;caseInsensitiveMatch&lt;/strong&gt;: giá trị mặc định của thuộc tính này là &lt;em&gt;false&lt;/em&gt;, nó cho phép ứng dụng thỏa mãn các route mà không cần phân biệt chữ hoa, chữ thường.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;otherwiseparams-method&quot;&gt;otherwise(params) method&lt;/h3&gt;
@@ -190,6 +203,27 @@
 &lt;h2 id=&quot;services-in-ngroute&quot;&gt;Services in ngRoute&lt;/h2&gt;
 
 &lt;h3 id=&quot;route-service&quot;&gt;$route service&lt;/h3&gt;
+
+&lt;h4 id=&quot;methods&quot;&gt;Methods&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;reload()&lt;/strong&gt;: phương thức này cho phép ứng dụng tải lại current route ngay cả khi $location không thay đổi.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;updateParams(newParams)&lt;/strong&gt;: cho phép thay thế các tham số của URL hiện tại bằng các tham số trong &lt;em&gt;newParams&lt;/em&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;events&quot;&gt;Events&lt;/h4&gt;
+
+&lt;p&gt;Trước khi một route thay đổi, $route sẽ phát sinh một sự kiện &lt;strong&gt;$routeChangeStart&lt;/strong&gt;. Lúc này, $route service bắt đầu giải quyết tất cả các phụ thuộc cần thiết để tiến hành thay đổi route. Khi các phụ thuộc được giải quyết (resolve), $route service sẽ phát sinh sự kiện &lt;strong&gt;$routeChangeSuccess&lt;/strong&gt; và khi đó controller được khởi tạo và render view tương ứng. Nếu các phụ thuộc không được giải quyết (reject) thì $route service sẽ phát sinh sự kiện &lt;strong&gt;$routeChangeError&lt;/strong&gt; và khi đó controller không được khởi tạo và cũng không có view nào được render. Các sự kiện trong $route khi được kích hoạt luôn tác động lên root scope.&lt;/p&gt;
+
+&lt;p&gt;$route service còn cung cấp sự kiện &lt;strong&gt;$routeUpdate&lt;/strong&gt; khi thuộc tính &lt;strong&gt;reloadOnSearch&lt;/strong&gt; được thiết lập giá trị &lt;em&gt;false&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;properties&quot;&gt;Properties&lt;/h4&gt;
+
+&lt;p&gt;$route cung cấp thuộc tính &lt;strong&gt;current&lt;/strong&gt; để tham chiếu đến current route. Bạn có thể tham khảo &lt;a href=&quot;https://docs.angularjs.org/api/ngRoute/service/$route#example&quot;&gt;ví dụ về $route&lt;/a&gt; để hiểu rõ hơn.&lt;/p&gt;
 
 &lt;h3 id=&quot;routeparams-service&quot;&gt;$routeParams service&lt;/h3&gt;
 

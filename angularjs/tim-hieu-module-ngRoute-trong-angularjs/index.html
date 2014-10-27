@@ -177,7 +177,12 @@
     </ul>
   </li>
   <li><a href="#services-in-ngroute">Services in ngRoute</a>    <ul>
-      <li><a href="#route-service">$route service</a></li>
+      <li><a href="#route-service">$route service</a>        <ul>
+          <li><a href="#methods">Methods</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#properties">Properties</a></li>
+        </ul>
+      </li>
       <li><a href="#routeparams-service">$routeParams service</a></li>
     </ul>
   </li>
@@ -317,7 +322,15 @@
 <span class="p">})</span></code></pre></div>
 
 <ul>
-  <li><strong>resolve</strong></li>
+  <li>
+    <p><strong>resolve</strong>: thuộc tính này rất hữu ích khi chúng ta cần phải tải một số dữ liệu trả trước (data upfront) trước khi khởi tạo controller và render view. Chúng ta sẽ tìm hiểu chi tiết về thuộc tính này trong một bài riêng tôi sẽ viết tới đây.</p>
+  </li>
+  <li>
+    <p><strong>reloadOnSearch</strong>: thuộc tính này được thiết lập mặc định giá trị <em>true</em>. Thuộc tính này cho phép tải lại route khi $location.search() hoặc $location.hash() thay đổi.</p>
+  </li>
+  <li>
+    <p><strong>caseInsensitiveMatch</strong>: giá trị mặc định của thuộc tính này là <em>false</em>, nó cho phép ứng dụng thỏa mãn các route mà không cần phân biệt chữ hoa, chữ thường.</p>
+  </li>
 </ul>
 
 <h3 id="otherwiseparams-method">otherwise(params) method</h3>
@@ -327,6 +340,27 @@
 <h2 id="services-in-ngroute">Services in ngRoute</h2>
 
 <h3 id="route-service">$route service</h3>
+
+<h4 id="methods">Methods</h4>
+
+<ol>
+  <li>
+    <p><strong>reload()</strong>: phương thức này cho phép ứng dụng tải lại current route ngay cả khi $location không thay đổi.</p>
+  </li>
+  <li>
+    <p><strong>updateParams(newParams)</strong>: cho phép thay thế các tham số của URL hiện tại bằng các tham số trong <em>newParams</em>.</p>
+  </li>
+</ol>
+
+<h4 id="events">Events</h4>
+
+<p>Trước khi một route thay đổi, $route sẽ phát sinh một sự kiện <strong>$routeChangeStart</strong>. Lúc này, $route service bắt đầu giải quyết tất cả các phụ thuộc cần thiết để tiến hành thay đổi route. Khi các phụ thuộc được giải quyết (resolve), $route service sẽ phát sinh sự kiện <strong>$routeChangeSuccess</strong> và khi đó controller được khởi tạo và render view tương ứng. Nếu các phụ thuộc không được giải quyết (reject) thì $route service sẽ phát sinh sự kiện <strong>$routeChangeError</strong> và khi đó controller không được khởi tạo và cũng không có view nào được render. Các sự kiện trong $route khi được kích hoạt luôn tác động lên root scope.</p>
+
+<p>$route service còn cung cấp sự kiện <strong>$routeUpdate</strong> khi thuộc tính <strong>reloadOnSearch</strong> được thiết lập giá trị <em>false</em>.</p>
+
+<h4 id="properties">Properties</h4>
+
+<p>$route cung cấp thuộc tính <strong>current</strong> để tham chiếu đến current route. Bạn có thể tham khảo <a href="https://docs.angularjs.org/api/ngRoute/service/$route#example">ví dụ về $route</a> để hiểu rõ hơn.</p>
 
 <h3 id="routeparams-service">$routeParams service</h3>
 
