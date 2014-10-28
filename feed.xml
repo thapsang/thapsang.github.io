@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-10-28T19:27:57+07:00</updated>
+<updated>2014-10-28T21:29:07+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -45,7 +45,7 @@
 
 &lt;h2 id=&quot;cu-chuyn&quot;&gt;Câu chuyện&lt;/h2&gt;
 
-&lt;p&gt;Vào một ngày đẹp trời, tôi đã lên kế hoạch du lịch Thụy Sĩ. Vì vậy tôi gọi điện cho điều hành tour. Anh ta giải tích cho tôi về hành trình và khách sạn rất chi tiết và rõ ràng, vì vậy tôi đã đề nghị anh ta chuẩn bị các thứ cần thiết. Sau đó, điều hành tour có trách nhiệm đặt phòng và thực hiện các yêu cầu cần thiết cho chuyến du lịch của tôi. Sau cùng, tôi đã có một chuyến du lịch đến Thụy Sĩ.&lt;/p&gt;
+&lt;p&gt;Vào một ngày đẹp trời, tôi đã lên kế hoạch du lịch Thụy Sĩ. Vì vậy tôi gọi điện cho điều hành tour. Anh ta giải thích cho tôi về hành trình và thông tin khách sạn rất chi tiết và rõ ràng, vì vậy tôi đã đề nghị anh ta chuẩn bị các thứ cần thiết. Sau đó, điều hành tour có trách nhiệm đặt phòng và thực hiện các yêu cầu cần thiết cho chuyến du lịch của tôi. Sau cùng, tôi đã có một chuyến du lịch đến Thụy Sĩ.&lt;/p&gt;
 
 &lt;p&gt;Bây giờ, chúng ta chuyển câu chuyện này sang ngữ cảnh của AngularJS. Chúng ta có:&lt;/p&gt;
 
@@ -191,7 +191,7 @@
 
 &lt;h2 id=&quot;phin-bn-3-ca-cu-chuyn&quot;&gt;Phiên bản 3 của câu chuyện&lt;/h2&gt;
 
-&lt;p&gt;Trong phiên bản trước, bạn của tôi là chủ khách sạn. Nhưng trong phiên bản này, sẽ không có chủ khách sạn nào cả. Lần này, tôi có một người bạn khác ở Thụy Sĩ, cô ấy biết một vài chủ khách sạn và có thể tìm phòng cho tôi với giá rẻ hơn. Khi tôi gọi điện cho cô ấy và nói yêu cầu của mình, cô ấy sẽ mất một thời gian để nói chuyện với bạn của cô ấy và thu xếp cho tôi một phòng. Và thời gian đó không thể đoán trước được bởi vì bạn tôi sẽ yêu cầu bạn bè của cô ấy và bạn cô ấy có thể nói chuyện với bạn của họ và cứ như thế. Nhưng khi tôi gọi cho cô ấy lần đầu tiên, cô ấy hứa với tôi rằng cô ấy chắc chắn sẽ cập nhật kết quả, do đó tôi có thể thu xếp phần còn lại. Vì vậy, chỉ khi tôi nhận được thông tin cập nhật từ cô ấy, tôi mới gọi cho điều hành tour và đề nghị anh ta thu xếp các phần còn lại.&lt;/p&gt;
+&lt;p&gt;Trong phiên bản trước, bạn của tôi là chủ khách sạn. Nhưng trong phiên bản này, sẽ không có chủ khách sạn nào cả. Lần này, tôi có một người bạn khác ở Thụy Sĩ, cô ấy biết một vài chủ khách sạn và có thể tìm phòng cho tôi với giá rẻ hơn. Khi tôi gọi điện cho cô ấy và nói yêu cầu của mình, cô ấy sẽ mất một thời gian để nói chuyện với bạn của cô ấy và thu xếp cho tôi một phòng. Và thời gian đó không thể đoán trước được bởi vì bạn tôi sẽ yêu cầu bạn bè của cô ấy, bạn cô ấy có thể nói chuyện với bạn của họ và cứ như thế. Nhưng khi tôi gọi cho cô ấy lần đầu tiên, cô ấy hứa với tôi rằng cô ấy chắc chắn sẽ cập nhật kết quả, do đó tôi có thể thu xếp phần còn lại. Vì vậy, chỉ khi tôi nhận được thông tin cập nhật từ cô ấy, tôi mới gọi cho điều hành tour và đề nghị anh ta thu xếp các phần còn lại.&lt;/p&gt;
 
 &lt;p&gt;Hãy xem những thay đổi trong file &lt;code&gt;app.js&lt;/code&gt; ở phiên bản cuối này:&lt;/p&gt;
 
@@ -248,7 +248,7 @@
 
 &lt;iframe src=&quot;http://embed.plnkr.co/uSxECGavg6YchGkPV9tf/preview&quot; style=&quot;border:0px #FFFFFF none;&quot; name=&quot;&#39;Resolve&#39; in AngularJs routes v3&quot; scrolling=&quot;no&quot; frameborder=&quot;1&quot; marginheight=&quot;0px&quot; marginwidth=&quot;0px&quot; height=&quot;250px&quot; width=&quot;100%&quot;&gt;&lt;/iframe&gt;
 
-&lt;p&gt;Thuộc tính &lt;code&gt;resolve&lt;/code&gt; khá hữu ích khi chúng ta cần có một vài dữ liệu sẵn sàng trước khi khởi tạo controller và render view. Trong các ứng dụng thực tế, &lt;code&gt;$timeout&lt;/code&gt; thường được thay thế bằng &lt;code&gt;$http&lt;/code&gt; để tải dữ lieẹu từ server. Vì nó một sự kiện không đồng bộ, nên chúng ta có thể đảm bảo rằng view sẽ được trả lại với dữ liệu phù hợp.&lt;/p&gt;
+&lt;p&gt;Thuộc tính &lt;code&gt;resolve&lt;/code&gt; khá hữu ích khi chúng ta cần có một vài dữ liệu sẵn sàng trước khi khởi tạo controller và render view. Trong các ứng dụng thực tế, &lt;code&gt;$timeout&lt;/code&gt; thường được thay thế bằng &lt;code&gt;$http&lt;/code&gt; để tải dữ liệu từ server. Vì nó một sự kiện không đồng bộ, nên chúng ta có thể đảm bảo rằng view sẽ được trả lại với dữ liệu phù hợp.&lt;/p&gt;
 
 &lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
 
