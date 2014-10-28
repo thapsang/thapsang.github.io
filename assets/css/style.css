@@ -3276,7 +3276,7 @@ tt,code,kbd,samp,pre {
 }
 
 p code,li code {
-    padding: 0 5px;
+    padding: 5px 5px;
     margin: 0 2px;
     white-space: nowrap;
     background-color: #f2f2f2;

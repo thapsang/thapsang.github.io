@@ -65,6 +65,16 @@
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55360781-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </head>
 <body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
 <div id="fade"></div>
@@ -156,12 +166,12 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Chi tiết các thành phần trong module ngRoute.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-10-23T00:00:00+07:00" class="post-time" itemprop="datePublished">23 Oct 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">8.35</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">8.36</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p><a href="https://docs.angularjs.org/api/ngRoute">ngRoute</a> là một module trong AngularJS cung cấp dịch vụ định tuyến (routing), <a href="http://en.wikipedia.org/wiki/Deep_linking">deep linking</a> và các chỉ thị lệnh (directives) cho các ứng dụng angular. Trong <a href="/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs">bài trước</a>, chúng ta đã có một ví dụ đơn giản về routing trong SPA với AngularJS. Trong nội dung bài này, chúng ta sẽ đi vào tìm hiểu chi tiết về các thành phần <strong>provider</strong>, <strong>services</strong> và <strong>ngView directive</strong> trong module ngRoute.</p>
+                        <p><a href="https://docs.angularjs.org/api/ngRoute">ngRoute</a> là một module trong AngularJS cung cấp dịch vụ định tuyến (routing), <a href="http://en.wikipedia.org/wiki/Deep_linking">deep linking</a> và các chỉ thị lệnh (directives) <code>ngView</code> cho các ứng dụng angular. Trong <a href="/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs">bài trước</a>, chúng ta đã có một ví dụ đơn giản về routing trong SPA với AngularJS. Trong nội dung bài này, chúng ta sẽ đi vào tìm hiểu chi tiết về các thành phần <strong>provider</strong>, <strong>services</strong> và <strong>ngView directive</strong> trong module ngRoute.</p>
 
 <section>
   <header>
@@ -323,7 +333,7 @@
 
 <ul>
   <li>
-    <p><strong>resolve</strong>: thuộc tính này rất hữu ích khi chúng ta cần phải tải một số dữ liệu trả trước (data upfront) trước khi khởi tạo controller và render view. Chúng ta sẽ tìm hiểu chi tiết về thuộc tính này trong một bài riêng tôi sẽ viết tới đây.</p>
+    <p><strong>resolve</strong>: một resolve chứa một hoặc nhiều lời hứa (promises), các promises phải được giải quyết thành công (resolve) trước khi route thay đổi. Điều này có nghĩa là chúng ta có thể đợi dữ liệu sẵn sàng trước khi hiển thị trên view và làm đơn giản hóa việc khởi tạo model bên trong một controller vì dữ liệu ban đầu được trao cho controller thay vì controller phải đi ra ngoài và tự tìm kiếm dữ liệu. Chúng ta sẽ tìm hiểu chi tiết về thuộc tính này trong một bài riêng tôi sẽ viết tới đây.</p>
   </li>
   <li>
     <p><strong>reloadOnSearch</strong>: thuộc tính này được thiết lập mặc định giá trị <em>true</em>. Thuộc tính này cho phép tải lại route khi $location.search() hoặc $location.hash() thay đổi.</p>

@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Hiểu về &#39;Resolve&#39; trong AngularJS routes",
+		  "category"   : "",
+		  "url"        : "/angularjs/resolve-trong-angularjs-routes",
+		  "date"       : "2014-10-28 00:00:00 +0700",
+		  "shortdate"  : "October 28, 2014"
+		} ,
+	
+		{
 		  "title"      : "Tìm hiểu module ngRoute trong AngularJS",
 		  "category"   : "",
 		  "url"        : "/angularjs/tim-hieu-module-ngRoute-trong-angularjs",
