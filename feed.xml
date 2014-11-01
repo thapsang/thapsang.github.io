@@ -4,13 +4,243 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-10-28T21:44:15+07:00</updated>
+<updated>2014-11-01T16:42:06+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
   <uri>/</uri>
   <email>taly2808@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Promises/Deferred trong AngularJS]]></title>
+  <link>/angularjs/promises-deferred-trong-angularjs</link>
+  <id>/angularjs/promises-deferred-trong-angularjs</id>
+  <published>2014-10-30T00:00:00+07:00</published>
+  <updated>2014-10-30T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Promises là một tính năng chính (a core feature) của AngularJS. Có thể bạn chưa biết hoặc chưa hiểu về promise, nhưng nếu bạn làm việc với AngularJS thì gần như chắc chắn rằng bạn sẽ làm việc với promise. Trong bài viết này, chúng ta sẽ tìm hiểu vậy Promise là gì, chúng được sử dụng ở đâu? Cách thức nó làm việc như thế nào?&lt;/p&gt;
+
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#promise-l-g&quot;&gt;Promise là gì?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#promise-lm-vic-nh-th-no&quot;&gt;Promise làm việc như thế nào?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#v-d-n-gin&quot;&gt;Ví dụ đơn giản&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#chaining-promise&quot;&gt;Chaining Promise&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#parallel-promises&quot;&gt;Parallel Promises&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;promise-l-g&quot;&gt;Promise là gì?&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Promise được sử dụng để xử lý các sự kiện không đồng bộ. Một promise đại diện cho kết quả sau cùng của một hành động. Chúng ta có thể sử dụng một promise để xác định phải làm gì khi hành động cho dù kết quả cuối cùng là thành công hay thất bại. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;promise-lm-vic-nh-th-no&quot;&gt;Promise làm việc như thế nào?&lt;/h2&gt;
+
+&lt;p&gt;Khái niệm dưới đây về Promise khá đơn giản, nó có 2 thành phần:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Deferred: đại diện cho &lt;strong&gt;một công việc&lt;/strong&gt; chưa được thực hiện, và&lt;/li&gt;
+  &lt;li&gt;Promise: thể hiện cho &lt;strong&gt;kết quả&lt;/strong&gt; từ công việc đó (Deferred).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;https://docs.google.com/drawings/d/1112lp5doFi8EBtTZoJ3p7LESacWkReM7YsWQWWB0NrA/pub?w=830&amp;amp;h=631&quot; /&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;small&gt;source: &lt;a href=&quot;http://blog.mediumequalsmessage.com/promise-deferred-objects-in-javascript-pt1-theory-and-semantics&quot;&gt;Promise &amp;amp; Deferred objects in JavaScript Pt.1: Theory and Semantics.&lt;/a&gt;&lt;/small&gt; &lt;/p&gt;
+
+&lt;p&gt;Về cơ bản, chúng ta sử dụng &lt;strong&gt;Deferred&lt;/strong&gt; như là một đối tượng thông tin liên lạc để báo hiệu sự bắt đầu, tiến trình xử lý và hoàn thành công việc.&lt;/p&gt;
+
+&lt;p&gt;Một &lt;strong&gt;Promise&lt;/strong&gt; lần lượt là một đối tượng đầu ra chứa kết quả từ &lt;strong&gt;Deferred&lt;/strong&gt;. Nó có một trạng thái (State) nhất định (đang chờ xử lý - pending, hoàn thành - fulfilled, bị từ chối - rejected) và bộ xử lý (Handlers) hoặc các hàm gọi lại (callback functions) sẽ được gọi một lần khi một promise được giải quyết, bị từ chối hoặc cập nhật tiến trình xử lý.&lt;/p&gt;
+
+&lt;p&gt;Trong Angular, các promises được tạo ra bằng &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$q&quot;&gt;$q service&lt;/a&gt;. Lý do dịch vụ được đặt tên là $q là do việc thực hiện promises trong AngularJS dựa trên cơ chế promise của Kris Kowal có tên là thư viện &lt;strong&gt;Q&lt;/strong&gt;. Bạn có thể xem thêm thông tin về thư viện Q tại &lt;a href=&quot;https://github.com/kriskowal/q&quot;&gt;https://github.com/kriskowal/q&lt;/a&gt;. Promises cũng được trả lại từ vài dịch vụ khác nữa của AngularJS như &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$http&quot;&gt;$http&lt;/a&gt;, &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$timeout&quot;&gt;$timeout&lt;/a&gt;, &lt;a href=&quot;https://docs.angularjs.org/api/ngRoute/service/$route&quot;&gt;$route&lt;/a&gt;, &lt;a href=&quot;https://docs.angularjs.org/api/ngResource/service/$resource&quot;&gt;$resoure&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;$q thực thi tất cả các phương thức Deferred/Promise được mô tả ở trên, cộng thêm một số phương thức của của riêng nó: &lt;em&gt;$q.defer()&lt;/em&gt; - tạo mới một đối tượng Deferred , &lt;em&gt;$q.all()&lt;/em&gt; - cho phép bạn chờ nhiều promises để giải quyết, và phương thức &lt;em&gt;$q.when()&lt;/em&gt;, &lt;em&gt;$q.reject()&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;$q.defer()&lt;/strong&gt; trả lại một đối tượng Deferred, bao gồm các phương thức &lt;em&gt;resolve(), reject(), notify()&lt;/em&gt;. Deferred có một thuộc tính promise, thuộc tính này là một đối tượng promise có thể được truyền khắp ứng dụng.&lt;/p&gt;
+
+&lt;p&gt;Đối tượng promise có 3 phương thức khác: &lt;em&gt;then(), catch(), finally()&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;then(successCallback, errorCallback, notifyCallback)&lt;/em&gt;: lấy 3 callbacks làm tham số, một cho khi promise thành công, một cho khi promise thất bại, một cho thông báo của promise.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;catch(errorCallback)&lt;/em&gt;: đây là cách viết tắt của phương thức &lt;code&gt;promise.then(null, errorCallback)&lt;/code&gt;, có thể được sử dụng để có một chức năng tập trung, được gọi khi bất kì promise trong chuỗi promise thất bại.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;finally(callback)&lt;/em&gt;: phương thức này luôn luôn được gọi, bất kể promise thành công hay thất bại. Nó rất hữu ích để giải phóng tài nguyên hoặc dọn dẹp một số thứ không cần thiết (giống như đóng kết nối tới database, shutting server down). Xem bản mô tả &lt;a href=&quot;https://github.com/kriskowal/q/wiki/API-Reference#promisefinallycallback&quot;&gt;chi tiết kỹ thuật đầy đủ&lt;/a&gt; để có thêm thông tin.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;v-d-n-gin&quot;&gt;Ví dụ đơn giản&lt;/h2&gt;
+
+&lt;p&gt;Trong ví dụ này, chúng ta sẽ tạo ra một dịch vụ để lấy tên người dùng. Trong service, chúng ta thiết lập rằng lần đầu tiên chúng ta lấy tên từ server, các lần sau chúng ta sẽ trả lại từ bộ nhớ cache. Điều này có nghĩa là chúng ta phải xứ lý với trường hợp không đồng bộ (lấy dữ liệu từ server) và trường hợp đồng bộ bình thường (lấy dữ liệu từ cache).&lt;/p&gt;
+
+&lt;p&gt;Đầu tiên, chúng ta tạo ra một service, nó có một trường &lt;em&gt;name&lt;/em&gt;, giá trị ban đầu là null.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;NameService&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//  Create a class that represents our name service.&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NameService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//  Initially the name is unknown....&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Bây giờ, trong hàm &lt;code&gt;getName()&lt;/code&gt;, chúng ta tạo một đối tượng &lt;code&gt;deferred&lt;/code&gt; sử dụng $q service. Đối tượng này chứa promise mà chúng ta sẽ trả về.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Create a deferred operation.&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deferred&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;defer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nếu chúng ta đã có &lt;code&gt;name&lt;/code&gt;, chúng ta có thể &lt;code&gt;resolve&lt;/code&gt; đối tượng deferred ngay lập tức:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;deferred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot; (from Cache!)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Tiếp đó, chúng ta sẽ xử lý trường hợp khi chưa có &lt;code&gt;name&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//  Get the name from the server.&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/api/my/name/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;nx&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+       &lt;span class=&quot;nx&quot;&gt;deferred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot; (from Server!)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;nx&quot;&gt;deferred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Ở đây, chúng ta sử dụng &lt;code&gt;$http&lt;/code&gt; service, và &lt;code&gt;success&lt;/code&gt;, &lt;code&gt;error&lt;/code&gt; là 2 function đặc biệt được thêm vào promise do &lt;code&gt;$http&lt;/code&gt; cung cấp - thông thường chúng ta sử dụng hàm &lt;code&gt;then&lt;/code&gt; với promise.&lt;/p&gt;
+
+&lt;p&gt;Do đó, nếu chúng ta nhận được dữ liệu từ server, chúng ta có thể &lt;code&gt;resolve&lt;/code&gt; promise. Ngược lại, nếu request bị lỗi, chúng ta sẽ &lt;code&gt;reject&lt;/code&gt; promise.&lt;/p&gt;
+
+&lt;p&gt;Cuối cùng, chúng ta trả lại promise mà chúng ta đã khởi tạo với &lt;code&gt;deferred&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deferred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Demo với JSFiddle:&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; src=&quot;http://jsfiddle.net/taly2808/f5826s0k/2/embedded/js,html,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Chúng ta sẽ sử dụng dịch vụ này trong controller như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;MainController&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NameService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//  We have a name on the code, but it&amp;#39;s initially empty...&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//  We have a function on the scope that can update the name.&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;updateName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;NameService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;cm&quot;&gt;/* success function */&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+      &lt;span class=&quot;cm&quot;&gt;/* error function */&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Failed to get the name, result is &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Trong đoạn mã trên, chúng ta thấy có chút khác biệt, đó là sự xuất hiện của phương thức &lt;code&gt;then&lt;/code&gt; với tham số thứ nhất là successCallback và tham số thứ hai là errorCallback. Chúng ta cần nhớ rằng: &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;AngularJS thêm các hàm &lt;code&gt;success&lt;/code&gt;, &lt;code&gt;error&lt;/code&gt; vào promise khi sử dụng &lt;code&gt;$http&lt;/code&gt; service và &lt;code&gt;$resource&lt;/code&gt; service. Chúng không phải là chuẩn và chúng ta sẽ không tìm thấy chúng trong các promise khác.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;chaining-promise&quot;&gt;Chaining Promise&lt;/h2&gt;
+
+&lt;p&gt;Phương thức &lt;code&gt;then&lt;/code&gt; trả lại một promise. Điều tuỵệt vời của Promise API đó là chúng ta có thể đính kèm nhiều bộ xử lý (then()) cho một promise. Nói cách khác, chúng ta có thể xâu chuỗi các promise thành một khối logic ngắn gọn được thực thi tại các thời điểm thích hợp mà không cần sử dụng lồng nhau&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;doSomething&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;doSomethingElse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;doSomethingMore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Ví dụ, chúng ta cần lấy ra tên của user từ phía backend, nhưng chúng ta phải các request độc lập để lấy ra thông tin của user và sau đó lấy ra quyền hạn truy cập trên ứng dụng của user:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;details&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
+   &lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;profile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;permissions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/api/user/name&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;// Store the username, get the profile.&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;details&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/api/profile/&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;details&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//  Store the profile, now get the permissions.&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;details&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;profile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/api/security/&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;details&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//  Store the permissions&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;details&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;permissions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;The full user details are: &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;details&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;An error occured: &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Như vậy, chúng ta có một chuỗi các lời gọi không đồng bộ được phối hợp với nhau mà không cần sử dụng các callbacks lồng nhau.&lt;/p&gt;
+
+&lt;h2 id=&quot;parallel-promises&quot;&gt;Parallel Promises&lt;/h2&gt;
+
+&lt;p&gt;Một phương thức chúng ta đề cập tiếp theo đây đó là &lt;code&gt;$q.all()&lt;/code&gt;, nó được sử dụng để tạo ra một promise từ một tập các promises. Và promise duy nhất này được giải quyết (resolve) khi tất cả các promises bên trong nó được giải quyết. Trong Angular, phương thức này có thể được gọi bằng 2 cách: với một mảng (Array) hoặc một đối tượng (Object).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Array: &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;promiseOne&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promiseTwo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promiseThree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Object:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promiseOne&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promiseTwo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;third&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promiseThree&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;third&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Thêm một phương thức nữa đó là &lt;code&gt;$q.when()&lt;/code&gt; - hữu ích nếu chúng ta đang sử dụng một function mà kết quả trả về có thể là một promise nhưng cũng có thể trả về một giá trị (lúc này chúng ta không cần phải trì hoãn - defer).&lt;/p&gt;
+
+&lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.toptal.com/javascript/javascript-promises&quot;&gt;JavaScript Promises&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.xebia.com/2014/02/23/promises-and-design-patterns-in-angularjs/&quot;&gt;Promises And Design Patterns In AngularJS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://documentup.com/kriskowal/q&quot;&gt;Document about Q&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.mediumequalsmessage.com/promise-deferred-objects-in-javascript-pt1-theory-and-semantics&quot;&gt;Promise &amp;amp; Deferred objects in JavaScript Pt.1: Theory and Semantics.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.dwmkerr.com/promises-in-angularjs-the-definitive-guide/&quot;&gt;AngularJS Promises - The Definitive Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/angularjs/promises-deferred-trong-angularjs&quot;&gt;Promises/Deferred trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 30, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -24,7 +254,7 @@
     <uri></uri>
     <email>taly2808@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;Trong bài &lt;a href=&quot;/angularjs/tim-hieu-module-ngRoute-trong-angularjs&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt;, chúng ta đã tìm hiểu cách làm thế nào để định tuyến (routing) và và các route nói chuyện với controller như thế nào. Việc khởi tạo các controller có thể khác nhau dựa trên các thiết lập của route và các sự kiện &lt;code&gt;$routeChangeSuccess&lt;/code&gt; và &lt;code&gt;$routeChangeError&lt;/code&gt; tương ứng. Hầu hết các sự kiện này có do thuộc tính &lt;code&gt;resolve&lt;/code&gt; khi cấu hình route. Trong bài này, chúng ta sẽ làm sáng rõ vấn đề Tại sao lại cần &lt;code&gt;resolve&lt;/code&gt; và cách thức hoạt động của nó như thế nào.&lt;/p&gt;
+  <content type="html">&lt;p&gt;Trong bài &lt;a href=&quot;/angularjs/tim-hieu-module-ngRoute-trong-angularjs&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt;, chúng ta đã tìm hiểu cách làm thế nào để định tuyến (routing) và cách các routes nói chuyện với controller như thế nào. Việc khởi tạo các controller có thể khác nhau dựa trên các thiết lập của route và các sự kiện &lt;code&gt;$routeChangeSuccess&lt;/code&gt; và &lt;code&gt;$routeChangeError&lt;/code&gt; tương ứng. Hầu hết các sự kiện này có do thuộc tính &lt;code&gt;resolve&lt;/code&gt; khi cấu hình route. Trong bài này, chúng ta sẽ làm sáng rõ vấn đề Tại sao lại cần &lt;code&gt;resolve&lt;/code&gt; và cách thức hoạt động của nó như thế nào.&lt;/p&gt;
 
 &lt;p&gt;Tôi tìm được một bài viết của &lt;a href=&quot;http://www.twitter.com/shidhincr&quot;&gt;Shidhin&lt;/a&gt; giải thích khá rõ ràng và dễ hiểu về thuộc tính &lt;a href=&quot;http://www.undefinednull.com/2014/02/17/resolve-in-angularjs-routes-explained-as-story/&quot;&gt;‘Resolve’ trong AngularJS routes&lt;/a&gt; thông qua ba phiên bản của một câu chuyện. Do đó, tôi sẽ dịch lại bài viết đó và giữ nguyên câu chuyện của tác giả để lưu lại kiến thức cho bản thân và chia sẻ bài viết bổ ích này tới các bạn quan tâm.&lt;/p&gt;
 

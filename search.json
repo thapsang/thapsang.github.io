@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Promises/Deferred trong AngularJS",
+		  "category"   : "",
+		  "url"        : "/angularjs/promises-deferred-trong-angularjs",
+		  "date"       : "2014-10-30 00:00:00 +0700",
+		  "shortdate"  : "October 30, 2014"
+		} ,
+	
+		{
 		  "title"      : "Hiểu về &#39;Resolve&#39; trong AngularJS routes",
 		  "category"   : "",
 		  "url"        : "/angularjs/resolve-trong-angularjs-routes",
