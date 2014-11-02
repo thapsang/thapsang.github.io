@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-11-01T16:42:06+07:00</updated>
+<updated>2014-11-02T15:20:44+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -46,7 +46,7 @@
 &lt;h2 id=&quot;promise-l-g&quot;&gt;Promise là gì?&lt;/h2&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Promise được sử dụng để xử lý các sự kiện không đồng bộ. Một promise đại diện cho kết quả sau cùng của một hành động. Chúng ta có thể sử dụng một promise để xác định phải làm gì khi hành động cho dù kết quả cuối cùng là thành công hay thất bại. &lt;/p&gt;
+  &lt;p&gt;Promise là một cơ chế cho phép bạn trì hoãn một hành động hoặc một chuỗi các hành động đã được nêu ra. Một promise đại diện cho kết quả sau cùng của một hành động. Chúng ta có thể sử dụng một promise để xác định phải làm gì khi hành động cho dù kết quả cuối cùng của promise là thành công hay thất bại. Và promise sử dụng để xử lý các sự kiện không đồng bộ.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;promise-lm-vic-nh-th-no&quot;&gt;Promise làm việc như thế nào?&lt;/h2&gt;
@@ -83,7 +83,7 @@
 
 &lt;h2 id=&quot;v-d-n-gin&quot;&gt;Ví dụ đơn giản&lt;/h2&gt;
 
-&lt;p&gt;Trong ví dụ này, chúng ta sẽ tạo ra một dịch vụ để lấy tên người dùng. Trong service, chúng ta thiết lập rằng lần đầu tiên chúng ta lấy tên từ server, các lần sau chúng ta sẽ trả lại từ bộ nhớ cache. Điều này có nghĩa là chúng ta phải xứ lý với trường hợp không đồng bộ (lấy dữ liệu từ server) và trường hợp đồng bộ bình thường (lấy dữ liệu từ cache).&lt;/p&gt;
+&lt;p&gt;Trong ví dụ này, chúng ta sẽ tạo ra một dịch vụ để lấy tên người dùng. Trong service, chúng ta thiết lập rằng lần đầu tiên chúng ta lấy tên từ server, các lần sau chúng ta sẽ trả lại từ bộ nhớ cache. Điều này có nghĩa là chúng ta phải xử lý với trường hợp không đồng bộ (lấy dữ liệu từ server) và trường hợp đồng bộ thông thường (lấy dữ liệu từ cache).&lt;/p&gt;
 
 &lt;p&gt;Đầu tiên, chúng ta tạo ra một service, nó có một trường &lt;em&gt;name&lt;/em&gt;, giá trị ban đầu là null.&lt;/p&gt;
 
@@ -125,7 +125,7 @@
 
 &lt;p&gt;Ở đây, chúng ta sử dụng &lt;code&gt;$http&lt;/code&gt; service, và &lt;code&gt;success&lt;/code&gt;, &lt;code&gt;error&lt;/code&gt; là 2 function đặc biệt được thêm vào promise do &lt;code&gt;$http&lt;/code&gt; cung cấp - thông thường chúng ta sử dụng hàm &lt;code&gt;then&lt;/code&gt; với promise.&lt;/p&gt;
 
-&lt;p&gt;Do đó, nếu chúng ta nhận được dữ liệu từ server, chúng ta có thể &lt;code&gt;resolve&lt;/code&gt; promise. Ngược lại, nếu request bị lỗi, chúng ta sẽ &lt;code&gt;reject&lt;/code&gt; promise.&lt;/p&gt;
+&lt;p&gt;Do đó, nếu chúng ta nhận được dữ liệu từ server, chúng ta có thể &lt;code&gt;resolve&lt;/code&gt; promise với giá trị trả về. Ngược lại, nếu request bị lỗi, chúng ta sẽ &lt;code&gt;reject&lt;/code&gt; promise.&lt;/p&gt;
 
 &lt;p&gt;Cuối cùng, chúng ta trả lại promise mà chúng ta đã khởi tạo với &lt;code&gt;deferred&lt;/code&gt;:&lt;/p&gt;
 
@@ -166,7 +166,7 @@
 
 &lt;h2 id=&quot;chaining-promise&quot;&gt;Chaining Promise&lt;/h2&gt;
 
-&lt;p&gt;Phương thức &lt;code&gt;then&lt;/code&gt; trả lại một promise. Điều tuỵệt vời của Promise API đó là chúng ta có thể đính kèm nhiều bộ xử lý (then()) cho một promise. Nói cách khác, chúng ta có thể xâu chuỗi các promise thành một khối logic ngắn gọn được thực thi tại các thời điểm thích hợp mà không cần sử dụng lồng nhau&lt;/p&gt;
+&lt;p&gt;Phương thức &lt;code&gt;then&lt;/code&gt; trả lại một promise. Điều tuyệt vời của Promise API đó là chúng ta có thể đính kèm nhiều bộ xử lý (then()) cho một promise. Nói cách khác, chúng ta có thể xâu chuỗi các promise thành một khối logic ngắn gọn được thực thi tại các thời điểm thích hợp mà không cần sử dụng lồng nhau.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;doSomething&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -174,7 +174,7 @@
   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;doSomethingMore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;logError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Ví dụ, chúng ta cần lấy ra tên của user từ phía backend, nhưng chúng ta phải các request độc lập để lấy ra thông tin của user và sau đó lấy ra quyền hạn truy cập trên ứng dụng của user:&lt;/p&gt;
+&lt;p&gt;Ví dụ, chúng ta cần lấy ra tên của user từ phía backend, nhưng chúng ta phải sử dụng các request độc lập để lấy ra thông tin của user và sau đó lấy ra quyền hạn truy cập trên ứng dụng của user:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;details&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;  
    &lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -203,6 +203,15 @@
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Như vậy, chúng ta có một chuỗi các lời gọi không đồng bộ được phối hợp với nhau mà không cần sử dụng các callbacks lồng nhau.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Chuỗi các promises (promise chains) sẽ gọi hàm &lt;code&gt;then&lt;/code&gt; tiếp theo trong chuỗi với giá trị được trả lại của hàm &lt;code&gt;then&lt;/code&gt; trước đó (hoặc &lt;em&gt;undefined&lt;/em&gt; nếu không có giá trị trả về).&lt;/li&gt;
+    &lt;li&gt;Nếu một hàm &lt;code&gt;then&lt;/code&gt; trả lại một promise thì hàm &lt;code&gt;then&lt;/code&gt; tiếp theo sẽ chỉ thực thi khi promise đó được giải quyết (resolve).&lt;/li&gt;
+    &lt;li&gt;Hàm &lt;code&gt;catch&lt;/code&gt; được đặt ở cuối chuỗi sẽ cung cấp một điểm xử lý lỗi duy nhất cho toàn bộ chuỗi.&lt;/li&gt;
+    &lt;li&gt;Hàm &lt;code&gt;finally&lt;/code&gt; ở cuối chuỗi sẽ luôn được thực hiện cho dù promise được giải quyết (resolve) hoặc bị từ chối (reject), để phục vụ mục đích dọn dẹp các promises.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;parallel-promises&quot;&gt;Parallel Promises&lt;/h2&gt;
 
