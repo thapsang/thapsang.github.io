@@ -166,7 +166,7 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Tìm hiểu về Promises và Deferred trong AngularJs.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-10-30T00:00:00+07:00" class="post-time" itemprop="datePublished">30 Oct 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">16.97</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">17.59</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
@@ -382,7 +382,11 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">results</span><span class="p">.</span><span class="nx">first</span><span class="p">,</span> <span class="nx">results</span><span class="p">.</span><span class="nx">second</span><span class="p">,</span> <span class="nx">results</span><span class="p">.</span><span class="nx">third</span><span class="p">);</span>
   <span class="p">});</span></code></pre></div>
 
-<p>Thêm một phương thức nữa đó là <code>$q.when()</code> - hữu ích nếu chúng ta đang sử dụng một function mà kết quả trả về có thể là một promise nhưng cũng có thể trả về một giá trị (lúc này chúng ta không cần phải trì hoãn - defer).</p>
+<p>Bạn có thể tham khảo video cho ví dụ về <a href="https://egghead.io/lessons/angularjs-q-all">$q.all() trên https://egghead.io</a> để thấy rõ nó hoạt động như thế nào.</p>
+
+<p>Thêm một phương thức nữa đó là <code>$q.when()</code> - hữu ích nếu chúng ta đang sử dụng một function mà kết quả trả về có thể là một promise nhưng cũng có thể trả về một giá trị (lúc này chúng ta không cần phải trì hoãn - defer). Chúng ta có thể xem ví dụ dưới đây (bạn click vào tab <em>Result</em> để xem kết quả khi chạy: ban đầu sẽ hiển thị <em>Ready.</em> , 1 giây sau hiển thị <em>noPromise</em>, 3 giây sau hiển thị <em>promise</em>  )</p>
+
+<iframe width="100%" height="300" src="http://jsfiddle.net/taly2808/4q2g3vy7/1/embedded/js,html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 <h2 id="ti-liu-tham-kho">Tài liệu tham khảo</h2>
 

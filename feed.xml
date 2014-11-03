@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-11-02T15:20:44+07:00</updated>
+<updated>2014-11-03T10:44:12+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -235,7 +235,11 @@
     &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;third&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Thêm một phương thức nữa đó là &lt;code&gt;$q.when()&lt;/code&gt; - hữu ích nếu chúng ta đang sử dụng một function mà kết quả trả về có thể là một promise nhưng cũng có thể trả về một giá trị (lúc này chúng ta không cần phải trì hoãn - defer).&lt;/p&gt;
+&lt;p&gt;Bạn có thể tham khảo video cho ví dụ về &lt;a href=&quot;https://egghead.io/lessons/angularjs-q-all&quot;&gt;$q.all() trên https://egghead.io&lt;/a&gt; để thấy rõ nó hoạt động như thế nào.&lt;/p&gt;
+
+&lt;p&gt;Thêm một phương thức nữa đó là &lt;code&gt;$q.when()&lt;/code&gt; - hữu ích nếu chúng ta đang sử dụng một function mà kết quả trả về có thể là một promise nhưng cũng có thể trả về một giá trị (lúc này chúng ta không cần phải trì hoãn - defer). Chúng ta có thể xem ví dụ dưới đây (bạn click vào tab &lt;em&gt;Result&lt;/em&gt; để xem kết quả khi chạy: ban đầu sẽ hiển thị &lt;em&gt;Ready.&lt;/em&gt; , 1 giây sau hiển thị &lt;em&gt;noPromise&lt;/em&gt;, 3 giây sau hiển thị &lt;em&gt;promise&lt;/em&gt;  )&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; src=&quot;http://jsfiddle.net/taly2808/4q2g3vy7/1/embedded/js,html,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 
 &lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
 
