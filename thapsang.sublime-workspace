@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"r",
+				"Resolve"
+			],
+			[
+				"ui",
+				"ui-view"
+			],
+			[
+				"te",
+				"template"
+			],
+			[
+				"st",
+				"state"
+			],
+			[
+				"ro",
+				"urlRouterProvider"
+			],
+			[
+				"u",
+				"urlRouterProvider"
+			],
+			[
+				"gi",
+				"giữa"
+			],
+			[
+				"state",
+				"stateProvide"
+			],
+			[
 				"q",
 				"quả"
 			],
@@ -84,10 +116,6 @@
 				"routeChangeSuccess"
 			],
 			[
-				"gi",
-				"giờ"
-			],
-			[
 				"ngh",
 				"nghĩa"
 			],
@@ -164,10 +192,6 @@
 				"một"
 			],
 			[
-				"te",
-				"templateUrl"
-			],
-			[
 				"tem",
 				"template"
 			],
@@ -186,10 +210,6 @@
 			[
 				"c",
 				"controller"
-			],
-			[
-				"ro",
-				"route"
 			],
 			[
 				"th",
@@ -250,10 +270,6 @@
 			[
 				"lo",
 				"login"
-			],
-			[
-				"r",
-				"rootScope"
 			],
 			[
 				"d",
@@ -328,10 +344,10 @@
 	"buffers":
 	[
 		{
-			"file": "_posts/2014-10-30-promises-deferred-trong-angularjs.md",
+			"file": "_posts/2014-11-04-routing-spa-with-angular-ui-router.md",
 			"settings":
 			{
-				"buffer_size": 10576,
+				"buffer_size": 3933,
 				"line_ending": "Unix"
 			}
 		},
@@ -340,22 +356,6 @@
 			"settings":
 			{
 				"buffer_size": 8684,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_posts/2014-10-23-tim-hieu-module-ngRoute-trong-angularjs.md",
-			"settings":
-			{
-				"buffer_size": 9559,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_posts/2014-10-28-resolve-trong-angularjs-routes.md",
-			"settings":
-			{
-				"buffer_size": 13352,
 				"line_ending": "Unix"
 			}
 		}
@@ -398,16 +398,17 @@
 	"expanded_folders":
 	[
 		"/opt/projects/thapsang.net/thapsang.github.io-source",
-		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes",
-		"/opt/projects/thapsang.net/thapsang.github.io-source/_layouts",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/assets",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/assets/css"
 	],
 	"file_history":
 	[
-		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-21-routing-single-page-application-voi-module-ngRoute-cua-angularjs.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-05-angular-ui-router.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/assets/css/style.css",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-28-resolve-trong-angularjs-routes.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-23-tim-hieu-module-ngRoute-trong-angularjs.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-21-routing-single-page-application-voi-module-ngRoute-cua-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/analyticstracking.html",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/head.html",
 		"/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-10-theme-elements.md",
@@ -546,28 +547,29 @@
 			[
 				{
 					"buffer": 0,
-					"file": "_posts/2014-10-30-promises-deferred-trong-angularjs.md",
+					"file": "_posts/2014-11-04-routing-spa-with-angular-ui-router.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10576,
+						"buffer_size": 3933,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								652,
-								652
+								230,
+								230
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Markdown/Markdown.tmLanguage",
-							"tab_size": 4
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 183.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -586,8 +588,8 @@
 						"selection":
 						[
 							[
-								1086,
-								1086
+								5092,
+								5092
 							]
 						],
 						"settings":
@@ -597,70 +599,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 371.0,
+						"translation.y": 2700.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "_posts/2014-10-23-tim-hieu-module-ngRoute-trong-angularjs.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9559,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6386,
-								6386
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "_posts/2014-10-28-resolve-trong-angularjs-routes.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13352,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								603,
-								603
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 153.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -717,11 +659,11 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{

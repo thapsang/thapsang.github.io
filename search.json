@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Routing ứng dụng SPA sử dụng UI Router module trong AngularJS",
+		  "category"   : "",
+		  "url"        : "/angularjs/routing-spa-with-angular-ui-router",
+		  "date"       : "2014-11-04 00:00:00 +0700",
+		  "shortdate"  : "November 04, 2014"
+		} ,
+	
+		{
 		  "title"      : "Promises/Deferred trong AngularJS",
 		  "category"   : "",
 		  "url"        : "/angularjs/promises-deferred-trong-angularjs",
