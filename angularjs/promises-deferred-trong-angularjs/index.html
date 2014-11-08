@@ -166,7 +166,7 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Tìm hiểu về Promises và Deferred trong AngularJs.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-10-30T00:00:00+07:00" class="post-time" itemprop="datePublished">30 Oct 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">17.68</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">17.78</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
@@ -382,11 +382,11 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">results</span><span class="p">.</span><span class="nx">first</span><span class="p">,</span> <span class="nx">results</span><span class="p">.</span><span class="nx">second</span><span class="p">,</span> <span class="nx">results</span><span class="p">.</span><span class="nx">third</span><span class="p">);</span>
   <span class="p">});</span></code></pre></div>
 
-<p>Bạn có thể tham khảo demo dưới đây. Trong demo này, mặc dù các promise được resolve theo thứ tự three, one, two nhưng khi chúng ta sử dụng $q.all() thì kết quả trả lại sẽ theo thứ tự của các promise trong hàm all():</p>
+<p>Bạn có thể tham khảo demo dưới đây. Trong demo này, mặc dù các promise được resolve theo thứ tự three, one, two nhưng khi chúng ta sử dụng <code>$q.all()</code> thì kết quả trả lại sẽ theo thứ tự của các promise trong hàm <em>all()</em> (click vào tab <em>Result</em> để xem kết quả):</p>
 
 <iframe width="100%" height="300" src="http://jsfiddle.net/taly2808/1jnyh630/embedded/js,html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-<p>Thêm một phương thức nữa đó là <code>$q.when()</code> - hữu ích nếu chúng ta đang sử dụng một function mà kết quả trả về có thể là một promise nhưng cũng có thể trả về một giá trị (lúc này chúng ta không cần phải trì hoãn - defer). Chúng ta có thể xem ví dụ dưới đây (bạn click vào tab <em>Result</em> để xem kết quả khi chạy: ban đầu sẽ hiển thị <em>Ready.</em> , 1 giây sau hiển thị <em>noPromise</em>, 3 giây sau hiển thị <em>promise</em>  )</p>
+<p>Thêm một phương thức nữa đó là <code>$q.when()</code> - hàm này hữu ích khi chúng ta đang sử dụng một function mà kết quả trả về có thể là một promise nhưng cũng có thể trả về một giá trị (lúc này chúng ta không cần phải trì hoãn - defer). Chúng ta có thể xem ví dụ dưới đây (bạn click vào tab <em>Result</em> để xem kết quả khi chạy: ban đầu sẽ hiển thị <em>Ready.</em> , 1 giây sau hiển thị <em>noPromise</em>, 3 giây sau hiển thị <em>promise</em>  )</p>
 
 <iframe width="100%" height="300" src="http://jsfiddle.net/taly2808/4q2g3vy7/embedded/js,html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
