@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"sta",
+				"state"
+			],
+			[
 				"r",
 				"Resolve"
 			],
@@ -344,10 +348,10 @@
 	"buffers":
 	[
 		{
-			"file": "_posts/2014-11-04-routing-spa-with-angular-ui-router.md",
+			"file": "_posts/2014-11-09-quan-ly-state-voi-ui-router-angularjs.md",
 			"settings":
 			{
-				"buffer_size": 3933,
+				"buffer_size": 528,
 				"line_ending": "Unix"
 			}
 		},
@@ -404,9 +408,12 @@
 	],
 	"file_history":
 	[
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-30-promises-deferred-trong-angularjs.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-28-resolve-trong-angularjs-routes.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-11-08-angular-ui-router.md",
+		"/opt/angularjs/template/package.json",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-05-angular-ui-router.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/assets/css/style.css",
-		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-28-resolve-trong-angularjs-routes.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-23-tim-hieu-module-ngRoute-trong-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-21-routing-single-page-application-voi-module-ngRoute-cua-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/analyticstracking.html",
@@ -547,19 +554,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "_posts/2014-11-04-routing-spa-with-angular-ui-router.md",
+					"file": "_posts/2014-11-09-quan-ly-state-voi-ui-router-angularjs.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3933,
+						"buffer_size": 528,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								230,
-								230
+								318,
+								318
 							]
 						],
 						"settings":
@@ -599,7 +606,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2700.0,
+						"translation.y": 2105.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
