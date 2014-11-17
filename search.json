@@ -3,7 +3,7 @@
 		{
 		  "title"      : "Expression trong AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/expression-trong-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/expression-trong-angularjs",
 		  "date"       : "2014-11-11 00:00:00 +0700",
 		  "shortdate"  : "November 11, 2014"
 		} ,
@@ -11,7 +11,7 @@
 		{
 		  "title"      : "Promises/Deferred trong AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/promises-deferred-trong-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/promises-deferred-trong-angularjs",
 		  "date"       : "2014-10-30 00:00:00 +0700",
 		  "shortdate"  : "October 30, 2014"
 		} ,
@@ -19,7 +19,7 @@
 		{
 		  "title"      : "Hiểu về &#39;Resolve&#39; trong AngularJS routes",
 		  "category"   : "",
-		  "url"        : "/angularjs/resolve-trong-angularjs-routes",
+		  "url"        : "http://thapsang.net/angularjs/resolve-trong-angularjs-routes",
 		  "date"       : "2014-10-28 00:00:00 +0700",
 		  "shortdate"  : "October 28, 2014"
 		} ,
@@ -27,7 +27,7 @@
 		{
 		  "title"      : "Tìm hiểu module ngRoute trong AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/tim-hieu-module-ngRoute-trong-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs",
 		  "date"       : "2014-10-23 00:00:00 +0700",
 		  "shortdate"  : "October 23, 2014"
 		} ,
@@ -35,7 +35,7 @@
 		{
 		  "title"      : "Routing Single Page Application với module ngRoute của AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs",
 		  "date"       : "2014-10-21 00:00:00 +0700",
 		  "shortdate"  : "October 21, 2014"
 		} ,
@@ -43,7 +43,7 @@
 		{
 		  "title"      : "Cấu trúc thư mục cho ứng dụng AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs",
 		  "date"       : "2014-10-12 00:00:00 +0700",
 		  "shortdate"  : "October 12, 2014"
 		} ,
@@ -51,7 +51,7 @@
 		{
 		  "title"      : "Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline",
 		  "category"   : "",
-		  "url"        : "/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline",
+		  "url"        : "http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline",
 		  "date"       : "2014-10-04 00:00:00 +0700",
 		  "shortdate"  : "October 04, 2014"
 		} ,
@@ -59,7 +59,7 @@
 		{
 		  "title"      : "Xóa cache views trong laravel 4 với Artisan command",
 		  "category"   : "",
-		  "url"        : "/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command",
+		  "url"        : "http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command",
 		  "date"       : "2014-10-03 00:00:00 +0700",
 		  "shortdate"  : "October 03, 2014"
 		} ,
@@ -67,7 +67,7 @@
 		{
 		  "title"      : "Hướng dẫn cài đặt Laravel 4",
 		  "category"   : "",
-		  "url"        : "/laravel/huong-dan-cai-dat-laravel",
+		  "url"        : "http://thapsang.net/laravel/huong-dan-cai-dat-laravel",
 		  "date"       : "2014-09-27 00:00:00 +0700",
 		  "shortdate"  : "September 27, 2014"
 		} ,
@@ -75,7 +75,7 @@
 		{
 		  "title"      : "Hướng dẫn cài đặt Composer",
 		  "category"   : "",
-		  "url"        : "/laravel/huong-dan-cai-dat-composer",
+		  "url"        : "http://thapsang.net/laravel/huong-dan-cai-dat-composer",
 		  "date"       : "2014-09-24 00:00:00 +0700",
 		  "shortdate"  : "September 24, 2014"
 		} ,
@@ -83,7 +83,7 @@
 		{
 		  "title"      : "Kiểm tra kết nối database với CodeIgniter",
 		  "category"   : "",
-		  "url"        : "/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter",
+		  "url"        : "http://thapsang.net/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter",
 		  "date"       : "2014-09-23 00:00:00 +0700",
 		  "shortdate"  : "September 23, 2014"
 		} ,
@@ -91,7 +91,7 @@
 		{
 		  "title"      : "Tạo view calendar trong Drupal 7",
 		  "category"   : "",
-		  "url"        : "/drupal-7/tao-view-calendar-trong-drupal7",
+		  "url"        : "http://thapsang.net/drupal-7/tao-view-calendar-trong-drupal7",
 		  "date"       : "2014-04-14 00:00:00 +0700",
 		  "shortdate"  : "April 14, 2014"
 		} 

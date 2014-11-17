@@ -2,26 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">THAPSANG.NET</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="/feed.xml" />
-<link rel="alternate" type="text/html" href="" />
-<updated>2014-11-17T10:39:48+07:00</updated>
-<id>/</id>
+<link rel="self" type="application/atom+xml" href="http://thapsang.net/feed.xml" />
+<link rel="alternate" type="text/html" href="http://thapsang.net" />
+<updated>2014-11-17T17:50:03+07:00</updated>
+<id>http://thapsang.net/</id>
 <author>
   <name>Ta Ly</name>
-  <uri>/</uri>
+  <uri>http://thapsang.net/</uri>
   <email>taly2808@gmail.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[Expression trong AngularJS]]></title>
-  <link>/angularjs/expression-trong-angularjs</link>
-  <id>/angularjs/expression-trong-angularjs</id>
+  <link>http://thapsang.net/angularjs/expression-trong-angularjs</link>
+  <id>http://thapsang.net/angularjs/expression-trong-angularjs</id>
   <published>2014-11-11T00:00:00+07:00</published>
   <updated>2014-11-11T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Trong quá trình tìm hiểu về AngularJS, hẳn chúng ta đã thấy các khái niệm có liên quan đến &lt;strong&gt;Expression&lt;/strong&gt;. Expression được sử dụng trong template, trong các thẻ đánh dấu (markup), trong các directives. Vậy cụ thể thì Expression là gì và nó được sử dụng như thế nào trong AngularJS? Chúng ta cùng tìm hiểu về nó trong nội dung của bài này.&lt;/p&gt;
@@ -156,19 +156,19 @@
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/expression-trong-angularjs&quot;&gt;Expression trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 11, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/expression-trong-angularjs&quot;&gt;Expression trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 11, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Promises/Deferred trong AngularJS]]></title>
-  <link>/angularjs/promises-deferred-trong-angularjs</link>
-  <id>/angularjs/promises-deferred-trong-angularjs</id>
+  <link>http://thapsang.net/angularjs/promises-deferred-trong-angularjs</link>
+  <id>http://thapsang.net/angularjs/promises-deferred-trong-angularjs</id>
   <published>2014-10-30T00:00:00+07:00</published>
   <updated>2014-10-30T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Promises là một tính năng chính (a core feature) của AngularJS. Có thể bạn chưa biết hoặc chưa hiểu về promise, nhưng nếu bạn làm việc với AngularJS thì gần như chắc chắn rằng bạn sẽ làm việc với promise. Trong bài viết này, chúng ta sẽ tìm hiểu vậy Promise là gì, chúng được sử dụng ở đâu? Cách thức nó làm việc như thế nào?&lt;/p&gt;
@@ -400,19 +400,19 @@
   &lt;li&gt;&lt;a href=&quot;http://www.dwmkerr.com/promises-in-angularjs-the-definitive-guide/&quot;&gt;AngularJS Promises - The Definitive Guide&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/promises-deferred-trong-angularjs&quot;&gt;Promises/Deferred trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 30, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/promises-deferred-trong-angularjs&quot;&gt;Promises/Deferred trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 30, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hiểu về 'Resolve' trong AngularJS routes]]></title>
-  <link>/angularjs/resolve-trong-angularjs-routes</link>
-  <id>/angularjs/resolve-trong-angularjs-routes</id>
+  <link>http://thapsang.net/angularjs/resolve-trong-angularjs-routes</link>
+  <id>http://thapsang.net/angularjs/resolve-trong-angularjs-routes</id>
   <published>2014-10-28T00:00:00+07:00</published>
   <updated>2014-10-28T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Trong bài &lt;a href=&quot;/angularjs/tim-hieu-module-ngRoute-trong-angularjs&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt;, chúng ta đã tìm hiểu cách làm thế nào để định tuyến (routing) và cách các routes nói chuyện với controller như thế nào. Việc khởi tạo các controller có thể khác nhau dựa trên các thiết lập của route và các sự kiện &lt;code&gt;$routeChangeSuccess&lt;/code&gt; và &lt;code&gt;$routeChangeError&lt;/code&gt; tương ứng. Hầu hết các sự kiện này có do thuộc tính &lt;code&gt;resolve&lt;/code&gt; khi cấu hình route. Trong bài này, chúng ta sẽ làm sáng rõ vấn đề Tại sao lại cần &lt;code&gt;resolve&lt;/code&gt; và cách thức hoạt động của nó như thế nào.&lt;/p&gt;
@@ -637,19 +637,19 @@
   &lt;li&gt;&lt;a href=&quot;http://documentup.com/kriskowal/q&quot;&gt;Document about Q&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/resolve-trong-angularjs-routes&quot;&gt;Hiểu về 'Resolve' trong AngularJS routes&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 28, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/resolve-trong-angularjs-routes&quot;&gt;Hiểu về 'Resolve' trong AngularJS routes&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 28, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Tìm hiểu module ngRoute trong AngularJS]]></title>
-  <link>/angularjs/tim-hieu-module-ngRoute-trong-angularjs</link>
-  <id>/angularjs/tim-hieu-module-ngRoute-trong-angularjs</id>
+  <link>http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs</link>
+  <id>http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs</id>
   <published>2014-10-23T00:00:00+07:00</published>
   <updated>2014-10-23T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ngRoute&quot;&gt;ngRoute&lt;/a&gt; là một module trong AngularJS cung cấp dịch vụ định tuyến (routing), &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_linking&quot;&gt;deep linking&lt;/a&gt; và các chỉ thị lệnh (directives) &lt;code&gt;ngView&lt;/code&gt; cho các ứng dụng angular. Trong &lt;a href=&quot;/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs&quot;&gt;bài trước&lt;/a&gt;, chúng ta đã có một ví dụ đơn giản về routing trong SPA với AngularJS. Trong nội dung bài này, chúng ta sẽ đi vào tìm hiểu chi tiết về các thành phần &lt;strong&gt;provider&lt;/strong&gt;, &lt;strong&gt;services&lt;/strong&gt; và &lt;strong&gt;ngView directive&lt;/strong&gt; trong module ngRoute.&lt;/p&gt;
@@ -872,19 +872,19 @@
   &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ngRoute/&quot;&gt;AngularJS’s document on ngRoute&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/tim-hieu-module-ngRoute-trong-angularjs&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 23, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 23, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Routing Single Page Application với module ngRoute của AngularJS]]></title>
-  <link>/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</link>
-  <id>/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</id>
+  <link>http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</link>
+  <id>http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</id>
   <published>2014-10-21T00:00:00+07:00</published>
   <updated>2014-10-21T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Các ứng dụng Single Page ngày càng trở nên phổ biến. Khi ứng dụng của chúng ta lớn dần, việc đặt tất cả các views vào trong một file sẽ khiến chúng ta rất khó quản lý. Việc chia nhỏ chúng vào trong Views và sử dụng Routing để tải các phần khác nhau của ứng dụng giúp chúng ta phân chia ứng dụng hợp lý và quản lý dễ dàng hơn.
@@ -1011,19 +1011,19 @@ pages/
   &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/tutorial/step_07&quot;&gt;AngularJS’s document on Routing &amp;amp; Multiple Views&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs&quot;&gt;Routing Single Page Application với module ngRoute của AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 21, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs&quot;&gt;Routing Single Page Application với module ngRoute của AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 21, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Cấu trúc thư mục cho ứng dụng AngularJS]]></title>
-  <link>/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs</link>
-  <id>/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs</id>
+  <link>http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs</link>
+  <id>http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs</id>
   <published>2014-10-12T00:00:00+07:00</published>
   <updated>2014-10-12T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Khi bắt đầu xây dựng một ứng dụng AngularJS, có thể bạn không biết chính xác cách thức tổ chức các files, hoặc thậm chí là không biết mình cần những files nào. Trong bài viết này, tôi sẽ trình bày về cách tạo ra một ứng dụng bằng AngularJS và cách tổ chức cấu trúc thư mục với các ứng dụng ở các mức độ khác nhau.&lt;/p&gt;
@@ -1106,7 +1106,7 @@ views/
 &lt;p&gt;Có nhiều cách để tổ chức thư mục. Ở đây, chúng ta tập trung vào 2 cách cấu trúc: By Type (theo loại file) và By Feature (theo đặc tính).&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;a href=&quot;/assets/img/NgStructureCompare.jpg&quot;&gt;&lt;img src=&quot;/assets/img/NgStructureCompare.jpg&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://thapsang.net/assets/img/NgStructureCompare.jpg&quot;&gt;&lt;img src=&quot;http://thapsang.net/assets/img/NgStructureCompare.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
 &lt;h3 id=&quot;cu-trc-by-type&quot;&gt;Cấu trúc by type&lt;/h3&gt;
@@ -1120,23 +1120,23 @@ views/
 &lt;h2 id=&quot;kt-lun&quot;&gt;Kết luận&lt;/h2&gt;
 &lt;p&gt;Có rất nhiều cách để tổ chức cấu trúc thư mục ứng dụng và không có cách nào là hoàn hảo. Chúng ta dựa trên quy mô ứng dụng để chọn một cấu trúc phù hợp với ứng dụng của mình. Các bạn cũng có thể tự tạo ra cấu trúc của riêng mình ;). Và điều quan trọng nhất vẫn là cấu trúc phải rõ ràng và chúng ta có thể dễ dàng và nhanh chóng xác định được cái mà chúng ta cần làm.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs&quot;&gt;Cấu trúc thư mục cho ứng dụng AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 12, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs&quot;&gt;Cấu trúc thư mục cho ứng dụng AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 12, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline]]></title>
-  <link>/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</link>
-  <id>/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</id>
+  <link>http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</link>
+  <id>http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</id>
   <published>2014-10-04T00:00:00+07:00</published>
   <updated>2014-10-04T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;figure&gt;
-	&lt;a href=&quot;/assets/img/pipeline.jpg&quot;&gt;&lt;img src=&quot;/assets/img/pipeline.jpg&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://thapsang.net/assets/img/pipeline.jpg&quot;&gt;&lt;img src=&quot;http://thapsang.net/assets/img/pipeline.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Trong laravel 4, có nhiều cách để bạn quản lý các tài nguyên css, js, hình ảnh của mình. Trong bài này, tôi sẽ giới thiệu với bạn một cách để quản lý các tài nguyên (assets) để chúng có thể phục vụ trình duyệt một cách hiệu quả nhất có thể với Asset Pipeline.&lt;/p&gt;
@@ -1234,7 +1234,7 @@ views/
 &lt;p&gt;Bạn mở trình duyệt và gõ vào địa chỉ &lt;code&gt;http://localhost:8000&lt;/code&gt; (tùy thuộc vào cổng khi bạn chạy lệnh &lt;code&gt;php artisan serve&lt;/code&gt; nhé :D) và Enter, kết quả sẽ như thế này: &lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;a href=&quot;/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;/assets/img/image-tag-demo.png&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://thapsang.net/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;http://thapsang.net/assets/img/image-tag-demo.png&quot; /&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Hình ảnh chú Tweety Bird của bạn sẽ được tải lên với đường dẫn &lt;code&gt;http://localhost:8000/assets/tweety.png&lt;/code&gt;. Bạn có thể sử dụng Bug Tool để xác nhận lại ;).&lt;/p&gt;
@@ -1249,19 +1249,19 @@ views/
 
 &lt;p&gt;Hy vọng bạn đã có thể quản lý các asset của mình một cách dễ dàng. Have fun! ;)&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline&quot;&gt;Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 04, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline&quot;&gt;Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 04, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Xóa cache views trong laravel 4 với Artisan command]]></title>
-  <link>/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</link>
-  <id>/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</id>
+  <link>http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</link>
+  <id>http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</id>
   <published>2014-10-03T00:00:00+07:00</published>
   <updated>2014-10-03T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Khi phát triển ứng dụng với laravel 4, có sự thay đổi trên view nhưng khi reload ứng dụng thì bạn không hề thấy có sự thay đổi. Mặc dù đã xóa cache với lệnh &lt;code&gt;php artisan cache:clear&lt;/code&gt; nhưng vẫn không khả quan hơn. Lý do là ứng dụng của chúng ta còn lưu lại cache của views trong thư mục &lt;code&gt;app/storage/views&lt;/code&gt;. Bạn có thể truy cập vào thư mục &lt;code&gt;app/storage/views&lt;/code&gt; và xóa hết các files trong thư mục này đi. Với cách làm thủ công này chắc chắn sẽ khiến bạn phát rồ lên. Trong bài này, tôi sẽ chỉ cho bạn cách xóa views cache dễ như ăn kẹo vậy :).&lt;/p&gt;
@@ -1304,19 +1304,19 @@ Views deleted from cache&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Hy vọng có thể giúp các bạn giải quyết được vấn đề của mình. Have fun! ;)&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command&quot;&gt;Xóa cache views trong laravel 4 với Artisan command&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 03, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command&quot;&gt;Xóa cache views trong laravel 4 với Artisan command&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 03, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hướng dẫn cài đặt Laravel 4]]></title>
-  <link>/laravel/huong-dan-cai-dat-laravel</link>
-  <id>/laravel/huong-dan-cai-dat-laravel</id>
+  <link>http://thapsang.net/laravel/huong-dan-cai-dat-laravel</link>
+  <id>http://thapsang.net/laravel/huong-dan-cai-dat-laravel</id>
   <published>2014-09-27T00:00:00+07:00</published>
   <updated>2014-09-27T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Có nhiều cách để cài đặt Laravel. Trong bài viết này, tôi sẽ trình bày các cách cài đặt Laravel trên Linux và trên Windows từ mọi thứ mà Laravel yêu cầu. Bạn sẽ biết cài đặt PHP, MySQL, MCrypt, Composer và mọi thứ để ứng dụng của bạn có thể chạy :).&lt;/p&gt;
@@ -1474,22 +1474,22 @@ Tiếp đến, copy file &lt;code&gt;laravel&lt;/code&gt; sang thư mục &lt;co
 
 &lt;p&gt;Mở trình duyệt web và gõ vào địa chỉ &lt;code&gt;http://localhost:8000&lt;/code&gt;, tận hưởng thành quả nào:&lt;/p&gt;
 &lt;figure&gt;
-	&lt;a href=&quot;/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;/assets/img/welcome_laravel.jpg&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://thapsang.net/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;http://thapsang.net/assets/img/welcome_laravel.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/laravel/huong-dan-cai-dat-laravel&quot;&gt;Hướng dẫn cài đặt Laravel 4&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 27, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/huong-dan-cai-dat-laravel&quot;&gt;Hướng dẫn cài đặt Laravel 4&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 27, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hướng dẫn cài đặt Composer]]></title>
-  <link>/laravel/huong-dan-cai-dat-composer</link>
-  <id>/laravel/huong-dan-cai-dat-composer</id>
+  <link>http://thapsang.net/laravel/huong-dan-cai-dat-composer</link>
+  <id>http://thapsang.net/laravel/huong-dan-cai-dat-composer</id>
   <published>2014-09-24T00:00:00+07:00</published>
   <updated>2014-09-24T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Composer là một công cụ để quản lý sự phụ thuộc trong PHP. Bạn có một project và nó phụ thuộc vào một cơ số các thư viện. Một vài thư viện trong số đó lại phụ thuộc vào các thư viện khác. Việc tải các thư viện cần thiết cho project theo cách thông thường cũng khá tốn thời gian và mệt não. Với Composer, bạn chỉ cần khai báo các thư viện project cần, Composer sẽ tìm các phiên bản tương ứng và download chúng vào vào trong project cho bạn.&lt;/p&gt;
@@ -1631,19 +1631,19 @@ Composer version b33da336ecb7f1c9b15a57285e5a9f09cf5f3dd2 2014-09-30 15:28:01&lt
 
 &lt;p&gt;Với kết quả hiển thị như trên, bạn đã cài đặt thành công Composer trên máy tính của mình.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/laravel/huong-dan-cai-dat-composer&quot;&gt;Hướng dẫn cài đặt Composer&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 24, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/huong-dan-cai-dat-composer&quot;&gt;Hướng dẫn cài đặt Composer&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 24, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Kiểm tra kết nối database với CodeIgniter]]></title>
-  <link>/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</link>
-  <id>/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</id>
+  <link>http://thapsang.net/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</link>
+  <id>http://thapsang.net/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</id>
   <published>2014-09-23T00:00:00+07:00</published>
   <updated>2014-09-23T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Khi làm việc với Model cần kết nối đến database, tôi gặp phải thông báo lỗi sau: (Tôi đang sử dụng CodeIgniter 2.2.0, Apache/2.4.9 (Unix), PHP/5.5.11, MySQL/5.0.1):&lt;/p&gt;
@@ -1715,19 +1715,19 @@ Xem thêm tại &lt;a href=&quot;http://stackoverflow.com/questions/13944956/the
   &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/4219970/warning-mysql-connect-2002-no-such-file-or-directory-trying-to-connect-vi&quot;&gt;http://stackoverflow.com/questions/4219970/warning-mysql-connect-2002-no-such-file-or-directory-trying-to-connect-vi&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter&quot;&gt;Kiểm tra kết nối database với CodeIgniter&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 23, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter&quot;&gt;Kiểm tra kết nối database với CodeIgniter&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 23, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Tạo view calendar trong Drupal 7]]></title>
-  <link>/drupal-7/tao-view-calendar-trong-drupal7</link>
-  <id>/drupal-7/tao-view-calendar-trong-drupal7</id>
+  <link>http://thapsang.net/drupal-7/tao-view-calendar-trong-drupal7</link>
+  <id>http://thapsang.net/drupal-7/tao-view-calendar-trong-drupal7</id>
   <published>2014-04-14T00:00:00+07:00</published>
   <updated>2014-04-14T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Trong dự án đang thực hiện, tôi cần hiển thị lịch học của các khóa học dưới dạng lịch (calendar) để mọi người có cái nhìn trực quan hơn. Trang tôi muốn hiển thị là trang &lt;a href=&quot;http://buocnho.com/dao-tao&quot; target=&quot;_blank&quot;&gt;Đào tạo&lt;/a&gt;. Các khóa học có kiểu nội dung là &lt;strong&gt;Course&lt;/strong&gt; và có trường &lt;strong&gt;Dự kiến khai giảng&lt;/strong&gt; (&lt;code&gt;field_course_start_date&lt;/code&gt;) là kiểu ngày tháng (date). Đã có nhiều plugin jquery hỗ trợ việc hiển thị Calendar, nhưng làm thế nào để tôi có thể sử dụng chúng trong Drupal 7?&lt;/p&gt;
@@ -1801,7 +1801,7 @@ Xem thêm tại &lt;a href=&quot;http://stackoverflow.com/questions/13944956/the
 &lt;/ul&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/drupal-7/tao-view-calendar-trong-drupal7&quot;&gt;Tạo view calendar trong Drupal 7&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on April 14, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/drupal-7/tao-view-calendar-trong-drupal7&quot;&gt;Tạo view calendar trong Drupal 7&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on April 14, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
