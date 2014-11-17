@@ -2,65 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      
     <url>
-        <loc>http://thapsang.net/</loc>
+        <loc>/</loc>
     </url> 
     <url>
-        <loc>http://thapsang.net/categories</loc>
+        <loc>/categories</loc>
     </url> 
     <url>
-        <loc>http://thapsang.net/tags</loc>
+        <loc>/tags</loc>
     </url> 
     <url>
-        <loc>http://thapsang.net/about</loc>
+        <loc>/about</loc>
     </url>
     
     
     <url>
-        <loc>http://thapsang.net/angularjs/expression-trong-angularjs</loc>
+        <loc>/angularjs/expression-trong-angularjs</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/promises-deferred-trong-angularjs</loc>
+        <loc>/angularjs/promises-deferred-trong-angularjs</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/resolve-trong-angularjs-routes</loc>
+        <loc>/angularjs/resolve-trong-angularjs-routes</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs</loc>
+        <loc>/angularjs/tim-hieu-module-ngRoute-trong-angularjs</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</loc>
+        <loc>/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs</loc>
+        <loc>/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</loc>
+        <loc>/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</loc>
+        <loc>/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/laravel/huong-dan-cai-dat-laravel</loc>
+        <loc>/laravel/huong-dan-cai-dat-laravel</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/laravel/huong-dan-cai-dat-composer</loc>
+        <loc>/laravel/huong-dan-cai-dat-composer</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</loc>
+        <loc>/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/drupal-7/tao-view-calendar-trong-drupal7</loc>
+        <loc>/drupal-7/tao-view-calendar-trong-drupal7</loc>
     </url>
     
 </urlset>
