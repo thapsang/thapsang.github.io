@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"g",
+				"giá"
+			],
+			[
+				"Ja",
+				"Javascript"
+			],
+			[
+				"exp",
+				"expression"
+			],
+			[
+				"E",
+				"Expressions"
+			],
+			[
 				"sta",
 				"state"
 			],
@@ -348,18 +364,10 @@
 	"buffers":
 	[
 		{
-			"file": "_posts/2014-11-09-quan-ly-state-voi-ui-router-angularjs.md",
+			"file": "_posts/2014-11-11-expression-trong-angularjs.md",
 			"settings":
 			{
-				"buffer_size": 528,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-10-theme-elements.md",
-			"settings":
-			{
-				"buffer_size": 8684,
+				"buffer_size": 5490,
 				"line_ending": "Unix"
 			}
 		}
@@ -408,9 +416,12 @@
 	],
 	"file_history":
 	[
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-02-bat-dau-voi-laravel-homestead.md",
+		"/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-10-theme-elements.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-11-09-quan-ly-state-voi-ui-router-angularjs.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-11-08-angular-ui-router.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-30-promises-deferred-trong-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-28-resolve-trong-angularjs-routes.md",
-		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-11-08-angular-ui-router.md",
 		"/opt/angularjs/template/package.json",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-05-angular-ui-router.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/assets/css/style.css",
@@ -418,7 +429,6 @@
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-21-routing-single-page-application-voi-module-ngRoute-cua-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/analyticstracking.html",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/head.html",
-		"/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-10-theme-elements.md",
 		"/home/taly/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/taly/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/taly/.config/sublime-text-3/Packages/User/Markdown.sublime-settings",
@@ -554,19 +564,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "_posts/2014-11-09-quan-ly-state-voi-ui-router-angularjs.md",
+					"file": "_posts/2014-11-11-expression-trong-angularjs.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 528,
+						"buffer_size": 5490,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								318,
-								318
+								2779,
+								2779
 							]
 						],
 						"settings":
@@ -576,40 +586,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 863.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-10-theme-elements.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8684,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5092,
-								5092
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2105.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
