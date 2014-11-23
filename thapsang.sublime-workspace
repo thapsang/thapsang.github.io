@@ -4,8 +4,84 @@
 		"selected_items":
 		[
 			[
-				"g",
+				"p",
+				"p	Tag"
+			],
+			[
+				"gi",
 				"giá"
+			],
+			[
+				"ser",
+				"server"
+			],
+			[
+				"reque",
+				"request"
+			],
+			[
+				"se",
+				"server"
+			],
+			[
+				"serv",
+				"server"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"ht",
+				"http"
+			],
+			[
+				"in",
+				"interceptor"
+			],
+			[
+				"htt",
+				"httpProvider"
+			],
+			[
+				"de",
+				"dependency2"
+			],
+			[
+				"depe",
+				"dependency1"
+			],
+			[
+				"inte",
+				"interceptor"
+			],
+			[
+				"A",
+				"AJAX"
+			],
+			[
+				"Ang",
+				"AngularJS"
+			],
+			[
+				"An",
+				"Angular"
+			],
+			[
+				"g",
+				"google-analytics"
+			],
+			[
+				"ex",
+				"exception"
+			],
+			[
+				"Angul",
+				"AngularJS"
+			],
+			[
+				"Angu",
+				"Angular"
 			],
 			[
 				"Ja",
@@ -48,10 +124,6 @@
 				"urlRouterProvider"
 			],
 			[
-				"gi",
-				"giữa"
-			],
-			[
 				"state",
 				"stateProvide"
 			],
@@ -64,16 +136,8 @@
 				"promises"
 			],
 			[
-				"re",
-				"resolve"
-			],
-			[
 				"cal",
 				"callbacks"
-			],
-			[
-				"ser",
-				"service"
 			],
 			[
 				"e",
@@ -90,14 +154,6 @@
 			[
 				"succe",
 				"successCallback"
-			],
-			[
-				"se",
-				"service"
-			],
-			[
-				"de",
-				"deferred"
 			],
 			[
 				"s",
@@ -364,10 +420,10 @@
 	"buffers":
 	[
 		{
-			"file": "_posts/2014-11-11-expression-trong-angularjs.md",
+			"file": "_posts/2014-11-18-hieu-ve-$http-service-trong-angularjs.md",
 			"settings":
 			{
-				"buffer_size": 5490,
+				"buffer_size": 10367,
 				"line_ending": "Unix"
 			}
 		}
@@ -410,32 +466,50 @@
 	"expanded_folders":
 	[
 		"/opt/projects/thapsang.net/thapsang.github.io-source",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_layouts",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/assets",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/assets/css"
 	],
 	"file_history":
 	[
-		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-02-bat-dau-voi-laravel-homestead.md",
 		"/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-10-theme-elements.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/assets/css/bootstrap.css",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/assets/css/style.css",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_layouts/post.html",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_layouts/page.html",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-18-hieu-ve-$http-service-trong-angularjd.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/head.html",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_config.yml",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/scripts.html",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/index.html",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/about.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/categories.html",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/header.html",
+		"/home/taly/Desktop/origami-child-google-authorship-04/origami-child/page.php",
+		"/opt/projects/thapsang.net/hmfaysal-omega-theme/_config.yml",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/feed.xml",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/signoff.html",
+		"/home/taly/Desktop/origami-child-google-authorship-04/origami-child/loop.php",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/tags.html",
+		"/home/taly/.bash_profile",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/images/my-ava.jpg",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-02-bat-dau-voi-laravel-homestead.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-11-09-quan-ly-state-voi-ui-router-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-11-08-angular-ui-router.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-30-promises-deferred-trong-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-28-resolve-trong-angularjs-routes.md",
 		"/opt/angularjs/template/package.json",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-05-angular-ui-router.md",
-		"/opt/projects/thapsang.net/thapsang.github.io-source/assets/css/style.css",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-23-tim-hieu-module-ngRoute-trong-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-21-routing-single-page-application-voi-module-ngRoute-cua-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/analyticstracking.html",
-		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/head.html",
 		"/home/taly/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/taly/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/taly/.config/sublime-text-3/Packages/User/Markdown.sublime-settings",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-09-24-huong-dan-cai-dat-composer.md",
 		"/home/taly/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
 		"/opt/laravel/opentourguide/public/app/js/app.js",
-		"/opt/projects/thapsang.net/thapsang.github.io-source/index.html",
 		"/opt/angularjs/todo/app/index.html",
 		"/home/taly/Desktop/dongdiemthuy-blog/_posts/2014-10-19-controller-trong-angularjs.md",
 		"/home/taly/Desktop/dongdiemthuy-blog/_posts/2014-09-30-su-dung-javadoc-va-maven-de-tao-tai-lieu-du-an.md",
@@ -525,9 +599,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"/opt/projects/thapsang.net/thapsang.github.io-source"
 		]
 	},
 	"find_state":
@@ -535,6 +610,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"col-md-8",
+			"permalink",
+			"scripts.html",
+			"analyticstracking",
+			"modifiedtime",
+			"entry-date",
+			"update",
 			" ,",
 			"script.js",
 			"  -",
@@ -564,29 +646,28 @@
 			[
 				{
 					"buffer": 0,
-					"file": "_posts/2014-11-11-expression-trong-angularjs.md",
+					"file": "_posts/2014-11-18-hieu-ve-$http-service-trong-angularjs.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5490,
+						"buffer_size": 10367,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2779,
-								2779
+								5847,
+								5847
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Markdown/Markdown.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"tab_size": 2
 						},
 						"translation.x": 0.0,
-						"translation.y": 863.0,
+						"translation.y": 1584.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

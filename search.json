@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Hiểu về dịch vụ $http trong AngularJS",
+		  "category"   : "",
+		  "url"        : "/angularjs/hieu-ve-$http-service-trong-angularjs",
+		  "date"       : "2014-11-18 00:00:00 +0700",
+		  "shortdate"  : "November 18, 2014"
+		} ,
+	
+		{
 		  "title"      : "Expression trong AngularJS",
 		  "category"   : "",
 		  "url"        : "/angularjs/expression-trong-angularjs",

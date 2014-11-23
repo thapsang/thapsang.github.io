@@ -4,13 +4,282 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-11-18T21:14:38+07:00</updated>
+<updated>2014-11-23T13:38:46+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
   <uri>/</uri>
   <email>taly2808@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Hiểu về dịch vụ $http trong AngularJS]]></title>
+  <link>/angularjs/hieu-ve-$http-service-trong-angularjs</link>
+  <id>/angularjs/hieu-ve-$http-service-trong-angularjs</id>
+  <updated>2014-11-18T00:00:00-00:00</updated>
+  <published>2014-11-18T00:00:00+07:00</published>
+  
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;$http service là một dịch vụ cốt lõi của Angular, được sử dụng để giao tiếp với các trình chủ HTTP thông qua các đối tượng &lt;a href=&quot;https://developer.mozilla.org/en/xmlhttprequest&quot;&gt;XMLHttpRequest&lt;/a&gt; của trình duyệt (&lt;em&gt;được sử dụng nhiều trong lập trình AJAX&lt;/em&gt;) hoặc &lt;a href=&quot;http://en.wikipedia.org/wiki/JSONP&quot;&gt;JSONP&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;Sử dụng $http service là cách dễ nhất để gửi một lời gọi AJAX (Asynchronous Javascript and XML) đến trình chủ web (web server) và xử lý các đáp ứng trả về (responses). Nếu bạn đã từng sử dụng jQuery thì cách hành xử của $http service gần giống như phương thức &lt;a href=&quot;http://api.jquery.com/jquery.ajax/&quot;&gt;$.ajax()&lt;/a&gt; trong jQuery: $http cấu hình một yêu cầu (request) và trả lại một lời hứa (promise). jQuery sử dụng thư viện &lt;a href=&quot;http://api.jquery.com/jQuery.Deferred/&quot;&gt;Deferred&lt;/a&gt; trong nội hàm của nó, trong khi AngularJS sử dụng dịch vụ &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$q&quot;&gt;$q&lt;/a&gt; dựa trên cơ chế của thư viện &lt;a href=&quot;http://documentup.com/kriskowal/q/&quot;&gt;Q&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Trước khi đi vào tìm hiểu chi tiết nội dung bài này, cần đảm bảo rằng bạn đã hiểu về &lt;a href=&quot;/angularjs/promises-deferred-trong-angularjs&quot;&gt;Promise/Deffered trong AngularJS&lt;/a&gt;. Trong bài này, chúng ta sẽ tìm hiểu, làm rõ các vấn đề dưới đây:&lt;/p&gt;
+&lt;section&gt;  
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#cc-phng-thc-trong-http&quot;&gt;Các phương thức trong $http&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#httpconfig&quot;&gt;$http(config)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#hm-success-v-error-ca-i-tng-promise&quot;&gt;Hàm success() và error() của đối tượng promise&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#security&quot;&gt;Security&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#interceptors&quot;&gt;Interceptors&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#interceptors-l-g&quot;&gt;Interceptors là gì?&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#cc-hot-ng-khng-ng-b&quot;&gt;Các hoạt động không đồng bộ&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;p&gt;Cần nhớ rằng, &lt;strong&gt;các lời gọi AJAX không thể gửi đến một tên miền khác&lt;/strong&gt; với tên miền mà trang HTML được load. Ví như một trang HTML đang được load từ tên miền &lt;em&gt;thapsang.net&lt;/em&gt; thì sau đó trang HTML chỉ có thể thực hiện các lời gọi AJAX trở lại URLs trong tên miền &lt;em&gt;thapsang.net&lt;/em&gt;. Muốn thực hiện các lời gọi đến các dịch vụ thuộc tên miền khác, chúng ta phải sử dụng đến các JSONP request.&lt;/p&gt;
+
+&lt;p&gt;Dưới đây là ví dụ đơn giản sử dụng $http service thực hiện một lời gọi AJAX trong ứng dụng AngularJS:&lt;/p&gt;
+
+&lt;iframe src=&quot;http://embed.plnkr.co/rYZ9d4CAG3PztwIZnegz/preview&quot; style=&quot;border:0px #FFFFFF none;&quot; name=&quot;A single  $http AJAX&quot; scrolling=&quot;no&quot; frameborder=&quot;1&quot; marginheight=&quot;0px&quot; marginwidth=&quot;0px&quot; height=&quot;300px&quot; width=&quot;100%&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Bạn mở file &lt;code&gt;script.js&lt;/code&gt; của ví dụ trên. Chúng ta thấy rằng, hàm &lt;code&gt;MyController&lt;/code&gt; đã đăng ký với module hai tham số: $scope và $http. $http service được sử dụng để thực hiện lời gọi AJAX.&lt;/p&gt;
+
+&lt;p&gt;Hàm $http.get() trả về một đối tượng “lời hứa” (promise). Đối tượng promise này có một phương thức &lt;code&gt;success()&lt;/code&gt; và một phương thức &lt;code&gt;error()&lt;/code&gt;. Bằng cách gọi các phương thức này và truyền một hàm cho chúng (xem như là tham số), chúng ta có thể kiểm soát được những gì xảy ra sau khi lời gọi AJAX kết thúc. Nếu lời gọi AJAX thành công (server trả lại mã HTTP từ 200 đến 299) thì hàm đã được truyền trong phương thức &lt;code&gt;success()&lt;/code&gt; được thực thi. Nếu lời gọi AJAX thất bại thì hàm đã được truyền trong phương thức &lt;code&gt;error()&lt;/code&gt; được thực thi. Chúng ta sẽ tìm hiểu chi tiết về phương thức success() và error() ở phần sau.&lt;/p&gt;
+
+&lt;h2 id=&quot;cc-phng-thc-trong-http&quot;&gt;Các phương thức trong $http&lt;/h2&gt;
+
+&lt;p&gt;$http service cho phép chúng ta gửi các requests tới web server với các phương thức sau:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$http.get(url, [config])&lt;/li&gt;
+  &lt;li&gt;$http.delete(url, [config])&lt;/li&gt;
+  &lt;li&gt;$http.head(url, [config])&lt;/li&gt;
+  &lt;li&gt;$http.path(url, [config])&lt;/li&gt;
+  &lt;li&gt;$http.post(url, data, [config])&lt;/li&gt;
+  &lt;li&gt;$http.put(url, data, [config])&lt;/li&gt;
+  &lt;li&gt;$http.jsonp(url, [config])&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Đây là các phương thức rút gọn của dịch vụ $http. Chú ý rằng, phương thức &lt;strong&gt;$http.post()&lt;/strong&gt; và &lt;strong&gt;$http.put()&lt;/strong&gt; có tham số &lt;code&gt;data&lt;/code&gt; chứa dữ liệu được gửi đến server. Các phương thức còn lại không thể có tham số &lt;code&gt;data&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Tham số &lt;code&gt;data&lt;/code&gt; sẽ được chuyển thành một chuỗi JSON, chuỗi này sẽ được đưa vào trong phần request body khi HTTP request được gửi tới server. AngularJS sẽ coi tất cả các thuộc tính bắt đầu với ký tự &lt;code&gt;$&lt;/code&gt; là của riêng nó, do đó nó sẽ loại bỏ &lt;code&gt;$&lt;/code&gt; ra khỏi data. Nếu bạn cần chưá các thuộc tính bắt đầu với &lt;code&gt;$&lt;/code&gt; thì bạn cần chuyển đối tượng &lt;code&gt;data&lt;/code&gt; thành chuỗi của riêng bạn bằng cách sử dụng hàm &lt;code&gt;JSON.stringify(data)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;httpconfig&quot;&gt;$http(config)&lt;/h2&gt;
+
+&lt;p&gt;Chúng ta có thể sử dụng dịch vụ $http như một hàm trực tiếp, ví như: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Trong trường hợp này, URL và phương thức HTTP được thiết lập bên trong đối tượng &lt;code&gt;config&lt;/code&gt;. Tham số của &lt;code&gt;config&lt;/code&gt; được truyền vào các hàm &lt;code&gt;$http&lt;/code&gt; khác nhau để kiểm soát các HTTP request gửi đến server, nó gồm các thuộc tính sau:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;method&lt;/strong&gt;: được sử dụng để thiết lập phương thức HTTP cho request. Nó là một trong các phương thức GET, POST, PUT, DELETE, HEAD. Thuộc tính này thường được thiết lập ngầm khi chúng ta gọi bằng cách phương thức rút gọn (chẳng hạn như $http.get()), khi đó chúng ta không phải thiết lập thuộc tính này.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;url&lt;/strong&gt;: được sử dụng để thiết lập URL cho lời gọi AJAX.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;params&lt;/strong&gt;: dùng để thiết lập thêm các tham số cho request, nó sẽ viết thêm một chuỗi truy vấn vào URL với dạng &lt;code&gt;?key1=value1&amp;amp;key2=value2&lt;/code&gt;. Ví dụ dưới đây sẽ thêm tham số vào URL và khi đó url khi gửi đến server có dạng &lt;code&gt;/someUrl?user_id=3&lt;/code&gt;:&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;  $http.get(&#39;/someUrl&#39;, {
+      params: { user_id: 3 }
+  });
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;data&lt;/strong&gt;: là một chuỗi hoặc một đối tượng, nó là dữ liệu được gửi đến server. Thuộc tính này được thiết lập khi sử dụng với phương thức POST hoặc PUT.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;headers&lt;/strong&gt;: dùng để thiết lập bổ sung các HTTP headers mà chúng ta muốn gửi đến server.&lt;/p&gt;
+
+    &lt;p&gt;$http service sẽ tự động thêm các &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$http#setting-http-headér&quot;&gt;HTTP headers nhất định&lt;/a&gt; cho tất cả các requests. Những giá trị mặc định này được cấu hình trong đối tượng &lt;code&gt;$httpProvider.defaults.headers&lt;/code&gt;:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Headers chung cho tất cả các requests: &lt;code&gt;$httpProvider.defaults.headers.common&lt;/code&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;code&gt;Accept: application/json, text/plain, * / *&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Headers mặc định cho POST requests: &lt;code&gt;$httpProvider.defaults.headers.post&lt;/code&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;code&gt;Content-Type: application/json&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Headers mặc định cho PUT requests: &lt;code&gt;$httpProvider.defaults.headers.put&lt;/code&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;code&gt;Content-Type: application/json&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Để thêm hoặc ghi đè các giá trị mặc định, bạn chỉ cần thêm hoặc loại bỏ một thuộc tính từ đối tượng cấu hình. Để loại bỏ một cách rõ ràng một header được tự động thêm vào thông qua &lt;code&gt;$httpProvider.defaults.headers&lt;/code&gt; trong mỗi request, chúng ta thiết lập giá trị &lt;code&gt;undefined&lt;/code&gt; cho header đó. Ví dụ:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://example.com&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt;     &lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;6&lt;/span&gt;     &lt;span class=&quot;s1&quot;&gt;&amp;#39;Authorization&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;login YmVlcDpib29w&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;7&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;8&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;test&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;xsrfHeaderName&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;xsrfCookieName&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;transformRequest&lt;/strong&gt;: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng request trước khi gửi nó đến server.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;transformResponse&lt;/strong&gt;: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng response được trả lại từ server trước khi trả nó ứng dụng.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;cache&lt;/strong&gt;: để kich hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là &lt;code&gt;true&lt;/code&gt; (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với $cacheFactory). Ví dụ:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;col-md-6&quot;&gt;
+	
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;GET&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/api/users.json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Or, using the .get helper&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/api/users.json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;8&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;  
+&lt;span class=&quot;lineno&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&quot;col-md-6&quot;&gt;
+	
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myCache&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$cacheFactory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myCache&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;GET&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/api/users.json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myCache&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Or, using the .get helper&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/api/users.json&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myCache&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Khi bộ nhớ đệm được kích hoạt, $http lưu trữ các đáp ứng trả về từ server trong bộ nhớ cache. Khi thực hiện cùng một request, trong các lần tiếp theo, các response được lấy từ bộ nhớ cache mà không cần gửi lại request tới server. Bạn có thể tìm hiểu thêm về &lt;a href=&quot;https://www.ng-book.com/p/Caching/&quot;&gt;Caching trong AngularJS&lt;/a&gt; để nắm rõ về thuộc tính này.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;timeout&lt;/strong&gt;: thiết lập thời gian chờ cho các request. Thuộc tính này có thể nhận giá trị là dạng số (tính bằng milli giây) hoặc có thể là một lời hứa (promise). Khi hết thời gian chờ (giá trị được thiết lập là số), request bị hủy bỏ. Nếu là một promise thì request sẽ bị hủy bỏ khi promise được giải quyết (resolved).&lt;/p&gt;
+
+    &lt;p&gt;Trong demo dưới đây, chúng ta có một button thực hiện việc gửi request để lấy danh sách các books, một button thực hiện việc hủy request nếu request chưa trả về kết quả. Bạn có thể chạy &lt;a href=&quot;http://embed.plnkr.co/jbRHklfI1H1VfKLjJtCd/preview&quot;&gt;demo&lt;/a&gt; trên một cửa sổ mới, bật công cụ bug của trình duyệt (nhấn F12), chọn tab &lt;strong&gt;Network&lt;/strong&gt;. Ban đầu, bạn thực hiện &lt;strong&gt;Send request&lt;/strong&gt;, khi nó đang &lt;em&gt;Loading …&lt;/em&gt;, bạn thực hiện &lt;strong&gt;Cancel request&lt;/strong&gt; thì bạn sẽ thấy lời gọi bị hủy bỏ.&lt;/p&gt;
+
+    &lt;figure&gt;
+      &lt;img src=&quot;/images/canceled-request.png&quot; /&gt;
+  &lt;/figure&gt;
+
+    &lt;iframe src=&quot;http://embed.plnkr.co/jbRHklfI1H1VfKLjJtCd/index.html&quot; style=&quot;border:0px #FFFFFF none;&quot; name=&quot;Canceling AJAX request using $http&quot; scrolling=&quot;no&quot; frameborder=&quot;1&quot; marginheight=&quot;0px&quot; marginwidth=&quot;0px&quot; height=&quot;300px&quot; width=&quot;100%&quot;&gt;&lt;/iframe&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;withCredentials&lt;/strong&gt;: thuộc tính này có giá trị thuộc kiểu &lt;em&gt;boolean&lt;/em&gt;. &lt;code&gt;withCredentials&lt;/code&gt; là một lá cờ (flag) đặt trên  đối tượng cấp thấp &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest&quot;&gt;XMLHttpRequest&lt;/a&gt;. Nếu bạn sử dụng dịch vụ $http chuẩn để truy cập vào các remote APIs, nó sẽ chỉ làm việc chừng nào server được cấu hình cho phép các requests từ tên miền của bạn và bạn không cần lưu trữ Cookies. Tuy nhiên, trong nhiều ứng dụng chúng ta cũng cần phải thiết lập và lưu trữ thông tin Cookies cho những thứ như đăng nhập chẳng hạn. Mặc định, điều này không thể thực hiện được trên hầu hết các trình duyệt. Bằng cách thiết lập giá trị &lt;code&gt;true&lt;/code&gt; cho &lt;code&gt;withCredentials&lt;/code&gt;, chúng ta có thể sử dụng Cookies cho mục đích của mình. Bạn có thể tham khảo &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Requests_with_credentials&quot;&gt;Requests with credentials&lt;/a&gt; để hiểu rõ hơn về thuộc tính này.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;responseType&lt;/strong&gt;: là một chuỗi (string), có thể thiết lập để thay đổi kiểu dữ liệu của các đáp ứng trả về, ví như &lt;em&gt;json, text, document, …&lt;/em&gt;. Xem &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#responseType&quot;&gt;responseType&lt;/a&gt; để có thông tin chi tiết về các giá trị cho thuộc tính này.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;hm-success-v-error-ca-i-tng-promise&quot;&gt;Hàm success() và error() của đối tượng promise&lt;/h2&gt;
+
+&lt;p&gt;Như đã đề cập ở phần trên, các functions trong dịch vụ $http trả về một lời hứa (promise object). Đối tượng promise này có hai phương thức &lt;code&gt;success()&lt;/code&gt; và &lt;code&gt;error()&lt;/code&gt;. Khi một AJAX request thành công, phương thức &lt;code&gt;success()&lt;/code&gt; sẽ được thực thi. Và ngược lại, khi request thất bại, phương thức &lt;code&gt;error()&lt;/code&gt; sẽ được thực thi. Các phương thức này được viết như sau: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Simple GET request example :&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/someUrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// this callback will be called asynchronously&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// when the response is available&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt;   &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// called asynchronously if an error occurs&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// or server returns response with an error status.&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Cách viết này cũng tương đương với việc sử dụng phương thức &lt;strong&gt;then()&lt;/strong&gt; để đăng ký các hàm callbacks: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Simple GET request example :&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/someUrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; 	&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; 	  &lt;span class=&quot;nx&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; 	    &lt;span class=&quot;c1&quot;&gt;// this callback will be called asynchronously&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; 	    &lt;span class=&quot;c1&quot;&gt;// when the response is available&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; 	  &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; 	  &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt; 	    &lt;span class=&quot;c1&quot;&gt;// called asynchronously if an error occurs&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; 	    &lt;span class=&quot;c1&quot;&gt;// or server returns response with an error status.&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt; 	  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Cả hai phương thức success() và error() đều có các thuộc tính sau:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;data&lt;/strong&gt; - có kiểu string hoặc Object - phần dữ liệu trả về từ server.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;status&lt;/strong&gt; - có kiểu sô - mã trạng thái HTTP (HTTP status code) được trả về từ server.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;headers&lt;/strong&gt; - là một function, có thể được sử dụng để lấy bất cứ HTTP response headers nào được trả lại cùng với response. Chúng ta có thể lấy ra một header bằng cách gọi &lt;code&gt;headers([headerName]);&lt;/code&gt;. &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;config&lt;/strong&gt; - là đối tượng cấu hình (&lt;code&gt;config&lt;/code&gt; object) đã được sử dụng để tạo ra các HTTP requests.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;statusText&lt;/strong&gt; - có kiểu string - là thông báo trạng thái HTTP của response dưới dạng văn bản (text).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;security&quot;&gt;Security&lt;/h2&gt;
+
+&lt;h2 id=&quot;interceptors&quot;&gt;Interceptors&lt;/h2&gt;
+
+&lt;p&gt;$http service của AngularJS cho phép chúng ta giao tiếp với phía backend và thực hiện các HTTP requests. Có nhiều trường hợp chúng ta muốn chặn bắt (capture) các requests và tính toán, xử lý (manipulate) nó trước khi gửi nó đến server. Trong trường hợp khác, chúng ta lại muốn chặn bắt các đáp ứng trả về (response), xử lý nó trước khi hoàn thành lời gọi. Ví như việc xử lý lỗi http trong toàn ứng dụng (global http error handling), xác thực (authentication) cũng cần thực hiện như vậy. &lt;strong&gt;Interceptors&lt;/strong&gt; (bộ chặn) rất thuận tiện cho các trường hợp như thế.&lt;/p&gt;
+
+&lt;h3 id=&quot;interceptors-l-g&quot;&gt;Interceptors là gì?&lt;/h3&gt;
+
+&lt;p&gt;Đối tượng cung cấp &lt;strong&gt;$httpProvider&lt;/strong&gt; chứa một mảng các interceptors &lt;code&gt;$httpProvider.interceptors&lt;/code&gt;. Một interceptor đơn giản là một dịch vụ (service factory) được đăng ký vào mảng đó. Chúng ta có thể tạo một interceptor như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myInterceptor&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dependency1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dependency2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;     &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myInterceptor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;         &lt;span class=&quot;p&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;         &lt;span class=&quot;p&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;6&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;7&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myInterceptor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Và sau đó thêm nó vào trong mảng &lt;code&gt;$httpProvider.interceptors&lt;/code&gt;. Do đòi hỏi phải có khả năng truy cập vào đối tượng cung cấp $httpProvider để đăng ký mới một interceptor nên việc này &lt;strong&gt;phải được hiện trong phần cấu hình&lt;/strong&gt; của ứng dụng web:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;$httpProvider&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$httpProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;     &lt;span class=&quot;nx&quot;&gt;$httpProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;interceptors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myInterceptor&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}]);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Interceptors cho phép chúng ta:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Chặn một request bằng cách thực thi hàm &lt;code&gt;request&lt;/code&gt;&lt;/strong&gt;: Phương thức này được thực hiện trước khi &lt;code&gt;$http&lt;/code&gt; gửi request đến server, do đó chúng ta có thể sửa đổi cấu hình (đối tượng &lt;code&gt;config&lt;/code&gt;) và thực hiện các hành động khác. Hàm này nhận đối tượng &lt;code&gt;config&lt;/code&gt; như là một tham số đầu vào và phải trả lại trực tiếp đối tượng &lt;code&gt;config&lt;/code&gt; hoặc một lời hứa (promise) chứa đối tượng &lt;code&gt;config&lt;/code&gt;. Nếu trả lại một đối tượng &lt;code&gt;config&lt;/code&gt; không hợp lệ hoặc một lời hứa bị bác bỏ (reject) thì lời gọi &lt;code&gt;$http&lt;/code&gt; sẽ thất bại.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Ví dụ: Session Injector&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Chặn một response bằng cách thực thi hàm &lt;code&gt;response&lt;/code&gt;&lt;/strong&gt;: Phương thức này được gọi sau khi &lt;code&gt;$http&lt;/code&gt; nhận được response từ server, do đó chúng ta có thể sửa đổi response và thực hiện các hành động khác. Hàm này nhận đối tượng &lt;code&gt;response&lt;/code&gt; như là một tham số đầu vào và phải trả lại trực tiếp đối tượng &lt;code&gt;response&lt;/code&gt; hoặc một lời hứa (promise) chứa đối tượng &lt;code&gt;response&lt;/code&gt;. Đối tượng &lt;code&gt;response&lt;/code&gt; gồm &lt;em&gt;cấu hình của request (config), headers, status, data&lt;/em&gt;. Nếu trả lại một đối tượng &lt;code&gt;response&lt;/code&gt; không hợp lệ hoặc một lời hứa bị bác bỏ (reject) thì lời gọi &lt;code&gt;$http&lt;/code&gt; sẽ thất bại.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Chặn request error bằng cách thực thi hàm &lt;code&gt;requestError&lt;/code&gt;&lt;/strong&gt;: đôi khi, một request không thể gửi đi hoặc nó bị hủy bỏ bởi một bộ chặn (interceptor). Bộ chặn lỗi request (request error interceptor) bắt (capture) các requests đã bị hủy bỏ bởi một request interceptor trước đó. Nó có thể được sử dụng để khôi phục (recover) request và đôi khi quay lui lại những thứ đã được thiết lập trước khi request.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Chặn response error bằng cách thực thi hàm &lt;code&gt;responseError&lt;/code&gt;&lt;/strong&gt;: đôi khi lời gọi đến server bị thất bại, có khi thì nó bị từ chối bởi một request interceptor hoặc một response interceptor trước đó. Trong những trường hợp đó, bộ chặn lỗi response (response error interceptor) có thể giúp chúng ta khôi phục (recover) các lời gọi đến server.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;cc-hot-ng-khng-ng-b&quot;&gt;Các hoạt động không đồng bộ&lt;/h3&gt;
+
+&lt;p&gt;Có những khi chúng ta cần thực hiện một số hoạt động không đồng bộ (asynchronous operations) bên trong interceptor. May mắn thay, AngularJS cho phép chúng ta trả lại một lời hứa, và lời hứa đó sẽ được giải quyết sau. Điều này sẽ làm trì hoãn việc gửi request trong trường hợp của request interceptor và trì hoãn việc giải quyết response trong trường hợp của response interceptor.&lt;/p&gt;
+
+&lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$http&quot;&gt;$http service&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/&quot;&gt;Interceptors in AngularJS and Useful Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/angularjs/hieu-ve-$http-service-trong-angularjs&quot;&gt;Hiểu về dịch vụ $http trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 18, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -104,11 +373,11 @@
 
 &lt;p&gt;Với AngularJS, chúng ta có thể định dạng dữ liệu trước khi hiển thị với &lt;a href=&quot;https://docs.angularjs.org/guide/filter&quot;&gt;$filter&lt;/a&gt;.&lt;/p&gt;
 
+&lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/vjt2hdo1/embedded/result,html&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
 &lt;h3 id=&quot;regular-expression&quot;&gt;Regular Expression&lt;/h3&gt;
 
 &lt;p&gt;AngularJS &lt;strong&gt;không cho phép&lt;/strong&gt; tạo ra các biểu thức chính quy (regular exceptions) trong AngularJS expressions.&lt;/p&gt;
-
-&lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/vjt2hdo1/embedded/result,html&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;Dưới đây là bảng thống kê các biểu thức có thể sử dụng trong AngularJS Expressions.&lt;/p&gt;
 

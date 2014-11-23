@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="vy14mO9wf2bjKiZs8BIxCFXKJDP40DqGTqiwxscMctw" />
+<title>Hiểu về dịch vụ $http trong AngularJS &#8211; THAPSANG.NET</title>
+<meta name="description" content="Tìm hiểu chi tiết về $http service trong AngularJS.">
+<meta name="keywords" content="$http, angularjs">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/my-candle.png">
+<meta name="twitter:title" content="Hiểu về dịch vụ $http trong AngularJS">
+<meta name="twitter:description" content="Tìm hiểu chi tiết về $http service trong AngularJS.">
+<meta name="twitter:creator" content="@taly2808">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hiểu về dịch vụ $http trong AngularJS">
+<meta property="og:description" content="Tìm hiểu chi tiết về $http service trong AngularJS.">
+<meta property="og:url" content="/angularjs/hieu-ve-$http-service-trong-angularjs">
+<meta property="og:site_name" content="THAPSANG.NET">
+<meta property="og:image" content="/images/my-candle.png">
+
+
+
+
+
+<link rel="canonical" href="/angularjs/hieu-ve-$http-service-trong-angularjs">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="THAPSANG.NET Feed">
+<link rel="author" href="https://plus.google.com/+TaLy2808?rel=author">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+
+<div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search...">
+        <i class="icon-remove-sign"></i>
+        <ul class="search-results post-list"></ul><!-- /.search-results -->
+    </div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+<div id="fade"></div>
+<a id="slide" class="animated fade"></a>
+<aside id="sidebar">
+    <nav id="navigation">
+    <h2>MENU</h2>
+    <hr>
+
+            <li>
+                    <a href="/">Trang bìa</a>
+                 </li>
+
+            <li>
+                    <a href="/categories">Danh mục</a>
+                 </li>
+
+            <li>
+                    <a href="/tags"><i class="icon-tag"></i> Tags</a>
+                 </li>
+
+            <li>
+                    <a href="/about">Giới thiệu</a>
+                 </li>
+            
+           <li><a href="/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+    </nav>
+    
+    
+</aside>
+
+<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom"  style="background-image: url(/images/picture-2.jpg)" itemscope itemtype="http://schema.org/Organization">
+
+
+    <button class="menu-button animated fade dosearch">
+        <i class="icon-search"></i>
+    </button>
+
+
+    <div class="inner">
+        <div class="container">
+            <a class="brand" href="/" role="banner" itemprop="url">
+
+                <img itemprop="logo" src="/images/my-candle.png" alt="THAPSANG.NET Logo" />
+
+            <h1 class="blog-title light" itemprop="name">
+                THAPSANG.NET
+            </h1>
+                
+            </a>
+        </div>
+    </div>
+    
+    
+    <div class="decor-wrapper">
+        <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+            <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+            <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"></path>
+            <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"></path>
+
+            <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"></path>
+            <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"></path>
+
+            <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"></path>
+
+            <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"></path>
+
+        </svg>
+    </div>
+    
+</header>
+
+<div id="main" class="content" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+    <div class="container">
+        <div class="row">
+            <article class="post col-md-10 col-md-offset-1 hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+            
+            
+            
+            
+            
+                    <header class="post-header entry-header">
+                    
+                        
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Hiểu về dịch vụ $http trong AngularJS</h1>
+                        
+                        <div class="cursive" style="color: #000; font-style:italic;">Tìm hiểu chi tiết về $http service trong AngularJS.</div>
+                        <div class="post-info text-center small">
+                            <span class="entry-date date published"><time datetime="2014-11-18T00:00:00+07:00" class="post-time" itemprop="datePublished">18 Nov 2014</time><span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">25.76</span> minutes read</span>
+                        </div>
+                    </header>
+                    <div class="post-body bordered-bottom" itemprop="description">
+                        
+                        <p>$http service là một dịch vụ cốt lõi của Angular, được sử dụng để giao tiếp với các trình chủ HTTP thông qua các đối tượng <a href="https://developer.mozilla.org/en/xmlhttprequest">XMLHttpRequest</a> của trình duyệt (<em>được sử dụng nhiều trong lập trình AJAX</em>) hoặc <a href="http://en.wikipedia.org/wiki/JSONP">JSONP</a>. </p>
+
+<p>Sử dụng $http service là cách dễ nhất để gửi một lời gọi AJAX (Asynchronous Javascript and XML) đến trình chủ web (web server) và xử lý các đáp ứng trả về (responses). Nếu bạn đã từng sử dụng jQuery thì cách hành xử của $http service gần giống như phương thức <a href="http://api.jquery.com/jquery.ajax/">$.ajax()</a> trong jQuery: $http cấu hình một yêu cầu (request) và trả lại một lời hứa (promise). jQuery sử dụng thư viện <a href="http://api.jquery.com/jQuery.Deferred/">Deferred</a> trong nội hàm của nó, trong khi AngularJS sử dụng dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$q">$q</a> dựa trên cơ chế của thư viện <a href="http://documentup.com/kriskowal/q/">Q</a>.</p>
+
+<p>Trước khi đi vào tìm hiểu chi tiết nội dung bài này, cần đảm bảo rằng bạn đã hiểu về <a href="/angularjs/promises-deferred-trong-angularjs">Promise/Deffered trong AngularJS</a>. Trong bài này, chúng ta sẽ tìm hiểu, làm rõ các vấn đề dưới đây:</p>
+<section>  
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#cc-phng-thc-trong-http">Các phương thức trong $http</a></li>
+  <li><a href="#httpconfig">$http(config)</a></li>
+  <li><a href="#hm-success-v-error-ca-i-tng-promise">Hàm success() và error() của đối tượng promise</a></li>
+  <li><a href="#security">Security</a></li>
+  <li><a href="#interceptors">Interceptors</a>    <ul>
+      <li><a href="#interceptors-l-g">Interceptors là gì?</a></li>
+      <li><a href="#cc-hot-ng-khng-ng-b">Các hoạt động không đồng bộ</a></li>
+    </ul>
+  </li>
+  <li><a href="#ti-liu-tham-kho">Tài liệu tham khảo</a></li>
+</ul>
+
+  </div>
+</section>
+
+<p>Cần nhớ rằng, <strong>các lời gọi AJAX không thể gửi đến một tên miền khác</strong> với tên miền mà trang HTML được load. Ví như một trang HTML đang được load từ tên miền <em>thapsang.net</em> thì sau đó trang HTML chỉ có thể thực hiện các lời gọi AJAX trở lại URLs trong tên miền <em>thapsang.net</em>. Muốn thực hiện các lời gọi đến các dịch vụ thuộc tên miền khác, chúng ta phải sử dụng đến các JSONP request.</p>
+
+<p>Dưới đây là ví dụ đơn giản sử dụng $http service thực hiện một lời gọi AJAX trong ứng dụng AngularJS:</p>
+
+<iframe src="http://embed.plnkr.co/rYZ9d4CAG3PztwIZnegz/preview" style="border:0px #FFFFFF none;" name="A single  $http AJAX" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="300px" width="100%"></iframe>
+
+<p>Bạn mở file <code>script.js</code> của ví dụ trên. Chúng ta thấy rằng, hàm <code>MyController</code> đã đăng ký với module hai tham số: $scope và $http. $http service được sử dụng để thực hiện lời gọi AJAX.</p>
+
+<p>Hàm $http.get() trả về một đối tượng “lời hứa” (promise). Đối tượng promise này có một phương thức <code>success()</code> và một phương thức <code>error()</code>. Bằng cách gọi các phương thức này và truyền một hàm cho chúng (xem như là tham số), chúng ta có thể kiểm soát được những gì xảy ra sau khi lời gọi AJAX kết thúc. Nếu lời gọi AJAX thành công (server trả lại mã HTTP từ 200 đến 299) thì hàm đã được truyền trong phương thức <code>success()</code> được thực thi. Nếu lời gọi AJAX thất bại thì hàm đã được truyền trong phương thức <code>error()</code> được thực thi. Chúng ta sẽ tìm hiểu chi tiết về phương thức success() và error() ở phần sau.</p>
+
+<h2 id="cc-phng-thc-trong-http">Các phương thức trong $http</h2>
+
+<p>$http service cho phép chúng ta gửi các requests tới web server với các phương thức sau:</p>
+
+<ul>
+  <li>$http.get(url, [config])</li>
+  <li>$http.delete(url, [config])</li>
+  <li>$http.head(url, [config])</li>
+  <li>$http.path(url, [config])</li>
+  <li>$http.post(url, data, [config])</li>
+  <li>$http.put(url, data, [config])</li>
+  <li>$http.jsonp(url, [config])</li>
+</ul>
+
+<p>Đây là các phương thức rút gọn của dịch vụ $http. Chú ý rằng, phương thức <strong>$http.post()</strong> và <strong>$http.put()</strong> có tham số <code>data</code> chứa dữ liệu được gửi đến server. Các phương thức còn lại không thể có tham số <code>data</code>.</p>
+
+<p>Tham số <code>data</code> sẽ được chuyển thành một chuỗi JSON, chuỗi này sẽ được đưa vào trong phần request body khi HTTP request được gửi tới server. AngularJS sẽ coi tất cả các thuộc tính bắt đầu với ký tự <code>$</code> là của riêng nó, do đó nó sẽ loại bỏ <code>$</code> ra khỏi data. Nếu bạn cần chưá các thuộc tính bắt đầu với <code>$</code> thì bạn cần chuyển đối tượng <code>data</code> thành chuỗi của riêng bạn bằng cách sử dụng hàm <code>JSON.stringify(data)</code>.</p>
+
+<h2 id="httpconfig">$http(config)</h2>
+
+<p>Chúng ta có thể sử dụng dịch vụ $http như một hàm trực tiếp, ví như: </p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">$http</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span></code></pre></div>
+
+<p>Trong trường hợp này, URL và phương thức HTTP được thiết lập bên trong đối tượng <code>config</code>. Tham số của <code>config</code> được truyền vào các hàm <code>$http</code> khác nhau để kiểm soát các HTTP request gửi đến server, nó gồm các thuộc tính sau:</p>
+
+<ul>
+  <li><strong>method</strong>: được sử dụng để thiết lập phương thức HTTP cho request. Nó là một trong các phương thức GET, POST, PUT, DELETE, HEAD. Thuộc tính này thường được thiết lập ngầm khi chúng ta gọi bằng cách phương thức rút gọn (chẳng hạn như $http.get()), khi đó chúng ta không phải thiết lập thuộc tính này.</li>
+  <li><strong>url</strong>: được sử dụng để thiết lập URL cho lời gọi AJAX.</li>
+  <li>
+    <p><strong>params</strong>: dùng để thiết lập thêm các tham số cho request, nó sẽ viết thêm một chuỗi truy vấn vào URL với dạng <code>?key1=value1&amp;key2=value2</code>. Ví dụ dưới đây sẽ thêm tham số vào URL và khi đó url khi gửi đến server có dạng <code>/someUrl?user_id=3</code>:</p>
+
+    <pre><code>  $http.get('/someUrl', {
+      params: { user_id: 3 }
+  });
+</code></pre>
+  </li>
+  <li><strong>data</strong>: là một chuỗi hoặc một đối tượng, nó là dữ liệu được gửi đến server. Thuộc tính này được thiết lập khi sử dụng với phương thức POST hoặc PUT.</li>
+  <li>
+    <p><strong>headers</strong>: dùng để thiết lập bổ sung các HTTP headers mà chúng ta muốn gửi đến server.</p>
+
+    <p>$http service sẽ tự động thêm các <a href="https://docs.angularjs.org/api/ng/service/$http#setting-http-headér">HTTP headers nhất định</a> cho tất cả các requests. Những giá trị mặc định này được cấu hình trong đối tượng <code>$httpProvider.defaults.headers</code>:</p>
+
+    <ul>
+      <li>Headers chung cho tất cả các requests: <code>$httpProvider.defaults.headers.common</code>
+        <ul>
+          <li><code>Accept: application/json, text/plain, * / *</code></li>
+        </ul>
+      </li>
+      <li>Headers mặc định cho POST requests: <code>$httpProvider.defaults.headers.post</code>
+        <ul>
+          <li><code>Content-Type: application/json</code></li>
+        </ul>
+      </li>
+      <li>Headers mặc định cho PUT requests: <code>$httpProvider.defaults.headers.put</code>
+        <ul>
+          <li><code>Content-Type: application/json</code></li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>Để thêm hoặc ghi đè các giá trị mặc định, bạn chỉ cần thêm hoặc loại bỏ một thuộc tính từ đối tượng cấu hình. Để loại bỏ một cách rõ ràng một header được tự động thêm vào thông qua <code>$httpProvider.defaults.headers</code> trong mỗi request, chúng ta thiết lập giá trị <code>undefined</code> cho header đó. Ví dụ:</p>
+  </li>
+</ul>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">$http</span><span class="p">({</span>
+<span class="lineno">2</span>   <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+<span class="lineno">3</span>   <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span>
+<span class="lineno">4</span>   <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+<span class="lineno">5</span>     <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span>
+<span class="lineno">6</span>     <span class="s1">&#39;Authorization&#39;</span><span class="o">:</span> <span class="s1">&#39;login YmVlcDpib29w&#39;</span>
+<span class="lineno">7</span>   <span class="p">},</span>
+<span class="lineno">8</span>   <span class="nx">data</span><span class="o">:</span> <span class="p">{</span> <span class="nx">test</span><span class="o">:</span> <span class="s1">&#39;test&#39;</span> <span class="p">},</span>
+<span class="lineno">9</span> <span class="p">})</span></code></pre></div>
+
+<ul>
+  <li><strong>xsrfHeaderName</strong></li>
+  <li><strong>xsrfCookieName</strong></li>
+  <li><strong>transformRequest</strong>: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng request trước khi gửi nó đến server.</li>
+  <li><strong>transformResponse</strong>: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng response được trả lại từ server trước khi trả nó ứng dụng.</li>
+  <li><strong>cache</strong>: để kich hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là <code>true</code> (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với $cacheFactory). Ví dụ:</li>
+</ul>
+
+<div class="col-md-6">
+	
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">$http</span><span class="p">({</span>
+<span class="lineno">2</span>   <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+<span class="lineno">3</span>   <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/api/users.json&#39;</span><span class="p">,</span>
+<span class="lineno">4</span>   <span class="nx">cache</span><span class="o">:</span> <span class="kc">true</span>
+<span class="lineno">5</span> <span class="p">});</span>
+<span class="lineno">6</span> <span class="c1">// Or, using the .get helper</span>
+<span class="lineno">7</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/users.json&#39;</span><span class="p">,</span> <span class="p">{</span>
+<span class="lineno">8</span>   <span class="nx">cache</span><span class="o">:</span> <span class="kc">true</span>  
+<span class="lineno">9</span> <span class="p">});</span></code></pre></div>
+
+</div>
+
+<div class="col-md-6">
+	
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">myCache</span> <span class="o">=</span> <span class="nx">$cacheFactory</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;myCache&#39;</span><span class="p">);</span>
+<span class="lineno"> 2</span> <span class="nx">$http</span><span class="p">({</span>
+<span class="lineno"> 3</span>   <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+<span class="lineno"> 4</span>   <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/api/users.json&#39;</span><span class="p">,</span>
+<span class="lineno"> 5</span>   <span class="nx">cache</span><span class="o">:</span> <span class="nx">myCache</span>
+<span class="lineno"> 6</span> <span class="p">});</span>
+<span class="lineno"> 7</span> <span class="c1">// Or, using the .get helper</span>
+<span class="lineno"> 8</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/users.json&#39;</span><span class="p">,</span> <span class="p">{</span>
+<span class="lineno"> 9</span>   <span class="nx">cache</span><span class="o">:</span> <span class="nx">myCache</span>
+<span class="lineno">10</span> <span class="p">});</span></code></pre></div>
+
+</div>
+
+<p>Khi bộ nhớ đệm được kích hoạt, $http lưu trữ các đáp ứng trả về từ server trong bộ nhớ cache. Khi thực hiện cùng một request, trong các lần tiếp theo, các response được lấy từ bộ nhớ cache mà không cần gửi lại request tới server. Bạn có thể tìm hiểu thêm về <a href="https://www.ng-book.com/p/Caching/">Caching trong AngularJS</a> để nắm rõ về thuộc tính này.</p>
+
+<ul>
+  <li>
+    <p><strong>timeout</strong>: thiết lập thời gian chờ cho các request. Thuộc tính này có thể nhận giá trị là dạng số (tính bằng milli giây) hoặc có thể là một lời hứa (promise). Khi hết thời gian chờ (giá trị được thiết lập là số), request bị hủy bỏ. Nếu là một promise thì request sẽ bị hủy bỏ khi promise được giải quyết (resolved).</p>
+
+    <p>Trong demo dưới đây, chúng ta có một button thực hiện việc gửi request để lấy danh sách các books, một button thực hiện việc hủy request nếu request chưa trả về kết quả. Bạn có thể chạy <a href="http://embed.plnkr.co/jbRHklfI1H1VfKLjJtCd/preview">demo</a> trên một cửa sổ mới, bật công cụ bug của trình duyệt (nhấn F12), chọn tab <strong>Network</strong>. Ban đầu, bạn thực hiện <strong>Send request</strong>, khi nó đang <em>Loading …</em>, bạn thực hiện <strong>Cancel request</strong> thì bạn sẽ thấy lời gọi bị hủy bỏ.</p>
+
+    <figure>
+      <img src="/images/canceled-request.png" />
+  </figure>
+
+    <iframe src="http://embed.plnkr.co/jbRHklfI1H1VfKLjJtCd/index.html" style="border:0px #FFFFFF none;" name="Canceling AJAX request using $http" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="300px" width="100%"></iframe>
+  </li>
+  <li><strong>withCredentials</strong>: thuộc tính này có giá trị thuộc kiểu <em>boolean</em>. <code>withCredentials</code> là một lá cờ (flag) đặt trên  đối tượng cấp thấp <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a>. Nếu bạn sử dụng dịch vụ $http chuẩn để truy cập vào các remote APIs, nó sẽ chỉ làm việc chừng nào server được cấu hình cho phép các requests từ tên miền của bạn và bạn không cần lưu trữ Cookies. Tuy nhiên, trong nhiều ứng dụng chúng ta cũng cần phải thiết lập và lưu trữ thông tin Cookies cho những thứ như đăng nhập chẳng hạn. Mặc định, điều này không thể thực hiện được trên hầu hết các trình duyệt. Bằng cách thiết lập giá trị <code>true</code> cho <code>withCredentials</code>, chúng ta có thể sử dụng Cookies cho mục đích của mình. Bạn có thể tham khảo <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Requests_with_credentials">Requests with credentials</a> để hiểu rõ hơn về thuộc tính này.</li>
+  <li><strong>responseType</strong>: là một chuỗi (string), có thể thiết lập để thay đổi kiểu dữ liệu của các đáp ứng trả về, ví như <em>json, text, document, …</em>. Xem <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#responseType">responseType</a> để có thông tin chi tiết về các giá trị cho thuộc tính này.</li>
+</ul>
+
+<h2 id="hm-success-v-error-ca-i-tng-promise">Hàm success() và error() của đối tượng promise</h2>
+
+<p>Như đã đề cập ở phần trên, các functions trong dịch vụ $http trả về một lời hứa (promise object). Đối tượng promise này có hai phương thức <code>success()</code> và <code>error()</code>. Khi một AJAX request thành công, phương thức <code>success()</code> sẽ được thực thi. Và ngược lại, khi request thất bại, phương thức <code>error()</code> sẽ được thực thi. Các phương thức này được viết như sau: </p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// Simple GET request example :</span>
+<span class="lineno"> 2</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/someUrl&#39;</span><span class="p">).</span>
+<span class="lineno"> 3</span>   <span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 4</span>     <span class="c1">// this callback will be called asynchronously</span>
+<span class="lineno"> 5</span>     <span class="c1">// when the response is available</span>
+<span class="lineno"> 6</span>   <span class="p">}).</span>
+<span class="lineno"> 7</span>   <span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 8</span>     <span class="c1">// called asynchronously if an error occurs</span>
+<span class="lineno"> 9</span>     <span class="c1">// or server returns response with an error status.</span>
+<span class="lineno">10</span>   <span class="p">});</span></code></pre></div>
+
+<p>Cách viết này cũng tương đương với việc sử dụng phương thức <strong>then()</strong> để đăng ký các hàm callbacks: </p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// Simple GET request example :</span>
+<span class="lineno"> 2</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/someUrl&#39;</span><span class="p">).</span>
+<span class="lineno"> 3</span> 	<span class="nx">then</span><span class="p">(</span>
+<span class="lineno"> 4</span> 	  <span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 5</span> 	    <span class="c1">// this callback will be called asynchronously</span>
+<span class="lineno"> 6</span> 	    <span class="c1">// when the response is available</span>
+<span class="lineno"> 7</span> 	  <span class="p">}).</span>
+<span class="lineno"> 8</span> 	  <span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 9</span> 	    <span class="c1">// called asynchronously if an error occurs</span>
+<span class="lineno">10</span> 	    <span class="c1">// or server returns response with an error status.</span>
+<span class="lineno">11</span> 	  <span class="p">})</span>
+<span class="lineno">12</span>   <span class="p">);</span></code></pre></div>
+
+<p>Cả hai phương thức success() và error() đều có các thuộc tính sau:</p>
+
+<ul>
+  <li><strong>data</strong> - có kiểu string hoặc Object - phần dữ liệu trả về từ server.</li>
+  <li><strong>status</strong> - có kiểu sô - mã trạng thái HTTP (HTTP status code) được trả về từ server.</li>
+  <li><strong>headers</strong> - là một function, có thể được sử dụng để lấy bất cứ HTTP response headers nào được trả lại cùng với response. Chúng ta có thể lấy ra một header bằng cách gọi <code>headers([headerName]);</code>. </li>
+  <li><strong>config</strong> - là đối tượng cấu hình (<code>config</code> object) đã được sử dụng để tạo ra các HTTP requests.</li>
+  <li><strong>statusText</strong> - có kiểu string - là thông báo trạng thái HTTP của response dưới dạng văn bản (text).</li>
+</ul>
+
+<h2 id="security">Security</h2>
+
+<h2 id="interceptors">Interceptors</h2>
+
+<p>$http service của AngularJS cho phép chúng ta giao tiếp với phía backend và thực hiện các HTTP requests. Có nhiều trường hợp chúng ta muốn chặn bắt (capture) các requests và tính toán, xử lý (manipulate) nó trước khi gửi nó đến server. Trong trường hợp khác, chúng ta lại muốn chặn bắt các đáp ứng trả về (response), xử lý nó trước khi hoàn thành lời gọi. Ví như việc xử lý lỗi http trong toàn ứng dụng (global http error handling), xác thực (authentication) cũng cần thực hiện như vậy. <strong>Interceptors</strong> (bộ chặn) rất thuận tiện cho các trường hợp như thế.</p>
+
+<h3 id="interceptors-l-g">Interceptors là gì?</h3>
+
+<p>Đối tượng cung cấp <strong>$httpProvider</strong> chứa một mảng các interceptors <code>$httpProvider.interceptors</code>. Một interceptor đơn giản là một dịch vụ (service factory) được đăng ký vào mảng đó. Chúng ta có thể tạo một interceptor như sau:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">module</span><span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;myInterceptor&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$q</span><span class="p">,</span> <span class="nx">dependency1</span><span class="p">,</span> <span class="nx">dependency2</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">2</span>     <span class="kd">var</span> <span class="nx">myInterceptor</span> <span class="o">=</span> <span class="p">{</span>
+<span class="lineno">3</span>         <span class="p">....</span>
+<span class="lineno">4</span>         <span class="p">....</span>
+<span class="lineno">5</span>     <span class="p">};</span>
+<span class="lineno">6</span> 
+<span class="lineno">7</span>     <span class="k">return</span> <span class="nx">myInterceptor</span><span class="p">;</span>
+<span class="lineno">8</span> <span class="p">});</span></code></pre></div>
+
+<p>Và sau đó thêm nó vào trong mảng <code>$httpProvider.interceptors</code>. Do đòi hỏi phải có khả năng truy cập vào đối tượng cung cấp $httpProvider để đăng ký mới một interceptor nên việc này <strong>phải được hiện trong phần cấu hình</strong> của ứng dụng web:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">module</span><span class="p">.</span><span class="nx">config</span><span class="p">([</span><span class="s1">&#39;$httpProvider&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$httpProvider</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">2</span>     <span class="nx">$httpProvider</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;myInterceptor&#39;</span><span class="p">);</span>
+<span class="lineno">3</span> <span class="p">}]);</span></code></pre></div>
+
+<p>Interceptors cho phép chúng ta:</p>
+
+<ul>
+  <li>
+    <p><strong>Chặn một request bằng cách thực thi hàm <code>request</code></strong>: Phương thức này được thực hiện trước khi <code>$http</code> gửi request đến server, do đó chúng ta có thể sửa đổi cấu hình (đối tượng <code>config</code>) và thực hiện các hành động khác. Hàm này nhận đối tượng <code>config</code> như là một tham số đầu vào và phải trả lại trực tiếp đối tượng <code>config</code> hoặc một lời hứa (promise) chứa đối tượng <code>config</code>. Nếu trả lại một đối tượng <code>config</code> không hợp lệ hoặc một lời hứa bị bác bỏ (reject) thì lời gọi <code>$http</code> sẽ thất bại.</p>
+
+    <p><strong>Ví dụ: Session Injector</strong></p>
+  </li>
+  <li><strong>Chặn một response bằng cách thực thi hàm <code>response</code></strong>: Phương thức này được gọi sau khi <code>$http</code> nhận được response từ server, do đó chúng ta có thể sửa đổi response và thực hiện các hành động khác. Hàm này nhận đối tượng <code>response</code> như là một tham số đầu vào và phải trả lại trực tiếp đối tượng <code>response</code> hoặc một lời hứa (promise) chứa đối tượng <code>response</code>. Đối tượng <code>response</code> gồm <em>cấu hình của request (config), headers, status, data</em>. Nếu trả lại một đối tượng <code>response</code> không hợp lệ hoặc một lời hứa bị bác bỏ (reject) thì lời gọi <code>$http</code> sẽ thất bại.</li>
+  <li><strong>Chặn request error bằng cách thực thi hàm <code>requestError</code></strong>: đôi khi, một request không thể gửi đi hoặc nó bị hủy bỏ bởi một bộ chặn (interceptor). Bộ chặn lỗi request (request error interceptor) bắt (capture) các requests đã bị hủy bỏ bởi một request interceptor trước đó. Nó có thể được sử dụng để khôi phục (recover) request và đôi khi quay lui lại những thứ đã được thiết lập trước khi request.</li>
+  <li><strong>Chặn response error bằng cách thực thi hàm <code>responseError</code></strong>: đôi khi lời gọi đến server bị thất bại, có khi thì nó bị từ chối bởi một request interceptor hoặc một response interceptor trước đó. Trong những trường hợp đó, bộ chặn lỗi response (response error interceptor) có thể giúp chúng ta khôi phục (recover) các lời gọi đến server.</li>
+</ul>
+
+<h3 id="cc-hot-ng-khng-ng-b">Các hoạt động không đồng bộ</h3>
+
+<p>Có những khi chúng ta cần thực hiện một số hoạt động không đồng bộ (asynchronous operations) bên trong interceptor. May mắn thay, AngularJS cho phép chúng ta trả lại một lời hứa, và lời hứa đó sẽ được giải quyết sau. Điều này sẽ làm trì hoãn việc gửi request trong trường hợp của request interceptor và trì hoãn việc giải quyết response trong trường hợp của response interceptor.</p>
+
+<h2 id="ti-liu-tham-kho">Tài liệu tham khảo</h2>
+
+<ol>
+  <li><a href="https://docs.angularjs.org/api/ng/service/$http">$http service</a></li>
+  <li><a href="http://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/">Interceptors in AngularJS and Useful Examples</a></li>
+</ol>
+
+
+                        <br>
+                    
+                    
+                    <div class="entry-tags text-center">
+                    
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#$http" data-toggle="tooltip" title="Posts tagged with $http" rel="tag">$http</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#angularjs" data-toggle="tooltip" title="Posts tagged with angularjs" rel="tag">angularjs</a>
+                    
+                    </div>
+                    
+                    </div>
+        </div>
+                    <footer class="post-footer entry-meta">
+                        <div class="post-share text-center">
+    <p class="light small">
+        Share this post
+    </p>
+    <ul class="social-mini">
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=&quot;Hiểu về dịch vụ $http trong AngularJS&quot;%20/angularjs/hieu-ve-$http-service-trong-angularjs%20via%20&#64;taly2808"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
+                <i class="icon-twitter"></i>
+            </a>
+        </li>
+        <li>
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=/angularjs/hieu-ve-$http-service-trong-angularjs"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
+                <i class="icon-facebook"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://plus.google.com/share?url=/angularjs/hieu-ve-$http-service-trong-angularjs"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
+                <i class="icon-google-plus"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+                        <div class="post-author text-center">                       
+	        <img src="/images/my-ava.png" alt="Ta Ly's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>    
+	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="http://schema.org/Person">Written by <span itemprop="name" class="fn"><a href="/about" rel="author" title="About Ta Ly" itemprop="url">Ta Ly</a></span></h4>
+	    <p>Hãy thắp một ngọn nến nhỏ, thay vì nguyền rủa bóng đêm!</p>
+</div>
+ 
+                        <div id="disqus_thread"></div><!-- /#disqus_thread -->
+                    </footer>
+            </article>
+    </div>
+</div>
+
+<footer id="footer"  class="blog-background overlay text-center align-middle animated from-top" style="background-image: url(/images/picture-2.jpg)" >
+
+
+    <div class="inner">
+        <div class="container">
+
+            <ul class="social-icons">
+            <li>
+                <a href="http://twitter.com/taly2808" data-toggle="tooltip" title="Ta Ly on Twitter" target="_blank">
+                    <i class="icon-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://facebook.com/taly2808" data-toggle="tooltip" title="Ta Ly on Facebook" target="_blank">
+                    <i class="icon-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/+TaLy2808" data-toggle="tooltip" title="Ta Ly on Google+" target="_blank">
+                    <i class="icon-google-plus"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="taly2808" data-toggle="tooltip" title="Ta Ly on LinkedIn" target="_blank">
+                    <i class="icon-linkedin"></i>
+                </a>
+            </li>
+            
+            
+            <li>
+                <a href="http://github.com/taly2808" data-toggle="tooltip" title="Ta Ly on Github" target="_blank">
+                    <i class="icon-github"></i>
+                </a>
+            </li>
+        </ul>
+            <div>
+                Bản quyền nội dung thuộc về <a href="/about/">Ta Ly</a> &copy; 2014.
+            </div>
+            <ul class="menu-items">
+            
+            <li>
+                
+                    <a href="/"><i class="icon-home"></i></a>&nbsp;&bull;
+                 
+            </li>
+            
+            <li>
+                
+                    <a href="/categories">Danh mục</a>&nbsp;&bull;
+                 
+            </li>
+            
+            <li>
+                
+                    <a href="/tags"><i class="icon-tag"></i> Tags</a>&nbsp;&bull;
+                 
+            </li>
+            
+            <li>
+                
+                    <a href="/about">Giới thiệu</a>&nbsp;&bull;
+                 
+            </li>
+            
+            <li><a href="/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+        </ul>
+        </div>
+    </div>
+    
+        <div class="decor-wrapper">
+            <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+
+                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+                <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"></path>
+                <path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"></path>
+
+                <path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"></path>
+                <path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"></path>
+
+                <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"></path>
+
+                <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"></path>
+
+            </svg>
+        </div>
+    
+</footer>
+
+
+    
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+<script type="text/javascript" src="/assets/js/waypoints.min.js"></script>
+<script type="text/javascript" src="/assets/js/script.js"></script>
+<script type='text/javascript'>$(document).ready(function(){$(".time").text(function(a,b){return Math.round(parseFloat(b))})});</script>
+
+<script type="text/javascript">
+
+/*      Slides       */
+
+$("a#slide").click(function(){
+    $("#sidebar,body,a#slide,#fade").addClass("slide")
+});
+
+$("#fade,#header,#posts-container").click(function(){
+    $("#sidebar,body,a#slide,#fade").removeClass("slide")
+});
+
+$("a#click-filter").click(function(){
+    $("#slide-filter").slideToggle("medium");
+    $("#slide-pages").slideOut("medium");
+});
+
+$("a#click-pages").click(function(){
+    $("#slide-pages").slideToggle("medium");
+    $("#slide-filter").slideOut("medium");
+});
+
+/*      End-Slides      */
+
+</script>
+
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : '/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55360781-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thapsang'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+ 
+</body>
+</html>
