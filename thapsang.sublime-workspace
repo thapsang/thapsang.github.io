@@ -4,16 +4,48 @@
 		"selected_items":
 		[
 			[
+				"ex",
+				"expression"
+			],
+			[
+				"re",
+				"requests"
+			],
+			[
+				"ob",
+				"Object"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"respo",
+				"responseType"
+			],
+			[
+				"ser",
+				"server"
+			],
+			[
+				"he",
+				"headers"
+			],
+			[
+				"t",
+				"tượng"
+			],
+			[
+				"q",
+				"quyết"
+			],
+			[
 				"p",
 				"p	Tag"
 			],
 			[
 				"gi",
 				"giá"
-			],
-			[
-				"ser",
-				"server"
 			],
 			[
 				"reque",
@@ -26,10 +58,6 @@
 			[
 				"serv",
 				"server"
-			],
-			[
-				"re",
-				"request"
 			],
 			[
 				"ht",
@@ -70,10 +98,6 @@
 			[
 				"g",
 				"google-analytics"
-			],
-			[
-				"ex",
-				"exception"
 			],
 			[
 				"Angul",
@@ -126,10 +150,6 @@
 			[
 				"state",
 				"stateProvide"
-			],
-			[
-				"q",
-				"quả"
 			],
 			[
 				"pr",
@@ -423,7 +443,15 @@
 			"file": "_posts/2014-11-18-hieu-ve-$http-service-trong-angularjs.md",
 			"settings":
 			{
-				"buffer_size": 10367,
+				"buffer_size": 16187,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_posts/2014-11-11-expression-trong-angularjs.md",
+			"settings":
+			{
+				"buffer_size": 7149,
 				"line_ending": "Unix"
 			}
 		}
@@ -473,7 +501,9 @@
 	],
 	"file_history":
 	[
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-11-expression-trong-angularjs.md",
 		"/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-10-theme-elements.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-30-promises-deferred-trong-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/assets/css/bootstrap.css",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/assets/css/style.css",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_layouts/post.html",
@@ -497,7 +527,6 @@
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-02-bat-dau-voi-laravel-homestead.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-11-09-quan-ly-state-voi-ui-router-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-11-08-angular-ui-router.md",
-		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-30-promises-deferred-trong-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-28-resolve-trong-angularjs-routes.md",
 		"/opt/angularjs/template/package.json",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-05-angular-ui-router.md",
@@ -641,7 +670,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -650,15 +679,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10367,
+						"buffer_size": 16187,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5847,
-								5847
+								16187,
+								16187
 							]
 						],
 						"settings":
@@ -667,7 +696,35 @@
 							"tab_size": 2
 						},
 						"translation.x": 0.0,
-						"translation.y": 1584.0,
+						"translation.y": 3999.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "_posts/2014-11-11-expression-trong-angularjs.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7149,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4404,
+								4404
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 855.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

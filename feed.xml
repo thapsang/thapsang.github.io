@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-11-23T13:38:46+07:00</updated>
+<updated>2014-11-24T14:22:21+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -286,8 +286,9 @@
   <title type="html"><![CDATA[Expression trong AngularJS]]></title>
   <link>/angularjs/expression-trong-angularjs</link>
   <id>/angularjs/expression-trong-angularjs</id>
+  <updated>2014-11-24T00:00:00-00:00</updated>
   <published>2014-11-11T00:00:00+07:00</published>
-  <updated>2014-11-11T00:00:00+07:00</updated>
+  
   <author>
     <name>Ta Ly</name>
     <uri></uri>
@@ -310,15 +311,7 @@
       &lt;li&gt;&lt;a href=&quot;#regular-expression&quot;&gt;Regular Expression&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#v-d&quot;&gt;Ví dụ&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#v-d-1-angularjs-expressions&quot;&gt;Ví dụ 1: AngularJS Expressions&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#v-d-2-number--variables&quot;&gt;Ví dụ 2: Number &amp;amp; Variables&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#v-d-3-string-in-expression&quot;&gt;Ví dụ 3: String in expression&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#v-d-4-array-in-angularjs-expressions&quot;&gt;Ví dụ 4: Array in AngularJS Expressions&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#v-d-5-objects-in-angularjs-expressions&quot;&gt;Ví dụ 5: Objects in AngularJS Expressions&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#v-d-6-ng-bind-directive-in-angularjs&quot;&gt;Ví dụ 6: ng-bind directive in AngularJS&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#v-d&quot;&gt;Ví dụ&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#one-time-binding&quot;&gt;One-time binding&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -349,21 +342,10 @@
 
 &lt;h3 id=&quot;context&quot;&gt;Context&lt;/h3&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Javascript tính toán các biểu thức trên các biến toàn cục như &lt;strong&gt;window, location, document&lt;/strong&gt;. Trong khi đó, ngữ cảnh của AngularJS expression chỉ trên một đối tượng &lt;strong&gt;scope&lt;/strong&gt; cụ thể. Để truy cập vào các biến toàn cục, Angular cung cấp dịch vụ &lt;strong&gt;$window&lt;/strong&gt; và &lt;strong&gt;$location&lt;/strong&gt; để giả lập các biến toàn cục.&lt;/li&gt;
-  &lt;li&gt;Javascript sử dụng hàm &lt;a href=&quot;http://www.w3schools.com/jsref/jsref_eval.asp&quot;&gt;eval()&lt;/a&gt; để tính toán các biểu thức. Angular sử dụng dịch vụ &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$parse&quot;&gt;$parse&lt;/a&gt; để tính toán các biểu thức.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/mfckfvc2/embedded/html,js,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;Javascript tính toán các biểu thức trên các biến toàn cục như &lt;strong&gt;window, location, document&lt;/strong&gt;. Trong khi đó, ngữ cảnh của AngularJS expression chỉ trên một đối tượng &lt;strong&gt;scope&lt;/strong&gt; cụ thể. Để truy cập vào các biến toàn cục, Angular cung cấp dịch vụ &lt;strong&gt;$window&lt;/strong&gt; và &lt;strong&gt;$location&lt;/strong&gt; để giả lập các biến toàn cục.&lt;/p&gt;
 
 &lt;h3 id=&quot;forgiving&quot;&gt;Forgiving&lt;/h3&gt;
-&lt;p&gt;Khi tính toán với các giá trị của thuộc tính &lt;strong&gt;undefined&lt;/strong&gt; hoặc &lt;strong&gt;null&lt;/strong&gt;: Javascript sẽ phát sinh ra lỗi &lt;code&gt;ReferenceError&lt;/code&gt; hoặc &lt;code&gt;TypeError&lt;/code&gt; hoặc ném ra một ngoại lệ (throws an exception). Với AngularJS, việc tính toán vẫn diễn ra và trả lại &lt;code&gt;undefined&lt;/code&gt;. Trong ví dụ dưới đây, chúng ta không khởi tạo giá trị cho &lt;em&gt;user.name&lt;/em&gt;, angular vẫn thực thi biểu thức và trả lại giá trị là &lt;strong&gt;undefined&lt;/strong&gt; và kết quả như ở dưới đây:&lt;/p&gt;
-
-&lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/44uefwrk/embedded/html,js,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Và ví dụ với Javascript khi nhập vào giá trị không hợp lệ:&lt;/p&gt;
-
-&lt;iframe width=&quot;100%&quot; height=&quot;250&quot; src=&quot;http://jsfiddle.net/taly2808/e3x0me2u/embedded/result,html,js&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;Khi tính toán với các giá trị của thuộc tính &lt;strong&gt;undefined&lt;/strong&gt; hoặc &lt;strong&gt;null&lt;/strong&gt;: Javascript sẽ phát sinh ra lỗi &lt;code&gt;ReferenceError&lt;/code&gt; hoặc &lt;code&gt;TypeError&lt;/code&gt;. Trong AngularJS, nó bỏ qua các giá trị đó và việc tính toán vẫn diễn ra mà không phát sinh lỗi.&lt;/p&gt;
 
 &lt;h3 id=&quot;control-flow-statement&quot;&gt;Control Flow Statement&lt;/h3&gt;
 
@@ -373,11 +355,11 @@
 
 &lt;p&gt;Với AngularJS, chúng ta có thể định dạng dữ liệu trước khi hiển thị với &lt;a href=&quot;https://docs.angularjs.org/guide/filter&quot;&gt;$filter&lt;/a&gt;.&lt;/p&gt;
 
-&lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/vjt2hdo1/embedded/result,html&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/vjt2hdo1/embedded/result,html/presentation&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 
 &lt;h3 id=&quot;regular-expression&quot;&gt;Regular Expression&lt;/h3&gt;
 
-&lt;p&gt;AngularJS &lt;strong&gt;không cho phép&lt;/strong&gt; tạo ra các biểu thức chính quy (regular exceptions) trong AngularJS expressions.&lt;/p&gt;
+&lt;p&gt;AngularJS &lt;strong&gt;không cho phép&lt;/strong&gt; tạo ra các biểu thức chính quy (regular expression) trong AngularJS expressions.&lt;/p&gt;
 
 &lt;p&gt;Dưới đây là bảng thống kê các biểu thức có thể sử dụng trong AngularJS Expressions.&lt;/p&gt;
 
@@ -385,36 +367,31 @@
 
 &lt;h2 id=&quot;v-d&quot;&gt;Ví dụ&lt;/h2&gt;
 
-&lt;h3 id=&quot;v-d-1-angularjs-expressions&quot;&gt;Ví dụ 1: AngularJS Expressions&lt;/h3&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;400&quot; src=&quot;http://jsfiddle.net/taly2808/mfckfvc2/9/embedded/js,html,result/presentation&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 
-&lt;iframe width=&quot;100%&quot; height=&quot;250&quot; src=&quot;http://jsfiddle.net/taly2808/5hxopLbq/embedded/html,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Array in AngularJS Expressions&lt;/p&gt;
 
-&lt;h3 id=&quot;v-d-2-number--variables&quot;&gt;Ví dụ 2: Number &amp;amp; Variables&lt;/h3&gt;
+    &lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/nahq7wbz/embedded/html,result/presentation&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Objects in AngularJS Expressions&lt;/p&gt;
 
-&lt;p&gt;Trong ví dụ này, chúng ta khai báo hai biến var1 và var2 và khởi tạo giá trị cho mỗi biến bằng 10.&lt;/p&gt;
+    &lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/qpno9qfe/embedded/html,result/presentation&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;ng-bind directive in AngularJS&lt;/p&gt;
 
-&lt;iframe width=&quot;100%&quot; height=&quot;250&quot; src=&quot;http://jsfiddle.net/taly2808/utun9ymd/embedded/html,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
-
-&lt;h3 id=&quot;v-d-3-string-in-expression&quot;&gt;Ví dụ 3: String in expression&lt;/h3&gt;
-
-&lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/uz0rwttx/embedded/html,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
-
-&lt;h3 id=&quot;v-d-4-array-in-angularjs-expressions&quot;&gt;Ví dụ 4: Array in AngularJS Expressions&lt;/h3&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/nahq7wbz/embedded/html,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
-
-&lt;h3 id=&quot;v-d-5-objects-in-angularjs-expressions&quot;&gt;Ví dụ 5: Objects in AngularJS Expressions&lt;/h3&gt;
-
-&lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/qpno9qfe/embedded/html,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
-
-&lt;h3 id=&quot;v-d-6-ng-bind-directive-in-angularjs&quot;&gt;Ví dụ 6: ng-bind directive in AngularJS&lt;/h3&gt;
-
-&lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/Lm7rL69L/embedded/html,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+    &lt;iframe width=&quot;100%&quot; height=&quot;150&quot; src=&quot;http://jsfiddle.net/taly2808/Lm7rL69L/embedded/html,result/presentation&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;one-time-binding&quot;&gt;One-time binding&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Từ phiên bản 1.3&lt;/strong&gt;, AngularJS cung cấp tính năng &lt;strong&gt;one-time binding&lt;/strong&gt; (gắn kết dữ liệu một lần) bằng cách sử dụng dấu &lt;code&gt;::&lt;/code&gt; trước biểu thức như sau: &lt;code&gt;{{ ::expression }}&lt;/code&gt;.Với tính năng này, expression chỉ được nội suy (interpolated) một lần duy nhất và sau đó không được theo dõi (watched) nữa, giúp giải phóng tài nguyên khi việc gắn kết dữ liệu đã ổn định. Việc giảm theo dõi một số lượng các biểu thức giúp cho các vòng lặp thực thi nhanh hơn và cho phép nhiều thông tin được hiển thị cùng lúc.&lt;/p&gt;
 
-&lt;iframe width=&quot;100%&quot; height=&quot;200&quot; src=&quot;http://jsfiddle.net/taly2808/y48wqjqs/embedded/result,html,js&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;200&quot; src=&quot;http://jsfiddle.net/taly2808/y48wqjqs/embedded/result,html,js/presentation&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
 
 &lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
 
