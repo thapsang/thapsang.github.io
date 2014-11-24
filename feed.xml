@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-11-24T14:22:21+07:00</updated>
+<updated>2014-11-24T14:27:19+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -326,14 +326,6 @@
   &lt;li&gt;AngularJS Expressions gắn kết dữ liệu vào HTML theo cùng cách của &lt;code&gt;ng-bind&lt;/code&gt; directive. Dữ liệu đầu ra sẽ được hiển thị chính xác tại nơi đặt biểu thức (expression).&lt;/li&gt;
   &lt;li&gt;AngularJS Expressions có thể chứa các chữ (literals), các toán tử (operators) và các biến (variables) được xem như là các toán hạng của biểu thức (giống như biểu thức trong Javascript).&lt;/li&gt;
   &lt;li&gt;Được xử lý bằng cơ chế riêng của Angular với dịch vụ &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$parse&quot;&gt;$parse&lt;/a&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Angular có 3 cấp độ để tính toán một biểu thức:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$parse&quot;&gt;$parse&lt;/a&gt;: sử dụng khi chỉ có duy nhất một biểu thức, ví dụ &lt;strong&gt;{{ name }}&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$interpolate&quot;&gt;$interpolate&lt;/a&gt;: được sử dụng để ước lượng các chuỗi (strings) chứa nhiều biểu thức, ví dụ &lt;strong&gt;&amp;lt;img ng-src=”/path/{{name}}.{{ext}}” /&amp;gt;&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$compile&quot;&gt;$compile&lt;/a&gt;: đây là trái tim của AngularJS, nó có thể biến chuỗi html với các directives, các biểu thức nội suy (interpolation expressions) thành các thành phần DOM trực tiếp (live DOM).&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;angularjs-expressions-vs-javascript-expressions&quot;&gt;AngularJS Expressions vs. Javascript Expressions&lt;/h2&gt;
