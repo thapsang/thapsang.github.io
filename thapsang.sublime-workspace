@@ -4,12 +4,24 @@
 		"selected_items":
 		[
 			[
-				"ex",
-				"expression"
+				"re",
+				"response"
 			],
 			[
-				"re",
-				"requests"
+				"ser",
+				"service"
+			],
+			[
+				"$scp",
+				"$scope	AngularJS"
+			],
+			[
+				"$sc",
+				"$scope	AngularJS(DI)"
+			],
+			[
+				"ex",
+				"expression"
 			],
 			[
 				"ob",
@@ -22,10 +34,6 @@
 			[
 				"respo",
 				"responseType"
-			],
-			[
-				"ser",
-				"server"
 			],
 			[
 				"he",
@@ -443,15 +451,7 @@
 			"file": "_posts/2014-11-18-hieu-ve-$http-service-trong-angularjs.md",
 			"settings":
 			{
-				"buffer_size": 16187,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_posts/2014-11-11-expression-trong-angularjs.md",
-			"settings":
-			{
-				"buffer_size": 7149,
+				"buffer_size": 16095,
 				"line_ending": "Unix"
 			}
 		}
@@ -501,6 +501,8 @@
 	],
 	"file_history":
 	[
+		"/opt/angularjs/todo/app/index.html",
+		"/opt/angularjs/todo/app/app.js",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-11-expression-trong-angularjs.md",
 		"/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-10-theme-elements.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-30-promises-deferred-trong-angularjs.md",
@@ -539,12 +541,10 @@
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-09-24-huong-dan-cai-dat-composer.md",
 		"/home/taly/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
 		"/opt/laravel/opentourguide/public/app/js/app.js",
-		"/opt/angularjs/todo/app/index.html",
 		"/home/taly/Desktop/dongdiemthuy-blog/_posts/2014-10-19-controller-trong-angularjs.md",
 		"/home/taly/Desktop/dongdiemthuy-blog/_posts/2014-09-30-su-dung-javadoc-va-maven-de-tao-tai-lieu-du-an.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-03-xoa-cache-view-trong-laravel-4-voi-artisan-command.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-05-hieu-ve-migration-va-database-seed-trong-laravel.md",
-		"/opt/angularjs/todo/app/app.js",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-12-xay-dung-ung-dung-bang-angularjs.md",
 		"/opt/laravel/opentourguide/public/app/libs/angular/angular.min.js.map",
 		"/opt/lampp/htdocs/opentourguide/public/admin/index.html",
@@ -670,7 +670,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -679,15 +679,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16187,
+						"buffer_size": 16095,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16187,
-								16187
+								11282,
+								11282
 							]
 						],
 						"settings":
@@ -696,35 +696,7 @@
 							"tab_size": 2
 						},
 						"translation.x": 0.0,
-						"translation.y": 3999.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "_posts/2014-11-11-expression-trong-angularjs.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7149,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4404,
-								4404
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 855.0,
+						"translation.y": 2989.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

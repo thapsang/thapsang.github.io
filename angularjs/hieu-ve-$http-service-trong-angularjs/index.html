@@ -155,24 +155,30 @@
                         
                         <div class="cursive" style="color: #000; font-style:italic;">Tìm hiểu chi tiết về $http service trong AngularJS.</div>
                         <div class="post-info text-center small">
-                            <span class="entry-date date published"><time datetime="2014-11-18T00:00:00+07:00" class="post-time" itemprop="datePublished">18 Nov 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">25.76</span> minutes read</span>
+                            <span class="entry-date date published"><time datetime="2014-11-18T00:00:00+07:00" class="post-time" itemprop="datePublished">18 Nov 2014</time><span> and <code>last modified on <span class="entry-date date updated"><time datetime="2014-11-24" itemprop="dateModified">24 Nov 2014</time></code></span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">34.34</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
                         <p>$http service là một dịch vụ cốt lõi của Angular, được sử dụng để giao tiếp với các trình chủ HTTP thông qua các đối tượng <a href="https://developer.mozilla.org/en/xmlhttprequest">XMLHttpRequest</a> của trình duyệt (<em>được sử dụng nhiều trong lập trình AJAX</em>) hoặc <a href="http://en.wikipedia.org/wiki/JSONP">JSONP</a>. </p>
 
-<p>Sử dụng $http service là cách dễ nhất để gửi một lời gọi AJAX (Asynchronous Javascript and XML) đến trình chủ web (web server) và xử lý các đáp ứng trả về (responses). Nếu bạn đã từng sử dụng jQuery thì cách hành xử của $http service gần giống như phương thức <a href="http://api.jquery.com/jquery.ajax/">$.ajax()</a> trong jQuery: $http cấu hình một yêu cầu (request) và trả lại một lời hứa (promise). jQuery sử dụng thư viện <a href="http://api.jquery.com/jQuery.Deferred/">Deferred</a> trong nội hàm của nó, trong khi AngularJS sử dụng dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$q">$q</a> dựa trên cơ chế của thư viện <a href="http://documentup.com/kriskowal/q/">Q</a>.</p>
+<p>Nếu bạn đã từng sử dụng jQuery thì cách hành xử của $http service gần giống như phương thức <a href="http://api.jquery.com/jquery.ajax/">$.ajax()</a> trong jQuery. $http cấu hình một yêu cầu (request) và trả lại một lời hứa (promise). jQuery sử dụng thư viện <a href="http://api.jquery.com/jQuery.Deferred/">Deferred</a> trong nội hàm của nó, trong khi AngularJS sử dụng <a href="https://docs.angularjs.org/api/ng/service/$q">$q</a> service dựa trên cơ chế của thư viện <a href="http://documentup.com/kriskowal/q/">Q</a>.</p>
 
 <p>Trước khi đi vào tìm hiểu chi tiết nội dung bài này, cần đảm bảo rằng bạn đã hiểu về <a href="/angularjs/promises-deferred-trong-angularjs">Promise/Deffered trong AngularJS</a>. Trong bài này, chúng ta sẽ tìm hiểu, làm rõ các vấn đề dưới đây:</p>
 <section>  
 <div id="drawer">
 <ul id="markdown-toc">
+  <li><a href="#http-service-to-cc-ajax-request">$http service tạo các AJAX request</a></li>
   <li><a href="#cc-phng-thc-trong-http">Các phương thức trong $http</a></li>
   <li><a href="#httpconfig">$http(config)</a></li>
   <li><a href="#hm-success-v-error-ca-i-tng-promise">Hàm success() và error() của đối tượng promise</a></li>
-  <li><a href="#security">Security</a></li>
+  <li><a href="#jsonp-v-cc-vn--bo-mt-lin-quan">JSONP và các vấn đề bảo mật liên quan</a>    <ul>
+      <li><a href="#jsonp">JSONP</a></li>
+      <li><a href="#jsonp-trong-angularjs">JSONP trong AngularJS</a></li>
+      <li><a href="#vn--bo-mt">Vấn đề bảo mật</a></li>
+    </ul>
+  </li>
   <li><a href="#interceptors">Interceptors</a>    <ul>
       <li><a href="#interceptors-l-g">Interceptors là gì?</a></li>
       <li><a href="#cc-hot-ng-khng-ng-b">Các hoạt động không đồng bộ</a></li>
@@ -184,19 +190,21 @@
   </div>
 </section>
 
-<p>Cần nhớ rằng, <strong>các lời gọi AJAX không thể gửi đến một tên miền khác</strong> với tên miền mà trang HTML được load. Ví như một trang HTML đang được load từ tên miền <em>thapsang.net</em> thì sau đó trang HTML chỉ có thể thực hiện các lời gọi AJAX trở lại URLs trong tên miền <em>thapsang.net</em>. Muốn thực hiện các lời gọi đến các dịch vụ thuộc tên miền khác, chúng ta phải sử dụng đến các JSONP request.</p>
+<h2 id="http-service-to-cc-ajax-request">$http service tạo các AJAX request</h2>
+
+<p>Cần nhớ rằng, các lời gọi AJAX (Asynchronous Javascript and XML) <strong>không thể gửi đến một tên miền khác</strong> với tên miền mà trang HTML được load. Ví như một trang HTML đang được load từ tên miền <em>thapsang.net</em> thì sau đó trang HTML chỉ có thể thực hiện các lời gọi AJAX trở lại URLs trong tên miền <em>thapsang.net</em>. Muốn thực hiện các lời gọi đến các dịch vụ thuộc tên miền khác, chúng ta phải sử dụng đến các JSONP request.</p>
 
 <p>Dưới đây là ví dụ đơn giản sử dụng $http service thực hiện một lời gọi AJAX trong ứng dụng AngularJS:</p>
 
-<iframe src="http://embed.plnkr.co/rYZ9d4CAG3PztwIZnegz/preview" style="border:0px #FFFFFF none;" name="A single  $http AJAX" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="300px" width="100%"></iframe>
+<iframe src="http://embed.plnkr.co/rYZ9d4CAG3PztwIZnegz/script.js" style="border:0px #FFFFFF none;" name="A single  $http AJAX" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="300px" width="100%"></iframe>
 
-<p>Bạn mở file <code>script.js</code> của ví dụ trên. Chúng ta thấy rằng, hàm <code>MyController</code> đã đăng ký với module hai tham số: $scope và $http. $http service được sử dụng để thực hiện lời gọi AJAX.</p>
+<p>Trong file <code>script.js</code> của ví dụ trên, chúng ta thấy rằng, controller <code>MyController</code> được bơm vào hai tham số: $scope và $http. $http service được sử dụng để thực hiện lời gọi AJAX.</p>
 
-<p>Hàm $http.get() trả về một đối tượng “lời hứa” (promise). Đối tượng promise này có một phương thức <code>success()</code> và một phương thức <code>error()</code>. Bằng cách gọi các phương thức này và truyền một hàm cho chúng (xem như là tham số), chúng ta có thể kiểm soát được những gì xảy ra sau khi lời gọi AJAX kết thúc. Nếu lời gọi AJAX thành công (server trả lại mã HTTP từ 200 đến 299) thì hàm đã được truyền trong phương thức <code>success()</code> được thực thi. Nếu lời gọi AJAX thất bại thì hàm đã được truyền trong phương thức <code>error()</code> được thực thi. Chúng ta sẽ tìm hiểu chi tiết về phương thức success() và error() ở phần sau.</p>
+<p>Hàm $http.get() trả về một đối tượng “lời hứa” (promise). Đối tượng promise này có một phương thức <code>success()</code> và một phương thức <code>error()</code>. Bằng cách gọi các phương thức này và truyền một hàm (function) cho chúng (xem như là tham số), chúng ta có thể kiểm soát được những gì xảy ra sau khi lời gọi AJAX kết thúc. Nếu lời gọi AJAX thành công (server trả lại mã HTTP từ 200 đến 299) thì function đã được truyền trong phương thức <code>success()</code> được thực thi. Nếu lời gọi AJAX thất bại thì function đã được truyền trong phương thức <code>error()</code> được thực thi. Chúng ta sẽ tìm hiểu chi tiết về phương thức success() và error() ở phần sau.</p>
 
 <h2 id="cc-phng-thc-trong-http">Các phương thức trong $http</h2>
 
-<p>$http service cho phép chúng ta gửi các requests tới web server với các phương thức sau:</p>
+<p>$http service cho phép chúng ta gửi các requests tới web server với các phương thức POST, PUT, GET, …. Dưới đây là cách viết rút gọn của các phương thức:</p>
 
 <ul>
   <li>$http.get(url, [config])</li>
@@ -208,7 +216,7 @@
   <li>$http.jsonp(url, [config])</li>
 </ul>
 
-<p>Đây là các phương thức rút gọn của dịch vụ $http. Chú ý rằng, phương thức <strong>$http.post()</strong> và <strong>$http.put()</strong> có tham số <code>data</code> chứa dữ liệu được gửi đến server. Các phương thức còn lại không thể có tham số <code>data</code>.</p>
+<p>Chú ý rằng, phương thức <strong>$http.post()</strong> và <strong>$http.put()</strong> có tham số <code>data</code> chứa dữ liệu được gửi đến server. Các phương thức còn lại không thể có tham số <code>data</code>.</p>
 
 <p>Tham số <code>data</code> sẽ được chuyển thành một chuỗi JSON, chuỗi này sẽ được đưa vào trong phần request body khi HTTP request được gửi tới server. AngularJS sẽ coi tất cả các thuộc tính bắt đầu với ký tự <code>$</code> là của riêng nó, do đó nó sẽ loại bỏ <code>$</code> ra khỏi data. Nếu bạn cần chưá các thuộc tính bắt đầu với <code>$</code> thì bạn cần chuyển đối tượng <code>data</code> thành chuỗi của riêng bạn bằng cách sử dụng hàm <code>JSON.stringify(data)</code>.</p>
 
@@ -218,7 +226,7 @@
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">$http</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span></code></pre></div>
 
-<p>Trong trường hợp này, URL và phương thức HTTP được thiết lập bên trong đối tượng <code>config</code>. Tham số của <code>config</code> được truyền vào các hàm <code>$http</code> khác nhau để kiểm soát các HTTP request gửi đến server, nó gồm các thuộc tính sau:</p>
+<p>Sử dụng theo cách này, URL và phương thức HTTP được thiết lập bên trong đối tượng <code>config</code>. Tham số của <code>config</code> được truyền vào các hàm <code>$http</code> khác nhau để kiểm soát các HTTP request gửi đến server, nó gồm các thuộc tính sau:</p>
 
 <ul>
   <li><strong>method</strong>: được sử dụng để thiết lập phương thức HTTP cho request. Nó là một trong các phương thức GET, POST, PUT, DELETE, HEAD. Thuộc tính này thường được thiết lập ngầm khi chúng ta gọi bằng cách phương thức rút gọn (chẳng hạn như $http.get()), khi đó chúng ta không phải thiết lập thuộc tính này.</li>
@@ -255,7 +263,7 @@
       </li>
     </ul>
 
-    <p>Để thêm hoặc ghi đè các giá trị mặc định, bạn chỉ cần thêm hoặc loại bỏ một thuộc tính từ đối tượng cấu hình. Để loại bỏ một cách rõ ràng một header được tự động thêm vào thông qua <code>$httpProvider.defaults.headers</code> trong mỗi request, chúng ta thiết lập giá trị <code>undefined</code> cho header đó. Ví dụ:</p>
+    <p>Để thêm hoặc ghi đè các giá trị mặc định, chúng ta chỉ cần thêm hoặc loại bỏ một thuộc tính từ đối tượng cấu hình. Để loại bỏ một header được tự động thêm vào thông qua <code>$httpProvider.defaults.headers</code> trong mỗi request, chúng ta thiết lập giá trị <code>undefined</code> cho header đó. Ví dụ:</p>
   </li>
 </ul>
 
@@ -270,8 +278,8 @@
 <span class="lineno">9</span> <span class="p">})</span></code></pre></div>
 
 <ul>
-  <li><strong>xsrfHeaderName</strong></li>
-  <li><strong>xsrfCookieName</strong></li>
+  <li><strong>xsrfHeaderName</strong>: tên của HTTP header để gán với XSRF token.</li>
+  <li><strong>xsrfCookieName</strong>: tên của cookie chứa XSRF token.</li>
   <li><strong>transformRequest</strong>: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng request trước khi gửi nó đến server.</li>
   <li><strong>transformResponse</strong>: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng response được trả lại từ server trước khi trả nó ứng dụng.</li>
   <li><strong>cache</strong>: để kich hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là <code>true</code> (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với $cacheFactory). Ví dụ:</li>
@@ -326,7 +334,7 @@
 
 <h2 id="hm-success-v-error-ca-i-tng-promise">Hàm success() và error() của đối tượng promise</h2>
 
-<p>Như đã đề cập ở phần trên, các functions trong dịch vụ $http trả về một lời hứa (promise object). Đối tượng promise này có hai phương thức <code>success()</code> và <code>error()</code>. Khi một AJAX request thành công, phương thức <code>success()</code> sẽ được thực thi. Và ngược lại, khi request thất bại, phương thức <code>error()</code> sẽ được thực thi. Các phương thức này được viết như sau: </p>
+<p>Như đã đề cập ở phần trên, các function trong dịch vụ $http trả về một lời hứa (promise object). Đối tượng promise này có hai phương thức <code>success()</code> và <code>error()</code>. Khi một AJAX request thành công, phương thức <code>success()</code> sẽ được thực thi. Và ngược lại, khi request thất bại, phương thức <code>error()</code> sẽ được thực thi. Các phương thức này được viết như sau: </p>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// Simple GET request example :</span>
 <span class="lineno"> 2</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/someUrl&#39;</span><span class="p">).</span>
@@ -344,27 +352,89 @@
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// Simple GET request example :</span>
 <span class="lineno"> 2</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/someUrl&#39;</span><span class="p">).</span>
 <span class="lineno"> 3</span> 	<span class="nx">then</span><span class="p">(</span>
-<span class="lineno"> 4</span> 	  <span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 4</span> 	  <span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
 <span class="lineno"> 5</span> 	    <span class="c1">// this callback will be called asynchronously</span>
 <span class="lineno"> 6</span> 	    <span class="c1">// when the response is available</span>
 <span class="lineno"> 7</span> 	  <span class="p">}).</span>
-<span class="lineno"> 8</span> 	  <span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">,</span> <span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 8</span> 	  <span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
 <span class="lineno"> 9</span> 	    <span class="c1">// called asynchronously if an error occurs</span>
 <span class="lineno">10</span> 	    <span class="c1">// or server returns response with an error status.</span>
 <span class="lineno">11</span> 	  <span class="p">})</span>
 <span class="lineno">12</span>   <span class="p">);</span></code></pre></div>
 
-<p>Cả hai phương thức success() và error() đều có các thuộc tính sau:</p>
+<p>Các hàm callback trong hai phương thức success() và error() đều có các thuộc tính sau:</p>
 
 <ul>
   <li><strong>data</strong> - có kiểu string hoặc Object - phần dữ liệu trả về từ server.</li>
-  <li><strong>status</strong> - có kiểu sô - mã trạng thái HTTP (HTTP status code) được trả về từ server.</li>
+  <li><strong>status</strong> - có kiểu số - mã trạng thái HTTP (HTTP status code) được trả về từ server.</li>
   <li><strong>headers</strong> - là một function, có thể được sử dụng để lấy bất cứ HTTP response headers nào được trả lại cùng với response. Chúng ta có thể lấy ra một header bằng cách gọi <code>headers([headerName]);</code>. </li>
   <li><strong>config</strong> - là đối tượng cấu hình (<code>config</code> object) đã được sử dụng để tạo ra các HTTP requests.</li>
   <li><strong>statusText</strong> - có kiểu string - là thông báo trạng thái HTTP của response dưới dạng văn bản (text).</li>
 </ul>
 
-<h2 id="security">Security</h2>
+<h2 id="jsonp-v-cc-vn--bo-mt-lin-quan">JSONP và các vấn đề bảo mật liên quan</h2>
+
+<p>Dịch vụ $http của AngularJS cũng có khả năng gửi đi các <a href="http://en.wikipedia.org/wiki/JSONP">JSONP</a> request. Các lời gọi AJAX thông thường chỉ có thể gửi đến các URL trong cùng domain. Với các JSONP request, chúng ta có thể gửi các request tới các URL của các tên miền khác. </p>
+
+<h3 id="jsonp">JSONP</h3>
+
+<p>JSONP là viết tắt của “JSON with padding”. Một JSONP request không gửi qua đối tượng XHR như các lời gọi AJAX thông thường mà thay vào đó, một phần tử <code>&lt;script&gt;</code> được tạo ra và chèn vào trang HTML. Ví dụ, một phần tử <code>&lt;script&gt;</code> có thể trông như sau:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;http://remoteserver/api/theService.json?callback=myCallback&amp;k1=v1&amp;k2=v2&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span></code></pre></div>
+
+<p>URL của dịch vụ từ xa (remote service) được đặt trong thuộc tính <code>src</code> của thẻ <code>&lt;script&gt;</code> để gọi các lời gọi JSONP. URL này có thể bao gồm bất cứ tham số nào mà chúng ta muốn gửi tới remote service.</p>
+
+<p>Chúng ta có thể hiểu cơ chế làm việc của JSONP như sau:</p>
+
+<ul>
+  <li><strong>a.com</strong> là phía client, đưa ra yêu cầu đến remote service là <strong>b.com</strong>. Cả <strong>a.com</strong> và <strong>b.com</strong> thống nhất quy định dữ liệu trả về được bao gói theo tên function được gửi trên URL (thường sử dụng tên <code>jsonp</code> hoặc <code>callback</code> để truyền tên function callback).</li>
+  <li><strong>a.com</strong> định nghĩa hàm callback mà <strong>b.com</strong> sẽ sử dụng để trả kết quả về (ví dụ là <em>myCallback</em>).</li>
+  <li><strong>a.com</strong> gửi request đến <strong>b.com</strong> theo URL quy định (ví dụ: <em>http://b.com/api/theService.json?callback=myCallback</em>).</li>
+  <li><strong>b.com</strong> trả về dữ liệu và truyền dữ liệu trả về đó như là tham số trong hàm callback có tên <em>myCallback</em>, ví dụ: <em>myCallback({name: “David”, title: “CEO”})</em>.</li>
+</ul>
+
+<p>Theo cơ chế trên, bất cứ thứ gì mà remote service muốn trả lại cho bạn đều được chứa trong đối tượng Javascript này. Nhìn từ góc độ của remote service thì đối tượng Javascript đó là JSON giống như các đối tượng JSON khác được trả lại trang HTML. Chỉ có sự khác biệt đó là đối tượng JSON này được bao gói trong một lời gọi hàm. Lời gọi hàm này chính là phần đệm “padding” của “JSON with padding” hay được gọi là JSONP.</p>
+
+<h3 id="jsonp-trong-angularjs">JSONP trong AngularJS</h3>
+
+<p>Trong AngularJS, chúng ta có thể sử dụng lời gọi JSONP thông qua $http service như sau:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$http</span><span class="p">.</span><span class="nx">jsonp</span><span class="p">(</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">config</span> <span class="p">);</span></code></pre></div>
+
+<p>Giống như các phương thức AJAX khác, <em>jsonp()</em> một <em>url</em> và một đối tượng <em>config</em>. Dưới đây là ví dụ với phương thức JSONP:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">http</span><span class="o">:</span> <span class="c1">//thapsang.net/api/theService.json?callback=JSON_CALLBACK&quot;;</span>
+<span class="lineno"> 2</span> <span class="kd">var</span> <span class="nx">responsePromise</span> <span class="o">=</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">jsonp</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="p">{</span>
+<span class="lineno"> 3</span>   <span class="nx">params</span><span class="o">:</span> <span class="p">{</span>
+<span class="lineno"> 4</span>     <span class="nx">k1</span><span class="o">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+<span class="lineno"> 5</span>     <span class="nx">k2</span><span class="o">:</span> <span class="s2">&quot;v2&quot;</span>
+<span class="lineno"> 6</span>   <span class="p">}</span>
+<span class="lineno"> 7</span> <span class="p">});</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="nx">responsePromise</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">10</span>   <span class="c1">// do something with the returned JavaScript object</span>
+<span class="lineno">11</span>   <span class="c1">// ( in the &quot;data&quot; parameter ).</span>
+<span class="lineno">12</span> <span class="p">});</span></code></pre></div>
+
+<p>Ví dụ này thực hiện một lời gọi JSONP tới service tại địa chỉ <em>http: //thapsang.net/api/theService.json</em>, <code>config</code> chứa tham số thông qua trường <code>params</code>. Khi bạn gọi function <em>$http.jsonp()</em>, AngularJS sẽ tạo ra một phần tử <code>&lt;script&gt;</code> với URL tương ứng và chèn nó vào trang HTML.</p>
+
+<p>URL được truyền vào phương thức <em>$http.jsonp()</em> <strong>phải chứa</strong> tham số <code>callback=JSON_CALLBACK</code>. AngularJS sẽ thay thế chuỗi <code>JSON_CALLBACK</code> bằng tên của function callback do AngularJS tạo ra.</p>
+
+<h3 id="vn--bo-mt">Vấn đề bảo mật</h3>
+
+<p>Khi thiết kế các ứng dụng web, có hai vấn đề bảo mật cần đuợc xem xét, đó là vấn đề liên quan đến <a href="http://haacked.com/archive/2008/11/20/anatomy-of-a-subtle-json-vulnerability.ãsp">lỗ hổng JSON</a> và <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">XSRF</a> (Cross Site Request Forgery - giả mạo yêu cầu qua các site khác nhau). Cả server và client cần hợp tác với nhau để loại bỏ vấn đề này. Angular đã cấu hình kèm các chiến lược nhằm giải quyết các vấn đề này, nhưng vẫn cần sự hợp tác của server phía backend.</p>
+
+<ul>
+  <li>Chống lại các lỗ hổng JSON: server có thể thêm tiền tố cho tất cả các JSON request với chuỗi <code>")]}',\n"</code>. AngularJS sẽ tự động bỏ chuỗi đó đi trước khi xử lý dữ liệu JSON.</li>
+  <li>
+    <p>Chống lại việc giả mạo yêu cầu XSRF: 
+  XSRF là một kỹ thuật mà một site trái phép có thể lợi dụng dữ liệu riêng tư của người dùng. Angular cung cấp một cơ chế để chống lại XSRF. Khi thực hiện các XHR request, $http service đọc một token từ một cookie (mặc định là <code>XSRF-TOKEN</code>) và thiết lập nó như là một HTTP header (<code>X-XSRF-TOKEN</code>). Bởi vì chỉ có Javascript chạy trên domain của bạn mới có thể đọc được cookie nên server có thể chắc chắn rằng XHR đến từ Javascript chạy trên domain của bạn. Các header sẽ không thể thiết lập cho các cross-domain request.</p>
+
+    <p>Để tận dụng lợi thế này, server cần thiết lập một token được gọi là <code>XSRF-TOKEN</code> cho HTTP GET request đầu tiên. Trên các XHR request tiếp theo, server có thể xác minh rằng cookie phù hợp với <code>X-XSRF-TOKEN</code> HTTP header và do đó chắc chắn rằng chỉ có Javascript chạy trên domain của bạn mới có thể gửi được request. Token cho mỗi user là duy nhất và phải được server xác thực.</p>
+
+    <p>Tên của các header có thể được chỉ rõ bằng cách sử dụng thuộc tính <code>xsrfHeaderName</code> và <code>xsrfCookieName</code> của <code>$httpProvider.defaults</code> khi cấu hình (config-time), hoặc của <code>$http.defaults</code> khi chạy thực (run-time), hoặc trên từng đối tượng <code>config</code> của mỗi request.</p>
+  </li>
+</ul>
 
 <h2 id="interceptors">Interceptors</h2>
 
