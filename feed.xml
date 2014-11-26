@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-11-26T10:44:29+07:00</updated>
+<updated>2014-11-26T15:47:34+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -132,10 +132,9 @@
   &lt;li&gt;&lt;a href=&quot;#cc-phng-thc-trong-http&quot;&gt;Các phương thức trong $http&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#httpconfig&quot;&gt;$http(config)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#hm-success-v-error-ca-i-tng-promise&quot;&gt;Hàm success() và error() của đối tượng promise&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#jsonp-v-cc-vn--bo-mt-lin-quan&quot;&gt;JSONP và các vấn đề bảo mật liên quan&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#jsonp&quot;&gt;JSONP&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#jsonp&quot;&gt;JSONP&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#jsonp-l-g&quot;&gt;JSONP là gì?&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#jsonp-trong-angularjs&quot;&gt;JSONP trong AngularJS&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#vn--bo-mt&quot;&gt;Vấn đề bảo mật&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#interceptors&quot;&gt;Interceptors&lt;/a&gt;&lt;/li&gt;
@@ -327,11 +326,11 @@
   &lt;li&gt;&lt;strong&gt;statusText&lt;/strong&gt; - có kiểu string - là thông báo trạng thái HTTP của response dưới dạng văn bản (text).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;jsonp-v-cc-vn--bo-mt-lin-quan&quot;&gt;JSONP và các vấn đề bảo mật liên quan&lt;/h2&gt;
+&lt;h2 id=&quot;jsonp&quot;&gt;JSONP&lt;/h2&gt;
 
 &lt;p&gt;Dịch vụ $http của AngularJS cũng có khả năng gửi đi các &lt;a href=&quot;http://en.wikipedia.org/wiki/JSONP&quot;&gt;JSONP&lt;/a&gt; request. Các lời gọi AJAX thông thường chỉ có thể gửi đến các URL trong cùng domain. Với các JSONP request, chúng ta có thể gửi các request tới các URL của các tên miền khác. &lt;/p&gt;
 
-&lt;h3 id=&quot;jsonp&quot;&gt;JSONP&lt;/h3&gt;
+&lt;h3 id=&quot;jsonp-l-g&quot;&gt;JSONP là gì?&lt;/h3&gt;
 
 &lt;p&gt;JSONP là viết tắt của “JSON with padding”. Một JSONP request không gửi qua đối tượng XHR như các lời gọi AJAX thông thường mà thay vào đó, một phần tử &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; được tạo ra và chèn vào trang HTML. Ví dụ, một phần tử &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; có thể trông như sau:&lt;/p&gt;
 
@@ -374,23 +373,6 @@
 &lt;p&gt;Ví dụ này thực hiện một lời gọi JSONP tới service tại địa chỉ &lt;em&gt;http: //thapsang.net/api/theService.json&lt;/em&gt;, &lt;code&gt;config&lt;/code&gt; chứa tham số thông qua trường &lt;code&gt;params&lt;/code&gt;. Khi bạn gọi function &lt;em&gt;$http.jsonp()&lt;/em&gt;, AngularJS sẽ tạo ra một phần tử &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; với URL tương ứng và chèn nó vào trang HTML.&lt;/p&gt;
 
 &lt;p&gt;URL được truyền vào phương thức &lt;em&gt;$http.jsonp()&lt;/em&gt; &lt;strong&gt;phải chứa&lt;/strong&gt; tham số &lt;code&gt;callback=JSON_CALLBACK&lt;/code&gt;. AngularJS sẽ thay thế chuỗi &lt;code&gt;JSON_CALLBACK&lt;/code&gt; bằng tên của function callback do AngularJS tạo ra.&lt;/p&gt;
-
-&lt;h3 id=&quot;vn--bo-mt&quot;&gt;Vấn đề bảo mật&lt;/h3&gt;
-
-&lt;p&gt;Khi thiết kế các ứng dụng web, có hai vấn đề bảo mật cần đuợc xem xét, đó là vấn đề liên quan đến &lt;a href=&quot;http://haacked.com/archive/2008/11/20/anatomy-of-a-subtle-json-vulnerability.ãsp&quot;&gt;lỗ hổng JSON&lt;/a&gt; và &lt;a href=&quot;http://en.wikipedia.org/wiki/Cross-site_request_forgery&quot;&gt;XSRF&lt;/a&gt; (Cross Site Request Forgery - giả mạo yêu cầu qua các site khác nhau). Cả server và client cần hợp tác với nhau để loại bỏ vấn đề này. Angular đã cấu hình kèm các chiến lược nhằm giải quyết các vấn đề này, nhưng vẫn cần sự hợp tác của server phía backend.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Chống lại các lỗ hổng JSON: server có thể thêm tiền tố cho tất cả các JSON request với chuỗi &lt;code&gt;&quot;)]}&#39;,\n&quot;&lt;/code&gt;. AngularJS sẽ tự động bỏ chuỗi đó đi trước khi xử lý dữ liệu JSON.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Chống lại việc giả mạo yêu cầu XSRF: &lt;/p&gt;
-
-    &lt;p&gt;XSRF là một kỹ thuật mà một site trái phép có thể lợi dụng dữ liệu riêng tư của người dùng. Angular cung cấp một cơ chế để chống lại XSRF. Khi thực hiện các XHR request, $http service đọc một token từ một cookie (mặc định là &lt;code&gt;XSRF-TOKEN&lt;/code&gt;) và thiết lập nó như là một HTTP header (&lt;code&gt;X-XSRF-TOKEN&lt;/code&gt;). Bởi vì chỉ có Javascript chạy trên domain của bạn mới có thể đọc được cookie nên server có thể chắc chắn rằng XHR đến từ Javascript chạy trên domain của bạn. Các header sẽ không thể thiết lập cho các cross-domain request.&lt;/p&gt;
-
-    &lt;p&gt;Để tận dụng lợi thế này, server cần thiết lập một token được gọi là &lt;code&gt;XSRF-TOKEN&lt;/code&gt; cho HTTP GET request đầu tiên. Trên các XHR request tiếp theo, server có thể xác minh rằng cookie phù hợp với &lt;code&gt;X-XSRF-TOKEN&lt;/code&gt; HTTP header và do đó chắc chắn rằng chỉ có Javascript chạy trên domain của bạn mới có thể gửi được request. Token cho mỗi user là duy nhất và phải được server xác thực.&lt;/p&gt;
-
-    &lt;p&gt;Tên của các header có thể được chỉ rõ bằng cách sử dụng thuộc tính &lt;code&gt;xsrfHeaderName&lt;/code&gt; và &lt;code&gt;xsrfCookieName&lt;/code&gt; của &lt;code&gt;$httpProvider.defaults&lt;/code&gt; khi cấu hình (config-time), hoặc của &lt;code&gt;$http.defaults&lt;/code&gt; khi chạy thực (run-time), hoặc trên từng đối tượng &lt;code&gt;config&lt;/code&gt; của mỗi request.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;h2 id=&quot;interceptors&quot;&gt;Interceptors&lt;/h2&gt;
 
