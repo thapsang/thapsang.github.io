@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Interceptor trong AngularJS",
+		  "category"   : "",
+		  "url"        : "/angularjs/$http-interceptor-trong-angularjs",
+		  "date"       : "2014-11-25 00:00:00 +0700",
+		  "shortdate"  : "November 25, 2014"
+		} ,
+	
+		{
 		  "title"      : "Hiểu về dịch vụ $http trong AngularJS",
 		  "category"   : "",
 		  "url"        : "/angularjs/hieu-ve-$http-service-trong-angularjs",

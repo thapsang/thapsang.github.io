@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-11-25T20:12:29+07:00</updated>
+<updated>2014-11-26T10:44:29+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -14,10 +14,105 @@
 
 
 <entry>
+  <title type="html"><![CDATA[Interceptor trong AngularJS]]></title>
+  <link>/angularjs/$http-interceptor-trong-angularjs</link>
+  <id>/angularjs/$http-interceptor-trong-angularjs</id>
+  <updated>2014-11-25T00:00:00-00:00</updated>
+  <published>2014-11-25T00:00:00+07:00</published>
+  
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;$http service của AngularJS cho phép chúng ta giao tiếp với phía backend và thực hiện các HTTP request. Có nhiều trường hợp chúng ta muốn chặn bắt (capture) các request và tính toán, xử lý (manipulate) nó trước khi gửi nó đến server. Trong trường hợp khác, chúng ta lại muốn chặn bắt các đáp ứng trả về (response), xử lý nó trước khi hoàn thành lời gọi. Ví như việc xử lý lỗi http trong toàn ứng dụng (global http error handling), xác thực (authentication) cũng cần thực hiện như vậy. &lt;strong&gt;Interceptors&lt;/strong&gt; (bộ chặn) rất thuận tiện cho các trường hợp như thế.&lt;/p&gt;
+
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#interceptors-l-g&quot;&gt;Interceptors là gì?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cc-loi-interceptor&quot;&gt;Các loại Interceptor&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#request-interceptor&quot;&gt;Request Interceptor&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#response-interceptor&quot;&gt;Response Interceptor&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#requesterror-interceptor&quot;&gt;RequestError Interceptor&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#responseerror-interceptor&quot;&gt;ResponseError Interceptor&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#v-d&quot;&gt;Ví dụ&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;interceptors-l-g&quot;&gt;Interceptors là gì?&lt;/h2&gt;
+
+&lt;p&gt;Đối tượng cung cấp &lt;strong&gt;$httpProvider&lt;/strong&gt; chứa một mảng các interceptors &lt;code&gt;$httpProvider.interceptors&lt;/code&gt;. Một interceptor đơn giản là một dịch vụ (service factory) được đăng ký vào mảng đó. Chúng ta có thể tạo một interceptor như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myInterceptor&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dependency1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dependency2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;     &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myInterceptor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;         &lt;span class=&quot;p&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;         &lt;span class=&quot;p&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;6&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;7&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myInterceptor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Và sau đó thêm nó vào trong mảng &lt;code&gt;$httpProvider.interceptors&lt;/code&gt;. Do đòi hỏi phải có khả năng truy cập vào đối tượng cung cấp $httpProvider để đăng ký mới một interceptor nên việc này &lt;strong&gt;phải được hiện trong phần cấu hình&lt;/strong&gt; của ứng dụng web:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;$httpProvider&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$httpProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;     &lt;span class=&quot;nx&quot;&gt;$httpProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;interceptors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myInterceptor&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}]);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;cc-loi-interceptor&quot;&gt;Các loại Interceptor&lt;/h2&gt;
+
+&lt;h3 id=&quot;request-interceptor&quot;&gt;Request Interceptor&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Chặn một request bằng cách thực thi hàm &lt;code&gt;request&lt;/code&gt;&lt;/strong&gt;: Phương thức này được thực hiện trước khi &lt;code&gt;$http&lt;/code&gt; gửi request đến server, do đó chúng ta có thể sửa đổi cấu hình (đối tượng &lt;code&gt;config&lt;/code&gt;) và thực hiện các hành động khác. Hàm này nhận đối tượng &lt;code&gt;config&lt;/code&gt; như là một tham số đầu vào và phải trả lại trực tiếp đối tượng &lt;code&gt;config&lt;/code&gt; hoặc một lời hứa (promise) chứa đối tượng &lt;code&gt;config&lt;/code&gt;. Nếu trả lại một đối tượng &lt;code&gt;config&lt;/code&gt; không hợp lệ hoặc một lời hứa bị bác bỏ (reject) thì lời gọi &lt;code&gt;$http&lt;/code&gt; sẽ thất bại.&lt;/p&gt;
+
+&lt;h3 id=&quot;response-interceptor&quot;&gt;Response Interceptor&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Chặn một response bằng cách thực thi hàm &lt;code&gt;response&lt;/code&gt;&lt;/strong&gt;: Phương thức này được gọi sau khi &lt;code&gt;$http&lt;/code&gt; nhận được response từ server, do đó chúng ta có thể sửa đổi response và thực hiện các hành động khác. Hàm này nhận đối tượng &lt;code&gt;response&lt;/code&gt; như là một tham số đầu vào và phải trả lại trực tiếp đối tượng &lt;code&gt;response&lt;/code&gt; hoặc một lời hứa (promise) chứa đối tượng &lt;code&gt;response&lt;/code&gt;. Đối tượng &lt;code&gt;response&lt;/code&gt; gồm &lt;em&gt;cấu hình của request (config), headers, status, data&lt;/em&gt;. Nếu trả lại một đối tượng &lt;code&gt;response&lt;/code&gt; không hợp lệ hoặc một lời hứa bị bác bỏ (reject) thì lời gọi &lt;code&gt;$http&lt;/code&gt; sẽ thất bại.&lt;/p&gt;
+
+&lt;h3 id=&quot;requesterror-interceptor&quot;&gt;RequestError Interceptor&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Chặn request error bằng cách thực thi hàm &lt;code&gt;requestError&lt;/code&gt;&lt;/strong&gt;: đôi khi, một request không thể gửi đi hoặc nó bị hủy bỏ bởi một bộ chặn (interceptor). Bộ chặn lỗi request (request error interceptor) bắt (capture) các requests đã bị hủy bỏ bởi một request interceptor trước đó. Nó có thể được sử dụng để khôi phục (recover) request và đôi khi quay lui lại những thứ đã được thiết lập trước khi request.&lt;/p&gt;
+
+&lt;h3 id=&quot;responseerror-interceptor&quot;&gt;ResponseError Interceptor&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Chặn response error bằng cách thực thi hàm &lt;code&gt;responseError&lt;/code&gt;&lt;/strong&gt;: đôi khi lời gọi đến server bị thất bại, có khi thì nó bị từ chối bởi một request interceptor hoặc một response interceptor trước đó. Trong những trường hợp đó, bộ chặn lỗi response (response error interceptor) có thể giúp chúng ta khôi phục (recover) các lời gọi đến server.&lt;/p&gt;
+
+&lt;p&gt;Chúng ta có thể sử dụng kết hợp các interceptor trong một service factory như sau:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/taly2808/ae0e3c32789b78c25cce.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;v-d&quot;&gt;Ví dụ&lt;/h2&gt;
+&lt;p&gt;Trong ví dụ dưới đây, chúng ta mô phỏng tình huống interceptor trước đó đã hủy bỏ (reject) một request và requestError interceptor sẽ lấy được nguyên nhân bị hủy bỏ và phục hồi lại request. (Bạn nên mở &lt;a href=&quot;http://embed.plnkr.co/3oiF36Jcino7rLYyU8eD/&quot;&gt;demo&lt;/a&gt; trên một cửa sổ mới và bật công cụ bug để thấy kết quả).&lt;/p&gt;
+
+&lt;iframe src=&quot;http://embed.plnkr.co/3oiF36Jcino7rLYyU8eD/script.js&quot; style=&quot;border:0px #FFFFFF none;&quot; name=&quot;Request Recover (requestError interceptor)&quot; scrolling=&quot;no&quot; frameborder=&quot;1&quot; marginheight=&quot;0px&quot; marginwidth=&quot;0px&quot; height=&quot;400px&quot; width=&quot;100%&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Ở đây, chúng ta có 2 bộ interceptor: &lt;code&gt;requestRejector&lt;/code&gt; - thực hiện hủy bỏ request, và &lt;code&gt;recoverRequest&lt;/code&gt; - lấy ra nguyên nhân request bị hủy bỏ và khôi phục lại request. Trong demo cũng đưa ra ví dụ minh họa cho response interceptor và responseError interceptor. Để có thể thấy responseError interceptor hoạt động, bạn có thể cung cấp một url không hợp lệ trong url của &lt;em&gt;recoverRequest&lt;/em&gt; factory.&lt;/p&gt;
+
+&lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/&quot;&gt;Interceptors in AngularJS and Useful Examples&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://djds4rce.wordpress.com/2013/08/13/understanding-angular-http-interceptors/&quot;&gt;Understanding angular $http interceptors&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://egghead.io/lessons/angularjs-using-angularjs-interceptors-with-http&quot;&gt;Using AngularJS interceptors with $http&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/angularjs/$http-interceptor-trong-angularjs&quot;&gt;Interceptor trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 25, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[Hiểu về dịch vụ $http trong AngularJS]]></title>
   <link>/angularjs/hieu-ve-$http-service-trong-angularjs</link>
   <id>/angularjs/hieu-ve-$http-service-trong-angularjs</id>
-  <updated>2014-11-24T00:00:00-00:00</updated>
+  <updated>2014-11-25T00:00:00-00:00</updated>
   <published>2014-11-18T00:00:00+07:00</published>
   
   <author>
@@ -43,11 +138,7 @@
       &lt;li&gt;&lt;a href=&quot;#vn--bo-mt&quot;&gt;Vấn đề bảo mật&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#interceptors&quot;&gt;Interceptors&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#interceptors-l-g&quot;&gt;Interceptors là gì?&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#cc-hot-ng-khng-ng-b&quot;&gt;Các hoạt động không đồng bộ&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#interceptors&quot;&gt;Interceptors&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -291,8 +382,9 @@
 &lt;ul&gt;
   &lt;li&gt;Chống lại các lỗ hổng JSON: server có thể thêm tiền tố cho tất cả các JSON request với chuỗi &lt;code&gt;&quot;)]}&#39;,\n&quot;&lt;/code&gt;. AngularJS sẽ tự động bỏ chuỗi đó đi trước khi xử lý dữ liệu JSON.&lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Chống lại việc giả mạo yêu cầu XSRF: 
-  XSRF là một kỹ thuật mà một site trái phép có thể lợi dụng dữ liệu riêng tư của người dùng. Angular cung cấp một cơ chế để chống lại XSRF. Khi thực hiện các XHR request, $http service đọc một token từ một cookie (mặc định là &lt;code&gt;XSRF-TOKEN&lt;/code&gt;) và thiết lập nó như là một HTTP header (&lt;code&gt;X-XSRF-TOKEN&lt;/code&gt;). Bởi vì chỉ có Javascript chạy trên domain của bạn mới có thể đọc được cookie nên server có thể chắc chắn rằng XHR đến từ Javascript chạy trên domain của bạn. Các header sẽ không thể thiết lập cho các cross-domain request.&lt;/p&gt;
+    &lt;p&gt;Chống lại việc giả mạo yêu cầu XSRF: &lt;/p&gt;
+
+    &lt;p&gt;XSRF là một kỹ thuật mà một site trái phép có thể lợi dụng dữ liệu riêng tư của người dùng. Angular cung cấp một cơ chế để chống lại XSRF. Khi thực hiện các XHR request, $http service đọc một token từ một cookie (mặc định là &lt;code&gt;XSRF-TOKEN&lt;/code&gt;) và thiết lập nó như là một HTTP header (&lt;code&gt;X-XSRF-TOKEN&lt;/code&gt;). Bởi vì chỉ có Javascript chạy trên domain của bạn mới có thể đọc được cookie nên server có thể chắc chắn rằng XHR đến từ Javascript chạy trên domain của bạn. Các header sẽ không thể thiết lập cho các cross-domain request.&lt;/p&gt;
 
     &lt;p&gt;Để tận dụng lợi thế này, server cần thiết lập một token được gọi là &lt;code&gt;XSRF-TOKEN&lt;/code&gt; cho HTTP GET request đầu tiên. Trên các XHR request tiếp theo, server có thể xác minh rằng cookie phù hợp với &lt;code&gt;X-XSRF-TOKEN&lt;/code&gt; HTTP header và do đó chắc chắn rằng chỉ có Javascript chạy trên domain của bạn mới có thể gửi được request. Token cho mỗi user là duy nhất và phải được server xác thực.&lt;/p&gt;
 
@@ -302,51 +394,16 @@
 
 &lt;h2 id=&quot;interceptors&quot;&gt;Interceptors&lt;/h2&gt;
 
-&lt;p&gt;$http service của AngularJS cho phép chúng ta giao tiếp với phía backend và thực hiện các HTTP requests. Có nhiều trường hợp chúng ta muốn chặn bắt (capture) các requests và tính toán, xử lý (manipulate) nó trước khi gửi nó đến server. Trong trường hợp khác, chúng ta lại muốn chặn bắt các đáp ứng trả về (response), xử lý nó trước khi hoàn thành lời gọi. Ví như việc xử lý lỗi http trong toàn ứng dụng (global http error handling), xác thực (authentication) cũng cần thực hiện như vậy. &lt;strong&gt;Interceptors&lt;/strong&gt; (bộ chặn) rất thuận tiện cho các trường hợp như thế.&lt;/p&gt;
-
-&lt;h3 id=&quot;interceptors-l-g&quot;&gt;Interceptors là gì?&lt;/h3&gt;
-
-&lt;p&gt;Đối tượng cung cấp &lt;strong&gt;$httpProvider&lt;/strong&gt; chứa một mảng các interceptors &lt;code&gt;$httpProvider.interceptors&lt;/code&gt;. Một interceptor đơn giản là một dịch vụ (service factory) được đăng ký vào mảng đó. Chúng ta có thể tạo một interceptor như sau:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myInterceptor&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$q&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dependency1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dependency2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;     &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myInterceptor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt;         &lt;span class=&quot;p&quot;&gt;....&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt;         &lt;span class=&quot;p&quot;&gt;....&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;5&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;6&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt;7&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myInterceptor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Và sau đó thêm nó vào trong mảng &lt;code&gt;$httpProvider.interceptors&lt;/code&gt;. Do đòi hỏi phải có khả năng truy cập vào đối tượng cung cấp $httpProvider để đăng ký mới một interceptor nên việc này &lt;strong&gt;phải được hiện trong phần cấu hình&lt;/strong&gt; của ứng dụng web:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;$httpProvider&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$httpProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;     &lt;span class=&quot;nx&quot;&gt;$httpProvider&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;interceptors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;myInterceptor&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}]);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Interceptors cho phép chúng ta:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Chặn một request bằng cách thực thi hàm &lt;code&gt;request&lt;/code&gt;&lt;/strong&gt;: Phương thức này được thực hiện trước khi &lt;code&gt;$http&lt;/code&gt; gửi request đến server, do đó chúng ta có thể sửa đổi cấu hình (đối tượng &lt;code&gt;config&lt;/code&gt;) và thực hiện các hành động khác. Hàm này nhận đối tượng &lt;code&gt;config&lt;/code&gt; như là một tham số đầu vào và phải trả lại trực tiếp đối tượng &lt;code&gt;config&lt;/code&gt; hoặc một lời hứa (promise) chứa đối tượng &lt;code&gt;config&lt;/code&gt;. Nếu trả lại một đối tượng &lt;code&gt;config&lt;/code&gt; không hợp lệ hoặc một lời hứa bị bác bỏ (reject) thì lời gọi &lt;code&gt;$http&lt;/code&gt; sẽ thất bại.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Ví dụ: Session Injector&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Chặn một response bằng cách thực thi hàm &lt;code&gt;response&lt;/code&gt;&lt;/strong&gt;: Phương thức này được gọi sau khi &lt;code&gt;$http&lt;/code&gt; nhận được response từ server, do đó chúng ta có thể sửa đổi response và thực hiện các hành động khác. Hàm này nhận đối tượng &lt;code&gt;response&lt;/code&gt; như là một tham số đầu vào và phải trả lại trực tiếp đối tượng &lt;code&gt;response&lt;/code&gt; hoặc một lời hứa (promise) chứa đối tượng &lt;code&gt;response&lt;/code&gt;. Đối tượng &lt;code&gt;response&lt;/code&gt; gồm &lt;em&gt;cấu hình của request (config), headers, status, data&lt;/em&gt;. Nếu trả lại một đối tượng &lt;code&gt;response&lt;/code&gt; không hợp lệ hoặc một lời hứa bị bác bỏ (reject) thì lời gọi &lt;code&gt;$http&lt;/code&gt; sẽ thất bại.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Chặn request error bằng cách thực thi hàm &lt;code&gt;requestError&lt;/code&gt;&lt;/strong&gt;: đôi khi, một request không thể gửi đi hoặc nó bị hủy bỏ bởi một bộ chặn (interceptor). Bộ chặn lỗi request (request error interceptor) bắt (capture) các requests đã bị hủy bỏ bởi một request interceptor trước đó. Nó có thể được sử dụng để khôi phục (recover) request và đôi khi quay lui lại những thứ đã được thiết lập trước khi request.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Chặn response error bằng cách thực thi hàm &lt;code&gt;responseError&lt;/code&gt;&lt;/strong&gt;: đôi khi lời gọi đến server bị thất bại, có khi thì nó bị từ chối bởi một request interceptor hoặc một response interceptor trước đó. Trong những trường hợp đó, bộ chặn lỗi response (response error interceptor) có thể giúp chúng ta khôi phục (recover) các lời gọi đến server.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;cc-hot-ng-khng-ng-b&quot;&gt;Các hoạt động không đồng bộ&lt;/h3&gt;
-
-&lt;p&gt;Có những khi chúng ta cần thực hiện một số hoạt động không đồng bộ (asynchronous operations) bên trong interceptor. May mắn thay, AngularJS cho phép chúng ta trả lại một lời hứa, và lời hứa đó sẽ được giải quyết sau. Điều này sẽ làm trì hoãn việc gửi request trong trường hợp của request interceptor và trì hoãn việc giải quyết response trong trường hợp của response interceptor.&lt;/p&gt;
+&lt;p&gt;Khi giao tiếp với server thông qua $http service, có khi chúng ta cần chặn các request hoặc response để làm gì đó trước khi gửi chúng đến server hoặc trả lại phía client. Chúng ta sẽ tìm hiểu về nội dung này trong bài &lt;a href=&quot;/angularjs/$http-interceptor-trong-angularjs&quot;&gt;Interceptor trong AngularJS&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$http&quot;&gt;$http service&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/&quot;&gt;Interceptors in AngularJS and Useful Examples&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://odetocode.com/blogs/scott/archive/2014/04/24/canceling-http-requests-in-angularjs.aspx&quot;&gt;Canceling $http Requests in AngularJS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.bennadel.com/blog/2612-using-the-http-service-in-angularjs-to-make-ajax-requests.htm&quot;&gt;Using The $http Service In AngularJS To Make AJAX Requests&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://tutorials.jenkov.com/angularjs/ajax.html&quot;&gt;AngularJS AJAX&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
 
   &lt;p&gt;&lt;a href=&quot;/angularjs/hieu-ve-$http-service-trong-angularjs&quot;&gt;Hiểu về dịch vụ $http trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 18, 2014.&lt;/p&gt;</content>
 </entry>

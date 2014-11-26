@@ -155,8 +155,8 @@
                         
                         <div class="cursive" style="color: #000; font-style:italic;">Tìm hiểu chi tiết về $http service trong AngularJS.</div>
                         <div class="post-info text-center small">
-                            <span class="entry-date date published"><time datetime="2014-11-18T00:00:00+07:00" class="post-time" itemprop="datePublished">18 Nov 2014</time><span> and <code>last modified on <span class="entry-date date updated"><time datetime="2014-11-24" itemprop="dateModified">24 Nov 2014</time></code></span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">34.34</span> minutes read</span>
+                            <span class="entry-date date published"><time datetime="2014-11-18T00:00:00+07:00" class="post-time" itemprop="datePublished">18 Nov 2014</time><span> and <code>last modified on <span class="entry-date date updated"><time datetime="2014-11-25" itemprop="dateModified">25 Nov 2014</time></code></span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">28.38</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
@@ -179,11 +179,7 @@
       <li><a href="#vn--bo-mt">Vấn đề bảo mật</a></li>
     </ul>
   </li>
-  <li><a href="#interceptors">Interceptors</a>    <ul>
-      <li><a href="#interceptors-l-g">Interceptors là gì?</a></li>
-      <li><a href="#cc-hot-ng-khng-ng-b">Các hoạt động không đồng bộ</a></li>
-    </ul>
-  </li>
+  <li><a href="#interceptors">Interceptors</a></li>
   <li><a href="#ti-liu-tham-kho">Tài liệu tham khảo</a></li>
 </ul>
 
@@ -427,8 +423,9 @@
 <ul>
   <li>Chống lại các lỗ hổng JSON: server có thể thêm tiền tố cho tất cả các JSON request với chuỗi <code>")]}',\n"</code>. AngularJS sẽ tự động bỏ chuỗi đó đi trước khi xử lý dữ liệu JSON.</li>
   <li>
-    <p>Chống lại việc giả mạo yêu cầu XSRF: 
-  XSRF là một kỹ thuật mà một site trái phép có thể lợi dụng dữ liệu riêng tư của người dùng. Angular cung cấp một cơ chế để chống lại XSRF. Khi thực hiện các XHR request, $http service đọc một token từ một cookie (mặc định là <code>XSRF-TOKEN</code>) và thiết lập nó như là một HTTP header (<code>X-XSRF-TOKEN</code>). Bởi vì chỉ có Javascript chạy trên domain của bạn mới có thể đọc được cookie nên server có thể chắc chắn rằng XHR đến từ Javascript chạy trên domain của bạn. Các header sẽ không thể thiết lập cho các cross-domain request.</p>
+    <p>Chống lại việc giả mạo yêu cầu XSRF: </p>
+
+    <p>XSRF là một kỹ thuật mà một site trái phép có thể lợi dụng dữ liệu riêng tư của người dùng. Angular cung cấp một cơ chế để chống lại XSRF. Khi thực hiện các XHR request, $http service đọc một token từ một cookie (mặc định là <code>XSRF-TOKEN</code>) và thiết lập nó như là một HTTP header (<code>X-XSRF-TOKEN</code>). Bởi vì chỉ có Javascript chạy trên domain của bạn mới có thể đọc được cookie nên server có thể chắc chắn rằng XHR đến từ Javascript chạy trên domain của bạn. Các header sẽ không thể thiết lập cho các cross-domain request.</p>
 
     <p>Để tận dụng lợi thế này, server cần thiết lập một token được gọi là <code>XSRF-TOKEN</code> cho HTTP GET request đầu tiên. Trên các XHR request tiếp theo, server có thể xác minh rằng cookie phù hợp với <code>X-XSRF-TOKEN</code> HTTP header và do đó chắc chắn rằng chỉ có Javascript chạy trên domain của bạn mới có thể gửi được request. Token cho mỗi user là duy nhất và phải được server xác thực.</p>
 
@@ -438,51 +435,16 @@
 
 <h2 id="interceptors">Interceptors</h2>
 
-<p>$http service của AngularJS cho phép chúng ta giao tiếp với phía backend và thực hiện các HTTP requests. Có nhiều trường hợp chúng ta muốn chặn bắt (capture) các requests và tính toán, xử lý (manipulate) nó trước khi gửi nó đến server. Trong trường hợp khác, chúng ta lại muốn chặn bắt các đáp ứng trả về (response), xử lý nó trước khi hoàn thành lời gọi. Ví như việc xử lý lỗi http trong toàn ứng dụng (global http error handling), xác thực (authentication) cũng cần thực hiện như vậy. <strong>Interceptors</strong> (bộ chặn) rất thuận tiện cho các trường hợp như thế.</p>
-
-<h3 id="interceptors-l-g">Interceptors là gì?</h3>
-
-<p>Đối tượng cung cấp <strong>$httpProvider</strong> chứa một mảng các interceptors <code>$httpProvider.interceptors</code>. Một interceptor đơn giản là một dịch vụ (service factory) được đăng ký vào mảng đó. Chúng ta có thể tạo một interceptor như sau:</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">module</span><span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;myInterceptor&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$q</span><span class="p">,</span> <span class="nx">dependency1</span><span class="p">,</span> <span class="nx">dependency2</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">2</span>     <span class="kd">var</span> <span class="nx">myInterceptor</span> <span class="o">=</span> <span class="p">{</span>
-<span class="lineno">3</span>         <span class="p">....</span>
-<span class="lineno">4</span>         <span class="p">....</span>
-<span class="lineno">5</span>     <span class="p">};</span>
-<span class="lineno">6</span> 
-<span class="lineno">7</span>     <span class="k">return</span> <span class="nx">myInterceptor</span><span class="p">;</span>
-<span class="lineno">8</span> <span class="p">});</span></code></pre></div>
-
-<p>Và sau đó thêm nó vào trong mảng <code>$httpProvider.interceptors</code>. Do đòi hỏi phải có khả năng truy cập vào đối tượng cung cấp $httpProvider để đăng ký mới một interceptor nên việc này <strong>phải được hiện trong phần cấu hình</strong> của ứng dụng web:</p>
-
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno">1</span> <span class="nx">module</span><span class="p">.</span><span class="nx">config</span><span class="p">([</span><span class="s1">&#39;$httpProvider&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$httpProvider</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">2</span>     <span class="nx">$httpProvider</span><span class="p">.</span><span class="nx">interceptors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;myInterceptor&#39;</span><span class="p">);</span>
-<span class="lineno">3</span> <span class="p">}]);</span></code></pre></div>
-
-<p>Interceptors cho phép chúng ta:</p>
-
-<ul>
-  <li>
-    <p><strong>Chặn một request bằng cách thực thi hàm <code>request</code></strong>: Phương thức này được thực hiện trước khi <code>$http</code> gửi request đến server, do đó chúng ta có thể sửa đổi cấu hình (đối tượng <code>config</code>) và thực hiện các hành động khác. Hàm này nhận đối tượng <code>config</code> như là một tham số đầu vào và phải trả lại trực tiếp đối tượng <code>config</code> hoặc một lời hứa (promise) chứa đối tượng <code>config</code>. Nếu trả lại một đối tượng <code>config</code> không hợp lệ hoặc một lời hứa bị bác bỏ (reject) thì lời gọi <code>$http</code> sẽ thất bại.</p>
-
-    <p><strong>Ví dụ: Session Injector</strong></p>
-  </li>
-  <li><strong>Chặn một response bằng cách thực thi hàm <code>response</code></strong>: Phương thức này được gọi sau khi <code>$http</code> nhận được response từ server, do đó chúng ta có thể sửa đổi response và thực hiện các hành động khác. Hàm này nhận đối tượng <code>response</code> như là một tham số đầu vào và phải trả lại trực tiếp đối tượng <code>response</code> hoặc một lời hứa (promise) chứa đối tượng <code>response</code>. Đối tượng <code>response</code> gồm <em>cấu hình của request (config), headers, status, data</em>. Nếu trả lại một đối tượng <code>response</code> không hợp lệ hoặc một lời hứa bị bác bỏ (reject) thì lời gọi <code>$http</code> sẽ thất bại.</li>
-  <li><strong>Chặn request error bằng cách thực thi hàm <code>requestError</code></strong>: đôi khi, một request không thể gửi đi hoặc nó bị hủy bỏ bởi một bộ chặn (interceptor). Bộ chặn lỗi request (request error interceptor) bắt (capture) các requests đã bị hủy bỏ bởi một request interceptor trước đó. Nó có thể được sử dụng để khôi phục (recover) request và đôi khi quay lui lại những thứ đã được thiết lập trước khi request.</li>
-  <li><strong>Chặn response error bằng cách thực thi hàm <code>responseError</code></strong>: đôi khi lời gọi đến server bị thất bại, có khi thì nó bị từ chối bởi một request interceptor hoặc một response interceptor trước đó. Trong những trường hợp đó, bộ chặn lỗi response (response error interceptor) có thể giúp chúng ta khôi phục (recover) các lời gọi đến server.</li>
-</ul>
-
-<h3 id="cc-hot-ng-khng-ng-b">Các hoạt động không đồng bộ</h3>
-
-<p>Có những khi chúng ta cần thực hiện một số hoạt động không đồng bộ (asynchronous operations) bên trong interceptor. May mắn thay, AngularJS cho phép chúng ta trả lại một lời hứa, và lời hứa đó sẽ được giải quyết sau. Điều này sẽ làm trì hoãn việc gửi request trong trường hợp của request interceptor và trì hoãn việc giải quyết response trong trường hợp của response interceptor.</p>
+<p>Khi giao tiếp với server thông qua $http service, có khi chúng ta cần chặn các request hoặc response để làm gì đó trước khi gửi chúng đến server hoặc trả lại phía client. Chúng ta sẽ tìm hiểu về nội dung này trong bài <a href="/angularjs/$http-interceptor-trong-angularjs">Interceptor trong AngularJS</a>.</p>
 
 <h2 id="ti-liu-tham-kho">Tài liệu tham khảo</h2>
 
 <ol>
   <li><a href="https://docs.angularjs.org/api/ng/service/$http">$http service</a></li>
-  <li><a href="http://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/">Interceptors in AngularJS and Useful Examples</a></li>
+  <li><a href="http://odetocode.com/blogs/scott/archive/2014/04/24/canceling-http-requests-in-angularjs.aspx">Canceling $http Requests in AngularJS</a></li>
+  <li><a href="http://www.bennadel.com/blog/2612-using-the-http-service-in-angularjs-to-make-ajax-requests.htm">Using The $http Service In AngularJS To Make AJAX Requests</a></li>
+  <li><a href="http://tutorials.jenkov.com/angularjs/ajax.html">AngularJS AJAX</a></li>
 </ol>
-
 
                         <br>
                     

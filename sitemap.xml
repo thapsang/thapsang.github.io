@@ -16,6 +16,10 @@
     
     
     <url>
+        <loc>/angularjs/$http-interceptor-trong-angularjs</loc>
+    </url>
+    
+    <url>
         <loc>/angularjs/hieu-ve-$http-service-trong-angularjs</loc>
     </url>
     
