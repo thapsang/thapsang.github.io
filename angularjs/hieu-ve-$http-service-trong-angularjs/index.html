@@ -156,7 +156,7 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Tìm hiểu chi tiết về $http service trong AngularJS.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published"><time datetime="2014-11-18T00:00:00+07:00" class="post-time" itemprop="datePublished">18 Nov 2014</time><span> and <code>last modified on <span class="entry-date date updated"><time datetime="2014-11-25" itemprop="dateModified">25 Nov 2014</time></code></span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">24.82</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">24.95</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
@@ -195,7 +195,7 @@
 
 <p>Trong file <code>script.js</code> của ví dụ trên, chúng ta thấy rằng, controller <code>MyController</code> được bơm vào hai tham số: $scope và $http. $http service được sử dụng để thực hiện lời gọi AJAX.</p>
 
-<p>Hàm $http.get() trả về một đối tượng “lời hứa” (promise). Đối tượng promise này có một phương thức <code>success()</code> và một phương thức <code>error()</code>. Bằng cách gọi các phương thức này và truyền một hàm (function) cho chúng (xem như là tham số), chúng ta có thể kiểm soát được những gì xảy ra sau khi lời gọi AJAX kết thúc. Nếu lời gọi AJAX thành công (server trả lại mã HTTP từ 200 đến 299) thì function đã được truyền trong phương thức <code>success()</code> được thực thi. Nếu lời gọi AJAX thất bại thì function đã được truyền trong phương thức <code>error()</code> được thực thi. Chúng ta sẽ tìm hiểu chi tiết về phương thức success() và error() ở phần sau.</p>
+<p>Các request được gọi thông qua dịch vụ $http đều trả về một đối tượng “lời hứa” (promise). Đối tượng promise này có một phương thức <code>success()</code> và một phương thức <code>error()</code>. Chúng ta sẽ tìm hiểu chi tiết về phương thức success() và error() ở phần sau.</p>
 
 <h2 id="cc-phng-thc-trong-http">Các phương thức trong $http</h2>
 
@@ -205,13 +205,13 @@
   <li>$http.get(url, [config])</li>
   <li>$http.delete(url, [config])</li>
   <li>$http.head(url, [config])</li>
-  <li>$http.path(url, [config])</li>
+  <li>$http.patch(url, data, [config])</li>
   <li>$http.post(url, data, [config])</li>
   <li>$http.put(url, data, [config])</li>
   <li>$http.jsonp(url, [config])</li>
 </ul>
 
-<p>Chú ý rằng, phương thức <strong>$http.post()</strong> và <strong>$http.put()</strong> có tham số <code>data</code> chứa dữ liệu được gửi đến server. Các phương thức còn lại không thể có tham số <code>data</code>.</p>
+<p>Chú ý rằng, phương thức <strong>$http.post()</strong>, <strong>$http.put()</strong> và <strong>$http.patch()</strong> có tham số <code>data</code> chứa dữ liệu được gửi đến server. Các phương thức còn lại không thể có tham số <code>data</code>.</p>
 
 <p>Tham số <code>data</code> sẽ được chuyển thành một chuỗi JSON, chuỗi này sẽ được đưa vào trong phần request body khi HTTP request được gửi tới server. AngularJS sẽ coi tất cả các thuộc tính bắt đầu với ký tự <code>$</code> là của riêng nó, do đó nó sẽ loại bỏ <code>$</code> ra khỏi data. Nếu bạn cần chưá các thuộc tính bắt đầu với <code>$</code> thì bạn cần chuyển đối tượng <code>data</code> thành chuỗi của riêng bạn bằng cách sử dụng hàm <code>JSON.stringify(data)</code>.</p>
 
@@ -273,8 +273,8 @@
 <span class="lineno">9</span> <span class="p">})</span></code></pre></div>
 
 <ul>
-  <li><strong>xsrfHeaderName</strong>: tên của HTTP header để gán với XSRF token.</li>
-  <li><strong>xsrfCookieName</strong>: tên của cookie chứa XSRF token.</li>
+  <li><strong>xsrfHeaderName</strong>: tên của HTTP header để gán với XSRF token. Giá trị mặc định của thuộc tính này là <code>X-XSRF-TOKEN</code> được chứa trong đối tượng <code>$httpProvider.defaults</code>.</li>
+  <li><strong>xsrfCookieName</strong>: tên của cookie chứa XSRF token. Giá trị mặc định được thiết lập trong đối tượng <code>$httpProvider.defaults</code> là <code>XSRF-TOKEN</code>.</li>
   <li><strong>transformRequest</strong>: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng request trước khi gửi nó đến server.</li>
   <li><strong>transformResponse</strong>: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng response được trả lại từ server trước khi trả nó ứng dụng.</li>
   <li><strong>cache</strong>: để kich hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là <code>true</code> (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với $cacheFactory). Ví dụ:</li>
@@ -329,7 +329,7 @@
 
 <h2 id="hm-success-v-error-ca-i-tng-promise">Hàm success() và error() của đối tượng promise</h2>
 
-<p>Như đã đề cập ở phần trên, các function trong dịch vụ $http trả về một lời hứa (promise object). Đối tượng promise này có hai phương thức <code>success()</code> và <code>error()</code>. Khi một AJAX request thành công, phương thức <code>success()</code> sẽ được thực thi. Và ngược lại, khi request thất bại, phương thức <code>error()</code> sẽ được thực thi. Các phương thức này được viết như sau: </p>
+<p>Như đã đề cập ở phần trên, các function trong dịch vụ $http trả về một lời hứa (promise object). Đối tượng promise này có hai phương thức <code>success()</code> và <code>error()</code>. Bằng cách gọi các phương thức này và truyền một hàm callback cho mỗi phương thức, chúng ta có thể kiểm soát được những gì xảy ra sau khi lời gọi AJAX kết thúc. Nếu lời gọi AJAX thành công (server trả lại mã HTTP từ 200 đến 299) thì hàm successCallback đã được truyền trong phương thức <code>success()</code> được thực thi. Nếu lời gọi AJAX thất bại thì hàm errorCallback đã được truyền trong phương thức <code>error()</code> được thực thi. Các phương thức này được viết như sau: </p>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// Simple GET request example :</span>
 <span class="lineno"> 2</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/someUrl&#39;</span><span class="p">).</span>
@@ -347,14 +347,14 @@
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="lineno"> 1</span> <span class="c1">// Simple GET request example :</span>
 <span class="lineno"> 2</span> <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/someUrl&#39;</span><span class="p">).</span>
 <span class="lineno"> 3</span> 	<span class="nx">then</span><span class="p">(</span>
-<span class="lineno"> 4</span> 	  <span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 4</span> 	  <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//successCallback</span>
 <span class="lineno"> 5</span> 	    <span class="c1">// this callback will be called asynchronously</span>
 <span class="lineno"> 6</span> 	    <span class="c1">// when the response is available</span>
-<span class="lineno"> 7</span> 	  <span class="p">}).</span>
-<span class="lineno"> 8</span> 	  <span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 7</span> 	  <span class="p">},</span>
+<span class="lineno"> 8</span> 	  <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//errorCallback</span>
 <span class="lineno"> 9</span> 	    <span class="c1">// called asynchronously if an error occurs</span>
 <span class="lineno">10</span> 	    <span class="c1">// or server returns response with an error status.</span>
-<span class="lineno">11</span> 	  <span class="p">})</span>
+<span class="lineno">11</span> 	  <span class="p">}</span>
 <span class="lineno">12</span>   <span class="p">);</span></code></pre></div>
 
 <p>Các hàm callback trong hai phương thức success() và error() đều có các thuộc tính sau:</p>

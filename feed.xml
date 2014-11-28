@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-11-26T15:47:34+07:00</updated>
+<updated>2014-11-28T06:58:37+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -154,7 +154,7 @@
 
 &lt;p&gt;Trong file &lt;code&gt;script.js&lt;/code&gt; của ví dụ trên, chúng ta thấy rằng, controller &lt;code&gt;MyController&lt;/code&gt; được bơm vào hai tham số: $scope và $http. $http service được sử dụng để thực hiện lời gọi AJAX.&lt;/p&gt;
 
-&lt;p&gt;Hàm $http.get() trả về một đối tượng “lời hứa” (promise). Đối tượng promise này có một phương thức &lt;code&gt;success()&lt;/code&gt; và một phương thức &lt;code&gt;error()&lt;/code&gt;. Bằng cách gọi các phương thức này và truyền một hàm (function) cho chúng (xem như là tham số), chúng ta có thể kiểm soát được những gì xảy ra sau khi lời gọi AJAX kết thúc. Nếu lời gọi AJAX thành công (server trả lại mã HTTP từ 200 đến 299) thì function đã được truyền trong phương thức &lt;code&gt;success()&lt;/code&gt; được thực thi. Nếu lời gọi AJAX thất bại thì function đã được truyền trong phương thức &lt;code&gt;error()&lt;/code&gt; được thực thi. Chúng ta sẽ tìm hiểu chi tiết về phương thức success() và error() ở phần sau.&lt;/p&gt;
+&lt;p&gt;Các request được gọi thông qua dịch vụ $http đều trả về một đối tượng “lời hứa” (promise). Đối tượng promise này có một phương thức &lt;code&gt;success()&lt;/code&gt; và một phương thức &lt;code&gt;error()&lt;/code&gt;. Chúng ta sẽ tìm hiểu chi tiết về phương thức success() và error() ở phần sau.&lt;/p&gt;
 
 &lt;h2 id=&quot;cc-phng-thc-trong-http&quot;&gt;Các phương thức trong $http&lt;/h2&gt;
 
@@ -164,13 +164,13 @@
   &lt;li&gt;$http.get(url, [config])&lt;/li&gt;
   &lt;li&gt;$http.delete(url, [config])&lt;/li&gt;
   &lt;li&gt;$http.head(url, [config])&lt;/li&gt;
-  &lt;li&gt;$http.path(url, [config])&lt;/li&gt;
+  &lt;li&gt;$http.patch(url, data, [config])&lt;/li&gt;
   &lt;li&gt;$http.post(url, data, [config])&lt;/li&gt;
   &lt;li&gt;$http.put(url, data, [config])&lt;/li&gt;
   &lt;li&gt;$http.jsonp(url, [config])&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Chú ý rằng, phương thức &lt;strong&gt;$http.post()&lt;/strong&gt; và &lt;strong&gt;$http.put()&lt;/strong&gt; có tham số &lt;code&gt;data&lt;/code&gt; chứa dữ liệu được gửi đến server. Các phương thức còn lại không thể có tham số &lt;code&gt;data&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Chú ý rằng, phương thức &lt;strong&gt;$http.post()&lt;/strong&gt;, &lt;strong&gt;$http.put()&lt;/strong&gt; và &lt;strong&gt;$http.patch()&lt;/strong&gt; có tham số &lt;code&gt;data&lt;/code&gt; chứa dữ liệu được gửi đến server. Các phương thức còn lại không thể có tham số &lt;code&gt;data&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Tham số &lt;code&gt;data&lt;/code&gt; sẽ được chuyển thành một chuỗi JSON, chuỗi này sẽ được đưa vào trong phần request body khi HTTP request được gửi tới server. AngularJS sẽ coi tất cả các thuộc tính bắt đầu với ký tự &lt;code&gt;$&lt;/code&gt; là của riêng nó, do đó nó sẽ loại bỏ &lt;code&gt;$&lt;/code&gt; ra khỏi data. Nếu bạn cần chưá các thuộc tính bắt đầu với &lt;code&gt;$&lt;/code&gt; thì bạn cần chuyển đối tượng &lt;code&gt;data&lt;/code&gt; thành chuỗi của riêng bạn bằng cách sử dụng hàm &lt;code&gt;JSON.stringify(data)&lt;/code&gt;.&lt;/p&gt;
 
@@ -232,8 +232,8 @@
 &lt;span class=&quot;lineno&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;xsrfHeaderName&lt;/strong&gt;: tên của HTTP header để gán với XSRF token.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;xsrfCookieName&lt;/strong&gt;: tên của cookie chứa XSRF token.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;xsrfHeaderName&lt;/strong&gt;: tên của HTTP header để gán với XSRF token. Giá trị mặc định của thuộc tính này là &lt;code&gt;X-XSRF-TOKEN&lt;/code&gt; được chứa trong đối tượng &lt;code&gt;$httpProvider.defaults&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;xsrfCookieName&lt;/strong&gt;: tên của cookie chứa XSRF token. Giá trị mặc định được thiết lập trong đối tượng &lt;code&gt;$httpProvider.defaults&lt;/code&gt; là &lt;code&gt;XSRF-TOKEN&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;transformRequest&lt;/strong&gt;: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng request trước khi gửi nó đến server.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;transformResponse&lt;/strong&gt;: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng response được trả lại từ server trước khi trả nó ứng dụng.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;cache&lt;/strong&gt;: để kich hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là &lt;code&gt;true&lt;/code&gt; (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với $cacheFactory). Ví dụ:&lt;/li&gt;
@@ -288,7 +288,7 @@
 
 &lt;h2 id=&quot;hm-success-v-error-ca-i-tng-promise&quot;&gt;Hàm success() và error() của đối tượng promise&lt;/h2&gt;
 
-&lt;p&gt;Như đã đề cập ở phần trên, các function trong dịch vụ $http trả về một lời hứa (promise object). Đối tượng promise này có hai phương thức &lt;code&gt;success()&lt;/code&gt; và &lt;code&gt;error()&lt;/code&gt;. Khi một AJAX request thành công, phương thức &lt;code&gt;success()&lt;/code&gt; sẽ được thực thi. Và ngược lại, khi request thất bại, phương thức &lt;code&gt;error()&lt;/code&gt; sẽ được thực thi. Các phương thức này được viết như sau: &lt;/p&gt;
+&lt;p&gt;Như đã đề cập ở phần trên, các function trong dịch vụ $http trả về một lời hứa (promise object). Đối tượng promise này có hai phương thức &lt;code&gt;success()&lt;/code&gt; và &lt;code&gt;error()&lt;/code&gt;. Bằng cách gọi các phương thức này và truyền một hàm callback cho mỗi phương thức, chúng ta có thể kiểm soát được những gì xảy ra sau khi lời gọi AJAX kết thúc. Nếu lời gọi AJAX thành công (server trả lại mã HTTP từ 200 đến 299) thì hàm successCallback đã được truyền trong phương thức &lt;code&gt;success()&lt;/code&gt; được thực thi. Nếu lời gọi AJAX thất bại thì hàm errorCallback đã được truyền trong phương thức &lt;code&gt;error()&lt;/code&gt; được thực thi. Các phương thức này được viết như sau: &lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Simple GET request example :&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/someUrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
@@ -306,14 +306,14 @@
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Simple GET request example :&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/someUrl&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; 	&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; 	  &lt;span class=&quot;nx&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; 	  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//successCallback&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; 	    &lt;span class=&quot;c1&quot;&gt;// this callback will be called asynchronously&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; 	    &lt;span class=&quot;c1&quot;&gt;// when the response is available&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; 	  &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; 	  &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; 	  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; 	  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//errorCallback&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt; 	    &lt;span class=&quot;c1&quot;&gt;// called asynchronously if an error occurs&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; 	    &lt;span class=&quot;c1&quot;&gt;// or server returns response with an error status.&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt; 	  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt; 	  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Các hàm callback trong hai phương thức success() và error() đều có các thuộc tính sau:&lt;/p&gt;
