@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-11-28T06:58:37+07:00</updated>
+<updated>2014-11-28T17:13:06+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -172,7 +172,7 @@
 
 &lt;p&gt;Chú ý rằng, phương thức &lt;strong&gt;$http.post()&lt;/strong&gt;, &lt;strong&gt;$http.put()&lt;/strong&gt; và &lt;strong&gt;$http.patch()&lt;/strong&gt; có tham số &lt;code&gt;data&lt;/code&gt; chứa dữ liệu được gửi đến server. Các phương thức còn lại không thể có tham số &lt;code&gt;data&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Tham số &lt;code&gt;data&lt;/code&gt; sẽ được chuyển thành một chuỗi JSON, chuỗi này sẽ được đưa vào trong phần request body khi HTTP request được gửi tới server. AngularJS sẽ coi tất cả các thuộc tính bắt đầu với ký tự &lt;code&gt;$&lt;/code&gt; là của riêng nó, do đó nó sẽ loại bỏ &lt;code&gt;$&lt;/code&gt; ra khỏi data. Nếu bạn cần chưá các thuộc tính bắt đầu với &lt;code&gt;$&lt;/code&gt; thì bạn cần chuyển đối tượng &lt;code&gt;data&lt;/code&gt; thành chuỗi của riêng bạn bằng cách sử dụng hàm &lt;code&gt;JSON.stringify(data)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Tham số &lt;code&gt;data&lt;/code&gt; sẽ được chuyển thành một chuỗi JSON, chuỗi này sẽ được đưa vào trong phần request body khi HTTP request được gửi tới server. AngularJS sẽ coi tất cả các thuộc tính bắt đầu với ký tự &lt;code&gt;$&lt;/code&gt; là của riêng nó, do đó nó sẽ loại bỏ &lt;code&gt;$&lt;/code&gt; ra khỏi data. Nếu dữ liệu của bạn cần chứa các thuộc tính bắt đầu với &lt;code&gt;$&lt;/code&gt; thì bạn cần chuyển đối tượng &lt;code&gt;data&lt;/code&gt; thành chuỗi của riêng bạn bằng cách sử dụng hàm &lt;code&gt;JSON.stringify(data)&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;httpconfig&quot;&gt;$http(config)&lt;/h2&gt;
 
@@ -197,7 +197,7 @@
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;headers&lt;/strong&gt;: dùng để thiết lập bổ sung các HTTP headers mà chúng ta muốn gửi đến server.&lt;/p&gt;
 
-    &lt;p&gt;$http service sẽ tự động thêm các &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$http#setting-http-headér&quot;&gt;HTTP headers nhất định&lt;/a&gt; cho tất cả các requests. Những giá trị mặc định này được cấu hình trong đối tượng &lt;code&gt;$httpProvider.defaults.headers&lt;/code&gt;:&lt;/p&gt;
+    &lt;p&gt;$http service sẽ tự động thêm các &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$http#setting-http-headers&quot;&gt;HTTP headers nhất định&lt;/a&gt; cho tất cả các requests. Những giá trị mặc định này được cấu hình trong đối tượng &lt;code&gt;$httpProvider.defaults.headers&lt;/code&gt;:&lt;/p&gt;
 
     &lt;ul&gt;
       &lt;li&gt;Headers chung cho tất cả các requests: &lt;code&gt;$httpProvider.defaults.headers.common&lt;/code&gt;
@@ -234,9 +234,45 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;xsrfHeaderName&lt;/strong&gt;: tên của HTTP header để gán với XSRF token. Giá trị mặc định của thuộc tính này là &lt;code&gt;X-XSRF-TOKEN&lt;/code&gt; được chứa trong đối tượng &lt;code&gt;$httpProvider.defaults&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;xsrfCookieName&lt;/strong&gt;: tên của cookie chứa XSRF token. Giá trị mặc định được thiết lập trong đối tượng &lt;code&gt;$httpProvider.defaults&lt;/code&gt; là &lt;code&gt;XSRF-TOKEN&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;small&gt;Hai thuộc tính &lt;strong&gt;xsrfHeaderName&lt;/strong&gt; và &lt;strong&gt;xsrfCookieName&lt;/strong&gt; được sử dụng để ngăn chặn việc giả mạo request từ các site bên ngoài (Cross-site request forgery - XSRF). &lt;a href=&quot;http://en.wikipedia.org/wiki/Cross-site_request_forgery&quot;&gt;XSRF&lt;/a&gt; là một kỹ thuật mà một site trái phép có thể lợi dụng dữ liệu riêng tư của người dùng để giả mạo một request tới một trang mà hacker mong muốn. Angular cung cấp một cơ chế để chống lại XSRF. Khi thực hiện các &lt;a href=&quot;http://en.wikipedia.org/wiki/XMLHttpRequest&quot;&gt;XHR&lt;/a&gt; request, $http service đọc một token từ một cookie (mặc định là &lt;code&gt;XSRF-TOKEN&lt;/code&gt;) và thiết lập nó như là một HTTP header (&lt;code&gt;X-XSRF-TOKEN&lt;/code&gt;). Bởi vì chỉ có Javascript chạy trên cùng domain mới có thể đọc được cookie nên server có thể chắc chắn rằng XHR đến từ Javascript chạy trên domain của bạn. Các header sẽ không thể thiết lập cho các cross-domain request.&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;Để tận dụng lợi thế này, server cần thiết lập một token được gọi là &lt;code&gt;XSRF-TOKEN&lt;/code&gt; cho HTTP GET request đầu tiên. Trên các XHR request tiếp theo, server có thể xác minh rằng cookie phù hợp với &lt;code&gt;X-XSRF-TOKEN&lt;/code&gt; HTTP header và do đó chắc chắn rằng chỉ có Javascript chạy trên domain của bạn mới có thể gửi được request. Token cho mỗi user là duy nhất và phải được server xác thực.&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;Tên của các header có thể được chỉ rõ bằng cách sử dụng thuộc tính &lt;code&gt;xsrfHeaderName&lt;/code&gt; và &lt;code&gt;xsrfCookieName&lt;/code&gt; của &lt;code&gt;$httpProvider.defaults&lt;/code&gt; khi cấu hình (config-time), hoặc của &lt;code&gt;$http.defaults&lt;/code&gt; khi chạy thực (run-time), hoặc trên từng đối tượng &lt;code&gt;config&lt;/code&gt; của mỗi request.&lt;/small&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;transformRequest&lt;/strong&gt;: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng request trước khi gửi nó đến server.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;transformResponse&lt;/strong&gt;: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng response được trả lại từ server trước khi trả nó ứng dụng.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;cache&lt;/strong&gt;: để kich hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là &lt;code&gt;true&lt;/code&gt; (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với $cacheFactory). Ví dụ:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;small&gt;Các request và response đều có thể được biến đổi (transform) bằng cách sử dụng các hàm chuyển đổi &lt;code&gt;transformRequest&lt;/code&gt; và &lt;code&gt;transformResponse&lt;/code&gt;. Những thuộc tính này có thể là một function trả lại giá trị đã được chuyển đổi &lt;code&gt;{function(data, headersGetter)}&lt;/code&gt; hoặc là một mảng các hàm chuyển đổi &lt;code&gt;{Array.&amp;lt;function(data, headersGetter)&amp;gt;}&lt;/code&gt;, cho phép chúng ta thêm các hàm transform (với hàm &lt;code&gt;push&lt;/code&gt; và &lt;code&gt;unshift&lt;/code&gt;) vào trong chuỗi chuyển đổi. &lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;AngularJS cung cấp các hàm chuyển đổi mặc định xử lý với dữ liệu JSON như sau:&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;- Chuyển đổi request (Request transformations), các function được lưu trữ trong thuộc tính &lt;code&gt;$httpProvider.defaults.transformRequest&lt;/code&gt; và &lt;code&gt;$http.defaults.transformRequest&lt;/code&gt;: nếu thuộc tính &lt;code&gt;data&lt;/code&gt; của đối tượng &lt;code&gt;config&lt;/code&gt; của request chứa một đối tượng, Angular sẽ tuần tự hóa dữ liệu thành định dạng JSON.&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;- Chuyển đổi phản hồi (Response transformations), các function được lưu trữ trong thuộc tính &lt;code&gt;$httpProvider.defaults.transformResponse&lt;/code&gt; và &lt;code&gt;$http.defaults.transformResponse&lt;/code&gt;: Nếu phát hiện tiền tố XSRF trong dữ liệu phản hồi, Angular sẽ tách nó ra khỏi dữ liệu. Nếu nhận thấy một phản hồi có dạng JSON thì Angular sẽ giải tuần tự hóa (deserialize) dữ liệu bằng cách sử dụng bộ phân tích cú pháp JSON (JSON parser).&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;Bạn có thể ghi đè các hàm chuyển đổi mặc định bằng cách cung cấp giá trị cho các thuộc tính &lt;strong&gt;transformRequest&lt;/strong&gt; và &lt;strong&gt;transformResponse&lt;/strong&gt; trong đối tượng &lt;code&gt;config&lt;/code&gt; của &lt;code&gt;$http&lt;/code&gt;.&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;Ví dụ dưới đây, chúng ta có thể thấy cách thức hoạt động của các hàm transform. Chúng ta thực hiện một request thông qua phương thức POST. Trong &lt;code&gt;$http.post()&lt;/code&gt;, dữ liệu được truyền đi sử dụng &lt;code&gt;Content-Type: application/json&lt;/code&gt; và tuần tự hóa dữ liệu định dạng JSON &lt;code&gt;{ &quot;name&quot;: &quot;angular&quot;, &quot;rate&quot;: &quot;5&quot; }&lt;/code&gt; nhưng một số ngôn ngữ phía web server, đặc biệt là PHP không thể giải tuần tự (deserialize) dữ liệu. Do đó, dữ liệu truyền đi cần sử dụng &lt;code&gt;Content-Type: x-www-form-urlencoded&lt;/code&gt;, khi đó dữ liệu sẽ được tuần tự hóa theo cách submit form thông thường &lt;code&gt;name=angular&amp;amp;rate=5&lt;/code&gt;. Các hàm transform được khai báo globally trong phần config, và chúng ta khai báo hàm &lt;em&gt;transformResponse&lt;/em&gt; trong request POST (locally). Khi đó hàm &lt;em&gt;transformResponse&lt;/em&gt; khai báo trong $http sẽ ghi đè lên hàm &lt;em&gt;transformResponse&lt;/em&gt; được khai báo global. Bạn có thể chạy &lt;a href=&quot;http://jsfiddle.net/taly2808/p46dr9ck/2/embedded/result/&quot;&gt;demo&lt;/a&gt; trên một cửa sổ mới và bật công cụ bug (F12) để thấy rõ kết quả.&lt;/small&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;/assets/img/transformRequestResponse.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; src=&quot;http://jsfiddle.net/taly2808/p46dr9ck/2/embedded/js,html,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;cache&lt;/strong&gt;: để kích hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là &lt;code&gt;true&lt;/code&gt; (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với $cacheFactory). Ví dụ:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;col-md-6&quot;&gt;

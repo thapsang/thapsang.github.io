@@ -156,7 +156,7 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Tìm hiểu chi tiết về $http service trong AngularJS.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published"><time datetime="2014-11-18T00:00:00+07:00" class="post-time" itemprop="datePublished">18 Nov 2014</time><span> and <code>last modified on <span class="entry-date date updated"><time datetime="2014-11-25" itemprop="dateModified">25 Nov 2014</time></code></span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">24.95</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">31.37</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
@@ -213,7 +213,7 @@
 
 <p>Chú ý rằng, phương thức <strong>$http.post()</strong>, <strong>$http.put()</strong> và <strong>$http.patch()</strong> có tham số <code>data</code> chứa dữ liệu được gửi đến server. Các phương thức còn lại không thể có tham số <code>data</code>.</p>
 
-<p>Tham số <code>data</code> sẽ được chuyển thành một chuỗi JSON, chuỗi này sẽ được đưa vào trong phần request body khi HTTP request được gửi tới server. AngularJS sẽ coi tất cả các thuộc tính bắt đầu với ký tự <code>$</code> là của riêng nó, do đó nó sẽ loại bỏ <code>$</code> ra khỏi data. Nếu bạn cần chưá các thuộc tính bắt đầu với <code>$</code> thì bạn cần chuyển đối tượng <code>data</code> thành chuỗi của riêng bạn bằng cách sử dụng hàm <code>JSON.stringify(data)</code>.</p>
+<p>Tham số <code>data</code> sẽ được chuyển thành một chuỗi JSON, chuỗi này sẽ được đưa vào trong phần request body khi HTTP request được gửi tới server. AngularJS sẽ coi tất cả các thuộc tính bắt đầu với ký tự <code>$</code> là của riêng nó, do đó nó sẽ loại bỏ <code>$</code> ra khỏi data. Nếu dữ liệu của bạn cần chứa các thuộc tính bắt đầu với <code>$</code> thì bạn cần chuyển đối tượng <code>data</code> thành chuỗi của riêng bạn bằng cách sử dụng hàm <code>JSON.stringify(data)</code>.</p>
 
 <h2 id="httpconfig">$http(config)</h2>
 
@@ -238,7 +238,7 @@
   <li>
     <p><strong>headers</strong>: dùng để thiết lập bổ sung các HTTP headers mà chúng ta muốn gửi đến server.</p>
 
-    <p>$http service sẽ tự động thêm các <a href="https://docs.angularjs.org/api/ng/service/$http#setting-http-headér">HTTP headers nhất định</a> cho tất cả các requests. Những giá trị mặc định này được cấu hình trong đối tượng <code>$httpProvider.defaults.headers</code>:</p>
+    <p>$http service sẽ tự động thêm các <a href="https://docs.angularjs.org/api/ng/service/$http#setting-http-headers">HTTP headers nhất định</a> cho tất cả các requests. Những giá trị mặc định này được cấu hình trong đối tượng <code>$httpProvider.defaults.headers</code>:</p>
 
     <ul>
       <li>Headers chung cho tất cả các requests: <code>$httpProvider.defaults.headers.common</code>
@@ -275,9 +275,45 @@
 <ul>
   <li><strong>xsrfHeaderName</strong>: tên của HTTP header để gán với XSRF token. Giá trị mặc định của thuộc tính này là <code>X-XSRF-TOKEN</code> được chứa trong đối tượng <code>$httpProvider.defaults</code>.</li>
   <li><strong>xsrfCookieName</strong>: tên của cookie chứa XSRF token. Giá trị mặc định được thiết lập trong đối tượng <code>$httpProvider.defaults</code> là <code>XSRF-TOKEN</code>.</li>
+</ul>
+
+<hr />
+
+<p><small>Hai thuộc tính <strong>xsrfHeaderName</strong> và <strong>xsrfCookieName</strong> được sử dụng để ngăn chặn việc giả mạo request từ các site bên ngoài (Cross-site request forgery - XSRF). <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">XSRF</a> là một kỹ thuật mà một site trái phép có thể lợi dụng dữ liệu riêng tư của người dùng để giả mạo một request tới một trang mà hacker mong muốn. Angular cung cấp một cơ chế để chống lại XSRF. Khi thực hiện các <a href="http://en.wikipedia.org/wiki/XMLHttpRequest">XHR</a> request, $http service đọc một token từ một cookie (mặc định là <code>XSRF-TOKEN</code>) và thiết lập nó như là một HTTP header (<code>X-XSRF-TOKEN</code>). Bởi vì chỉ có Javascript chạy trên cùng domain mới có thể đọc được cookie nên server có thể chắc chắn rằng XHR đến từ Javascript chạy trên domain của bạn. Các header sẽ không thể thiết lập cho các cross-domain request.</small></p>
+
+<p><small>Để tận dụng lợi thế này, server cần thiết lập một token được gọi là <code>XSRF-TOKEN</code> cho HTTP GET request đầu tiên. Trên các XHR request tiếp theo, server có thể xác minh rằng cookie phù hợp với <code>X-XSRF-TOKEN</code> HTTP header và do đó chắc chắn rằng chỉ có Javascript chạy trên domain của bạn mới có thể gửi được request. Token cho mỗi user là duy nhất và phải được server xác thực.</small></p>
+
+<p><small>Tên của các header có thể được chỉ rõ bằng cách sử dụng thuộc tính <code>xsrfHeaderName</code> và <code>xsrfCookieName</code> của <code>$httpProvider.defaults</code> khi cấu hình (config-time), hoặc của <code>$http.defaults</code> khi chạy thực (run-time), hoặc trên từng đối tượng <code>config</code> của mỗi request.</small></p>
+<hr />
+
+<ul>
   <li><strong>transformRequest</strong>: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng request trước khi gửi nó đến server.</li>
   <li><strong>transformResponse</strong>: dùng để thiết lập một chức năng (function) có thể chuyển đổi đối tượng response được trả lại từ server trước khi trả nó ứng dụng.</li>
-  <li><strong>cache</strong>: để kich hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là <code>true</code> (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với $cacheFactory). Ví dụ:</li>
+</ul>
+
+<hr />
+
+<p><small>Các request và response đều có thể được biến đổi (transform) bằng cách sử dụng các hàm chuyển đổi <code>transformRequest</code> và <code>transformResponse</code>. Những thuộc tính này có thể là một function trả lại giá trị đã được chuyển đổi <code>{function(data, headersGetter)}</code> hoặc là một mảng các hàm chuyển đổi <code>{Array.&lt;function(data, headersGetter)&gt;}</code>, cho phép chúng ta thêm các hàm transform (với hàm <code>push</code> và <code>unshift</code>) vào trong chuỗi chuyển đổi. </small></p>
+
+<p><small>AngularJS cung cấp các hàm chuyển đổi mặc định xử lý với dữ liệu JSON như sau:</small></p>
+
+<p><small>- Chuyển đổi request (Request transformations), các function được lưu trữ trong thuộc tính <code>$httpProvider.defaults.transformRequest</code> và <code>$http.defaults.transformRequest</code>: nếu thuộc tính <code>data</code> của đối tượng <code>config</code> của request chứa một đối tượng, Angular sẽ tuần tự hóa dữ liệu thành định dạng JSON.</small></p>
+
+<p><small>- Chuyển đổi phản hồi (Response transformations), các function được lưu trữ trong thuộc tính <code>$httpProvider.defaults.transformResponse</code> và <code>$http.defaults.transformResponse</code>: Nếu phát hiện tiền tố XSRF trong dữ liệu phản hồi, Angular sẽ tách nó ra khỏi dữ liệu. Nếu nhận thấy một phản hồi có dạng JSON thì Angular sẽ giải tuần tự hóa (deserialize) dữ liệu bằng cách sử dụng bộ phân tích cú pháp JSON (JSON parser).</small></p>
+
+<p><small>Bạn có thể ghi đè các hàm chuyển đổi mặc định bằng cách cung cấp giá trị cho các thuộc tính <strong>transformRequest</strong> và <strong>transformResponse</strong> trong đối tượng <code>config</code> của <code>$http</code>.</small></p>
+
+<p><small>Ví dụ dưới đây, chúng ta có thể thấy cách thức hoạt động của các hàm transform. Chúng ta thực hiện một request thông qua phương thức POST. Trong <code>$http.post()</code>, dữ liệu được truyền đi sử dụng <code>Content-Type: application/json</code> và tuần tự hóa dữ liệu định dạng JSON <code>{ "name": "angular", "rate": "5" }</code> nhưng một số ngôn ngữ phía web server, đặc biệt là PHP không thể giải tuần tự (deserialize) dữ liệu. Do đó, dữ liệu truyền đi cần sử dụng <code>Content-Type: x-www-form-urlencoded</code>, khi đó dữ liệu sẽ được tuần tự hóa theo cách submit form thông thường <code>name=angular&amp;rate=5</code>. Các hàm transform được khai báo globally trong phần config, và chúng ta khai báo hàm <em>transformResponse</em> trong request POST (locally). Khi đó hàm <em>transformResponse</em> khai báo trong $http sẽ ghi đè lên hàm <em>transformResponse</em> được khai báo global. Bạn có thể chạy <a href="http://jsfiddle.net/taly2808/p46dr9ck/2/embedded/result/">demo</a> trên một cửa sổ mới và bật công cụ bug (F12) để thấy rõ kết quả.</small></p>
+
+<figure>
+	<img src="/assets/img/transformRequestResponse.png" />
+</figure>
+
+<iframe width="100%" height="300" src="http://jsfiddle.net/taly2808/p46dr9ck/2/embedded/js,html,result" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<hr />
+
+<ul>
+  <li><strong>cache</strong>: để kích hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là <code>true</code> (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với $cacheFactory). Ví dụ:</li>
 </ul>
 
 <div class="col-md-6">
