@@ -313,7 +313,7 @@
 <hr />
 
 <ul>
-  <li><strong>cache</strong>: để kích hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là <code>true</code> (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với $cacheFactory). Ví dụ:</li>
+  <li><strong>cache</strong>: để kích hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là <code>true</code> (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với <a href="https://docs.angularjs.org/api/ng/service/$cacheFactory">$cacheFactory</a>). Ví dụ:</li>
 </ul>
 
 <div class="col-md-6">
@@ -409,7 +409,7 @@
 
 <h3 id="jsonp-l-g">JSONP là gì?</h3>
 
-<p>JSONP là viết tắt của “JSON with padding”. Một JSONP request không gửi qua đối tượng XHR như các lời gọi AJAX thông thường mà thay vào đó, một phần tử <code>&lt;script&gt;</code> được tạo ra và chèn vào trang HTML. Ví dụ, một phần tử <code>&lt;script&gt;</code> có thể trông như sau:</p>
+<p>JSONP là viết tắt của “JSON with padding”. Một JSONP request không gửi qua đối tượng XHR như các lời gọi AJAX thông thường mà thay vào đó, một phần tử <code>&lt;script&gt;</code> được tạo ra và chèn vào trang HTML. Ví dụ, một phần tử <code>&lt;script&gt;</code> có thể  giống như sau:</p>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;http://remoteserver/api/theService.json?callback=myCallback&amp;k1=v1&amp;k2=v2&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span></code></pre></div>
 

@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-11-28T17:13:06+07:00</updated>
+<updated>2014-11-28T19:33:10+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -272,7 +272,7 @@
 &lt;hr /&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;cache&lt;/strong&gt;: để kích hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là &lt;code&gt;true&lt;/code&gt; (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với $cacheFactory). Ví dụ:&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;cache&lt;/strong&gt;: để kích hoạt bộ nhớ đệm, chúng ta thiết lập giá trị thuộc tính cache là &lt;code&gt;true&lt;/code&gt; (để sử dụng cache mặc định) hoặc một đối tượng cache tùy chỉnh (được xây dựng với &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$cacheFactory&quot;&gt;$cacheFactory&lt;/a&gt;). Ví dụ:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;col-md-6&quot;&gt;
@@ -368,7 +368,7 @@
 
 &lt;h3 id=&quot;jsonp-l-g&quot;&gt;JSONP là gì?&lt;/h3&gt;
 
-&lt;p&gt;JSONP là viết tắt của “JSON with padding”. Một JSONP request không gửi qua đối tượng XHR như các lời gọi AJAX thông thường mà thay vào đó, một phần tử &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; được tạo ra và chèn vào trang HTML. Ví dụ, một phần tử &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; có thể trông như sau:&lt;/p&gt;
+&lt;p&gt;JSONP là viết tắt của “JSON with padding”. Một JSONP request không gửi qua đối tượng XHR như các lời gọi AJAX thông thường mà thay vào đó, một phần tử &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; được tạo ra và chèn vào trang HTML. Ví dụ, một phần tử &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; có thể  giống như sau:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;http://remoteserver/api/theService.json?callback=myCallback&amp;amp;k1=v1&amp;amp;k2=v2&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
