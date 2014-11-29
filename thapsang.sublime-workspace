@@ -4,12 +4,68 @@
 		"selected_items":
 		[
 			[
+				"A",
+				"Angular"
+			],
+			[
+				"Angula",
+				"Angular"
+			],
+			[
+				"angu",
+				"Angular"
+			],
+			[
 				"re",
-				"response"
+				"request"
+			],
+			[
+				"g",
+				"giá"
+			],
+			[
+				"tra",
+				"transformResponse"
+			],
+			[
+				"tr",
+				"transformRequest"
+			],
+			[
+				"se",
+				"service"
+			],
+			[
+				"In",
+				"Interceptor"
+			],
+			[
+				"Requ",
+				"requestError"
+			],
+			[
+				"co",
+				"config"
+			],
+			[
+				"An",
+				"Angular"
 			],
 			[
 				"ser",
+				"server"
+			],
+			[
+				"s",
 				"service"
+			],
+			[
+				"ca",
+				"callback"
+			],
+			[
+				"th",
+				"thường"
 			],
 			[
 				"$scp",
@@ -60,10 +116,6 @@
 				"request"
 			],
 			[
-				"se",
-				"server"
-			],
-			[
 				"serv",
 				"server"
 			],
@@ -92,20 +144,8 @@
 				"interceptor"
 			],
 			[
-				"A",
-				"AJAX"
-			],
-			[
 				"Ang",
 				"AngularJS"
-			],
-			[
-				"An",
-				"Angular"
-			],
-			[
-				"g",
-				"google-analytics"
 			],
 			[
 				"Angul",
@@ -184,16 +224,8 @@
 				"successCallback"
 			],
 			[
-				"s",
-				"server"
-			],
-			[
 				"pro",
 				"promise"
-			],
-			[
-				"Angula",
-				"AngularJS"
 			],
 			[
 				"P",
@@ -202,10 +234,6 @@
 			[
 				"De",
 				"Deferred"
-			],
-			[
-				"ca",
-				"callbacks"
 			],
 			[
 				"pos",
@@ -316,24 +344,12 @@
 				"controller"
 			],
 			[
-				"th",
-				"thức"
-			],
-			[
-				"angu",
-				"angular"
-			],
-			[
 				"cu",
 				"current"
 			],
 			[
 				"ch",
 				"chúng"
-			],
-			[
-				"tr",
-				"Trong"
 			],
 			[
 				"và",
@@ -448,10 +464,10 @@
 	"buffers":
 	[
 		{
-			"file": "_posts/2014-11-18-hieu-ve-$http-service-trong-angularjs.md",
+			"file": "_posts/2014-11-11-expression-trong-angularjs.md",
 			"settings":
 			{
-				"buffer_size": 16095,
+				"buffer_size": 5069,
 				"line_ending": "Unix"
 			}
 		}
@@ -501,6 +517,12 @@
 	],
 	"file_history":
 	[
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-25-$http-interceptor-trong-angularjs.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/bao-mat-trong-http-service.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-18-hieu-ve-$http-service-trong-angularjs.md",
+		"/opt/angularjs/todo/test/unit/simpleSpec.js",
+		"/opt/angularjs/todo/karmar-unit.conf.js",
+		"/home/taly/.bash_profile",
 		"/opt/angularjs/todo/app/index.html",
 		"/opt/angularjs/todo/app/app.js",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-11-expression-trong-angularjs.md",
@@ -524,7 +546,6 @@
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes/signoff.html",
 		"/home/taly/Desktop/origami-child-google-authorship-04/origami-child/loop.php",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/tags.html",
-		"/home/taly/.bash_profile",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/images/my-ava.jpg",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-10-02-bat-dau-voi-laravel-homestead.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/_2014-11-09-quan-ly-state-voi-ui-router-angularjs.md",
@@ -639,6 +660,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"moe",
+			"baz",
+			"bar",
+			"foo",
 			"col-md-8",
 			"permalink",
 			"scripts.html",
@@ -659,6 +684,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"5",
+			"rate",
+			"angular",
+			"name",
 			"app.js"
 		],
 		"reverse": false,
@@ -675,28 +704,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "_posts/2014-11-18-hieu-ve-$http-service-trong-angularjs.md",
+					"file": "_posts/2014-11-11-expression-trong-angularjs.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16095,
+						"buffer_size": 5069,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11282,
-								11282
+								199,
+								199
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage",
-							"tab_size": 2
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2989.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

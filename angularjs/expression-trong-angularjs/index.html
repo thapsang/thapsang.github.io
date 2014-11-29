@@ -155,13 +155,13 @@
                         
                         <div class="cursive" style="color: #000; font-style:italic;">Khái niệm cơ bản về Expression trong AngularJS.</div>
                         <div class="post-info text-center small">
-                            <span class="entry-date date published"><time datetime="2014-11-11T00:00:00+07:00" class="post-time" itemprop="datePublished">11 Nov 2014</time><span> and <code>last modified on <span class="entry-date date updated"><time datetime="2014-11-24" itemprop="dateModified">24 Nov 2014</time></code></span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">5.7</span> minutes read</span>
+                            <span class="entry-date date published"><time datetime="2014-11-11T00:00:00+07:00" class="post-time" itemprop="datePublished">11 Nov 2014</time><span> and <code>last modified on <span class="entry-date date updated"><time datetime="2014-11-28" itemprop="dateModified">28 Nov 2014</time></code></span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">6.77</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Trong quá trình tìm hiểu về AngularJS, hẳn chúng ta đã thấy các khái niệm có liên quan đến <strong>Expression</strong>. Expression được sử dụng trong template, trong các thẻ đánh dấu (markup), trong các directives. Vậy cụ thể thì Expression là gì và nó được sử dụng như thế nào trong AngularJS? Chúng ta cùng tìm hiểu về nó trong nội dung của bài này.</p>
+                        <p><strong>Expression</strong> (biểu thức) được sử dụng hầu khắp trong ứng dụng AngularJS. Expression được sử dụng trong template, trong các thẻ đánh dấu (markup), trong các directives. Vậy cụ thể thì Expression là gì, AngularJS sử dụng và tính toán nó ra sao? Chúng ta cùng tìm hiểu về nó trong nội dung của bài này.</p>
 
 <section>
   <header>
@@ -170,14 +170,8 @@
 <div id="drawer">
 <ul id="markdown-toc">
   <li><a href="#angularjs-expressions">AngularJS Expressions</a></li>
-  <li><a href="#angularjs-expressions-vs-javascript-expressions">AngularJS Expressions vs. Javascript Expressions</a>    <ul>
-      <li><a href="#context">Context</a></li>
-      <li><a href="#forgiving">Forgiving</a></li>
-      <li><a href="#control-flow-statement">Control Flow Statement</a></li>
-      <li><a href="#filters">Filters</a></li>
-      <li><a href="#regular-expression">Regular Expression</a></li>
-    </ul>
-  </li>
+  <li><a href="#phn-tch-mt-expression">Phân tích một expression</a></li>
+  <li><a href="#angularjs-expressions-vs-javascript-expressions">AngularJS Expressions vs. Javascript Expressions</a></li>
   <li><a href="#v-d">Ví dụ</a></li>
   <li><a href="#one-time-binding">One-time binding</a></li>
   <li><a href="#ti-liu-tham-kho">Tài liệu tham khảo</a></li>
@@ -188,37 +182,39 @@
 
 <h2 id="angularjs-expressions">AngularJS Expressions</h2>
 
-<ol>
-  <li>AngularJS Expressions được viết trong cặp hai dấu ngoặc nhọn <code>{{ expression }}</code>.</li>
-  <li>AngularJS Expressions gắn kết dữ liệu vào HTML theo cùng cách của <code>ng-bind</code> directive. Dữ liệu đầu ra sẽ được hiển thị chính xác tại nơi đặt biểu thức (expression).</li>
-  <li>AngularJS Expressions có thể chứa các chữ (literals), các toán tử (operators) và các biến (variables) được xem như là các toán hạng của biểu thức (giống như biểu thức trong Javascript).</li>
-  <li>Được xử lý bằng cơ chế riêng của Angular với dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$parse">$parse</a>.</li>
-</ol>
+<ul>
+  <li>Expression trong AngularJS là các đoạn mã tương tự Javascript, thường được đặt trong hai cặp dấu ngoặc nhọn <code>{{ expression }}</code>. Khi chúng ta sử dụng ký pháp <code>{{ }}</code>, chúng ta đang thiết lập cơ chế <code>$watch</code> lên một expression. Hay nói cách khác, hàm <code>$watch</code> sẽ theo dõi một thuộc tính trên $scope. Khi có bất kỳ thay đổi nào, nó sẽ gọi chức năng tương ứng.</li>
+  <li>Ví dụ, những expression sau là hợp lệ trong AngularJS:
+    <ul>
+      <li><code>1+2</code></li>
+      <li><code>a+b</code></li>
+      <li><code>user.name</code></li>
+      <li><code>items[0]</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Vậy Angular tính toán các expression như thế nào? Angular sẽ tự động chạy dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$parse">$parse</a> khi nó thực thi vòng lặp $digest. Và <code>$parse</code> là cơ chế mà Angular sử dụng để tính toán expression. Chúng ta cùng tìm hiểu sơ lược về cơ chế $parse này.</p>
+
+<h2 id="phn-tch-mt-expression">Phân tích một expression</h2>
+
+<p>Thông thường, dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$parse">$parse</a> sẽ được Angular tự động gọi để nội suy giá trị của expression, đôi khi nó cũng khá hữu ích để phân tích một expression một cách thủ công (manual).</p>
+
+<p>Để phân tích thủ công một expression, ta có thể truyền dịch vụ $parse vào trong controller (hoặc service nào đó) và gọi đến dịch vụ để tiến hành phân tích. Trong ví dụ dưới đây, chúng ta có một ô input với biến <code>expr</code>. Trong controller, chúng ta có thể thiết lập một hàm <code>$watch</code> và phân tích <code>expr</code> expression. Xem demo để thấy cách thức hoạt động của nó:</p>
+
+<p><a class="jsbin-embed" href="http://jsbin.com/qoduqo/1/embed?html,js,output">Parse Expression Example</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
 
 <h2 id="angularjs-expressions-vs-javascript-expressions">AngularJS Expressions vs. Javascript Expressions</h2>
 
-<p>Có đôi chút khác biệt giữa AngularJS Expressions và Javascript Expressions. <strong>AngularJS có cơ chế riêng của mình để phân tích expressions và tìm ra ngữ nghĩa riêng của nó</strong>. Sự khác biệt thể hiện ở những điểm sau:</p>
+<p>Expression trong AngularJS gần giống Javascript Expressions. <strong>AngularJS có cơ chế riêng của mình để phân tích expressions và tìm ra ngữ nghĩa riêng của nó</strong>. Sự khác biệt thể hiện ở những điểm sau:</p>
 
-<h3 id="context">Context</h3>
-
-<p>Javascript tính toán các biểu thức trên các biến toàn cục như <strong>window, location, document</strong>. Trong khi đó, ngữ cảnh của AngularJS expression chỉ trên một đối tượng <strong>scope</strong> cụ thể. Để truy cập vào các biến toàn cục, Angular cung cấp dịch vụ <strong>$window</strong> và <strong>$location</strong> để giả lập các biến toàn cục.</p>
-
-<h3 id="forgiving">Forgiving</h3>
-<p>Khi tính toán với các giá trị của thuộc tính <strong>undefined</strong> hoặc <strong>null</strong>: Javascript sẽ phát sinh ra lỗi <code>ReferenceError</code> hoặc <code>TypeError</code>. Trong AngularJS, nó bỏ qua các giá trị đó và việc tính toán vẫn diễn ra mà không phát sinh lỗi.</p>
-
-<h3 id="control-flow-statement">Control Flow Statement</h3>
-
-<p>AngularJS <strong>không cho phép</strong> bất kỳ câu lệnh điều khiển luồng nào (các câu lệnh điều kiện (condition), điều khiển lặp (loop), và các ngoại lệ (throw an exception)) <strong>ngoại trừ toán tử tam phân (a ? b : c)</strong>.</p>
-
-<h3 id="filters">Filters</h3>
-
-<p>Với AngularJS, chúng ta có thể định dạng dữ liệu trước khi hiển thị với <a href="https://docs.angularjs.org/guide/filter">$filter</a>.</p>
-
-<iframe width="100%" height="150" src="http://jsfiddle.net/taly2808/vjt2hdo1/embedded/result,html/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
-<h3 id="regular-expression">Regular Expression</h3>
-
-<p>AngularJS <strong>không cho phép</strong> tạo ra các biểu thức chính quy (regular expression) trong AngularJS expressions.</p>
+<ul>
+  <li>Tất cả các expression trong Angular được thực thi trong ngữ cảnh của scope và có quyền truy cập vào biến $scope cục bộ.</li>
+  <li>Một expression trong Angular không ném ra lỗi và trả lại giá trị <strong>undefined</strong> khi tính toán với các giá trị <strong>undefined</strong> hoặc <strong>null</strong> trong khi Javascript sẽ phát sinh ra lỗi <code>ReferenceError</code> hoặc <code>TypeError</code>.</li>
+  <li>AngularJS <strong>không cho phép</strong> bất kỳ câu lệnh điều khiển luồng nào (các câu lệnh điều kiện (condition), điều khiển lặp (loop), và các ngoại lệ (throw an exception)) <strong>ngoại trừ toán tử tam phân (a ? b : c)</strong>.</li>
+  <li>Expression trong Angular có thể sử dụng <a href="https://docs.angularjs.org/guide/filter">$filter</a> hoặc một chuỗi các filter để định dạng dữ liệu trước khi hiển thị.
+-AngularJS <strong>không cho phép</strong> tạo ra các biểu thức chính quy (regular expression) trong AngularJS expressions.</li>
+</ul>
 
 <p>Dưới đây là bảng thống kê các biểu thức có thể sử dụng trong AngularJS Expressions.</p>
 
