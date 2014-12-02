@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Cơ chế phân tích expression trong AngularJS.",
+		  "category"   : "",
+		  "url"        : "/angularjs/co-che-phan-tich-expression-trong-angularjs",
+		  "date"       : "2014-12-01 00:00:00 +0700",
+		  "shortdate"  : "December 01, 2014"
+		} ,
+	
+		{
 		  "title"      : "Interceptor trong AngularJS",
 		  "category"   : "",
 		  "url"        : "/angularjs/$http-interceptor-trong-angularjs",

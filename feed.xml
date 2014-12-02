@@ -4,13 +4,116 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-11-30T00:40:20+07:00</updated>
+<updated>2014-12-02T19:37:52+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
   <uri>/</uri>
   <email>taly2808@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Cơ chế phân tích expression trong AngularJS.]]></title>
+  <link>/angularjs/co-che-phan-tich-expression-trong-angularjs</link>
+  <id>/angularjs/co-che-phan-tich-expression-trong-angularjs</id>
+  <updated>2014-12-01T00:00:00-00:00</updated>
+  <published>2014-12-01T00:00:00+07:00</published>
+  
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Khi tìm hiểu về Expression, tài liệu nói rằng Angular sử dụng dịch vụ $parse để ước lượng các expression, có thể biên dịch template một cách thủ công với dịch vụ $interpolate. Dịch vụ $interpolate lại được dịch vụ $compile sử dụng để biên dịch các chuỗi HTML hoặc DOM. Vậy cụ thể từng dịch vụ này hoạt động ra sao, chúng được sử dụng trong trường hợp nào, mối quan hệ giữa các dịch vụ này là gì? Chúng ta sẽ tìm hiểu trong nội dung bài viết này.&lt;/p&gt;
+
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#s-khc-nhau-gia-dch-v-parse-interpolate-v-compile&quot;&gt;Sự khác nhau giữa dịch vụ $parse, $interpolate và $compile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#parse-service&quot;&gt;$parse service&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#interpolate-service&quot;&gt;$interpolate service&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;s-khc-nhau-gia-dch-v-parse-interpolate-v-compile&quot;&gt;Sự khác nhau giữa dịch vụ $parse, $interpolate và $compile&lt;/h2&gt;
+
+&lt;p&gt;Trước khi đi vào chi tiết từng dịch vụ, tôi muốn đưa ra sự so sánh giữa các dịch vụ để có cái nhìn tổng quan về chúng.  Một lời giải thích theo quan điểm cá nhân tôi là khá dễ hiểu từ &lt;a href=&quot;http://stackoverflow.com/questions/17900588/what-is-the-difference-between-the-parse-interpolate-and-compile-services&quot;&gt;StackOverflow&lt;/a&gt;. Tôi trích dẫn lại trong bài viết để có cái nhìn tổng thể.&lt;/p&gt;
+
+&lt;p&gt;Giả sử, chúng ta có một chuỗi HTML:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;var imgHtml = &amp;#39;&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/path/{{name}}.{{extension}}&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;và các giá trị trong scope:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;$scope.name = &amp;#39;image&amp;#39;;
+$scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Mỗi dịch vụ sẽ hoạt động ra sao với chuỗi HTML trên:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;$compile&lt;/strong&gt; có thể lấy toàn bộ thẻ đánh dấu này (markup) và chuyển nó thành một link function. Link function này khi được thực hiện trong một scope nhất định, nó sẽ tự động chuyển HTML text thành các thành phần DOM trực tiếp với tất cả các directive (trong trường hợp này là ng-src directive) phản ứng với các thay đổi của model. Angular sẽ gọi nó ra như sau: &lt;strong&gt;$compile(imgHtml)($scope)&lt;/strong&gt; và Angular sẽ nhận được một phần tử DOM với tất cả các sự kiện liên quan đến DOM đó. $compile sử dụng dịch vụ &lt;strong&gt;$interpolate&lt;/strong&gt; để thực hiện các công việc của mình.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;$interpolate&lt;/strong&gt; biết cách để xử lý một chuỗi (với các biểu thức nội suy được nhúng vào chuỗi đó). Mặt khác, nó có thể lấy một chuỗi với các biểu thức nội suy (interpolation expression), một scope và chuyển nó thành kết quả dạng text. Chúng ta có thể nghĩ đơn giản rằng dịch vụ $interpolate là ngôn ngữ mẫu dựa trên các chuỗi (string-based template language). Với ví dụ trên, chúng ta sẽ sử dụng dịch vụ này như sau: &lt;strong&gt;$interpolate(“/path/.”)($scope)&lt;/strong&gt; và nhận được kết quả ở dạng chuỗi là &lt;strong&gt;path/image.jpg&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;$parse&lt;/strong&gt; được dịch vụ $interpolate sử dụng để ước lượng một expression riêng lẻ (ví như name, extension) trong một scope. Nó có thể được sử dụng để đọc và ghi giá trị cho một expression. Ví dụ để ước lượng biểu expression &lt;em&gt;name&lt;/em&gt;, người ta sẽ làm như sau: &lt;strong&gt;$parse(‘name’)($scope)&lt;/strong&gt; để có được giá trị “image”. Để thiết lập giá trị cho expression &lt;em&gt;name&lt;/em&gt;, nguời ta làm như sau: &lt;strong&gt;$parse(‘name’).assign($scope, ‘image2’)&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cả ba dịch vụ cùng làm việc với nhau để cung cấp trực tiếp giao diện người dùng nhưng chúng hoạt động ở các cấp độ khác nhau:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;$parse&lt;/strong&gt; chỉ liên quan đến một expression đơn lẻ. Nó là một dịch vụ có thể đọc và ghi (read/write) giá trị cho expression được đưa ra.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;$interpolate&lt;/strong&gt; là dịch vụ chỉ có thể đọc và liên quan đến các chuỗi (string) chứa nhiều expression (ví dụ “My name is {{firstName}} {{lastName}}”).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;$compile&lt;/strong&gt; là trái tim của AngularJS, nó có thể biến các chuỗi HTML (với các directive và các biểu thức nội suy (interpolation expression)) vào trực tiếp DOM.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;/assets/img/$parse-$interpolate-$compile.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;parse-service&quot;&gt;$parse service&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dịch vụ &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$parse&quot;&gt;$parse&lt;/a&gt; được dùng để phân tích (parsing) một biểu thức riêng lẻ (individual expression) của Angular. Thông thường, Angular sẽ tự động gọi dịch vụ $parse để ước lượng (evaluate) một biểu thức.&lt;/li&gt;
+  &lt;li&gt;Chuyển đổi expression vào trong một function. Function này sau đó có thể được viện dẫn và thông qua một ngữ cảnh (thường là scope) để lấy giá trị của expression.&lt;/li&gt;
+  &lt;li&gt;Để lấy giá trị của expression, ta dùng &lt;em&gt;$parse(‘expression’)(context)&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;Để thiết lập giá trị của expression, ta dùng hàm &lt;strong&gt;assign()&lt;/strong&gt; như sau: &lt;em&gt;$parse(‘expression’).assign(context, value)&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Trong demo dưới đây, tôi sẽ thực hiện thiết lập cho ngữ cảnh được đưa ra bằng 2 cách. Cách thứ nhất sử dụng phương thức assign() để thay đổi giá trị của context. Cách thứ 2 sử dụng trực tiếp phương thức $parse() trả lại function xử lý đối tượng context.&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;jsbin-embed&quot; href=&quot;http://jsbin.com/dikopi/4/embed?html,js,output&quot;&gt;$parse Service&lt;/a&gt;&lt;script src=&quot;http://static.jsbin.com/js/embed.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Dịch vụ $parse còn thường được sử dụng trong các directive không cần template và controller riêng, chỉ phục vụ mục đích phát hiện các sự kiện và xử lý chúng thông qua các expression (ngClick, ngBlur là những directive điển hình cho mục đích này). Dưới đây là demo thể hiện điều đó. &lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;jsbin-embed&quot; href=&quot;http://jsbin.com/guxevu/2/embed?html,js,output&quot;&gt;Directive Example&lt;/a&gt;&lt;script src=&quot;http://static.jsbin.com/js/embed.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;interpolate-service&quot;&gt;$interpolate service&lt;/h2&gt;
+
+&lt;p&gt;Trong Angular, chúng ta có khả năng biên dịch template một cách thủ công. Phép nội suy (interpolation) cho phép chúng ta cập nhật trực tiếp một chuỗi của text dựa trên các điều kiện của scope. Dịch vụ &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$interpolate&quot;&gt;$interpolate&lt;/a&gt; được Angular sử dụng với mục đích đó. Dịch vụ này trả về một function với các tham số đầu vào là các expression được chứa trong chuỗi.&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;/assets/img/$interpolateService.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Dưới đây là ví dụ thực hiện với dịch vụ $interpolate:&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;jsbin-embed&quot; href=&quot;http://jsbin.com/voneze/1/embed?html,js,output&quot;&gt;Interpolate Expression Example&lt;/a&gt;&lt;script src=&quot;http://static.jsbin.com/js/embed.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/17900588/what-is-the-difference-between-the-parse-interpolate-and-compile-services&quot;&gt;What is the difference between the $parse, $interpolate and $compile services?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://techanand.wordpress.com/2014/06/22/angularjs-expressions/&quot;&gt;AngularJs Expressions&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/angularjs/co-che-phan-tich-expression-trong-angularjs&quot;&gt;Cơ chế phân tích expression trong AngularJS.&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on December 01, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -439,7 +542,7 @@
     <uri></uri>
     <email>taly2808@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;&lt;strong&gt;Expression&lt;/strong&gt; (biểu thức) được sử dụng hầu khắp trong ứng dụng AngularJS. Expression được sử dụng trong template, trong các thẻ đánh dấu (markup), trong các directives. Vậy cụ thể thì Expression là gì, AngularJS sử dụng và tính toán nó ra sao? Chúng ta cùng tìm hiểu về nó trong nội dung của bài này.&lt;/p&gt;
+  <content type="html">&lt;p&gt;&lt;strong&gt;Expression&lt;/strong&gt; (biểu thức) được sử dụng hầu khắp trong ứng dụng AngularJS. Expression được sử dụng trong template, trong các thẻ đánh dấu (markup), trong các directives. Vậy cụ thể thì Expression là gì, AngularJS sử dụng và ước lượng nó ra sao? Chúng ta cùng tìm hiểu về nó trong nội dung của bài này.&lt;/p&gt;
 
 &lt;section&gt;
   &lt;header&gt;
@@ -472,7 +575,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Vậy Angular tính toán các expression như thế nào? Angular sẽ tự động chạy dịch vụ &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$parse&quot;&gt;$parse&lt;/a&gt; khi nó thực thi vòng lặp $digest. Và &lt;code&gt;$parse&lt;/code&gt; là cơ chế mà Angular sử dụng để tính toán expression. Chúng ta cùng tìm hiểu sơ lược về cơ chế $parse này.&lt;/p&gt;
+&lt;p&gt;Vậy Angular ước lượng (evaluate) các expression như thế nào? Angular sẽ tự động chạy dịch vụ &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$parse&quot;&gt;$parse&lt;/a&gt; khi nó thực thi vòng lặp $digest. Và &lt;code&gt;$parse&lt;/code&gt; là cơ chế mà Angular sử dụng để ước lượng expression. Chúng ta cùng tìm hiểu sơ lược về cơ chế $parse này.&lt;/p&gt;
 
 &lt;h2 id=&quot;phn-tch-mt-expression&quot;&gt;Phân tích một expression&lt;/h2&gt;
 
@@ -482,16 +585,18 @@
 
 &lt;p&gt;&lt;a class=&quot;jsbin-embed&quot; href=&quot;http://jsbin.com/qoduqo/1/embed?html,js,output&quot;&gt;Parse Expression Example&lt;/a&gt;&lt;script src=&quot;http://static.jsbin.com/js/embed.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
+&lt;p&gt;Bạn có thể tham khảo bài viết về &lt;a href=&quot;/angularjs/co-che-phan-tich-expression-trong-angularjs&quot;&gt;cơ chế phân tích expression&lt;/a&gt; để rõ hơn về dịch vụ $parse này.&lt;/p&gt;
+
 &lt;h2 id=&quot;angularjs-expressions-vs-javascript-expressions&quot;&gt;AngularJS Expressions vs. Javascript Expressions&lt;/h2&gt;
 
 &lt;p&gt;Expression trong AngularJS gần giống Javascript Expressions. &lt;strong&gt;AngularJS có cơ chế riêng của mình để phân tích expressions và tìm ra ngữ nghĩa riêng của nó&lt;/strong&gt;. Sự khác biệt thể hiện ở những điểm sau:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Tất cả các expression trong Angular được thực thi trong ngữ cảnh của scope và có quyền truy cập vào biến $scope cục bộ.&lt;/li&gt;
-  &lt;li&gt;Một expression trong Angular không ném ra lỗi và trả lại giá trị &lt;strong&gt;undefined&lt;/strong&gt; khi tính toán với các giá trị &lt;strong&gt;undefined&lt;/strong&gt; hoặc &lt;strong&gt;null&lt;/strong&gt; trong khi Javascript sẽ phát sinh ra lỗi &lt;code&gt;ReferenceError&lt;/code&gt; hoặc &lt;code&gt;TypeError&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Một expression trong Angular không ném ra lỗi và trả lại giá trị &lt;strong&gt;undefined&lt;/strong&gt; khi ước lượng với các giá trị &lt;strong&gt;undefined&lt;/strong&gt; hoặc &lt;strong&gt;null&lt;/strong&gt; trong khi Javascript sẽ phát sinh ra lỗi &lt;code&gt;ReferenceError&lt;/code&gt; hoặc &lt;code&gt;TypeError&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;AngularJS &lt;strong&gt;không cho phép&lt;/strong&gt; bất kỳ câu lệnh điều khiển luồng nào (các câu lệnh điều kiện (condition), điều khiển lặp (loop), và các ngoại lệ (throw an exception)) &lt;strong&gt;ngoại trừ toán tử tam phân (a ? b : c)&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;Expression trong Angular có thể sử dụng &lt;a href=&quot;https://docs.angularjs.org/guide/filter&quot;&gt;$filter&lt;/a&gt; hoặc một chuỗi các filter để định dạng dữ liệu trước khi hiển thị.
--AngularJS &lt;strong&gt;không cho phép&lt;/strong&gt; tạo ra các biểu thức chính quy (regular expression) trong AngularJS expressions.&lt;/li&gt;
+  &lt;li&gt;Expression trong Angular có thể sử dụng &lt;a href=&quot;https://docs.angularjs.org/guide/filter&quot;&gt;$filter&lt;/a&gt; hoặc một chuỗi các filter để định dạng dữ liệu trước khi hiển thị.&lt;/li&gt;
+  &lt;li&gt;AngularJS &lt;strong&gt;không cho phép&lt;/strong&gt; tạo ra các biểu thức chính quy (regular expression) trong expression.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Dưới đây là bảng thống kê các biểu thức có thể sử dụng trong AngularJS Expressions.&lt;/p&gt;

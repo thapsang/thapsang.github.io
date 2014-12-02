@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="google-site-verification" content="vy14mO9wf2bjKiZs8BIxCFXKJDP40DqGTqiwxscMctw" />
-<title>Expression trong AngularJS &#8211; THAPSANG.NET</title>
-<meta name="description" content="Khái niệm cơ bản về Expression trong AngularJS.">
-<meta name="keywords" content="expression, angularjs">
+<title>Cơ chế phân tích expression trong AngularJS. &#8211; THAPSANG.NET</title>
+<meta name="description" content="Cơ chế phân tích expression trong AngularJS với dịch vụ $parse, $interpolate, $compile.">
+<meta name="keywords" content="expression, $parse, angularjs">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/my-candle.png">
-<meta name="twitter:title" content="Expression trong AngularJS">
-<meta name="twitter:description" content="Khái niệm cơ bản về Expression trong AngularJS.">
+<meta name="twitter:title" content="Cơ chế phân tích expression trong AngularJS.">
+<meta name="twitter:description" content="Cơ chế phân tích expression trong AngularJS với dịch vụ $parse, $interpolate, $compile.">
 <meta name="twitter:creator" content="@taly2808">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Expression trong AngularJS">
-<meta property="og:description" content="Khái niệm cơ bản về Expression trong AngularJS.">
-<meta property="og:url" content="/angularjs/expression-trong-angularjs">
+<meta property="og:title" content="Cơ chế phân tích expression trong AngularJS.">
+<meta property="og:description" content="Cơ chế phân tích expression trong AngularJS với dịch vụ $parse, $interpolate, $compile.">
+<meta property="og:url" content="/angularjs/co-che-phan-tich-expression-trong-angularjs">
 <meta property="og:site_name" content="THAPSANG.NET">
 <meta property="og:image" content="/images/my-candle.png">
 
@@ -27,7 +27,7 @@
 
 
 
-<link rel="canonical" href="/angularjs/expression-trong-angularjs">
+<link rel="canonical" href="/angularjs/co-che-phan-tich-expression-trong-angularjs">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="THAPSANG.NET Feed">
 <link rel="author" href="https://plus.google.com/+TaLy2808?rel=author">
 
@@ -151,17 +151,17 @@
                     <header class="post-header entry-header">
                     
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Expression trong AngularJS</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Cơ chế phân tích expression trong AngularJS.</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Khái niệm cơ bản về Expression trong AngularJS.</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">Cơ chế phân tích expression trong AngularJS với dịch vụ $parse, $interpolate, $compile.</div>
                         <div class="post-info text-center small">
-                            <span class="entry-date date published"><time datetime="2014-11-11T00:00:00+07:00" class="post-time" itemprop="datePublished">11 Nov 2014</time><span> and <code>last modified on <span class="entry-date date updated"><time datetime="2014-11-28" itemprop="dateModified">28 Nov 2014</time></code></span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">7.02</span> minutes read</span>
+                            <span class="entry-date date published"><time datetime="2014-12-01T00:00:00+07:00" class="post-time" itemprop="datePublished">01 Dec 2014</time><span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">9.26</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p><strong>Expression</strong> (biểu thức) được sử dụng hầu khắp trong ứng dụng AngularJS. Expression được sử dụng trong template, trong các thẻ đánh dấu (markup), trong các directives. Vậy cụ thể thì Expression là gì, AngularJS sử dụng và ước lượng nó ra sao? Chúng ta cùng tìm hiểu về nó trong nội dung của bài này.</p>
+                        <p>Khi tìm hiểu về Expression, tài liệu nói rằng Angular sử dụng dịch vụ $parse để ước lượng các expression, có thể biên dịch template một cách thủ công với dịch vụ $interpolate. Dịch vụ $interpolate lại được dịch vụ $compile sử dụng để biên dịch các chuỗi HTML hoặc DOM. Vậy cụ thể từng dịch vụ này hoạt động ra sao, chúng được sử dụng trong trường hợp nào, mối quan hệ giữa các dịch vụ này là gì? Chúng ta sẽ tìm hiểu trong nội dung bài viết này.</p>
 
 <section>
   <header>
@@ -169,92 +169,81 @@
   </header>
 <div id="drawer">
 <ul id="markdown-toc">
-  <li><a href="#angularjs-expressions">AngularJS Expressions</a></li>
-  <li><a href="#phn-tch-mt-expression">Phân tích một expression</a></li>
-  <li><a href="#angularjs-expressions-vs-javascript-expressions">AngularJS Expressions vs. Javascript Expressions</a></li>
-  <li><a href="#v-d">Ví dụ</a></li>
-  <li><a href="#one-time-binding">One-time binding</a></li>
+  <li><a href="#s-khc-nhau-gia-dch-v-parse-interpolate-v-compile">Sự khác nhau giữa dịch vụ $parse, $interpolate và $compile</a></li>
+  <li><a href="#parse-service">$parse service</a></li>
+  <li><a href="#interpolate-service">$interpolate service</a></li>
   <li><a href="#ti-liu-tham-kho">Tài liệu tham khảo</a></li>
 </ul>
 
   </div>
 </section>
 
-<h2 id="angularjs-expressions">AngularJS Expressions</h2>
+<h2 id="s-khc-nhau-gia-dch-v-parse-interpolate-v-compile">Sự khác nhau giữa dịch vụ $parse, $interpolate và $compile</h2>
+
+<p>Trước khi đi vào chi tiết từng dịch vụ, tôi muốn đưa ra sự so sánh giữa các dịch vụ để có cái nhìn tổng quan về chúng.  Một lời giải thích theo quan điểm cá nhân tôi là khá dễ hiểu từ <a href="http://stackoverflow.com/questions/17900588/what-is-the-difference-between-the-parse-interpolate-and-compile-services">StackOverflow</a>. Tôi trích dẫn lại trong bài viết để có cái nhìn tổng thể.</p>
+
+<p>Giả sử, chúng ta có một chuỗi HTML:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">var imgHtml = &#39;<span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;/path/{{name}}.{{extension}}&quot;</span><span class="nt">&gt;</span>&#39;</code></pre></div>
+
+<p>và các giá trị trong scope:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">$scope.name = &#39;image&#39;;
+$scope.extension = &#39;jpg&#39;;</code></pre></div>
+
+<p>Mỗi dịch vụ sẽ hoạt động ra sao với chuỗi HTML trên:</p>
 
 <ul>
-  <li>Expression trong AngularJS là các đoạn mã tương tự Javascript, thường được đặt trong hai cặp dấu ngoặc nhọn <code>{{ expression }}</code>. Khi chúng ta sử dụng ký pháp <code>{{ }}</code>, chúng ta đang thiết lập cơ chế <code>$watch</code> lên một expression. Hay nói cách khác, hàm <code>$watch</code> sẽ theo dõi một thuộc tính trên $scope. Khi có bất kỳ thay đổi nào, nó sẽ gọi chức năng tương ứng.</li>
-  <li>Ví dụ, những expression sau là hợp lệ trong AngularJS:
-    <ul>
-      <li><code>1+2</code></li>
-      <li><code>a+b</code></li>
-      <li><code>user.name</code></li>
-      <li><code>items[0]</code></li>
-    </ul>
-  </li>
+  <li><strong>$compile</strong> có thể lấy toàn bộ thẻ đánh dấu này (markup) và chuyển nó thành một link function. Link function này khi được thực hiện trong một scope nhất định, nó sẽ tự động chuyển HTML text thành các thành phần DOM trực tiếp với tất cả các directive (trong trường hợp này là ng-src directive) phản ứng với các thay đổi của model. Angular sẽ gọi nó ra như sau: <strong>$compile(imgHtml)($scope)</strong> và Angular sẽ nhận được một phần tử DOM với tất cả các sự kiện liên quan đến DOM đó. $compile sử dụng dịch vụ <strong>$interpolate</strong> để thực hiện các công việc của mình.</li>
+  <li><strong>$interpolate</strong> biết cách để xử lý một chuỗi (với các biểu thức nội suy được nhúng vào chuỗi đó). Mặt khác, nó có thể lấy một chuỗi với các biểu thức nội suy (interpolation expression), một scope và chuyển nó thành kết quả dạng text. Chúng ta có thể nghĩ đơn giản rằng dịch vụ $interpolate là ngôn ngữ mẫu dựa trên các chuỗi (string-based template language). Với ví dụ trên, chúng ta sẽ sử dụng dịch vụ này như sau: <strong>$interpolate(“/path/.”)($scope)</strong> và nhận được kết quả ở dạng chuỗi là <strong>path/image.jpg</strong>.</li>
+  <li><strong>$parse</strong> được dịch vụ $interpolate sử dụng để ước lượng một expression riêng lẻ (ví như name, extension) trong một scope. Nó có thể được sử dụng để đọc và ghi giá trị cho một expression. Ví dụ để ước lượng biểu expression <em>name</em>, người ta sẽ làm như sau: <strong>$parse(‘name’)($scope)</strong> để có được giá trị “image”. Để thiết lập giá trị cho expression <em>name</em>, nguời ta làm như sau: <strong>$parse(‘name’).assign($scope, ‘image2’)</strong>.</li>
 </ul>
 
-<p>Vậy Angular ước lượng (evaluate) các expression như thế nào? Angular sẽ tự động chạy dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$parse">$parse</a> khi nó thực thi vòng lặp $digest. Và <code>$parse</code> là cơ chế mà Angular sử dụng để ước lượng expression. Chúng ta cùng tìm hiểu sơ lược về cơ chế $parse này.</p>
-
-<h2 id="phn-tch-mt-expression">Phân tích một expression</h2>
-
-<p>Thông thường, dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$parse">$parse</a> sẽ được Angular tự động gọi để nội suy giá trị của expression, đôi khi nó cũng khá hữu ích để phân tích một expression một cách thủ công (manual).</p>
-
-<p>Để phân tích thủ công một expression, ta có thể truyền dịch vụ $parse vào trong controller (hoặc service nào đó) và gọi đến dịch vụ để tiến hành phân tích. Trong ví dụ dưới đây, chúng ta có một ô input với biến <code>expr</code>. Trong controller, chúng ta có thể thiết lập một hàm <code>$watch</code> và phân tích <code>expr</code> expression. Xem demo để thấy cách thức hoạt động của nó:</p>
-
-<p><a class="jsbin-embed" href="http://jsbin.com/qoduqo/1/embed?html,js,output">Parse Expression Example</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
-
-<p>Bạn có thể tham khảo bài viết về <a href="/angularjs/co-che-phan-tich-expression-trong-angularjs">cơ chế phân tích expression</a> để rõ hơn về dịch vụ $parse này.</p>
-
-<h2 id="angularjs-expressions-vs-javascript-expressions">AngularJS Expressions vs. Javascript Expressions</h2>
-
-<p>Expression trong AngularJS gần giống Javascript Expressions. <strong>AngularJS có cơ chế riêng của mình để phân tích expressions và tìm ra ngữ nghĩa riêng của nó</strong>. Sự khác biệt thể hiện ở những điểm sau:</p>
+<p>Cả ba dịch vụ cùng làm việc với nhau để cung cấp trực tiếp giao diện người dùng nhưng chúng hoạt động ở các cấp độ khác nhau:</p>
 
 <ul>
-  <li>Tất cả các expression trong Angular được thực thi trong ngữ cảnh của scope và có quyền truy cập vào biến $scope cục bộ.</li>
-  <li>Một expression trong Angular không ném ra lỗi và trả lại giá trị <strong>undefined</strong> khi ước lượng với các giá trị <strong>undefined</strong> hoặc <strong>null</strong> trong khi Javascript sẽ phát sinh ra lỗi <code>ReferenceError</code> hoặc <code>TypeError</code>.</li>
-  <li>AngularJS <strong>không cho phép</strong> bất kỳ câu lệnh điều khiển luồng nào (các câu lệnh điều kiện (condition), điều khiển lặp (loop), và các ngoại lệ (throw an exception)) <strong>ngoại trừ toán tử tam phân (a ? b : c)</strong>.</li>
-  <li>Expression trong Angular có thể sử dụng <a href="https://docs.angularjs.org/guide/filter">$filter</a> hoặc một chuỗi các filter để định dạng dữ liệu trước khi hiển thị.</li>
-  <li>AngularJS <strong>không cho phép</strong> tạo ra các biểu thức chính quy (regular expression) trong expression.</li>
+  <li><strong>$parse</strong> chỉ liên quan đến một expression đơn lẻ. Nó là một dịch vụ có thể đọc và ghi (read/write) giá trị cho expression được đưa ra.</li>
+  <li><strong>$interpolate</strong> là dịch vụ chỉ có thể đọc và liên quan đến các chuỗi (string) chứa nhiều expression (ví dụ “My name is {{firstName}} {{lastName}}”).</li>
+  <li><strong>$compile</strong> là trái tim của AngularJS, nó có thể biến các chuỗi HTML (với các directive và các biểu thức nội suy (interpolation expression)) vào trực tiếp DOM.</li>
 </ul>
 
-<p>Dưới đây là bảng thống kê các biểu thức có thể sử dụng trong AngularJS Expressions.</p>
+<figure>
+	<img src="/assets/img/$parse-$interpolate-$compile.png" />
+</figure>
 
-<iframe src="http://teropa.info/images/angular_expressions_cheatsheet.pdf" style="border:0px #FFFFFF none;" name="myiFrameAngularJS Expressions" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="500px" width="100%"></iframe>
-
-<h2 id="v-d">Ví dụ</h2>
-
-<iframe width="100%" height="400" src="http://jsfiddle.net/taly2808/mfckfvc2/9/embedded/js,html,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id="parse-service">$parse service</h2>
 
 <ul>
-  <li>
-    <p>Array in AngularJS Expressions</p>
-
-    <iframe width="100%" height="150" src="http://jsfiddle.net/taly2808/nahq7wbz/embedded/html,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-  </li>
-  <li>
-    <p>Objects in AngularJS Expressions</p>
-
-    <iframe width="100%" height="150" src="http://jsfiddle.net/taly2808/qpno9qfe/embedded/html,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-  </li>
-  <li>
-    <p>ng-bind directive in AngularJS</p>
-
-    <iframe width="100%" height="150" src="http://jsfiddle.net/taly2808/Lm7rL69L/embedded/html,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-  </li>
+  <li>Dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$parse">$parse</a> được dùng để phân tích (parsing) một biểu thức riêng lẻ (individual expression) của Angular. Thông thường, Angular sẽ tự động gọi dịch vụ $parse để ước lượng (evaluate) một biểu thức.</li>
+  <li>Chuyển đổi expression vào trong một function. Function này sau đó có thể được viện dẫn và thông qua một ngữ cảnh (thường là scope) để lấy giá trị của expression.</li>
+  <li>Để lấy giá trị của expression, ta dùng <em>$parse(‘expression’)(context)</em>.</li>
+  <li>Để thiết lập giá trị của expression, ta dùng hàm <strong>assign()</strong> như sau: <em>$parse(‘expression’).assign(context, value)</em>.</li>
 </ul>
 
-<h2 id="one-time-binding">One-time binding</h2>
+<p>Trong demo dưới đây, tôi sẽ thực hiện thiết lập cho ngữ cảnh được đưa ra bằng 2 cách. Cách thứ nhất sử dụng phương thức assign() để thay đổi giá trị của context. Cách thứ 2 sử dụng trực tiếp phương thức $parse() trả lại function xử lý đối tượng context.</p>
 
-<p><strong>Từ phiên bản 1.3</strong>, AngularJS cung cấp tính năng <strong>one-time binding</strong> (gắn kết dữ liệu một lần) bằng cách sử dụng dấu <code>::</code> trước biểu thức như sau: <code>{{ ::expression }}</code>.Với tính năng này, expression chỉ được nội suy (interpolated) một lần duy nhất và sau đó không được theo dõi (watched) nữa, giúp giải phóng tài nguyên khi việc gắn kết dữ liệu đã ổn định. Việc giảm theo dõi một số lượng các biểu thức giúp cho các vòng lặp thực thi nhanh hơn và cho phép nhiều thông tin được hiển thị cùng lúc.</p>
+<p><a class="jsbin-embed" href="http://jsbin.com/dikopi/4/embed?html,js,output">$parse Service</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
 
-<iframe width="100%" height="200" src="http://jsfiddle.net/taly2808/y48wqjqs/embedded/result,html,js/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<p>Dịch vụ $parse còn thường được sử dụng trong các directive không cần template và controller riêng, chỉ phục vụ mục đích phát hiện các sự kiện và xử lý chúng thông qua các expression (ngClick, ngBlur là những directive điển hình cho mục đích này). Dưới đây là demo thể hiện điều đó. </p>
+
+<p><a class="jsbin-embed" href="http://jsbin.com/guxevu/2/embed?html,js,output">Directive Example</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
+
+<h2 id="interpolate-service">$interpolate service</h2>
+
+<p>Trong Angular, chúng ta có khả năng biên dịch template một cách thủ công. Phép nội suy (interpolation) cho phép chúng ta cập nhật trực tiếp một chuỗi của text dựa trên các điều kiện của scope. Dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$interpolate">$interpolate</a> được Angular sử dụng với mục đích đó. Dịch vụ này trả về một function với các tham số đầu vào là các expression được chứa trong chuỗi.</p>
+
+<figure>
+	<img src="/assets/img/$interpolateService.png" />
+</figure>
+
+<p>Dưới đây là ví dụ thực hiện với dịch vụ $interpolate:</p>
+
+<p><a class="jsbin-embed" href="http://jsbin.com/voneze/1/embed?html,js,output">Interpolate Expression Example</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
 
 <h2 id="ti-liu-tham-kho">Tài liệu tham khảo</h2>
 
 <ol>
-  <li><a href="https://docs.angularjs.org/guide/expression">The docs AngularJS Expressions</a></li>
-  <li><a href="http://teropa.info/blog/2014/03/23/angularjs-expressions-cheatsheet.html">AngularJS Expressions Cheatsheet</a></li>
+  <li><a href="http://stackoverflow.com/questions/17900588/what-is-the-difference-between-the-parse-interpolate-and-compile-services">What is the difference between the $parse, $interpolate and $compile services?</a></li>
   <li><a href="http://techanand.wordpress.com/2014/06/22/angularjs-expressions/">AngularJs Expressions</a></li>
 </ol>
 
@@ -264,7 +253,7 @@
                     
                     <div class="entry-tags text-center">
                     
-                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#expression" data-toggle="tooltip" title="Posts tagged with expression" rel="tag">expression</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#angularjs" data-toggle="tooltip" title="Posts tagged with angularjs" rel="tag">angularjs</a>
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#expression" data-toggle="tooltip" title="Posts tagged with expression" rel="tag">expression</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#$parse" data-toggle="tooltip" title="Posts tagged with $parse" rel="tag">$parse</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#angularjs" data-toggle="tooltip" title="Posts tagged with angularjs" rel="tag">angularjs</a>
                     
                     </div>
                     
@@ -277,19 +266,19 @@
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Expression trong AngularJS&quot;%20/angularjs/expression-trong-angularjs%20via%20&#64;taly2808"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Cơ chế phân tích expression trong AngularJS.&quot;%20/angularjs/co-che-phan-tich-expression-trong-angularjs%20via%20&#64;taly2808"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>
         </li>
         <li>
-            <a  href="https://www.facebook.com/sharer/sharer.php?u=/angularjs/expression-trong-angularjs"
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=/angularjs/co-che-phan-tich-expression-trong-angularjs"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
                 <i class="icon-facebook"></i>
             </a>
         </li>
         <li>
-            <a href="https://plus.google.com/share?url=/angularjs/expression-trong-angularjs"
+            <a href="https://plus.google.com/share?url=/angularjs/co-che-phan-tich-expression-trong-angularjs"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
                 <i class="icon-google-plus"></i>
             </a>
