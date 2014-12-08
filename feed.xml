@@ -4,13 +4,332 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-12-02T19:37:52+07:00</updated>
+<updated>2014-12-08T20:05:40+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
   <uri>/</uri>
   <email>taly2808@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Sử dụng dịch vụ $resource xây dựng ứng dụng CRUD trong AngularJS]]></title>
+  <link>/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs</link>
+  <id>/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs</id>
+  <updated>2014-12-05T00:00:00-00:00</updated>
+  <published>2014-12-05T00:00:00+07:00</published>
+  
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Các ứng dụng sử dụng web service ngày càng phổ biến. AngularJS cung cấp dịch vụ $resource hỗ trợ tương tác với dịch vụ RESTful một cách dễ dàng. Trong bài viết này, chúng ta sẽ tìm hiểu cách thức sử dụng $resource trong ứng dụng web xây dựng bằng AngularJS.&lt;/p&gt;
+
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#s-dng-resource&quot;&gt;Sử dụng $resource&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cc-thc-resource-lm-vic&quot;&gt;Các thức $resource làm việc&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#to-mt-resource&quot;&gt;Tạo một Resource&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#i-tng-tr-li-ca-hm-resource&quot;&gt;Đối tượng trả lại của hàm $resource&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#default-actions&quot;&gt;Default actions&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#cc-action-method-ca-resource-class-v-resource-instance&quot;&gt;Các action method của Resource Class và Resource Instance&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#p-dng-vo-v-d-c-th&quot;&gt;Áp dụng vào ví dụ cụ thể&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#xy-dng-restful-service&quot;&gt;Xây dựng RESTful service&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#xy-dng-ng-dng-pha-client-bng-angularjs&quot;&gt;Xây dựng ứng dụng phía client bằng AngularJS&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;s-dng-resource&quot;&gt;Sử dụng $resource&lt;/h2&gt;
+
+&lt;p&gt;AngularJS cung cấp dịch vụ $resource thông qua module &lt;a href=&quot;https://docs.angularjs.org/api/ngResource&quot;&gt;ngResource&lt;/a&gt; riêng biệt. Do đó, để có thể sử dụng dịch vụ này, bạn cần:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;download file &lt;a href=&quot;https://code.angularjs.org/1.3.2/angular-resource.js&quot;&gt;angular-resource.js&lt;/a&gt; và include nó vào trang HTML. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;angular.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;angular-resource.js&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Thêm nữa, trong module ứng dụng chính, bạn cần khai báo phụ thuộc vào module &lt;code&gt;ngResource&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;app&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ngResource&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bơm (inject) $resource vào bất kỳ đâu (service, controller, …) bạn muốn sử dụng nó.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;cc-thc-resource-lm-vic&quot;&gt;Các thức $resource làm việc&lt;/h2&gt;
+
+&lt;p&gt;$resource làm việc với RESTful backend, do đó chúng ta cần có REST endpoint theo định dạng sau:&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;/assets/img/REST-endpoints.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;to-mt-resource&quot;&gt;Tạo một Resource&lt;/h3&gt;
+
+&lt;p&gt;Chúng ta có thể tạo một Resource bằng Resource factory: &lt;strong&gt;$resource(url, paramDefaults, actions, options)&lt;/strong&gt;&lt;/p&gt;
+&lt;figure&gt;
+	&lt;img src=&quot;/assets/img/create-a-resource.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Các tham số trong Resource factory:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;url&lt;/strong&gt; - &lt;em&gt;{string}&lt;/em&gt; - là địa chỉ REST endpoint, đây là một URL template được tham số hóa với các tham số được bắt đầu với dấu &lt;code&gt;:&lt;/code&gt;, chẳng hạn như &lt;code&gt;/books/:bookId&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;paramDefaults&lt;/strong&gt; - &lt;em&gt;{Object}&lt;/em&gt; - giả sử url template có dạng &lt;em&gt;/books/:bookId&lt;/em&gt; và tham số &lt;em&gt;{bookId: ‘12’, author: ‘Fukuzawa’}&lt;/em&gt; thì kết quả hiển thị trên URL là &lt;em&gt;/books/12?author=Fukuzawa&lt;/em&gt;.	Nếu giá trị của tham số có tiền tố &lt;code&gt;@&lt;/code&gt;, ví dụ &lt;em&gt;{bookId: ‘@id’}&lt;/em&gt; thì việc đặt tham số &lt;code&gt;bookId&lt;/code&gt; thành &lt;code&gt;@id&lt;/code&gt; có nghĩa là bất cứ khi nào chúng ta gọi phương thức &lt;code&gt;$update()&lt;/code&gt; và &lt;code&gt;$delete()&lt;/code&gt; trên một resource instance thì giá trị của &lt;code&gt;:bookId&lt;/code&gt; sẽ được thiết lập thành thuộc tính &lt;code&gt;id&lt;/code&gt; của resource instance. Cách sử dụng này rất hữu ích cho các PUT request và DELETE request.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;actions&lt;/strong&gt; - &lt;em&gt;{Object}&lt;/em&gt; - mặc định lời gọi hàm $resource trả về một &lt;strong&gt;resource class&lt;/strong&gt; với 5 phương thức mặc định gồm &lt;strong&gt;get(), query(), save(), remove(), delete()&lt;/strong&gt; (xem &lt;a href=&quot;#i-tng-tr-li-ca-hm-resource&quot;&gt;Đối tượng trả lại của hàm $resource&lt;/a&gt;). Tham số này cho phép chúng ta thêm các phuơng thức tùy chỉnh (custom method) vào resource constructor (hay resource class) với cú pháp: &lt;code&gt;{ action: {method:?, params:?, isArray:?, headers:?, ...} };&lt;/code&gt;. Trong đó:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;action - &lt;em&gt;{string}&lt;/em&gt; - tên của action.&lt;/li&gt;
+      &lt;li&gt;method - &lt;em&gt;{string}&lt;/em&gt; - phương thức HTTP, ví như GET, POST, PUT, DELETE, JSONP, PATCH, …&lt;/li&gt;
+      &lt;li&gt;params - &lt;em&gt;{Object}&lt;/em&gt; - tập các tùy chọn của các tham số trước khi thực hiện action này.&lt;/li&gt;
+      &lt;li&gt;isArray - &lt;em&gt;{boolean}&lt;/em&gt; - quy định dữ liệu trả về cho phương thức này là Array hay Object.&lt;/li&gt;
+      &lt;li&gt;Ngoài ra nó còn chứa đầy đủ các thuộc tính của &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$http#usage&quot;&gt;$http.config&lt;/a&gt; như &lt;code&gt;headers&lt;/code&gt;, &lt;code&gt;transformRequest&lt;/code&gt;, &lt;code&gt;transformResponse&lt;/code&gt;, &lt;code&gt;cache&lt;/code&gt;, &lt;code&gt;timeout&lt;/code&gt;, &lt;code&gt;withCredentials&lt;/code&gt;,&lt;code&gt;responseType&lt;/code&gt;, &lt;code&gt;interceptor&lt;/code&gt;. Bạn có thể xem lại bài viết &lt;a href=&quot;/angularjs/hieu-ve-$http-service-trong-angularjs&quot;&gt;tìm hiểu về $http&lt;/a&gt; để nắm rõ cách thức sử dụng các thuộc tính đó.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;options&lt;/strong&gt; - Object - tham số này hiện tại chỉ hỗ trợ thiết lập thuộc tính &lt;code&gt;stripTrailingSlashes&lt;/code&gt;. Mặc định, thuộc tính này được thiết lập giá trị &lt;code&gt;true&lt;/code&gt;, nghĩa là dấu &lt;code&gt;/&lt;/code&gt; trong URL sẽ bị bỏ qua khi truyền qua hàm &lt;code&gt;$resource()&lt;/code&gt;, chúng ta có thể hủy bỏ tính năng này bằng cách thiết lập &lt;em&gt;{ stripTrailingSlashes: false }&lt;/em&gt;. Ví dụ: &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;app&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ngResource&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Book&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;$resource&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://yourserver/books/:bookId&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bookId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;@id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},{&lt;/span&gt; 
+    &lt;span class=&quot;nx&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;PUT&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  	&lt;span class=&quot;nx&quot;&gt;stripTrailingSlashes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}]);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;i-tng-tr-li-ca-hm-resource&quot;&gt;Đối tượng trả lại của hàm $resource&lt;/h3&gt;
+
+&lt;h4 id=&quot;default-actions&quot;&gt;Default actions&lt;/h4&gt;
+
+&lt;p&gt;Hàm Resource factory $resource() trả lại một &lt;strong&gt;resource class&lt;/strong&gt; (hay Resource constructor) với 5 phương thức mặc định là:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;get&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;GET&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;save&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;query&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;GET&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;remove&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;DELETE&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;&amp;#39;delete&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;DELETE&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Hãy xem chúng ta sử dụng hàm &lt;code&gt;get()&lt;/code&gt;, &lt;code&gt;query()&lt;/code&gt;, &lt;code&gt;save()&lt;/code&gt; như thế nào trong controller:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;app&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ngResource&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Book&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://yourserver/api/books/:id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+ 
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ResourceController&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// get() trả lại một book duy nhất&lt;/span&gt;
+ 
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;books&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;books&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//query() trả về tất cả các books&lt;/span&gt;
+ 
+  &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//tạo mới một resource instance&lt;/span&gt;
+ 
+  &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;some data&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ 
+  &lt;span class=&quot;nx&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//dữ liệu đã được thêm mới, bạn có thể làm gì đó ở đây&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//thêm mới một book. Giả sử rằng $scope.book là một đối tượng Book&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;get()&lt;/code&gt; function trong kịch bản trên liên quan đến một GET request &lt;code&gt;/api/books/:id&lt;/code&gt;. Tham số &lt;code&gt;:id&lt;/code&gt; trong URL sẽ được thay thế với &lt;code&gt;$scope.id&lt;/code&gt;. Tham số thứ 2 của function &lt;code&gt;get()&lt;/code&gt; là hàm success callback, nó được thực thi khi dữ liệu từ server trả về thành công. Cần lưu ý rằng, function &lt;code&gt;get()&lt;/code&gt; trả lại một đối tượng rỗng (empty object) và đối tượng này sẽ được tự động gắn dữ liệu khi có dữ liệu thật từ server trả về. Đây là một thủ thuật hữu ích vì thường các tài nguyên được gán vào model và sau đó sẽ được render bởi view, do đó bạn có thể thiết lập đối tượng rỗng đó vào trong $scope và hướng nó vào trong view. Khi dữ liệu thực tế đến và đối tượng đã được thiết lập sẵn trong view, dữ liệu được gắn kết vào các vị trí tương ứng và view cũng được cập nhật. Điều này có nghĩa là trong hầu hết các trường hợp, chúng ta không phải viết một hàm callback cho các action method này.&lt;/p&gt;
+
+&lt;p&gt;Function &lt;code&gt;query()&lt;/code&gt; liên quan đến GET request &lt;code&gt;/api/books&lt;/code&gt; (không có tham số :id) và trả lại một mảng rỗng. Khi dữ liệu từ server đến, mảng này đã có sẵn ở đó. Một lần nữa bạn có thể thiết lập mảng này vào trong $scope model và đề cập đến nó trong view sử dụng &lt;code&gt;ng-repeat&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;save()&lt;/code&gt; function liên quan đến POST request &lt;code&gt;/api/books&lt;/code&gt; với tham số thứ nhất là POST body. Tham số thứ hai là hàm callback sẽ được gọi khi dữ liệu được lưu trữ thành công. &lt;code&gt;$resource()&lt;/code&gt; function trả lại một resource class và lời gọi &lt;code&gt;new Book()&lt;/code&gt; sẽ tạo ta một đối tượng cụ thể (resource instance), thiết lập các thuộc tính cho nó và lưu trữ đối tượng vào backend.&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;cc-action-method-ca-resource-class-v-resource-instance&quot;&gt;Các action method của Resource Class và Resource Instance&lt;/h4&gt;
+
+&lt;p&gt;Các action method này dự kiến có 4 tham số, bao gồm: &lt;strong&gt;params&lt;/strong&gt; object, &lt;strong&gt;data&lt;/strong&gt; object, &lt;strong&gt;success&lt;/strong&gt; function, &lt;strong&gt;error&lt;/strong&gt; function.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HTTP GET action của Resource Class: &lt;code&gt;Resource.action(paramsObj, successFn, errorFn)&lt;/code&gt;. Ví dụ:
+    &lt;ul&gt;
+      &lt;li&gt;Book.get(paramsObj, successFn, errorFn);&lt;/li&gt;
+      &lt;li&gt;Book.query(paramsObj, successFn, errorFn);&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;non-GET action của Resource Class: &lt;code&gt;Resource.action(paramsObj, dataObj, successFn, errorFn)&lt;/code&gt;. Ví dụ:
+    &lt;ul&gt;
+      &lt;li&gt;Book.save(paramsObj, dataObj, successFn, errorFn);&lt;/li&gt;
+      &lt;li&gt;Book.remove(paramsObj, dataObj, successFn, errorFn);&lt;/li&gt;
+      &lt;li&gt;Book.delete(paramsObj, dataObj, successFn, errorFn);&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;non-GET action của Resource Instance: &lt;code&gt;instance.$action(paramsObj, successFn, errorFn)&lt;/code&gt;. Ví dụ:
+    &lt;ul&gt;
+      &lt;li&gt;book.$save(paramsObj, successFn, errorFn);&lt;/li&gt;
+      &lt;li&gt;book.$remove(paramsObj, successFn, errorFn);&lt;/li&gt;
+      &lt;li&gt;book.$delete(paramsObj, successFn, errorFn);&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lưu ý rằng, các non-GET action method của resource instance bắt đầu với dấu &lt;code&gt;$&lt;/code&gt;. Và cả class action và instance action có các chức năng tương đương:&lt;/p&gt;
+&lt;figure&gt;
+		&lt;img src=&quot;/assets/img/instance-vs-constructor-action-methods.png&quot; /&gt;
+	&lt;/figure&gt;
+
+&lt;p&gt;Hàm &lt;strong&gt;success callback&lt;/strong&gt; được gọi với tham số &lt;em&gt;(value, responseHeaders)&lt;/em&gt;. Hàm &lt;strong&gt;error callback&lt;/strong&gt; được gọi với tham số &lt;em&gt;(httpResponse)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Class actions&lt;/strong&gt; trả lại một &lt;strong&gt;empty instance&lt;/strong&gt;. &lt;strong&gt;Instance actions&lt;/strong&gt; trả lại &lt;strong&gt;lời hứa (promise)&lt;/strong&gt; của action.&lt;/p&gt;
+
+&lt;p&gt;Ngoài ra, các Resource instance và collection có thêm các thuộc tính: &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;$promise&lt;/code&gt;: việc thực hiện các request thông qua web service thường trả lại dữ liệu với độ trễ nhất định. Để đảm bảo dữ liệu đã sẵn sàng trước khi gán nó vào model hoặc render lên view, chúng ta có thể sử dụng &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$q&quot;&gt;promise&lt;/a&gt;. Ví dụ:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Todo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/api/todó/:id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;Todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;// success&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;todos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;errResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;// fail&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;Todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;todos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;// success&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;todos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;errResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;// fail&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Và cần nhớ rằng, thuộc tính &lt;code&gt;$promise&lt;/code&gt; là một thuộc tính trên cùng giá trị được trả về ở trên, do đó ta có thể sử dụng với cách khác như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Todo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/api/todos/:id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;Todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//tương đương với cách viết sau:&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//----------------&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//tương đương với cách viết sau:&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;$scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;$resolved&lt;/code&gt;: ban đầu thuộc tính này có giá trị &lt;code&gt;false&lt;/code&gt;, sau khi tương tác với server lần đầu tiên hoàn thành (dù success hay fail) nó được thiết lập giá trị &lt;code&gt;true&lt;/code&gt;. Thuộc tính này hữu ích trong việc biết Resource đã được resolved hay chưa để thực hiện gắn kết dữ liệu (data-binding).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;p-dng-vo-v-d-c-th&quot;&gt;Áp dụng vào ví dụ cụ thể&lt;/h2&gt;
+
+&lt;p&gt;Trong ví dụ này, chúng ta sẽ xây dựng một ứng dụng CRUD (Create - Read - Update - Delete) Book sử dụng $resource trong AngularJS. Ví dụ được xây dựng trên Ubuntu nên việc cài đặt các công cụ sẽ được hướng dẫn trên Ubuntu. Với các hệ điều hành khác, bạn vui lòng xem hướng dẫn trong các link đính kèm công cụ.&lt;/p&gt;
+
+&lt;h3 id=&quot;xy-dng-restful-service&quot;&gt;Xây dựng RESTful service&lt;/h3&gt;
+
+&lt;p&gt;Trong ví dụ này, chúng ta cần tạo ra một dịch vụ web RESTful phía backend có thể trả về với các request tương ứng. Bạn có thể sử dụng bất cứ công cụ nào miễn sao có thể tạo ra RESTful resource để demo. Ở đây, tôi sử dụng &lt;a href=&quot;http://deployd.com/&quot;&gt;deployd&lt;/a&gt; - một công cụ giúp xây dựng các API đơn giản. &lt;/p&gt;
+
+&lt;p&gt;Để sử dụng công cụ này, bạn cần &lt;a href=&quot;http://docs.deployd.com/docs/getting-started/installing-deployd.html&quot;&gt;cài đặt deployd&lt;/a&gt; và &lt;a href=&quot;http://docs.mongodb.org/manual/installation/&quot;&gt;mongodb&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Bạn chạy lệnh sau để cài đặt deployd: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install deployd -g&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sau đó, chạy lệnh &lt;code&gt;dpd -V&lt;/code&gt; để kiểm tra phiên bản của deployd. Nếu bạn thấy phiên bản của deployd ví như &lt;code&gt;0.7.0&lt;/code&gt; tức là bạn đã cài đặt thành công deployd.&lt;/p&gt;
+
+&lt;p&gt;Tiếp đến, bạn cần cài đặt mongodb nếu chưa có:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get install -y mongodb-org&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Bạn kiểm tra phiên bản mongodb bằng lệnh &lt;code&gt;mongod --version&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Tiếp đó, bạn có thể tải &lt;a href=&quot;https://github.com/taly2808/example-angularjs-book-ws/archive/master.zip&quot;&gt;ví dụ cho phần Book web service&lt;/a&gt; theo địa chỉ cho &lt;a href=&quot;https://github.com/taly2808/example-angularjs-book-ws.git&quot;&gt;git clone&lt;/a&gt;. Sau đó bạn di chuyển vào thư mục ứng dụng, tiếp đó chạy lệnh &lt;code&gt;dpd -d&lt;/code&gt; để chạy ứng dụng và mở dashboard của ứng dụng trên trình duyệt&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;/assets/img/dpd-d-cli.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Khi đó, ứng dụng sẽ được mở trên trình duyệt với cổng mặc định là 2403 như hình dưới đây:&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;/assets/img/example-book-ws-first.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Với ví dụ đơn giản này, chúng ta tạo ra một Books Collection với các thuộc tính gồm: id, title, category, price. Bạn có thể dễ dàng thêm các bản ghi cho Books Collection. Giả sử tôi thêm 3 bản ghi, khi đó ứng dụng sẽ như sau:&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;/assets/img/example-book-ws-data.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Chuyển sang tab API, chúng ta sẽ thấy danh sách các API mà ứng dụng cung cấp:&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;/assets/img/example-book-ws-api.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Khi chạy ứng dụng phía client, ứng dụng này cần được chạy để cung cấp các REST endpoint và tương tác với client.&lt;/p&gt;
+
+&lt;h3 id=&quot;xy-dng-ng-dng-pha-client-bng-angularjs&quot;&gt;Xây dựng ứng dụng phía client bằng AngularJS&lt;/h3&gt;
+
+&lt;p&gt;Bạn có thể tải demo tại địa chỉ &lt;a href=&quot;https://github.com/taly2808/example-angularjs-book-client.git&quot;&gt;git clone&lt;/a&gt;. Trong phần này, chúng ta sẽ sử dụng $resource để thực hiện các thao tác CRUD với Book. Dùng Terminal di chuyển vào thư mục &lt;em&gt;example-angularjs-book-client&lt;/em&gt;. Bạn cần cài đặt các gói thư viện cần dùng cho HTTP Server:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/taly2808/example-angularjs-book-client.git
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;example-angularjs-book-client
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm install connect serve-static --save-dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sau khi &lt;strong&gt;npm&lt;/strong&gt; cài đặt xong các gói thư viện trên, chạy HTTP Server bằng lệnh:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;node server&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Mở cửa sổ trình duyệt mới, nhập vào địa chỉ http://localhost:3000, ta sẽ được giao diện như sau:&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;/assets/img/example-book-client-1.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Trong phần này, chúng ta tạo ra một service factory &lt;em&gt;Book&lt;/em&gt; sử dụng $resource để request đến server và sử dụng nó trong controller để lấy dữ liệu:&lt;/p&gt;
+
+&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/taly2808/example-angularjs-book-client/blob/master/js/app.js?footer=0&quot;&gt;
+&lt;/script&gt;
+
+&lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ngResource/service/$resource&quot;&gt;AngularJS: API: $resource&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.sitepoint.com/creating-crud-app-minutes-angulars-resource/&quot;&gt;Creating a CRUD App in Minutes with Angular’s $resource&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs&quot;&gt;Sử dụng dịch vụ $resource xây dựng ứng dụng CRUD trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on December 05, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
