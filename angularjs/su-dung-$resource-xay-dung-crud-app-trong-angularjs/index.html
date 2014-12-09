@@ -156,7 +156,7 @@
                         <div class="cursive" style="color: #000; font-style:italic;">Dịch vụ $resource trong AngularJS.</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published"><time datetime="2014-12-05T00:00:00+07:00" class="post-time" itemprop="datePublished">05 Dec 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">20.47</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">23.61</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
@@ -169,6 +169,7 @@
   </header>
 <div id="drawer">
 <ul id="markdown-toc">
+  <li><a href="#http-vs-resource">$http vs $resource</a></li>
   <li><a href="#s-dng-resource">Sử dụng $resource</a></li>
   <li><a href="#cc-thc-resource-lm-vic">Các thức $resource làm việc</a>    <ul>
       <li><a href="#to-mt-resource">Tạo một Resource</a></li>
@@ -179,6 +180,7 @@
       </li>
     </ul>
   </li>
+  <li><a href="#unit-testing">Unit testing</a></li>
   <li><a href="#p-dng-vo-v-d-c-th">Áp dụng vào ví dụ cụ thể</a>    <ul>
       <li><a href="#xy-dng-restful-service">Xây dựng RESTful service</a></li>
       <li><a href="#xy-dng-ng-dng-pha-client-bng-angularjs">Xây dựng ứng dụng phía client bằng AngularJS</a></li>
@@ -189,6 +191,29 @@
 
   </div>
 </section>
+
+<h2 id="http-vs-resource">$http vs $resource</h2>
+
+<p>Cả $http và $resource đều có thể làm việc tốt với REST. Vậy lý do là gì để chúng ta sử dụng $resource thay vì sử dụng $http? Sau khi google và theo quan điểm cá nhân thì dưới đây là các lý do được đưa ra:</p>
+
+<ul>
+  <li>$resource viết ít code hơn.</li>
+  <li>$resource cho phép chúng ta định nghĩa URL dưới dạng các template string (một chuỗi có chứa phần giữ chỗ (placeholder), ví dụ: /api/books/:id) với giá trị các tham số. $resource sẽ thay thế các placeholder bằng các giá trị tham số của các đối tượng cụ thể. </li>
+  <li>Việc xây dựng các service với $resource linh hoạt hơn với việc thiết lập các custom action cho các đối tượng cụ thể và có thể sử dụng nó linh hoạt trong bất kỳ controller bạn muốn.</li>
+  <li>$resource cho phép tạo ra một đối tượng javascript đại diện cho data model riêng biệt. Bằng cách này, với mỗi hoạt động được tính toán trên đối tượng được tạo ra thông qua $resource sẽ được thực hiện ở phía server. Ví dụ, nếu bạn muốn thực hiện update một book với $http, trước hết bạn phải lấy được đối tượng đó, sau đó thực hiện gán giá trị cho các thuộc tính rồi thực hiện save với đối tượng book đi kèm:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;http://yourserver/api/books/&#39;</span> <span class="o">+</span> <span class="mi">3</span><span class="p">).</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">book</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">book</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;My name updated&quot;</span>
+	<span class="nx">$http</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;http://yourserver/api/books/&#39;</span><span class="p">,</span> <span class="nx">book</span><span class="p">);</span>
+<span class="p">});</span></code></pre></div>
+
+<p>Với $resource, chúng ta gọi hàm $update() trên mỗi phần tử book:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">BookService</span><span class="p">.</span><span class="nx">get</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="mi">3</span><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">book</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">book</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;My name edited&quot;</span><span class="p">;</span>
+	<span class="nx">book</span><span class="p">.</span><span class="nx">$update</span><span class="p">();</span>
+<span class="p">});</span></code></pre></div>
 
 <h2 id="s-dng-resource">Sử dụng $resource</h2>
 
@@ -384,6 +409,10 @@
 <ul>
   <li><code>$resolved</code>: ban đầu thuộc tính này có giá trị <code>false</code>, sau khi tương tác với server lần đầu tiên hoàn thành (dù success hay fail) nó được thiết lập giá trị <code>true</code>. Thuộc tính này hữu ích trong việc biết Resource đã được resolved hay chưa để thực hiện gắn kết dữ liệu (data-binding).</li>
 </ul>
+
+<h2 id="unit-testing">Unit testing</h2>
+
+<p>$resource được thực hiện ở tầng cao hơn $http. Nó tương tác với backend thông qua các HTTP request. Bạn có thể sử dụng <a href="https://docs.angularjs.org/api/ngMock/service/$httpBackend">$httpBackend mock</a> để thực hiện unit test cho $resource.</p>
 
 <h2 id="p-dng-vo-v-d-c-th">Áp dụng vào ví dụ cụ thể</h2>
 

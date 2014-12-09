@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-12-08T20:05:40+07:00</updated>
+<updated>2014-12-09T12:33:11+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -33,6 +33,7 @@
   &lt;/header&gt;
 &lt;div id=&quot;drawer&quot;&gt;
 &lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#http-vs-resource&quot;&gt;$http vs $resource&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#s-dng-resource&quot;&gt;Sử dụng $resource&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#cc-thc-resource-lm-vic&quot;&gt;Các thức $resource làm việc&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#to-mt-resource&quot;&gt;Tạo một Resource&lt;/a&gt;&lt;/li&gt;
@@ -43,6 +44,7 @@
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#unit-testing&quot;&gt;Unit testing&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#p-dng-vo-v-d-c-th&quot;&gt;Áp dụng vào ví dụ cụ thể&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#xy-dng-restful-service&quot;&gt;Xây dựng RESTful service&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;#xy-dng-ng-dng-pha-client-bng-angularjs&quot;&gt;Xây dựng ứng dụng phía client bằng AngularJS&lt;/a&gt;&lt;/li&gt;
@@ -53,6 +55,29 @@
 
   &lt;/div&gt;
 &lt;/section&gt;
+
+&lt;h2 id=&quot;http-vs-resource&quot;&gt;$http vs $resource&lt;/h2&gt;
+
+&lt;p&gt;Cả $http và $resource đều có thể làm việc tốt với REST. Vậy lý do là gì để chúng ta sử dụng $resource thay vì sử dụng $http? Sau khi google và theo quan điểm cá nhân thì dưới đây là các lý do được đưa ra:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$resource viết ít code hơn.&lt;/li&gt;
+  &lt;li&gt;$resource cho phép chúng ta định nghĩa URL dưới dạng các template string (một chuỗi có chứa phần giữ chỗ (placeholder), ví dụ: /api/books/:id) với giá trị các tham số. $resource sẽ thay thế các placeholder bằng các giá trị tham số của các đối tượng cụ thể. &lt;/li&gt;
+  &lt;li&gt;Việc xây dựng các service với $resource linh hoạt hơn với việc thiết lập các custom action cho các đối tượng cụ thể và có thể sử dụng nó linh hoạt trong bất kỳ controller bạn muốn.&lt;/li&gt;
+  &lt;li&gt;$resource cho phép tạo ra một đối tượng javascript đại diện cho data model riêng biệt. Bằng cách này, với mỗi hoạt động được tính toán trên đối tượng được tạo ra thông qua $resource sẽ được thực hiện ở phía server. Ví dụ, nếu bạn muốn thực hiện update một book với $http, trước hết bạn phải lấy được đối tượng đó, sau đó thực hiện gán giá trị cho các thuộc tính rồi thực hiện save với đối tượng book đi kèm:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://yourserver/api/books/&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;My name updated&amp;quot;&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;$http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://yourserver/api/books/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Với $resource, chúng ta gọi hàm $update() trên mỗi phần tử book:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;BookService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;My name edited&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;s-dng-resource&quot;&gt;Sử dụng $resource&lt;/h2&gt;
 
@@ -248,6 +273,10 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;code&gt;$resolved&lt;/code&gt;: ban đầu thuộc tính này có giá trị &lt;code&gt;false&lt;/code&gt;, sau khi tương tác với server lần đầu tiên hoàn thành (dù success hay fail) nó được thiết lập giá trị &lt;code&gt;true&lt;/code&gt;. Thuộc tính này hữu ích trong việc biết Resource đã được resolved hay chưa để thực hiện gắn kết dữ liệu (data-binding).&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&quot;unit-testing&quot;&gt;Unit testing&lt;/h2&gt;
+
+&lt;p&gt;$resource được thực hiện ở tầng cao hơn $http. Nó tương tác với backend thông qua các HTTP request. Bạn có thể sử dụng &lt;a href=&quot;https://docs.angularjs.org/api/ngMock/service/$httpBackend&quot;&gt;$httpBackend mock&lt;/a&gt; để thực hiện unit test cho $resource.&lt;/p&gt;
 
 &lt;h2 id=&quot;p-dng-vo-v-d-c-th&quot;&gt;Áp dụng vào ví dụ cụ thể&lt;/h2&gt;
 
