@@ -4,6 +4,94 @@
 		"selected_items":
 		[
 			[
+				"re",
+				"resource"
+			],
+			[
+				"se",
+				"service"
+			],
+			[
+				"ser",
+				"service"
+			],
+			[
+				"ins",
+				"instance"
+			],
+			[
+				"ac",
+				"action"
+			],
+			[
+				"ob",
+				"object	Tag"
+			],
+			[
+				"su",
+				"successFn"
+			],
+			[
+				"in",
+				"instance"
+			],
+			[
+				"t",
+				"tạo"
+			],
+			[
+				"cl",
+				"class"
+			],
+			[
+				"bo",
+				"Books"
+			],
+			[
+				"G",
+				"Giả"
+			],
+			[
+				"res",
+				"resource"
+			],
+			[
+				"Con",
+				"constructor"
+			],
+			[
+				"fa",
+				"factory"
+			],
+			[
+				"pa",
+				"params"
+			],
+			[
+				"Re",
+				"Resource"
+			],
+			[
+				"para",
+				"paramDefaults"
+			],
+			[
+				"R",
+				"REST"
+			],
+			[
+				"de",
+				"deployd"
+			],
+			[
+				"Ang",
+				"AngularJS"
+			],
+			[
+				"Angul",
+				"AngularJS"
+			],
+			[
 				"as",
 				"assign"
 			],
@@ -34,14 +122,6 @@
 			[
 				"co",
 				"compile"
-			],
-			[
-				"Ang",
-				"Angular"
-			],
-			[
-				"in",
-				"interpolate"
 			],
 			[
 				"par",
@@ -84,10 +164,6 @@
 				"Angular"
 			],
 			[
-				"re",
-				"request"
-			],
-			[
 				"g",
 				"giá"
 			],
@@ -100,20 +176,12 @@
 				"transformRequest"
 			],
 			[
-				"se",
-				"service"
-			],
-			[
 				"In",
 				"Interceptor"
 			],
 			[
 				"Requ",
 				"requestError"
-			],
-			[
-				"ser",
-				"server"
 			],
 			[
 				"s",
@@ -140,24 +208,12 @@
 				"expression"
 			],
 			[
-				"ob",
-				"Object"
-			],
-			[
-				"res",
-				"response"
-			],
-			[
 				"respo",
 				"responseType"
 			],
 			[
 				"he",
 				"headers"
-			],
-			[
-				"t",
-				"tượng"
 			],
 			[
 				"p",
@@ -180,20 +236,12 @@
 				"httpProvider"
 			],
 			[
-				"de",
-				"dependency2"
-			],
-			[
 				"depe",
 				"dependency1"
 			],
 			[
 				"inte",
 				"interceptor"
-			],
-			[
-				"Angul",
-				"AngularJS"
 			],
 			[
 				"Angu",
@@ -296,10 +344,6 @@
 				"routeProvider"
 			],
 			[
-				"ac",
-				"accommodation"
-			],
-			[
 				"con",
 				"controller"
 			],
@@ -352,10 +396,6 @@
 				"figure"
 			],
 			[
-				"pa",
-				"path"
-			],
-			[
 				"routeP",
 				"routeParams"
 			],
@@ -374,10 +414,6 @@
 			[
 				"ho",
 				"hoặc"
-			],
-			[
-				"bo",
-				"bookId"
 			],
 			[
 				"c",
@@ -478,44 +514,16 @@
 			[
 				"for",
 				"form	Tag"
-			],
-			[
-				"tex",
-				"text-decoration"
-			],
-			[
-				"fu",
-				"function"
-			],
-			[
-				"a",
-				"app"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "_posts/2014-12-01-co-che-phan-tich-expression-trong-angularjs.md",
+			"file": "_posts/2014-12-05-su-dung-$resource-xay-dung-crud-app-trong-angularjs.md",
 			"settings":
 			{
-				"buffer_size": 6448,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_posts/2014-11-11-expression-trong-angularjs.md",
-			"settings":
-			{
-				"buffer_size": 5743,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_posts/2014-10-28-resolve-trong-angularjs-routes.md",
-			"settings":
-			{
-				"buffer_size": 13351,
+				"buffer_size": 15887,
 				"line_ending": "Unix"
 			}
 		}
@@ -558,6 +566,7 @@
 	"expanded_folders":
 	[
 		"/opt/projects/thapsang.net/thapsang.github.io-source",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_includes",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_layouts",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/assets",
@@ -565,8 +574,10 @@
 	],
 	"file_history":
 	[
+		"/home/taly/angularjs/example-angularjs-book-resource/main/index.html",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-18-hieu-ve-$http-service-trong-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-11-25-$http-interceptor-trong-angularjs.md",
+		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-12-01-co-che-phan-tich-expression-trong-angularjs.md",
 		"/opt/projects/thapsang.net/thapsang.github.io-source/_posts/bao-mat-trong-http-service.md",
 		"/opt/angularjs/todo/test/unit/simpleSpec.js",
 		"/opt/angularjs/todo/karmar-unit.conf.js",
@@ -708,6 +719,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"GET",
+			"entries",
+			"Entry",
+			"  \n",
 			"tính toán",
 			"****",
 			"moe",
@@ -734,6 +749,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"books",
+			"Book",
 			"ước lượng",
 			"5",
 			"rate",
@@ -750,24 +767,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "_posts/2014-12-01-co-che-phan-tich-expression-trong-angularjs.md",
+					"file": "_posts/2014-12-05-su-dung-$resource-xay-dung-crud-app-trong-angularjs.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6448,
+						"buffer_size": 15887,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3850,
-								3850
+								1347,
+								1347
 							]
 						],
 						"settings":
@@ -776,68 +793,10 @@
 							"tab_size": 2
 						},
 						"translation.x": 0.0,
-						"translation.y": 984.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "_posts/2014-11-11-expression-trong-angularjs.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5743,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2446,
-								2446
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 510.0,
+						"translation.y": 340.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "_posts/2014-10-28-resolve-trong-angularjs-routes.md",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 13351,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 51.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]

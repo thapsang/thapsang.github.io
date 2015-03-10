@@ -16,10 +16,9 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
-FILE_NAME_0=224;Markdown;0;16;1;1;1;/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-05-tao-du-lieu-voi-database-seeding.md;0;4
-FILE_NAME_1=186;Markdown;0;16;1;1;0;/opt/projects/thapsang.net/hmfaysal-omega-theme/_posts/2014-01-09-sample-gallery-post.md;0;4
-FILE_NAME_2=1245;Markdown;0;16;1;1;0;/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2014-10-04-quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline.md;0;4
+current_page=1
+FILE_NAME_0=232;Markdown;0;16;1;1;0;/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2015-01-21-huong-dan-cai-dat-ionic-cordova-tren-ubuntu.md;0;4
+FILE_NAME_1=1001;Markdown;0;16;1;1;1;/opt/projects/thapsang.net/thapsang.github.io-source/_posts/2015-01-29-cac-thong-so-can-thiet-lap-truoc-khi-xuat-xuong-ung-dung-ionic.md;0;4
 
 [VTE]
 last_dir=/home/taly

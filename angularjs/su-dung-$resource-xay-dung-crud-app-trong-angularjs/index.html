@@ -267,7 +267,7 @@
       <li>Ngoài ra nó còn chứa đầy đủ các thuộc tính của <a href="https://docs.angularjs.org/api/ng/service/$http#usage">$http.config</a> như <code>headers</code>, <code>transformRequest</code>, <code>transformResponse</code>, <code>cache</code>, <code>timeout</code>, <code>withCredentials</code>,<code>responseType</code>, <code>interceptor</code>. Bạn có thể xem lại bài viết <a href="/angularjs/hieu-ve-$http-service-trong-angularjs">tìm hiểu về $http</a> để nắm rõ cách thức sử dụng các thuộc tính đó.</li>
     </ul>
   </li>
-  <li><strong>options</strong> - Object - tham số này hiện tại chỉ hỗ trợ thiết lập thuộc tính <code>stripTrailingSlashes</code>. Mặc định, thuộc tính này được thiết lập giá trị <code>true</code>, nghĩa là dấu <code>/</code> trong URL sẽ bị bỏ qua khi truyền qua hàm <code>$resource()</code>, chúng ta có thể hủy bỏ tính năng này bằng cách thiết lập <em>{ stripTrailingSlashes: false }</em>. Ví dụ: </li>
+  <li><strong>options</strong> - <em>{Object}</em> - tham số này hiện tại chỉ hỗ trợ thiết lập thuộc tính <code>stripTrailingSlashes</code>. Mặc định, thuộc tính này được thiết lập giá trị <code>true</code>, nghĩa là dấu <code>/</code> trong URL sẽ bị bỏ qua khi truyền qua hàm <code>$resource()</code>, chúng ta có thể hủy bỏ tính năng này bằng cách thiết lập <em>{ stripTrailingSlashes: false }</em>. Ví dụ: </li>
 </ul>
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;app&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ngResource&#39;</span><span class="p">]).</span><span class="nx">factory</span><span class="p">(</span><span class="s1">&#39;Book&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$resource&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$resource</span><span class="p">){</span>
@@ -579,7 +579,7 @@
             </li>
         </ul>
             <div>
-                Bản quyền nội dung thuộc về <a href="/about/">Ta Ly</a> &copy; 2014.
+                Bản quyền nội dung thuộc về <a href="/about/">Ta Ly</a> &copy; 2015.
             </div>
             <ul class="menu-items">
             

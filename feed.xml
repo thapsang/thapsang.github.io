@@ -4,13 +4,96 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-12-09T12:33:11+07:00</updated>
+<updated>2015-03-10T10:10:34+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
   <uri>/</uri>
   <email>taly2808@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Hướng dẫn cài đặt Ionic Framework trên Ubuntu]]></title>
+  <link>/ionic/huong-dan-cai-dat-ionic-cordova-tren-ubuntu</link>
+  <id>/ionic/huong-dan-cai-dat-ionic-cordova-tren-ubuntu</id>
+  <updated>2015-03-09T00:00:00-00:00</updated>
+  <published>2015-01-21T00:00:00+07:00</published>
+  
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Trong bài viết này, chúng ta sẽ đi vào chi tiết cách thức cài đặt IonicFramework trên Ubuntu (14.04).&lt;/p&gt;
+
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#ci-t-ionic&quot;&gt;Cài đặt Ionic&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#khi-to-ng-dng&quot;&gt;Khởi tạo ứng dụng&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#chy-ng-dng&quot;&gt;Chạy ứng dụng&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;ci-t-ionic&quot;&gt;Cài đặt Ionic&lt;/h2&gt;
+
+&lt;p&gt;Trước hết, bạn cần cài đặt &lt;a href=&quot;http://cordova.apache.org/&quot;&gt;Apache Cordova&lt;/a&gt; phiên bản mới nhất bằng lệnh:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo npm install -g cordova&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sau đó, bạn có thể kiểm tra phiên bản Cordova vừa được cài đặt với lệnh:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cordova -v&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Tiếp đến, bạn cài đặt Ionic bằng lệnh:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo npm install -g ionic&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;khi-to-ng-dng&quot;&gt;Khởi tạo ứng dụng&lt;/h2&gt;
+
+&lt;p&gt;Bây giờ, chúng ta cần tạo mới một ứng dụng Cordova ở bất kỳ đâu bạn muốn trên máy tính. Giả sử, tôi tạo các ứng dụng ionic của mình trong thư mục &lt;strong&gt;home/taly/projects&lt;/strong&gt;, chúng ta di chuyển tới thư mục &lt;strong&gt;home/taly/projects&lt;/strong&gt;. Bạn có thể tạo ứng dụng sử dụng template có sẵn (&lt;em&gt;sidemenu&lt;/em&gt; hoặc &lt;em&gt;tabs&lt;/em&gt;) của Ionic hoặc tạo ứng dụng trống rỗng (&lt;em&gt;blank&lt;/em&gt;). Ví dụ, chúng ta tạo ứng dụng tên &lt;strong&gt;Hello world&lt;/strong&gt; với template &lt;em&gt;sidemenu&lt;/em&gt; như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ionic start hello-world sidemenu&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;chy-ng-dng&quot;&gt;Chạy ứng dụng&lt;/h2&gt;
+
+&lt;p&gt;Sau khi tạo xong ứng dụng, bạn di chuyển vào thư mục &lt;em&gt;hello-world&lt;/em&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;hello-world&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Bạn có thể xem luôn ứng dụng vừa tạo có hình thù, hoạt động ra sao trên trình duyệt web (còn gọi là web view) bằng cách chạy lệnh:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ionic serve&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Đến đây, chúng ta đã có thể phát triển tiếp ứng dụng của mình với giả lập giao diện trên web view tại địa chỉ mặc định là &lt;a href=&quot;http://localhost:8100&quot;&gt;http://localhost:8100&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Để build và test trên các nền tảng khác nhau (ios, android), chúng ta cần add platform và build trên các nền tảng tương ứng.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ionic platform add ios
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ionic platform add android&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Bạn chạy thử ứng dụng (tương ứng với từng platform) với lệnh:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ionic build android
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ionic emulate android&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ionicframework.com/getting-started/&quot;&gt;Start building with Ionic&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ionicframework.com/docs/guide/installation.html&quot;&gt;Ionic Installation&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/ionic/huong-dan-cai-dat-ionic-cordova-tren-ubuntu&quot;&gt;Hướng dẫn cài đặt Ionic Framework trên Ubuntu&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on January 21, 2015.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -131,7 +214,7 @@
       &lt;li&gt;Ngoài ra nó còn chứa đầy đủ các thuộc tính của &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$http#usage&quot;&gt;$http.config&lt;/a&gt; như &lt;code&gt;headers&lt;/code&gt;, &lt;code&gt;transformRequest&lt;/code&gt;, &lt;code&gt;transformResponse&lt;/code&gt;, &lt;code&gt;cache&lt;/code&gt;, &lt;code&gt;timeout&lt;/code&gt;, &lt;code&gt;withCredentials&lt;/code&gt;,&lt;code&gt;responseType&lt;/code&gt;, &lt;code&gt;interceptor&lt;/code&gt;. Bạn có thể xem lại bài viết &lt;a href=&quot;/angularjs/hieu-ve-$http-service-trong-angularjs&quot;&gt;tìm hiểu về $http&lt;/a&gt; để nắm rõ cách thức sử dụng các thuộc tính đó.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;options&lt;/strong&gt; - Object - tham số này hiện tại chỉ hỗ trợ thiết lập thuộc tính &lt;code&gt;stripTrailingSlashes&lt;/code&gt;. Mặc định, thuộc tính này được thiết lập giá trị &lt;code&gt;true&lt;/code&gt;, nghĩa là dấu &lt;code&gt;/&lt;/code&gt; trong URL sẽ bị bỏ qua khi truyền qua hàm &lt;code&gt;$resource()&lt;/code&gt;, chúng ta có thể hủy bỏ tính năng này bằng cách thiết lập &lt;em&gt;{ stripTrailingSlashes: false }&lt;/em&gt;. Ví dụ: &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;options&lt;/strong&gt; - &lt;em&gt;{Object}&lt;/em&gt; - tham số này hiện tại chỉ hỗ trợ thiết lập thuộc tính &lt;code&gt;stripTrailingSlashes&lt;/code&gt;. Mặc định, thuộc tính này được thiết lập giá trị &lt;code&gt;true&lt;/code&gt;, nghĩa là dấu &lt;code&gt;/&lt;/code&gt; trong URL sẽ bị bỏ qua khi truyền qua hàm &lt;code&gt;$resource()&lt;/code&gt;, chúng ta có thể hủy bỏ tính năng này bằng cách thiết lập &lt;em&gt;{ stripTrailingSlashes: false }&lt;/em&gt;. Ví dụ: &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;app&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ngResource&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Book&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;$resource&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;

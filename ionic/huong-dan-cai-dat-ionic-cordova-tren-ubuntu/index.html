@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="google-site-verification" content="vy14mO9wf2bjKiZs8BIxCFXKJDP40DqGTqiwxscMctw" />
-<title>Expression trong AngularJS &#8211; THAPSANG.NET</title>
-<meta name="description" content="Khái niệm cơ bản về Expression trong AngularJS.">
-<meta name="keywords" content="expression, angularjs">
+<title>Hướng dẫn cài đặt Ionic Framework trên Ubuntu &#8211; THAPSANG.NET</title>
+<meta name="description" content="Ta Ly's blog">
+<meta name="keywords" content="Ionic">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/my-candle.png">
-<meta name="twitter:title" content="Expression trong AngularJS">
-<meta name="twitter:description" content="Khái niệm cơ bản về Expression trong AngularJS.">
+<meta name="twitter:title" content="Hướng dẫn cài đặt Ionic Framework trên Ubuntu">
+<meta name="twitter:description" content="Ta Ly's blog">
 <meta name="twitter:creator" content="@taly2808">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Expression trong AngularJS">
-<meta property="og:description" content="Khái niệm cơ bản về Expression trong AngularJS.">
-<meta property="og:url" content="/angularjs/expression-trong-angularjs">
+<meta property="og:title" content="Hướng dẫn cài đặt Ionic Framework trên Ubuntu">
+<meta property="og:description" content="Ta Ly's blog">
+<meta property="og:url" content="/ionic/huong-dan-cai-dat-ionic-cordova-tren-ubuntu">
 <meta property="og:site_name" content="THAPSANG.NET">
 <meta property="og:image" content="/images/my-candle.png">
 
@@ -27,7 +27,7 @@
 
 
 
-<link rel="canonical" href="/angularjs/expression-trong-angularjs">
+<link rel="canonical" href="/ionic/huong-dan-cai-dat-ionic-cordova-tren-ubuntu">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="THAPSANG.NET Feed">
 <link rel="author" href="https://plus.google.com/+TaLy2808?rel=author">
 
@@ -151,17 +151,17 @@
                     <header class="post-header entry-header">
                     
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Expression trong AngularJS</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Hướng dẫn cài đặt Ionic Framework trên Ubuntu</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Khái niệm cơ bản về Expression trong AngularJS.</div>
+                        <div class="cursive" style="color: #000; font-style:italic;"></div>
                         <div class="post-info text-center small">
-                            <span class="entry-date date published"><time datetime="2014-11-11T00:00:00+07:00" class="post-time" itemprop="datePublished">11 Nov 2014</time><span> and <code>last modified on <span class="entry-date date updated"><time datetime="2014-11-28" itemprop="dateModified">28 Nov 2014</time></code></span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">7.02</span> minutes read</span>
+                            <span class="entry-date date published"><time datetime="2015-01-21T00:00:00+07:00" class="post-time" itemprop="datePublished">21 Jan 2015</time><span> and <code>last modified on <span class="entry-date date updated"><time datetime="2015-03-09" itemprop="dateModified">09 Mar 2015</time></code></span>
+                            in <span class="post-tags"><a href="/categories/index.html#ionic" data-toggle="tooltip" title="Other posts from the Ionic category" rel="tag">Ionic</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">3.88</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p><strong>Expression</strong> (biểu thức) được sử dụng hầu khắp trong ứng dụng AngularJS. Expression được sử dụng trong template, trong các thẻ đánh dấu (markup), trong các directives. Vậy cụ thể thì Expression là gì, AngularJS sử dụng và ước lượng nó ra sao? Chúng ta cùng tìm hiểu về nó trong nội dung của bài này.</p>
+                        <p>Trong bài viết này, chúng ta sẽ đi vào chi tiết cách thức cài đặt IonicFramework trên Ubuntu (14.04).</p>
 
 <section>
   <header>
@@ -169,93 +169,62 @@
   </header>
 <div id="drawer">
 <ul id="markdown-toc">
-  <li><a href="#angularjs-expressions">AngularJS Expressions</a></li>
-  <li><a href="#phn-tch-mt-expression">Phân tích một expression</a></li>
-  <li><a href="#angularjs-expressions-vs-javascript-expressions">AngularJS Expressions vs. Javascript Expressions</a></li>
-  <li><a href="#v-d">Ví dụ</a></li>
-  <li><a href="#one-time-binding">One-time binding</a></li>
+  <li><a href="#ci-t-ionic">Cài đặt Ionic</a></li>
+  <li><a href="#khi-to-ng-dng">Khởi tạo ứng dụng</a></li>
+  <li><a href="#chy-ng-dng">Chạy ứng dụng</a></li>
   <li><a href="#ti-liu-tham-kho">Tài liệu tham khảo</a></li>
 </ul>
 
   </div>
 </section>
 
-<h2 id="angularjs-expressions">AngularJS Expressions</h2>
+<h2 id="ci-t-ionic">Cài đặt Ionic</h2>
 
-<ul>
-  <li>Expression trong AngularJS là các đoạn mã tương tự Javascript, thường được đặt trong hai cặp dấu ngoặc nhọn <code>{{ expression }}</code>. Khi chúng ta sử dụng ký pháp <code>{{ }}</code>, chúng ta đang thiết lập cơ chế <code>$watch</code> lên một expression. Hay nói cách khác, hàm <code>$watch</code> sẽ theo dõi một thuộc tính trên $scope. Khi có bất kỳ thay đổi nào, nó sẽ gọi chức năng tương ứng.</li>
-  <li>Ví dụ, những expression sau là hợp lệ trong AngularJS:
-    <ul>
-      <li><code>1+2</code></li>
-      <li><code>a+b</code></li>
-      <li><code>user.name</code></li>
-      <li><code>items[0]</code></li>
-    </ul>
-  </li>
-</ul>
+<p>Trước hết, bạn cần cài đặt <a href="http://cordova.apache.org/">Apache Cordova</a> phiên bản mới nhất bằng lệnh:</p>
 
-<p>Vậy Angular ước lượng (evaluate) các expression như thế nào? Angular sẽ tự động chạy dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$parse">$parse</a> khi nó thực thi vòng lặp $digest. Và <code>$parse</code> là cơ chế mà Angular sử dụng để ước lượng expression. Chúng ta cùng tìm hiểu sơ lược về cơ chế $parse này.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g cordova</code></pre></div>
 
-<h2 id="phn-tch-mt-expression">Phân tích một expression</h2>
+<p>Sau đó, bạn có thể kiểm tra phiên bản Cordova vừa được cài đặt với lệnh:</p>
 
-<p>Thông thường, dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$parse">$parse</a> sẽ được Angular tự động gọi để nội suy giá trị của expression, đôi khi nó cũng khá hữu ích để phân tích một expression một cách thủ công (manual).</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>cordova -v</code></pre></div>
 
-<p>Để phân tích thủ công một expression, ta có thể truyền dịch vụ $parse vào trong controller (hoặc service nào đó) và gọi đến dịch vụ để tiến hành phân tích. Trong ví dụ dưới đây, chúng ta có một ô input với biến <code>expr</code>. Trong controller, chúng ta có thể thiết lập một hàm <code>$watch</code> và phân tích <code>expr</code> expression. Xem demo để thấy cách thức hoạt động của nó:</p>
+<p>Tiếp đến, bạn cài đặt Ionic bằng lệnh:</p>
 
-<p><a class="jsbin-embed" href="http://jsbin.com/qoduqo/1/embed?html,js,output">Parse Expression Example</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo npm install -g ionic</code></pre></div>
 
-<p>Bạn có thể tham khảo bài viết về <a href="/angularjs/co-che-phan-tich-expression-trong-angularjs">cơ chế phân tích expression</a> để rõ hơn về dịch vụ $parse này.</p>
+<h2 id="khi-to-ng-dng">Khởi tạo ứng dụng</h2>
 
-<h2 id="angularjs-expressions-vs-javascript-expressions">AngularJS Expressions vs. Javascript Expressions</h2>
+<p>Bây giờ, chúng ta cần tạo mới một ứng dụng Cordova ở bất kỳ đâu bạn muốn trên máy tính. Giả sử, tôi tạo các ứng dụng ionic của mình trong thư mục <strong>home/taly/projects</strong>, chúng ta di chuyển tới thư mục <strong>home/taly/projects</strong>. Bạn có thể tạo ứng dụng sử dụng template có sẵn (<em>sidemenu</em> hoặc <em>tabs</em>) của Ionic hoặc tạo ứng dụng trống rỗng (<em>blank</em>). Ví dụ, chúng ta tạo ứng dụng tên <strong>Hello world</strong> với template <em>sidemenu</em> như sau:</p>
 
-<p>Expression trong AngularJS gần giống Javascript Expressions. <strong>AngularJS có cơ chế riêng của mình để phân tích expressions và tìm ra ngữ nghĩa riêng của nó</strong>. Sự khác biệt thể hiện ở những điểm sau:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic start hello-world sidemenu</code></pre></div>
 
-<ul>
-  <li>Tất cả các expression trong Angular được thực thi trong ngữ cảnh của scope và có quyền truy cập vào biến $scope cục bộ.</li>
-  <li>Một expression trong Angular không ném ra lỗi và trả lại giá trị <strong>undefined</strong> khi ước lượng với các giá trị <strong>undefined</strong> hoặc <strong>null</strong> trong khi Javascript sẽ phát sinh ra lỗi <code>ReferenceError</code> hoặc <code>TypeError</code>.</li>
-  <li>AngularJS <strong>không cho phép</strong> bất kỳ câu lệnh điều khiển luồng nào (các câu lệnh điều kiện (condition), điều khiển lặp (loop), và các ngoại lệ (throw an exception)) <strong>ngoại trừ toán tử tam phân (a ? b : c)</strong>.</li>
-  <li>Expression trong Angular có thể sử dụng <a href="https://docs.angularjs.org/guide/filter">$filter</a> hoặc một chuỗi các filter để định dạng dữ liệu trước khi hiển thị.</li>
-  <li>AngularJS <strong>không cho phép</strong> tạo ra các biểu thức chính quy (regular expression) trong expression.</li>
-</ul>
+<h2 id="chy-ng-dng">Chạy ứng dụng</h2>
 
-<p>Dưới đây là bảng thống kê các biểu thức có thể sử dụng trong AngularJS Expressions.</p>
+<p>Sau khi tạo xong ứng dụng, bạn di chuyển vào thư mục <em>hello-world</em>:</p>
 
-<iframe src="http://teropa.info/images/angular_expressions_cheatsheet.pdf" style="border:0px #FFFFFF none;" name="myiFrameAngularJS Expressions" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="500px" width="100%"></iframe>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>hello-world</code></pre></div>
 
-<h2 id="v-d">Ví dụ</h2>
+<p>Bạn có thể xem luôn ứng dụng vừa tạo có hình thù, hoạt động ra sao trên trình duyệt web (còn gọi là web view) bằng cách chạy lệnh:</p>
 
-<iframe width="100%" height="400" src="http://jsfiddle.net/taly2808/mfckfvc2/9/embedded/js,html,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic serve</code></pre></div>
 
-<ul>
-  <li>
-    <p>Array in AngularJS Expressions</p>
+<p>Đến đây, chúng ta đã có thể phát triển tiếp ứng dụng của mình với giả lập giao diện trên web view tại địa chỉ mặc định là <a href="http://localhost:8100">http://localhost:8100</a>.</p>
 
-    <iframe width="100%" height="150" src="http://jsfiddle.net/taly2808/nahq7wbz/embedded/html,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-  </li>
-  <li>
-    <p>Objects in AngularJS Expressions</p>
+<p>Để build và test trên các nền tảng khác nhau (ios, android), chúng ta cần add platform và build trên các nền tảng tương ứng.</p>
 
-    <iframe width="100%" height="150" src="http://jsfiddle.net/taly2808/qpno9qfe/embedded/html,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-  </li>
-  <li>
-    <p>ng-bind directive in AngularJS</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic platform add ios
+<span class="nv">$ </span>ionic platform add android</code></pre></div>
 
-    <iframe width="100%" height="150" src="http://jsfiddle.net/taly2808/Lm7rL69L/embedded/html,result/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-  </li>
-</ul>
+<p>Bạn chạy thử ứng dụng (tương ứng với từng platform) với lệnh:</p>
 
-<h2 id="one-time-binding">One-time binding</h2>
-
-<p><strong>Từ phiên bản 1.3</strong>, AngularJS cung cấp tính năng <strong>one-time binding</strong> (gắn kết dữ liệu một lần) bằng cách sử dụng dấu <code>::</code> trước biểu thức như sau: <code>{{ ::expression }}</code>.Với tính năng này, expression chỉ được nội suy (interpolated) một lần duy nhất và sau đó không được theo dõi (watched) nữa, giúp giải phóng tài nguyên khi việc gắn kết dữ liệu đã ổn định. Việc giảm theo dõi một số lượng các biểu thức giúp cho các vòng lặp thực thi nhanh hơn và cho phép nhiều thông tin được hiển thị cùng lúc.</p>
-
-<iframe width="100%" height="200" src="http://jsfiddle.net/taly2808/y48wqjqs/embedded/result,html,js/presentation" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ionic build android
+<span class="nv">$ </span>ionic emulate android</code></pre></div>
 
 <h2 id="ti-liu-tham-kho">Tài liệu tham khảo</h2>
 
 <ol>
-  <li><a href="https://docs.angularjs.org/guide/expression">The docs AngularJS Expressions</a></li>
-  <li><a href="http://teropa.info/blog/2014/03/23/angularjs-expressions-cheatsheet.html">AngularJS Expressions Cheatsheet</a></li>
-  <li><a href="http://techanand.wordpress.com/2014/06/22/angularjs-expressions/">AngularJs Expressions</a></li>
+  <li><a href="http://ionicframework.com/getting-started/">Start building with Ionic</a></li>
+  <li><a href="http://ionicframework.com/docs/guide/installation.html">Ionic Installation</a></li>
 </ol>
 
 
@@ -264,7 +233,7 @@
                     
                     <div class="entry-tags text-center">
                     
-                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#expression" data-toggle="tooltip" title="Posts tagged with expression" rel="tag">expression</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#angularjs" data-toggle="tooltip" title="Posts tagged with angularjs" rel="tag">angularjs</a>
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#Ionic" data-toggle="tooltip" title="Posts tagged with Ionic" rel="tag">Ionic</a>
                     
                     </div>
                     
@@ -277,19 +246,19 @@
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Expression trong AngularJS&quot;%20/angularjs/expression-trong-angularjs%20via%20&#64;taly2808"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Hướng dẫn cài đặt Ionic Framework trên Ubuntu&quot;%20/ionic/huong-dan-cai-dat-ionic-cordova-tren-ubuntu%20via%20&#64;taly2808"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>
         </li>
         <li>
-            <a  href="https://www.facebook.com/sharer/sharer.php?u=/angularjs/expression-trong-angularjs"
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=/ionic/huong-dan-cai-dat-ionic-cordova-tren-ubuntu"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
                 <i class="icon-facebook"></i>
             </a>
         </li>
         <li>
-            <a href="https://plus.google.com/share?url=/angularjs/expression-trong-angularjs"
+            <a href="https://plus.google.com/share?url=/ionic/huong-dan-cai-dat-ionic-cordova-tren-ubuntu"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
                 <i class="icon-google-plus"></i>
             </a>
