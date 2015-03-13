@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-03-10T10:10:34+07:00</updated>
+<updated>2015-03-13T08:42:24+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -14,9 +14,268 @@
 
 
 <entry>
+  <title type="html"><![CDATA[Hướng dẫn cài đặt Android SDK trên Ubuntu]]></title>
+  <link>/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu</link>
+  <id>/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu</id>
+  <updated>2015-03-11T00:00:00-00:00</updated>
+  <published>2015-03-11T00:00:00+07:00</published>
+  
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Khi bạn muốn build ứng dụng trên các nền tảng khác nhau, máy tính của bạn cần phải được cài đặt các Tool tương ứng. Bài viết này đi vào hướng dẫn cài đặt Android SDK Tool trên Ubuntu 14.04 để develop ứng dụng trên nền tảng Android.&lt;/p&gt;
+
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#ci-t-java&quot;&gt;Cài đặt Java&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ci-t-ant&quot;&gt;Cài đặt Ant&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ci-t-android-sdk-tool&quot;&gt;Cài đặt Android SDK Tool&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;ci-t-java&quot;&gt;Cài đặt Java&lt;/h2&gt;
+
+&lt;p&gt;Bạn cần đảm bảo rằng máy tính của bạn đã được cài đặt Java. Bạn có thể kiểm tra với lệnh:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;java -version&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nếu máy bạn đã cài đặt Java, bạn có thể bỏ qua bước này.&lt;/p&gt;
+
+&lt;p&gt;Nếu máy tính của bạn chưa cài đặt Java, chúng ta sẽ tiến hành cài đặt. Bạn chạy các lệnh sau trên Terminal:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo dpkg --add-architecture i386
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get update
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get install libncurses5:i386 libstdc++6:i386 zlib1g:i386&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Tiếp đến là cài đặt Java (ở đây tôi chọn cài đặt oracle java, bạn có thể cài bản khác nếu muốn):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo add-apt-repository ppa:webupd8team/java
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get update
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get install oracle-java7-installer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Nếu bạn muốn cài đặt java8, bạn thay thế lệnh cuối bằng lệnh &lt;strong&gt;sudo apt-get install oracle-java8-installer&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Sau khi cài đặt xong, bạn có thể kiểm tra version java được cài đặt trên máy. Kết quả trên máy của tôi như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;java -version
+java version &lt;span class=&quot;s2&quot;&gt;&amp;quot;1.7.0_76&amp;quot;&lt;/span&gt;
+Java&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;TM&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; SE Runtime Environment &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;build 1.7.0_76-b13&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Java HotSpot&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;TM&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Server VM &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;build 24.76-b04, mixed mode&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Bạn cần thiết lập biến môi trường JAVA_HOME. Các bước thực hiện như sau:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Xác định vị trí đã cài đặt Java trên máy của bạn với lệnh: &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;which java&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Tiếp đến, chúng ta thiết lập biến toàn cục JAVA_HOME, chúng ta sẽ sửa trong file &lt;strong&gt;.bashrc&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gedit .bashrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Nhập vào phía dưới cùng của file &lt;strong&gt;.bashrc&lt;/strong&gt; những dòng sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/lib/jvm/java-7-oracle
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;JAVA_HOME
+&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$JAVA_HOME&lt;/span&gt;/bin
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;PATH&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Bạn đóng cửa sổ Terminal và bật lại, kiểm tra biến JAVA_HOME đã được thiết lập thành công hay chưa bằng lệnh:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$JAVA_HOME&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ci-t-ant&quot;&gt;Cài đặt Ant&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://ant.apache.org/&quot;&gt;Apache Ant&lt;/a&gt; là một hệ thống được xây dựng cho Java, được Cordova và Android SDK sử dụng. Để cài đặt Ant, bạn làm theo các bước sau:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Download Ant tại địa chỉ &lt;a href=&quot;http://ant.apache.org/bindownload.cgi&quot;&gt;http://ant.apache.org/bindownload.cgi&lt;/a&gt;, lấy bản zip có sẵn trên trang đó, ví dụ, &lt;em&gt;apache-ant-1.9.4-bin.zip&lt;/em&gt;, và lưu file trên máy tính của bạn.&lt;/li&gt;
+  &lt;li&gt;Giải nén tập tin vừa download. Copy vào nơi bạn muốn. Tôi sẽ copy vào trong thư mục &lt;strong&gt;home/taly/development&lt;/strong&gt; và rename thư mục thành &lt;strong&gt;apache-ant&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Tiếp đến, chúng ta cần thêm Ant vào system path. Chúng ta sẽ sửa file &lt;strong&gt;.bashrc&lt;/strong&gt;, thêm vào gần cuối file (trước dòng &lt;strong&gt;export PATH&lt;/strong&gt;) các dòng sau: &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;ANT_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~/development/apache-ant
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;ANT_HOME
+&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$ANT_HOME&lt;/span&gt;/bin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Kiểm tra Ant đã được cài đặt thành công hay chưa với lệnh:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ant -version&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ci-t-android-sdk-tool&quot;&gt;Cài đặt Android SDK Tool&lt;/h2&gt;
+
+&lt;p&gt;Bạn làm theo các bước sau:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Truy cập vào trang &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;developer.android.com/sdk&lt;/a&gt;, di chuyển xuống phần &lt;strong&gt;SDK Tools Only&lt;/strong&gt;, và download file &lt;strong&gt;android-sdk_r24.0.2-linux.tgz&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Giải nén tập tin, rename thành &lt;strong&gt;adroid-sdk-linux&lt;/strong&gt;, copy vào thư mục &lt;strong&gt;development&lt;/strong&gt; (/home/taly/development).&lt;/li&gt;
+  &lt;li&gt;Thêm Adroid SDK vào system path. Bạn thêm các dòng sau vào trước dòng &lt;strong&gt;export PATH&lt;/strong&gt; trong file &lt;strong&gt;.bashrc&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:~/development/android-sdk-linux/platform-tools
+&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:~/development/android-sdk-linux/tools&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Đảm bảo rằng trong file &lt;strong&gt;.bashrc&lt;/strong&gt; chứa nội dung như sau:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;JAVA_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/lib/jvm/java-7-oracle
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;JAVA_HOME
+&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$JAVA_HOME&lt;/span&gt;/bin
+
+&lt;span class=&quot;nv&quot;&gt;ANT_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;~/development/apache-ant
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;ANT_HOME
+&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;nv&quot;&gt;$ANT_HOME&lt;/span&gt;/bin
+
+&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:~/development/android-sdk-linux/platform-tools
+&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:~/development/android-sdk-linux/tools
+
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;PATH&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Bạn cần phải có phiên bản Android SDK cụ thể. Để làm việc này, chúng ta chạy &lt;strong&gt;Android SDK Manager&lt;/strong&gt; bằng cách di chuyển đến thư mục &lt;strong&gt;android-sdk-linux/tools&lt;/strong&gt; và chạy lệnh &lt;strong&gt;android sdk&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/development/android-sdk-linux/tools
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;android sdk&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Lần đầu tiên bạn khởi chạy &lt;strong&gt;Android SDK Manager&lt;/strong&gt; sẽ có các thiết lập chọn trước. Đó là các khuyến nghị nên được cài đặt. Ngoài ra, bạn hãy chọn mục &lt;strong&gt;Android 4.4.2 (API 19)&lt;/strong&gt; chưa được cài đặt và tiến hành cài đặt chúng. Đây là phiên bản được Cordova 3.6 sử dụng. &lt;/p&gt;
+
+&lt;p&gt;Lưu ý rằng trong tương lai,các phiên bản Cordova thay đổi cũng sẽ yêu cầu Android SDK tương ứng. Khi đó chúng ta mở lại &lt;strong&gt;Android SDK Manager&lt;/strong&gt; và cài đặt các phiên bản API được yêu cầu.&lt;/p&gt;
+
+&lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;Android Develop Guide&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://evothings.com/doc/build/cordova-install-linux.html&quot;&gt;Installing Cordova on Linux&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://proyectojuanchacon.blogspot.com/2015/01/apache-cordova-development-environment.html&quot;&gt;Apache Cordova Development Environment Setup on Ubuntu 14.04&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu&quot;&gt;Hướng dẫn cài đặt Android SDK trên Ubuntu&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on March 11, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Build ứng dụng Ionic trên nền tảng Android]]></title>
+  <link>/ionic/build-ung-dung-ionic-tren-nen-tang-android</link>
+  <id>/ionic/build-ung-dung-ionic-tren-nen-tang-android</id>
+  <updated>2015-03-10T00:00:00-00:00</updated>
+  <published>2015-03-10T00:00:00+07:00</published>
+  
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Sau khi chạy được ứng dụng trên web view, chúng ta sẽ muốn chạy thử ứng dụng của mình trên các nền tảng khác nhau. Trong bài viết này, chúng ta sẽ đi vào chi tiết cách thức add platform và test ứng dụng như thế nào.&lt;/p&gt;
+
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#ci-t-platform-tools&quot;&gt;Cài đặt platform tools&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#system-requirements&quot;&gt;System Requirements&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#download-v-ci-t-sdk-tool&quot;&gt;Download và cài đặt SDK Tool&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#add-platform&quot;&gt;Add platform&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#test-ng-dng&quot;&gt;Test ứng dụng&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;ci-t-platform-tools&quot;&gt;Cài đặt platform tools&lt;/h2&gt;
+
+&lt;p&gt;Trước khi tiến hành &lt;strong&gt;add platform&lt;/strong&gt;, chúng ta cần cài đặt Android SDK.&lt;/p&gt;
+
+&lt;h4 id=&quot;system-requirements&quot;&gt;System Requirements&lt;/h4&gt;
+
+&lt;p&gt;Bạn có thể tham khảo &lt;a href=&quot;http://developer.android.com/sdk/index.html#Requirements&quot;&gt;yêu cầu về hệ thống để cài đặt Android SDK&lt;/a&gt;. Dưới đây là yêu cầu về hệ thống khi phát triển trên &lt;strong&gt;Linux&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GNOME or KDE desktop&lt;/li&gt;
+  &lt;li&gt;GNU C Library (glibc) 2.15 or later&lt;/li&gt;
+  &lt;li&gt;2 GB RAM minimum, 4 GB RAM recommended&lt;/li&gt;
+  &lt;li&gt;400 MB hard disk space&lt;/li&gt;
+  &lt;li&gt;At least 1 GB for Android SDK, emulator system images, and caches&lt;/li&gt;
+  &lt;li&gt;1280 x 800 minimum screen resolution&lt;/li&gt;
+  &lt;li&gt;Oracle® Java Development Kit (JDK) 7&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;download-v-ci-t-sdk-tool&quot;&gt;Download và cài đặt SDK Tool&lt;/h4&gt;
+
+&lt;p&gt;Bạn có thể download SDK Tool &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;tại đây&lt;/a&gt; và đảm bảo rằng bạn đã cài đặt Android SDK theo đúng &lt;a href=&quot;http://developer.android.com/sdk/installing/index.html&quot;&gt;hướng dẫn&lt;/a&gt; và thêm các gói &lt;a href=&quot;http://developer.android.com/sdk/installing/adding-packages.html&quot;&gt;SDK Packages&lt;/a&gt; để develop. Bạn có thể tham khảo bài viết &lt;a href=&quot;/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu&quot;&gt;Hướng dẫn cài đặt Android SDK trên Ubuntu 14.04&lt;/a&gt; của tôi.&lt;/p&gt;
+
+&lt;p&gt;Để Cordova command-line (CLI) hoạt động đúng, chúng ta cần thêm thư mục &lt;code&gt;tools&lt;/code&gt; và &lt;code&gt;platform-tools&lt;/code&gt; của SDK vào trong &lt;code&gt;PATH&lt;/code&gt;. Bạn có thể sử dụng editor để tạo hoặc chỉnh sửa file &lt;code&gt;~/.bash_profile&lt;/code&gt;, thêm dòng sau vào file (phụ thuộc vào nơi chúng ta cài đặt sdk, thư mục của tôi là &lt;strong&gt;/home/taly/development&lt;/strong&gt;):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;:/home/taly/development/android-sdk-linux/platform-tools:/home/taly/development/android-sdk-linux/tools&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Tiếp đó, trên Terminal, bạn chạy lệnh sau để load lại file này: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/.bash_profile&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;add-platform&quot;&gt;Add platform&lt;/h2&gt;
+
+&lt;p&gt;Bạn có thể kiểm tra xem hệ điều hành của bạn hỗ trợ phát triển những platform nào bằng lệnh:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ionic platform list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;hoặc &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cordova platform ls&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Chúng ta add platform android với lệnh: &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ionic platform add android&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;hoặc&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cordova platform add android&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Khi bạn chạy lệnh &lt;strong&gt;platform add&lt;/strong&gt;, ionic sẽ tạo ra thư mục &lt;strong&gt;android&lt;/strong&gt; bên trong thư mục &lt;strong&gt;platforms&lt;/strong&gt; và toàn bộ mã nguồn của ứng dụng sẽ được tự động copy vào trong thư mục &lt;strong&gt;platforms/android/assets/www&lt;/strong&gt;.
+Lưu ý: Bạn không nên chỉnh sửa thông tin gì trong thư mục này trừ khi bạn hiểu rõ mình đang làm gì. Bạn chỉ cần chỉnh sửa mã nguồn của dự án trong thư mục &lt;strong&gt;www&lt;/strong&gt; ở thư mục gốc của dự án. Mỗi lần build trên nền tảng nào, ionic sẽ tự động cập nhật cho bạn.&lt;/p&gt;
+
+&lt;h2 id=&quot;test-ng-dng&quot;&gt;Test ứng dụng&lt;/h2&gt;
+
+&lt;p&gt;Bạn có thể build và chạy thử xem ứng dụng hoạt động tốt hay không:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ionic build android
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ionic emulate android&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://cordova.apache.org/docs/en/3.6.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide&quot;&gt;Android Platform Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/ionic/build-ung-dung-ionic-tren-nen-tang-android&quot;&gt;Build ứng dụng Ionic trên nền tảng Android&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on March 10, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[Hướng dẫn cài đặt Ionic Framework trên Ubuntu]]></title>
-  <link>/ionic/huong-dan-cai-dat-ionic-cordova-tren-ubuntu</link>
-  <id>/ionic/huong-dan-cai-dat-ionic-cordova-tren-ubuntu</id>
+  <link>/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu</link>
+  <id>/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu</id>
   <updated>2015-03-09T00:00:00-00:00</updated>
   <published>2015-01-21T00:00:00+07:00</published>
   
@@ -92,7 +351,7 @@
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/ionic/huong-dan-cai-dat-ionic-cordova-tren-ubuntu&quot;&gt;Hướng dẫn cài đặt Ionic Framework trên Ubuntu&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on January 21, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu&quot;&gt;Hướng dẫn cài đặt Ionic Framework trên Ubuntu&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on January 21, 2015.&lt;/p&gt;</content>
 </entry>
 
 

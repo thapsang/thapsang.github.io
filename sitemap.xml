@@ -16,7 +16,15 @@
     
     
     <url>
-        <loc>/ionic/huong-dan-cai-dat-ionic-cordova-tren-ubuntu</loc>
+        <loc>/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu</loc>
+    </url>
+    
+    <url>
+        <loc>/ionic/build-ung-dung-ionic-tren-nen-tang-android</loc>
+    </url>
+    
+    <url>
+        <loc>/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu</loc>
     </url>
     
     <url>
