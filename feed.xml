@@ -4,13 +4,74 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-03-13T08:42:24+07:00</updated>
+<updated>2015-05-07T11:54:36+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
   <uri>/</uri>
   <email>taly2808@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Thêm tìm kiếm vào Ghost blogging]]></title>
+  <link>/ghost/them-tim-kiem-vao-ghost-blogging</link>
+  <id>/ghost/them-tim-kiem-vao-ghost-blogging</id>
+  <published>2015-05-07T00:00:00+07:00</published>
+  <updated>2015-05-07T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Khi nội dung blog của bạn ngày càng phong phú, việc tìm kiếm một nội dung cụ thể trở nên khó khăn hơn cho độc giả. Do đó, việc bổ sung một khung tìm kiếm cho blog là cần thiết. Bài viết này sẽ giới thiệu cách thêm khung tìm kiếm và hiển thị kết quả của chúng trong blog với plugin &lt;a href=&quot;https://github.com/i11ume/ghostHunter/&quot;&gt;ghostHunter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Truy cập vào địa chỉ trang &lt;a href=&quot;https://github.com/i11ume/ghostHunter/&quot;&gt;plugin ghostHunter trên github&lt;/a&gt;, chọn &lt;strong&gt;Download Zip&lt;/strong&gt; ở cột bên phải.&lt;/p&gt;
+
+    &lt;figure&gt;
+      &lt;img src=&quot;/images/ghost/ghostHunter-github.png&quot; /&gt;
+      &lt;figcaption&gt;Plugin ghostHunter trên trang github&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Giải nén tập tin mới download, copy file &lt;strong&gt;jquery.ghostHunter.js&lt;/strong&gt; hoặc &lt;strong&gt;jquery.ghostHunter.min.js&lt;/strong&gt; vào thư mục &lt;strong&gt;js&lt;/strong&gt; trong thư mục theme bạn đang sử dụng (&lt;em&gt;/content/themes/[your-theme]/assets/js/&lt;/em&gt;).&lt;/li&gt;
+  &lt;li&gt;Tiếp đến, bạn cần thêm đoạn code hiển thị form tìm kiếm tại vị trí mà bạn muốn (tôi đặt chúng trong file default.hbs).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;searchform&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;searchbox&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;search-field&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;searchtext&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;placeholder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Keyword...&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;button search-button&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bạn cần một vùng để hiển thị các kết quả tìm kiếm. Đặt chúng vào nơi bạn muốn:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;section&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;search-results&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/section&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bây giờ, bạn cần thêm plugin ghostHunter và thực hiện lời gọi sử dụng plugin này. Bạn thêm đoạn code sau vào phía dưới cùng của file &lt;em&gt;default.hbs&lt;/em&gt;, trước thẻ đóng &lt;em&gt;&amp;lt;/body&amp;gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;{{asset &amp;quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;jquery&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ghostHunter&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;js&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;quot;}}&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#search-field&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ghostHunter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;#search-results&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Bạn có thể tham khảo phần &lt;a href=&quot;https://github.com/jamalneufeld/ghostHunter#advanced-features&quot;&gt;tính năng nâng cao&lt;/a&gt; của plugin để có thể tùy chỉnh form và kết quả tìm kiếm theo mong muốn của mình.&lt;/p&gt;
+
+&lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jamalneufeld/ghostHunter&quot;&gt;ghostHunter Github Page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ghostforbeginners.com/how-to-add-a-search-box-to-your-ghost-blog/&quot;&gt;Add Searching to Ghost&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/ghost/them-tim-kiem-vao-ghost-blogging&quot;&gt;Thêm tìm kiếm vào Ghost blogging&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 07, 2015.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>

@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="google-site-verification" content="vy14mO9wf2bjKiZs8BIxCFXKJDP40DqGTqiwxscMctw" />
-<title>Cơ chế phân tích expression trong AngularJS. &#8211; THAPSANG.NET</title>
-<meta name="description" content="Cơ chế phân tích expression trong AngularJS với dịch vụ $parse, $interpolate, $compile.">
-<meta name="keywords" content="expression, $parse, angularjs">
+<title>Thêm tìm kiếm vào Ghost blogging &#8211; THAPSANG.NET</title>
+<meta name="description" content="Bổ sung phần tìm kiếm nội dung cho blog với Ghost">
+<meta name="keywords" content="Ghost">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/my-candle.png">
-<meta name="twitter:title" content="Cơ chế phân tích expression trong AngularJS.">
-<meta name="twitter:description" content="Cơ chế phân tích expression trong AngularJS với dịch vụ $parse, $interpolate, $compile.">
+<meta name="twitter:title" content="Thêm tìm kiếm vào Ghost blogging">
+<meta name="twitter:description" content="Bổ sung phần tìm kiếm nội dung cho blog với Ghost">
 <meta name="twitter:creator" content="@taly2808">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cơ chế phân tích expression trong AngularJS.">
-<meta property="og:description" content="Cơ chế phân tích expression trong AngularJS với dịch vụ $parse, $interpolate, $compile.">
-<meta property="og:url" content="/angularjs/co-che-phan-tich-expression-trong-angularjs">
+<meta property="og:title" content="Thêm tìm kiếm vào Ghost blogging">
+<meta property="og:description" content="Bổ sung phần tìm kiếm nội dung cho blog với Ghost">
+<meta property="og:url" content="/ghost/them-tim-kiem-vao-ghost-blogging">
 <meta property="og:site_name" content="THAPSANG.NET">
 <meta property="og:image" content="/images/my-candle.png">
 
@@ -27,7 +27,7 @@
 
 
 
-<link rel="canonical" href="/angularjs/co-che-phan-tich-expression-trong-angularjs">
+<link rel="canonical" href="/ghost/them-tim-kiem-vao-ghost-blogging">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="THAPSANG.NET Feed">
 <link rel="author" href="https://plus.google.com/+TaLy2808?rel=author">
 
@@ -151,109 +151,68 @@
                     <header class="post-header entry-header">
                     
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Cơ chế phân tích expression trong AngularJS.</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Thêm tìm kiếm vào Ghost blogging</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Cơ chế phân tích expression trong AngularJS với dịch vụ $parse, $interpolate, $compile.</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">Bổ sung phần tìm kiếm nội dung cho blog với Ghost</div>
                         <div class="post-info text-center small">
-                            <span class="entry-date date published"><time datetime="2014-12-01T00:00:00+07:00" class="post-time" itemprop="datePublished">01 Dec 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#angularjs" data-toggle="tooltip" title="Other posts from the Angularjs category" rel="tag">Angularjs</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">9.26</span> minutes read</span>
+                            <span class="entry-date date published updated"><time datetime="2015-05-07T00:00:00+07:00" class="post-time" itemprop="datePublished">07 May 2015</time><span>
+                            in <span class="post-tags"><a href="/categories/index.html#ghost" data-toggle="tooltip" title="Other posts from the Ghost category" rel="tag">Ghost</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">2.51</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Khi tìm hiểu về Expression, tài liệu nói rằng Angular sử dụng dịch vụ $parse để ước lượng các expression, có thể biên dịch template một cách thủ công với dịch vụ $interpolate. Dịch vụ $interpolate lại được dịch vụ $compile sử dụng để biên dịch các chuỗi HTML hoặc DOM. Vậy cụ thể từng dịch vụ này hoạt động ra sao, chúng được sử dụng trong trường hợp nào, mối quan hệ giữa các dịch vụ này là gì? Chúng ta sẽ tìm hiểu trong nội dung bài viết này.</p>
-
-<section>
-  <header>
-    <h2>Nội dung</h2>
-  </header>
-<div id="drawer">
-<ul id="markdown-toc">
-  <li><a href="#s-khc-nhau-gia-dch-v-parse-interpolate-v-compile">Sự khác nhau giữa dịch vụ $parse, $interpolate và $compile</a></li>
-  <li><a href="#parse-service">$parse service</a></li>
-  <li><a href="#interpolate-service">$interpolate service</a></li>
-  <li><a href="#ti-liu-tham-kho">Tài liệu tham khảo</a></li>
-</ul>
-
-  </div>
-</section>
-
-<h2 id="s-khc-nhau-gia-dch-v-parse-interpolate-v-compile">Sự khác nhau giữa dịch vụ $parse, $interpolate và $compile</h2>
-
-<p>Trước khi đi vào chi tiết từng dịch vụ, tôi muốn đưa ra sự so sánh giữa các dịch vụ để có cái nhìn tổng quan về chúng.  Một lời giải thích theo quan điểm cá nhân tôi là khá dễ hiểu từ <a href="http://stackoverflow.com/questions/17900588/what-is-the-difference-between-the-parse-interpolate-and-compile-services">StackOverflow</a>. Tôi trích dẫn lại trong bài viết để có cái nhìn tổng thể.</p>
-
-<p>Giả sử, chúng ta có một chuỗi HTML:</p>
-
-<div class="highlight"><pre><code class="language-html" data-lang="html">var imgHtml = &#39;<span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;/path/{{name}}.{{extension}}&quot;</span><span class="nt">&gt;</span>&#39;</code></pre></div>
-
-<p>và các giá trị trong scope:</p>
-
-<div class="highlight"><pre><code class="language-html" data-lang="html">$scope.name = &#39;image&#39;;
-$scope.extension = &#39;jpg&#39;;</code></pre></div>
-
-<p>Mỗi dịch vụ sẽ hoạt động ra sao với chuỗi HTML trên:</p>
+                        <p>Khi nội dung blog của bạn ngày càng phong phú, việc tìm kiếm một nội dung cụ thể trở nên khó khăn hơn cho độc giả. Do đó, việc bổ sung một khung tìm kiếm cho blog là cần thiết. Bài viết này sẽ giới thiệu cách thêm khung tìm kiếm và hiển thị kết quả của chúng trong blog với plugin <a href="https://github.com/i11ume/ghostHunter/">ghostHunter</a>.</p>
 
 <ul>
-  <li><strong>$compile</strong> có thể lấy toàn bộ thẻ đánh dấu này (markup) và chuyển nó thành một link function. Link function này khi được thực hiện trong một scope nhất định, nó sẽ tự động chuyển HTML text thành các thành phần DOM trực tiếp với tất cả các directive (trong trường hợp này là ng-src directive) phản ứng với các thay đổi của model. Angular sẽ gọi nó ra như sau: <strong>$compile(imgHtml)($scope)</strong> và Angular sẽ nhận được một phần tử DOM với tất cả các sự kiện liên quan đến DOM đó. $compile sử dụng dịch vụ <strong>$interpolate</strong> để thực hiện các công việc của mình.</li>
-  <li><strong>$interpolate</strong> biết cách để xử lý một chuỗi (với các biểu thức nội suy được nhúng vào chuỗi đó). Mặt khác, nó có thể lấy một chuỗi với các biểu thức nội suy (interpolation expression), một scope và chuyển nó thành kết quả dạng text. Chúng ta có thể nghĩ đơn giản rằng dịch vụ $interpolate là ngôn ngữ mẫu dựa trên các chuỗi (string-based template language). Với ví dụ trên, chúng ta sẽ sử dụng dịch vụ này như sau: <strong>$interpolate(“/path/.”)($scope)</strong> và nhận được kết quả ở dạng chuỗi là <strong>path/image.jpg</strong>.</li>
-  <li><strong>$parse</strong> được dịch vụ $interpolate sử dụng để ước lượng một expression riêng lẻ (ví như name, extension) trong một scope. Nó có thể được sử dụng để đọc và ghi giá trị cho một expression. Ví dụ để ước lượng biểu expression <em>name</em>, người ta sẽ làm như sau: <strong>$parse(‘name’)($scope)</strong> để có được giá trị “image”. Để thiết lập giá trị cho expression <em>name</em>, nguời ta làm như sau: <strong>$parse(‘name’).assign($scope, ‘image2’)</strong>.</li>
+  <li>
+    <p>Truy cập vào địa chỉ trang <a href="https://github.com/i11ume/ghostHunter/">plugin ghostHunter trên github</a>, chọn <strong>Download Zip</strong> ở cột bên phải.</p>
+
+    <figure>
+      <img src="/images/ghost/ghostHunter-github.png" />
+      <figcaption>Plugin ghostHunter trên trang github</figcaption>
+  </figure>
+  </li>
+  <li>Giải nén tập tin mới download, copy file <strong>jquery.ghostHunter.js</strong> hoặc <strong>jquery.ghostHunter.min.js</strong> vào thư mục <strong>js</strong> trong thư mục theme bạn đang sử dụng (<em>/content/themes/[your-theme]/assets/js/</em>).</li>
+  <li>Tiếp đến, bạn cần thêm đoạn code hiển thị form tìm kiếm tại vị trí mà bạn muốn (tôi đặt chúng trong file default.hbs).</li>
 </ul>
 
-<p>Cả ba dịch vụ cùng làm việc với nhau để cung cấp trực tiếp giao diện người dùng nhưng chúng hoạt động ở các cấp độ khác nhau:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;searchform&quot;</span> <span class="na">class=</span><span class="s">&quot;searchbox&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">id=</span><span class="s">&quot;search-field&quot;</span> <span class="na">class=</span><span class="s">&quot;searchtext&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Keyword...&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;button search-button&quot;</span> <span class="na">name=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/form&gt;</span></code></pre></div>
 
 <ul>
-  <li><strong>$parse</strong> chỉ liên quan đến một expression đơn lẻ. Nó là một dịch vụ có thể đọc và ghi (read/write) giá trị cho expression được đưa ra.</li>
-  <li><strong>$interpolate</strong> là dịch vụ chỉ có thể đọc và liên quan đến các chuỗi (string) chứa nhiều expression (ví dụ “My name is {{firstName}} {{lastName}}”).</li>
-  <li><strong>$compile</strong> là trái tim của AngularJS, nó có thể biến các chuỗi HTML (với các directive và các biểu thức nội suy (interpolation expression)) vào trực tiếp DOM.</li>
+  <li>Bạn cần một vùng để hiển thị các kết quả tìm kiếm. Đặt chúng vào nơi bạn muốn:</li>
 </ul>
 
-<figure>
-	<img src="/assets/img/$parse-$interpolate-$compile.png" />
-</figure>
-
-<h2 id="parse-service">$parse service</h2>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">&quot;search-results&quot;</span><span class="nt">&gt;&lt;/section&gt;</span></code></pre></div>
 
 <ul>
-  <li>Dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$parse">$parse</a> được dùng để phân tích (parsing) một biểu thức riêng lẻ (individual expression) của Angular. Thông thường, Angular sẽ tự động gọi dịch vụ $parse để ước lượng (evaluate) một biểu thức.</li>
-  <li>Chuyển đổi expression vào trong một function. Function này sau đó có thể được viện dẫn và thông qua một ngữ cảnh (thường là scope) để lấy giá trị của expression.</li>
-  <li>Để lấy giá trị của expression, ta dùng <em>$parse(‘expression’)(context)</em>.</li>
-  <li>Để thiết lập giá trị của expression, ta dùng hàm <strong>assign()</strong> như sau: <em>$parse(‘expression’).assign(context, value)</em>.</li>
+  <li>Bây giờ, bạn cần thêm plugin ghostHunter và thực hiện lời gọi sử dụng plugin này. Bạn thêm đoạn code sau vào phía dưới cùng của file <em>default.hbs</em>, trước thẻ đóng <em>&lt;/body&gt;</em></li>
 </ul>
 
-<p>Trong demo dưới đây, tôi sẽ thực hiện thiết lập cho ngữ cảnh được đưa ra bằng 2 cách. Cách thứ nhất sử dụng phương thức assign() để thay đổi giá trị của context. Cách thứ 2 sử dụng trực tiếp phương thức $parse() trả lại function xử lý đối tượng context.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;{{asset &quot;</span><span class="na">js</span><span class="err">/</span><span class="na">jquery</span><span class="err">.</span><span class="na">ghostHunter</span><span class="err">.</span><span class="na">js</span><span class="err">&quot;}}&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#search-field&quot;</span><span class="p">).</span><span class="nx">ghostHunter</span><span class="p">({</span>
+    <span class="nx">results</span><span class="o">:</span> <span class="s2">&quot;#search-results&quot;</span>
+<span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span></code></pre></div>
 
-<p><a class="jsbin-embed" href="http://jsbin.com/dikopi/4/embed?html,js,output">$parse Service</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
-
-<p>Dịch vụ $parse còn thường được sử dụng trong các directive không cần template và controller riêng, chỉ phục vụ mục đích phát hiện các sự kiện và xử lý chúng thông qua các expression (ngClick, ngBlur là những directive điển hình cho mục đích này). Dưới đây là demo thể hiện điều đó. </p>
-
-<p><a class="jsbin-embed" href="http://jsbin.com/guxevu/2/embed?html,js,output">Directive Example</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
-
-<h2 id="interpolate-service">$interpolate service</h2>
-
-<p>Trong Angular, chúng ta có khả năng biên dịch template một cách thủ công. Phép nội suy (interpolation) cho phép chúng ta cập nhật trực tiếp một chuỗi của text dựa trên các điều kiện của scope. Dịch vụ <a href="https://docs.angularjs.org/api/ng/service/$interpolate">$interpolate</a> được Angular sử dụng với mục đích đó. Dịch vụ này trả về một function với các tham số đầu vào là các expression được chứa trong chuỗi.</p>
-
-<figure>
-	<img src="/assets/img/$interpolateService.png" />
-</figure>
-
-<p>Dưới đây là ví dụ thực hiện với dịch vụ $interpolate:</p>
-
-<p><a class="jsbin-embed" href="http://jsbin.com/voneze/1/embed?html,js,output">Interpolate Expression Example</a><script src="http://static.jsbin.com/js/embed.js"></script></p>
+<p>Bạn có thể tham khảo phần <a href="https://github.com/jamalneufeld/ghostHunter#advanced-features">tính năng nâng cao</a> của plugin để có thể tùy chỉnh form và kết quả tìm kiếm theo mong muốn của mình.</p>
 
 <h2 id="ti-liu-tham-kho">Tài liệu tham khảo</h2>
 
 <ol>
-  <li><a href="http://stackoverflow.com/questions/17900588/what-is-the-difference-between-the-parse-interpolate-and-compile-services">What is the difference between the $parse, $interpolate and $compile services?</a></li>
-  <li><a href="http://techanand.wordpress.com/2014/06/22/angularjs-expressions/">AngularJs Expressions</a></li>
+  <li><a href="https://github.com/jamalneufeld/ghostHunter">ghostHunter Github Page</a></li>
+  <li><a href="https://ghostforbeginners.com/how-to-add-a-search-box-to-your-ghost-blog/">Add Searching to Ghost</a></li>
 </ol>
-
 
                         <br>
                     
                     
                     <div class="entry-tags text-center">
                     
-                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#expression" data-toggle="tooltip" title="Posts tagged with expression" rel="tag">expression</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#$parse" data-toggle="tooltip" title="Posts tagged with $parse" rel="tag">$parse</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#angularjs" data-toggle="tooltip" title="Posts tagged with angularjs" rel="tag">angularjs</a>
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#Ghost" data-toggle="tooltip" title="Posts tagged with Ghost" rel="tag">Ghost</a>
                     
                     </div>
                     
@@ -266,19 +225,19 @@ $scope.extension = &#39;jpg&#39;;</code></pre></div>
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Cơ chế phân tích expression trong AngularJS.&quot;%20/angularjs/co-che-phan-tich-expression-trong-angularjs%20via%20&#64;taly2808"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Thêm tìm kiếm vào Ghost blogging&quot;%20/ghost/them-tim-kiem-vao-ghost-blogging%20via%20&#64;taly2808"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>
         </li>
         <li>
-            <a  href="https://www.facebook.com/sharer/sharer.php?u=/angularjs/co-che-phan-tich-expression-trong-angularjs"
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=/ghost/them-tim-kiem-vao-ghost-blogging"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
                 <i class="icon-facebook"></i>
             </a>
         </li>
         <li>
-            <a href="https://plus.google.com/share?url=/angularjs/co-che-phan-tich-expression-trong-angularjs"
+            <a href="https://plus.google.com/share?url=/ghost/them-tim-kiem-vao-ghost-blogging"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
                 <i class="icon-google-plus"></i>
             </a>

@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Thêm tìm kiếm vào Ghost blogging",
+		  "category"   : "",
+		  "url"        : "/ghost/them-tim-kiem-vao-ghost-blogging",
+		  "date"       : "2015-05-07 00:00:00 +0700",
+		  "shortdate"  : "May 07, 2015"
+		} ,
+	
+		{
 		  "title"      : "Hướng dẫn cài đặt Android SDK trên Ubuntu",
 		  "category"   : "",
 		  "url"        : "/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu",
