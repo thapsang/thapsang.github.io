@@ -1,9 +1,17 @@
 [
 	
 		{
-		  "title"      : "Thêm tìm kiếm vào Ghost blogging",
+		  "title"      : "Thiết lập gửi mail sử dụng Gmail cho Ghost blog",
 		  "category"   : "",
-		  "url"        : "/ghost/them-tim-kiem-vao-ghost-blogging",
+		  "url"        : "/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog",
+		  "date"       : "2015-05-08 00:00:00 +0700",
+		  "shortdate"  : "May 08, 2015"
+		} ,
+	
+		{
+		  "title"      : "Thêm tìm kiếm vào Ghost blog",
+		  "category"   : "",
+		  "url"        : "/ghost/them-tim-kiem-vao-ghost-blog",
 		  "date"       : "2015-05-07 00:00:00 +0700",
 		  "shortdate"  : "May 07, 2015"
 		} ,

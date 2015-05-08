@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-05-07T11:54:36+07:00</updated>
+<updated>2015-05-08T10:52:30+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -14,9 +14,109 @@
 
 
 <entry>
-  <title type="html"><![CDATA[Thêm tìm kiếm vào Ghost blogging]]></title>
-  <link>/ghost/them-tim-kiem-vao-ghost-blogging</link>
-  <id>/ghost/them-tim-kiem-vao-ghost-blogging</id>
+  <title type="html"><![CDATA[Thiết lập gửi mail sử dụng Gmail cho Ghost blog]]></title>
+  <link>/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog</link>
+  <id>/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog</id>
+  <published>2015-05-08T00:00:00+07:00</published>
+  <updated>2015-05-08T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Để gửi mail, Ghost sử dụng &lt;a href=&quot;https://github.com/andris9/Nodemailer&quot;&gt;Nodemailer&lt;/a&gt; - một module của Node.js cho phép gửi mail từ một ứng dụng Node.js. Nó cho phép chúng ta sử dụng các dịch vụ mail hỗ trợ SMTP phổ biến như Gmail, Mailgun, Yahoo, SES, etc. Trong bài viết này, chúng ta sẽ thiết lập cho Ghost blog gửi mail sử dụng dịch vụ Gmail.&lt;/p&gt;
+
+&lt;h3 id=&quot;m-file-configjs-bng-trnh-son-tho&quot;&gt;Mở file config.js bằng trình soạn thảo&lt;/h3&gt;
+
+&lt;p&gt;File &lt;strong&gt;config.js&lt;/strong&gt; nằm trong thư mục gốc nơi bạn cài đặt blog. Bạn mở nó với trình soạn thảo mà bạn yêu thích.&lt;/p&gt;
+
+&lt;h3 id=&quot;thm-cu-hnh-cho-gmail&quot;&gt;Thêm cấu hình cho Gmail&lt;/h3&gt;
+
+&lt;p&gt;Tiếp đến, bạn cần thêm đoạn code dưới đây vào trong file &lt;strong&gt;config.js&lt;/strong&gt;. Bạn thay thế giá trị của &lt;strong&gt;user&lt;/strong&gt; và &lt;strong&gt;password&lt;/strong&gt; cho phù hợp.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mail: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    transport: &lt;span class=&quot;s1&quot;&gt;&amp;#39;SMTP&amp;#39;&lt;/span&gt;,
+    options: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+       service: &lt;span class=&quot;s1&quot;&gt;&amp;#39;Gmail&amp;#39;&lt;/span&gt;,
+       auth: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+           user: &lt;span class=&quot;s1&quot;&gt;&amp;#39;your.gmail.id@gmail.com&amp;#39;&lt;/span&gt;,
+           pass: &lt;span class=&quot;s1&quot;&gt;&amp;#39;your-gmail-password&amp;#39;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Các thiết lập cho mail trong các mode tương ứng trông sẽ như sau:&lt;/p&gt;
+
+&lt;div class=&quot;col-md-6&quot;&gt;
+&lt;p class=&quot;lead&quot;&gt;
+&lt;b&gt;Production mode&lt;/b&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;production: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    url: &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://my-ghost-blog.com&amp;#39;&lt;/span&gt;,
+    mail: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        transport: &lt;span class=&quot;s1&quot;&gt;&amp;#39;SMTP&amp;#39;&lt;/span&gt;,
+        options: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+           service: &lt;span class=&quot;s1&quot;&gt;&amp;#39;Gmail&amp;#39;&lt;/span&gt;,
+           auth: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+               user: &lt;span class=&quot;s1&quot;&gt;&amp;#39;your.gmail.id@gmail.com&amp;#39;&lt;/span&gt;,
+               pass: &lt;span class=&quot;s1&quot;&gt;&amp;#39;your-gmail-password&amp;#39;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;col-md-6&quot;&gt;
+&lt;p class=&quot;lead&quot;&gt;
+&lt;b&gt;Development mode&lt;/b&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;development: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    url: &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://my-ghost-blog.com&amp;#39;&lt;/span&gt;,
+    mail: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        transport: &lt;span class=&quot;s1&quot;&gt;&amp;#39;SMTP&amp;#39;&lt;/span&gt;,
+        options: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+           service: &lt;span class=&quot;s1&quot;&gt;&amp;#39;Gmail&amp;#39;&lt;/span&gt;,
+           auth: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+               user: &lt;span class=&quot;s1&quot;&gt;&amp;#39;your.gmail.id@gmail.com&amp;#39;&lt;/span&gt;,
+               pass: &lt;span class=&quot;s1&quot;&gt;&amp;#39;your-gmail-password&amp;#39;&lt;/span&gt;
+          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;test&quot;&gt;Test&lt;/h3&gt;
+
+&lt;p&gt;Để kiểm tra các thiết lập gửi mail chúng ta vừa làm có hoạt động hay không, bạn cần &lt;strong&gt;Restart Ghost&lt;/strong&gt; và tiến hành gửi mail phía backend. Trước đó, bạn cần đảm bảo rằng đã thiết lập email cho Ghost User trong trang &lt;strong&gt;/ghost/settings/users/&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Bạn truy cập vào tab &lt;strong&gt;Labs&lt;/strong&gt; trong phần &lt;strong&gt;Settings&lt;/strong&gt; tại địa chỉ &lt;strong&gt;/ghost/settings/labs/&lt;/strong&gt; và click vào nút &lt;strong&gt;Send&lt;/strong&gt; để gửi email test tới địa chỉ email mà bạn đã thiết lập cho user của bạn.&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;a href=&quot;/images/ghost/send-test-mail-ghost.png&quot;&gt;&lt;img src=&quot;/images/ghost/send-test-mail-ghost.png&quot; /&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Nếu bạn nhận được email tức là các thiết lập đã được thực hiện chính xác. &lt;/p&gt;
+
+&lt;p&gt;Nếu bạn muốn sử dụng dịch vụ gửi mail khác, không phải Gmail chẳng hạn như Mailgun hay Amazon SES thì bạn có thể tham khảo &lt;a href=&quot;http://support.ghost.org/mail&quot;&gt;theo hướng dẫn của Ghost Team&lt;/a&gt;. Chúc bạn thành công!&lt;/p&gt;
+
+&lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.qoncious.com/questions/how-setup-ghost-send-email-using-gmail&quot;&gt;How to setup Ghost to send email using Gmail?&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog&quot;&gt;Thiết lập gửi mail sử dụng Gmail cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 08, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Thêm tìm kiếm vào Ghost blog]]></title>
+  <link>/ghost/them-tim-kiem-vao-ghost-blog</link>
+  <id>/ghost/them-tim-kiem-vao-ghost-blog</id>
   <published>2015-05-07T00:00:00+07:00</published>
   <updated>2015-05-07T00:00:00+07:00</updated>
   <author>
@@ -31,8 +131,7 @@
     &lt;p&gt;Truy cập vào địa chỉ trang &lt;a href=&quot;https://github.com/i11ume/ghostHunter/&quot;&gt;plugin ghostHunter trên github&lt;/a&gt;, chọn &lt;strong&gt;Download Zip&lt;/strong&gt; ở cột bên phải.&lt;/p&gt;
 
     &lt;figure&gt;
-      &lt;img src=&quot;/images/ghost/ghostHunter-github.png&quot; /&gt;
-      &lt;figcaption&gt;Plugin ghostHunter trên trang github&lt;/figcaption&gt;
+      &lt;a href=&quot;/images/ghost/ghostHunter-github.png&quot;&gt;&lt;img src=&quot;/images/ghost/ghostHunter-github.png&quot; /&gt;&lt;/a&gt;
   &lt;/figure&gt;
   &lt;/li&gt;
   &lt;li&gt;Giải nén tập tin mới download, copy file &lt;strong&gt;jquery.ghostHunter.js&lt;/strong&gt; hoặc &lt;strong&gt;jquery.ghostHunter.min.js&lt;/strong&gt; vào thư mục &lt;strong&gt;js&lt;/strong&gt; trong thư mục theme bạn đang sử dụng (&lt;em&gt;/content/themes/[your-theme]/assets/js/&lt;/em&gt;).&lt;/li&gt;
@@ -40,9 +139,9 @@
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;searchform&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;searchbox&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;search-field&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;searchtext&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;placeholder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Keyword...&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;button search-button&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;search-field&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;searchtext&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;placeholder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Keyword...&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;button search-button&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Bạn cần một vùng để hiển thị các kết quả tìm kiếm. Đặt chúng vào nơi bạn muốn:&lt;/li&gt;
@@ -70,7 +169,7 @@
   &lt;li&gt;&lt;a href=&quot;https://ghostforbeginners.com/how-to-add-a-search-box-to-your-ghost-blog/&quot;&gt;Add Searching to Ghost&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/ghost/them-tim-kiem-vao-ghost-blogging&quot;&gt;Thêm tìm kiếm vào Ghost blogging&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 07, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/ghost/them-tim-kiem-vao-ghost-blog&quot;&gt;Thêm tìm kiếm vào Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 07, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -2951,92 +3050,6 @@ Xem thêm tại &lt;a href=&quot;http://stackoverflow.com/questions/13944956/the
 &lt;/ol&gt;
 
   &lt;p&gt;&lt;a href=&quot;/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter&quot;&gt;Kiểm tra kết nối database với CodeIgniter&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 23, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Tạo view calendar trong Drupal 7]]></title>
-  <link>/drupal-7/tao-view-calendar-trong-drupal7</link>
-  <id>/drupal-7/tao-view-calendar-trong-drupal7</id>
-  <published>2014-04-14T00:00:00+07:00</published>
-  <updated>2014-04-14T00:00:00+07:00</updated>
-  <author>
-    <name>Ta Ly</name>
-    <uri></uri>
-    <email>taly2808@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Trong dự án đang thực hiện, tôi cần hiển thị lịch học của các khóa học dưới dạng lịch (calendar) để mọi người có cái nhìn trực quan hơn. Trang tôi muốn hiển thị là trang &lt;a href=&quot;http://buocnho.com/dao-tao&quot; target=&quot;_blank&quot;&gt;Đào tạo&lt;/a&gt;. Các khóa học có kiểu nội dung là &lt;strong&gt;Course&lt;/strong&gt; và có trường &lt;strong&gt;Dự kiến khai giảng&lt;/strong&gt; (&lt;code&gt;field_course_start_date&lt;/code&gt;) là kiểu ngày tháng (date). Đã có nhiều plugin jquery hỗ trợ việc hiển thị Calendar, nhưng làm thế nào để tôi có thể sử dụng chúng trong Drupal 7?&lt;/p&gt;
-
-&lt;p&gt;Để giải quyết vấn đề này, tôi sử dụng &lt;a href=&quot;http://drupal.org/project/views&quot; target=&quot;_blank&quot;&gt;Views&lt;/a&gt; dựa trên module &lt;a href=&quot;http://drupal.org/project/calendar&quot; target=&quot;_blank&quot;&gt;Calendar&lt;/a&gt;) của drupal để tạo ra một trang với những truy vấn phù hợp với mục đích hiển thị của tôi.&lt;/p&gt;
-
-&lt;h2 id=&quot;thc-hin&quot;&gt;Thực hiện&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Bạn cần cài đặt các modules sau: &lt;a href=&quot;https://drupal.org/project/ctools&quot; target=&quot;_blank&quot;&gt;CTools&lt;/a&gt;, &lt;a href=&quot;https://drupal.org/project/views&quot; target=&quot;_blank&quot;&gt;Views&lt;/a&gt;, &lt;a href=&quot;https://drupal.org/project/date&quot; target=&quot;_blank&quot;&gt;Date&lt;/a&gt;, &lt;a href=&quot;https://drupal.org/project/calendar&quot; target=&quot;_blank&quot;&gt;Calendar&lt;/a&gt;.
- &lt;em&gt;Lưu ý&lt;/em&gt;: khi cài đặt các module trên, bạn cần enable cả Date API và Date Views.&lt;/li&gt;
-  &lt;li&gt;Tạo view từ template: bạn truy cập vào Structure &amp;gt; Views &amp;gt; Add view from template.
- &lt;img src=&quot;/assets/img/add-view-from-template.png&quot; alt=&quot;Tạo view từ template&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Khi đó, bạn sẽ nhìn thấy nhiều loại Views mặc định mà bạn có thể thêm vào.
-    &lt;ul&gt;
-      &lt;li&gt;Click vào &lt;strong&gt;add&lt;/strong&gt; ở phía cuối hàng “&lt;em&gt;A calendar view of the ‘field_course_start_date’ field in the ‘node’ base table.&lt;/em&gt;”.
-  &lt;img src=&quot;/assets/img/add-field-course-start-date.png&quot; alt=&quot;Tạo view từ template&quot; /&gt;&lt;/li&gt;
-      &lt;li&gt;Nhập vào tên View mà bạn muốn hiển thị, sau đó click &lt;strong&gt;Continue&lt;/strong&gt;.
- &lt;img src=&quot;/assets/img/enter-view-name-calendar.png&quot; alt=&quot;Nhập vào tên View Calendar&quot; /&gt;&lt;/li&gt;
-      &lt;li&gt;Bạn kéo xuống cuối trang để xem preview của view, bạn sẽ thấy view calendar với nội dung được hiển thị phía trong.
- &lt;img src=&quot;/assets/img/preview-calendar-view.png&quot; alt=&quot;Preview&quot; /&gt;&lt;/li&gt;
-      &lt;li&gt;Kéo trở lên,  chúng ta cần thay đổi phần cấu hình &lt;strong&gt;FILTER CRITERIA&lt;/strong&gt; để view của chúng ta chỉ hiển thị nội dung có content type là &lt;strong&gt;Course&lt;/strong&gt;:
-        &lt;ul&gt;
-          &lt;li&gt;Click vào nút Add.
-  &lt;img src=&quot;/assets/img/add-filter-criteria.png&quot; alt=&quot;Add Filter Criteria&quot; /&gt;&lt;/li&gt;
-          &lt;li&gt;Chọn &lt;em&gt;Content: Type&lt;/em&gt;.&lt;/li&gt;
-          &lt;li&gt;Click Apply (all displays).&lt;/li&gt;
-          &lt;li&gt;Chọn “Is one of” và sau tích chọn “&lt;em&gt;Course&lt;/em&gt;”.
-  &lt;img src=&quot;/assets/img/config-filter-criteria-type.png&quot; alt=&quot;Cấu hình cho Filter Criteria&quot; /&gt;&lt;/li&gt;
-          &lt;li&gt;Click Apply (all displays).
- Khi đó, &lt;em&gt;Filter Criteria&lt;/em&gt; sẽ như hình.
- &lt;img src=&quot;/assets/img/filter-criteria-after.png&quot; alt=&quot;Filter Criteria&quot; /&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Tiếp đến, chúng ta chỉnh sửa &lt;strong&gt;Contextual Filters&lt;/strong&gt; trong phần &lt;strong&gt;Advanced&lt;/strong&gt; ở cột bên phải.
- &lt;img src=&quot;/assets/img/contextual-filters.png&quot; alt=&quot;Cấu hình Contextual Filters&quot; /&gt;&lt;/li&gt;
-      &lt;li&gt;Click &lt;em&gt;Date: Date (node) (Content: Dự kiến khai giảng (field_course_start_date))&lt;/em&gt;.&lt;/li&gt;
-      &lt;li&gt;Ở phía trên của cửa sổ, bạn cần đảm bảo rằng mình đang cấu hình cho lựa chọn tất cả các hiển thị (All displays).&lt;/li&gt;
-      &lt;li&gt;Check chọn &lt;em&gt;Content: Dự kiến khai giảng (field_course_start_date)&lt;/em&gt; và click &lt;em&gt;Apply (all displays)&lt;/em&gt;.
- &lt;img src=&quot;/assets/img/config-contextual-filters.png&quot; alt=&quot;Contextual Filters&quot; /&gt;&lt;/li&gt;
-      &lt;li&gt;Kiểm tra lại Preview của View.&lt;/li&gt;
-      &lt;li&gt;Lưu lại  cấu hình của View.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Cấu hình đường dẫn của View để hiển thị ngoài trang web.
-    &lt;ul&gt;
-      &lt;li&gt;Đường dẫn mặc định của View được thể hiện trong phần cấu hình &lt;em&gt;Path&lt;/em&gt; của cột &lt;strong&gt;PAGE SETTINGS&lt;/strong&gt;. Bạn click vào đường dẫn đó để thay đổi tên đường dẫn mà bạn muốn. Sau đó lưu các thiết lập đó lại.
- &lt;img src=&quot;/assets/img/page-calendar-setting.png&quot; alt=&quot;Thiết lập đường dẫn cho trang hiển thị view calendar&quot; /&gt;&lt;/li&gt;
-      &lt;li&gt;Nếu bạn thay đổi đường dẫn thì cũng nhớ thay đổi cho các hiển thị theo Week, Day, Year nữa.	&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Kiểm tra hiển thị ngoài trang web
- Giả sử, tôi thay đổi đường dẫn từ &lt;strong&gt;calendar-node-field-course-start-date&lt;/strong&gt; thành &lt;strong&gt;dao-tao&lt;/strong&gt;. Khi đó, trên thanh địa chỉ trình duyệt, tôi nhập vào như sau: &lt;em&gt;http://localhost/drupal/dao-tao&lt;/em&gt; và kiểm tra kết quả thôi.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;xem-thm&quot;&gt;Xem thêm&lt;/h2&gt;
-
-&lt;p&gt;Nếu bạn gặp lỗi &lt;strong&gt;Warning: Illegal string offset ‘data’ in template_preprocess_calendar_month() (line 38 of modules/calendar/theme/theme.inc)&lt;/strong&gt; khi hiển thị nội dung của view calendar, bạn làm như sau:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Mở file &lt;strong&gt;sites/all/modules/calendar/theme/theme.inc&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;Thêm đoạn code sau ngay dưới dòng 37: &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;($&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;data&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Lưu file, xóa cache và mở lại trang.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;/drupal-7/tao-view-calendar-trong-drupal7&quot;&gt;Tạo view calendar trong Drupal 7&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on April 14, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
