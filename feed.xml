@@ -4,13 +4,230 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-05-08T10:52:30+07:00</updated>
+<updated>2015-05-09T18:01:23+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
   <uri>/</uri>
   <email>taly2808@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Tạo trang contact và gửi mail với Nodemailer cho Ghost blog]]></title>
+  <link>/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog</link>
+  <id>/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog</id>
+  <published>2015-05-09T00:00:00+07:00</published>
+  <updated>2015-05-09T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Trước khi thực hiện theo nội dung bài này, bạn cần đảm bảo rằng blog của bạn đã được thiết lập có thể gửi mail. Bạn có thể tham khảo bài &lt;a href=&quot;/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog&quot;&gt;Thiết lập gửi mail sử dụng Gmail cho Ghost blog&lt;/a&gt; để chắc chắn điều này.&lt;/p&gt;
+
+&lt;section&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Nội dung&lt;/h2&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#thm-contact-form-vo-blog&quot;&gt;Thêm contact form vào blog&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#to-trang-contact-tnh&quot;&gt;Tạo trang contact tĩnh&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#to-trang-contact-bng-template-page-contacthbs&quot;&gt;Tạo trang contact bằng template page-contact.hbs&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#thm-trang-contact-vo-navigation-menu&quot;&gt;Thêm trang contact vào navigation menu&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cp-nht-frontend-controller&quot;&gt;Cập nhật frontend controller&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#tham-chiu-n-nodemailer&quot;&gt;Tham chiếu đến Nodemailer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#thm-phng-thc-x-l-submit-form&quot;&gt;Thêm phương thức xử lý submit form&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#thm-ng-dn-x-l-form-submit&quot;&gt;Thêm đường dẫn xử lý form submit&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#iu-hng-n-mt-trang-tnh&quot;&gt;Điều hướng đến một trang tĩnh&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;h2 id=&quot;thm-contact-form-vo-blog&quot;&gt;Thêm contact form vào blog&lt;/h2&gt;
+
+&lt;p&gt;Bạn có thể tạo trang contact cho blog bằng cách tạo một trang tĩnh (static page) và tạo ra một template với tên &lt;strong&gt;page-contact.hbs&lt;/strong&gt; trong thư mục theme của bạn. Bạn có thể xem chi tiết tại &lt;a href=&quot;http://support.ghost.org/add-contact-form-ghost-blog/&quot;&gt;http://support.ghost.org/add-contact-form-ghost-blog/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;to-trang-contact-tnh&quot;&gt;Tạo trang contact tĩnh&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Đăng nhập vào blog của bạn.&lt;/li&gt;
+  &lt;li&gt;Click vào nút &lt;strong&gt;New post&lt;/strong&gt; ở phía trên navigation menu.&lt;/li&gt;
+  &lt;li&gt;Nhập vào tiêu đề của trang.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Chỉnh sửa các thiết lập cho post bằng cách click vào biểu tượng &lt;i class=&quot;icon-gear&quot; style=&quot;color: #1CA6BE; font-size: 1.5em;&quot;&gt;&lt;/i&gt; bên cạnh nút &lt;strong&gt;Save draft&lt;/strong&gt; và tích chọn vào &lt;strong&gt;Turn this post into a static page&lt;/strong&gt;.&lt;/p&gt;
+
+    &lt;figure&gt;
+     &lt;img src=&quot;/images/ghost/setting-static-contact-page.png&quot; /&gt;
+ &lt;/figure&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Thêm đoạn code html dưới đây vào nội dung của trang:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/mail&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;POST&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Name: &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;  
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Email: &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;email&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;  
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Subject: &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;subject&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;  
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Content:&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;  
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&amp;lt;textarea&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;cols=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;40&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rows=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;5&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/textarea&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;submit&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Submit&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Lưu ý rằng, chúng ta sẽ sử dụng đường dẫn &lt;strong&gt;/mail&lt;/strong&gt; trong &lt;em&gt;action&lt;/em&gt; là địa chỉ xử lý contact form. Bạn có thể thay đổi nó nếu cần.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Publish&lt;/strong&gt; trang này.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;to-trang-contact-bng-template-page-contacthbs&quot;&gt;Tạo trang contact bằng template page-contact.hbs&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Tạo mới file &lt;strong&gt;page-contact.hbs&lt;/strong&gt; trong thư mục theme gốc mà bạn đang sử dụng.&lt;/li&gt;
+  &lt;li&gt;Copy nội dung từ file &lt;strong&gt;page.hbs&lt;/strong&gt; (trong theme &lt;em&gt;casper&lt;/em&gt;) sang. Nội dung của trang lúc này sẽ như thế này:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure&gt;
+    &lt;img src=&quot;/images/ghost/page-contact-hbs.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;thm-trang-contact-vo-navigation-menu&quot;&gt;Thêm trang contact vào navigation menu&lt;/h2&gt;
+
+&lt;p&gt;Bạn truy câp vào tab &lt;strong&gt;Navigation&lt;/strong&gt; của mục &lt;strong&gt;Settings&lt;/strong&gt; trong phần backend để thêm trang Contact vào thanh điều hướng.&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&quot;/images/ghost/add-contact-to-navigation-menu.png&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;cp-nht-frontend-controller&quot;&gt;Cập nhật frontend controller&lt;/h2&gt;
+
+&lt;p&gt;Bây giờ, chúng ta cần thêm một phương thức để xử lý gửi mail. Chúng ta sẽ tiến hành cập nhật file &lt;strong&gt;core/server/controllers/frontend.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tham-chiu-n-nodemailer&quot;&gt;Tham chiếu đến Nodemailer&lt;/h3&gt;
+
+&lt;p&gt;Thêm &lt;strong&gt;mailer = require(‘../mail’)&lt;/strong&gt; vào phía trên của file:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moment&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;moment&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;rss&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;../data/xml/rss&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt;           &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;lodash&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Promise&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;bluebird&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;api&lt;/span&gt;         &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;../api&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;../config&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;filters&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;../filters&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;template&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;../helpers/template&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;errors&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;../errors&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;routeMatch&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;path-match&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(),&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;mailer&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;../mail&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// add node mailer&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;thm-phng-thc-x-l-submit-form&quot;&gt;Thêm phương thức xử lý submit form&lt;/h3&gt;
+
+&lt;p&gt;Bạn có thể thêm phương thức này ngay sau &lt;strong&gt;rss: function(function (req, res, next){ .. },&lt;/strong&gt; và bạn nhớ nhập vào địa chỉ email nhận thư tương ứng nhé.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//action for posting the contact form&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;submitContactForm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mailOptions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// sender address&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+
+        &lt;span class=&quot;c1&quot;&gt;// reciever email (add your email here)&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;your@email.com&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+
+        &lt;span class=&quot;c1&quot;&gt;// subject&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+
+        &lt;span class=&quot;c1&quot;&gt;// email body&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39; - From: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;email&lt;/span&gt; 
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//sending the email&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;mailer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mailOptions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//this is the response to the end user &lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//should ideally redirect or return a view&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Message was successfully sent.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//response for error&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;There was an error sending the email.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Lưu ý rằng, hồi đáp sẽ chỉ trả lại text trên màn hình. Bạn có thể cần chuyển hướng đến một trang khác để đưa người dùng trở về trang chủ nếu cần. Chúng ta sẽ giải quyết vấn đề này ở phần &lt;a href=&quot;#iu-hng-n-mt-trang-tnh&quot;&gt;Điều hướng đến một trang tĩnh&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;thm-ng-dn-x-l-form-submit&quot;&gt;Thêm đường dẫn xử lý form submit&lt;/h3&gt;
+
+&lt;p&gt;Chúng ta sẽ tiến hành cập nhật file &lt;strong&gt;core/server/routes/frontend.js&lt;/strong&gt;. Thêm: &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;router.post(&#39;/mail&#39;, frontend.submitContactForm)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ngay phía sau đường dẫn: &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;router.get(&#39;*&#39;, frontend.single);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;iu-hng-n-mt-trang-tnh&quot;&gt;Điều hướng đến một trang tĩnh&lt;/h2&gt;
+
+&lt;p&gt;Nếu bạn muốn điều hướng đến một trang tĩnh sau khi gửi mail, bạn làm theo các bước sau:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Tạo một trang tĩnh có địa chỉ post url là &lt;strong&gt;contact-success&lt;/strong&gt; và nhập vào nội dung bạn muốn hiển thị khi người dùng gửi mail thành công.&lt;/li&gt;
+  &lt;li&gt;Tạo template &lt;strong&gt;page-contact-success.hbs&lt;/strong&gt; trong thư mục chứa theme.&lt;/li&gt;
+  &lt;li&gt;Cập nhật đoạn code để điều hướng đến trang &lt;em&gt;contact-success&lt;/em&gt; bằng lệnh &lt;strong&gt;res.redirect(‘/contact-success’)&lt;/strong&gt;. Khi đó, file &lt;strong&gt;core/server/controllers/frontend.js&lt;/strong&gt; trông sẽ như thế này:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//action for posting the contact form&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;submitContactForm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+       &lt;span class=&quot;p&quot;&gt;....&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//sending the email&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;mailer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mailOptions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//this will redirect to the static page you&amp;#39;ve created&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/contact-success&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+
+        &lt;span class=&quot;p&quot;&gt;....&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sau cùng, nếu bạn muốn trang này tự động điều hướng đến trang chủ sau 5 giây, bạn thêm đoạn code javascript dưới đây vào file &lt;strong&gt;page-contact-success.hbs&lt;/strong&gt;, (ngay sau ):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//redirect to home page after 5 seconds.&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;//set the redirect url here (&amp;quot;/&amp;quot;) will redirect to the root&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//set the time here&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Thế là xong. Bạn cũng có thể làm tương tự khi gửi mail không thành công.&lt;/p&gt;
+
+&lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://support.ghost.org/add-contact-form-ghost-blog/&quot;&gt;How do I add a contact form to my Ghost blog?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://tarikk.com/ghost-blog-contact-form-using-ghosts-nodemailer/&quot;&gt;Contact form using Ghost’s Nodemailer&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog&quot;&gt;Tạo trang contact và gửi mail với Nodemailer cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 09, 2015.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -2966,90 +3183,6 @@ Composer version b33da336ecb7f1c9b15a57285e5a9f09cf5f3dd2 2014-09-30 15:28:01&lt
 &lt;p&gt;Với kết quả hiển thị như trên, bạn đã cài đặt thành công Composer trên máy tính của mình.&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;/laravel/huong-dan-cai-dat-composer&quot;&gt;Hướng dẫn cài đặt Composer&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 24, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Kiểm tra kết nối database với CodeIgniter]]></title>
-  <link>/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</link>
-  <id>/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter</id>
-  <published>2014-09-23T00:00:00+07:00</published>
-  <updated>2014-09-23T00:00:00+07:00</updated>
-  <author>
-    <name>Ta Ly</name>
-    <uri></uri>
-    <email>taly2808@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Khi làm việc với Model cần kết nối đến database, tôi gặp phải thông báo lỗi sau: (Tôi đang sử dụng CodeIgniter 2.2.0, Apache/2.4.9 (Unix), PHP/5.5.11, MySQL/5.0.1):&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;A Database Error Occurred
-
-Unable to connect to your database server using the provided settings.
-
-Filename: core/Loader.php
-
-Line Number: 346&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Và đây là thông số cấu hình database trong &lt;strong&gt;/application/config/database.php&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;hostname&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;username&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;root&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;mypasword&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;database&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;db_codeigniter_test&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;dbdriver&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;mysql&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;dbprefix&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;pconnect&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;db_debug&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cache_on&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;cachedir&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;char_set&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;utf8&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;dbcollat&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;utf8_general_ci&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;swap_pre&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;autoinit&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;16&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;stricton&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Để kiểm tra có kết nối được tới database hay không, ta cần thêm đoạn code sau phía dưới cùng của file &lt;strong&gt;/application/config/database.php&lt;/strong&gt; và xem kết quả:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;pre&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;print_r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;/pre&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Connecting to database: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;database&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$dbh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mysql_connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt;     &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;hostname&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt;     &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;username&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;     &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Cannot connect to the database because: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;mysql_error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;mysql_select_db&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;database&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; 
-&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;br /&amp;gt;   Connected OK:&amp;#39;&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt;     &lt;span class=&quot;k&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;file: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;__FILE__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39; Line: &amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;__LINE__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Nếu bạn gặp cảnh báo &lt;strong&gt;The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead&lt;/strong&gt;, để loại bỏ thông báo này, bạn có thể thêm &lt;code&gt;error_reporting(E_ALL ^ E_DEPRECATED);&lt;/code&gt; vào đầu file &lt;strong&gt;/application/config/database.php&lt;/strong&gt; hoặc chỉnh sửa giá trị của &lt;strong&gt;error_reporting&lt;/strong&gt; trong file &lt;strong&gt;php.ini&lt;/strong&gt;.
-Xem thêm tại &lt;a href=&quot;http://stackoverflow.com/questions/13944956/the-mysql-extension-is-deprecated-and-will-be-removed-in-the-future-use-mysqli&quot;&gt;http://stackoverflow.com/questions/13944956/the-mysql-extension-is-deprecated-and-will-be-removed-in-the-future-use-mysqli&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Nếu bạn gặp thông báo lỗi: &lt;strong&gt;mysql_connect(): No such file or directory&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Server không kết nối được tới database bởi vì file &lt;strong&gt;socket&lt;/strong&gt; chưa chính xác. File &lt;strong&gt;socket&lt;/strong&gt; của bạn có thể nằm ở &lt;strong&gt;/var/mysql/mysql.sock&lt;/strong&gt; hoặc &lt;strong&gt;/tmp/mysql.sock&lt;/strong&gt; (nếu bạn cài lampp hoặc xampp, nó sẽ là &lt;strong&gt;/opt/lampp/var/mysql/mysql.sock&lt;/strong&gt;), tuy nhiên có thể PHP tìm kiếm sai vị trí.
-Để giải quyết lỗi này, ta làm như sau:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Xem thông tin phpinfo(): nếu bạn cài lampp hoặc xampp thì có thể xem thông tin phpinfo() bằng cách nhập vào trình duyệt địa chỉ: &lt;a href=&quot;http://localhost/xampp/phpinfo.php&quot;&gt;http://localhost/xampp/phpinfo.php&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Tìm kiếm &lt;strong&gt;mysql.default_socket&lt;/strong&gt; hoặc &lt;strong&gt;pdo_mysql.default_socket&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;Mở tập tin &lt;strong&gt;my.ini&lt;/strong&gt; (nếu sử dụng xampp) hoặc &lt;strong&gt;my.cnf&lt;/strong&gt; (nếu sử dụng lampp) và tìm kiếm giá trị của socket, ví dụ 	&lt;strong&gt;socket = /opt/lampp/var/mysql/mysql.sock&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;Mở tập tin &lt;strong&gt;php.ini&lt;/strong&gt; (bạn có thể xem địa chỉ chứa file php.ini trên trang thông tin phpinfo hoặc sử dụng lệnh &lt;em&gt;locate php.ini&lt;/em&gt;) và thay thế tất cả các địa chỉ không chính xác bằng địa chỉ chính xác từ MySQL.&lt;/li&gt;
-  &lt;li&gt;Restart Apache.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Nguồn tham khảo: &lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/12584762/mysql-connect-no-such-file-or-directory&quot;&gt;http://stackoverflow.com/questions/12584762/mysql-connect-no-such-file-or-directory&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/4219970/warning-mysql-connect-2002-no-such-file-or-directory-trying-to-connect-vi&quot;&gt;http://stackoverflow.com/questions/4219970/warning-mysql-connect-2002-no-such-file-or-directory-trying-to-connect-vi&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter&quot;&gt;Kiểm tra kết nối database với CodeIgniter&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 23, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>

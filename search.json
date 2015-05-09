@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Tạo trang contact và gửi mail với Nodemailer cho Ghost blog",
+		  "category"   : "",
+		  "url"        : "/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog",
+		  "date"       : "2015-05-09 00:00:00 +0700",
+		  "shortdate"  : "May 09, 2015"
+		} ,
+	
+		{
 		  "title"      : "Thiết lập gửi mail sử dụng Gmail cho Ghost blog",
 		  "category"   : "",
 		  "url"        : "/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog",
