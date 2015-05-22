@@ -2,26 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">THAPSANG.NET</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="/feed.xml" />
-<link rel="alternate" type="text/html" href="" />
-<updated>2015-05-19T09:10:58+07:00</updated>
-<id>/</id>
+<link rel="self" type="application/atom+xml" href="http://thapsang.net/feed.xml" />
+<link rel="alternate" type="text/html" href="http://thapsang.net" />
+<updated>2015-05-22T17:57:28+07:00</updated>
+<id>http://thapsang.net/</id>
 <author>
   <name>Ta Ly</name>
-  <uri>/</uri>
+  <uri>http://thapsang.net/</uri>
   <email>taly2808@gmail.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[Tự tạo handlebars helper cho Ghost blog]]></title>
-  <link>/ghost/tu-tao-handlebars-helper-cho-ghost-blog</link>
-  <id>/ghost/tu-tao-handlebars-helper-cho-ghost-blog</id>
+  <link>http://thapsang.net/ghost/tu-tao-handlebars-helper-cho-ghost-blog</link>
+  <id>http://thapsang.net/ghost/tu-tao-handlebars-helper-cho-ghost-blog</id>
   <published>2015-05-11T00:00:00+07:00</published>
   <updated>2015-05-11T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Ghost blog hiện còn khá mới mẻ và vẫn đang tiếp tục phát triển. Do đó, Ghost chưa thể cung cấp được hết các yêu cầu cho các developer. Tuy vậy, các developer có thể tự tạo cho mình các helper phục vụ cho mục đích của mình. Bài viết này sẽ hướng dẫn cách bạn tự tạo helper cho riêng mình.&lt;/p&gt;
@@ -98,19 +98,19 @@
   &lt;li&gt;&lt;a href=&quot;http://zackehh.com/safely-creating-custom-handlebars-helpers/&quot;&gt;Safely creating custom handlebars helpers for ghost blogs&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/ghost/tu-tao-handlebars-helper-cho-ghost-blog&quot;&gt;Tự tạo handlebars helper cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 11, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ghost/tu-tao-handlebars-helper-cho-ghost-blog&quot;&gt;Tự tạo handlebars helper cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 11, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Tạo trang contact và gửi mail với Nodemailer cho Ghost blog]]></title>
-  <link>/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog</link>
-  <id>/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog</id>
+  <link>http://thapsang.net/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog</link>
+  <id>http://thapsang.net/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog</id>
   <published>2015-05-09T00:00:00+07:00</published>
   <updated>2015-05-09T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Trước khi thực hiện theo nội dung bài này, bạn cần đảm bảo rằng blog của bạn đã được thiết lập có thể gửi mail. Bạn có thể tham khảo bài &lt;a href=&quot;/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog&quot;&gt;Thiết lập gửi mail sử dụng Gmail cho Ghost blog&lt;/a&gt; để chắc chắn điều này.&lt;/p&gt;
@@ -154,7 +154,7 @@
     &lt;p&gt;Chỉnh sửa các thiết lập cho post bằng cách click vào biểu tượng &lt;i class=&quot;icon-gear&quot; style=&quot;color: #1CA6BE; font-size: 1.5em;&quot;&gt;&lt;/i&gt; bên cạnh nút &lt;strong&gt;Save draft&lt;/strong&gt; và tích chọn vào &lt;strong&gt;Turn this post into a static page&lt;/strong&gt;.&lt;/p&gt;
 
     &lt;figure&gt;
-     &lt;img src=&quot;/images/ghost/setting-static-contact-page.png&quot; /&gt;
+     &lt;img src=&quot;http://thapsang.net/images/ghost/setting-static-contact-page.png&quot; /&gt;
  &lt;/figure&gt;
   &lt;/li&gt;
   &lt;li&gt;Thêm đoạn code html dưới đây vào nội dung của trang:&lt;/li&gt;
@@ -183,7 +183,7 @@
 &lt;/ol&gt;
 
 &lt;figure&gt;
-    &lt;img src=&quot;/images/ghost/page-contact-hbs.png&quot; /&gt;
+    &lt;img src=&quot;http://thapsang.net/images/ghost/page-contact-hbs.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&quot;thm-trang-contact-vo-navigation-menu&quot;&gt;Thêm trang contact vào navigation menu&lt;/h2&gt;
@@ -191,7 +191,7 @@
 &lt;p&gt;Bạn truy câp vào tab &lt;strong&gt;Navigation&lt;/strong&gt; của mục &lt;strong&gt;Settings&lt;/strong&gt; trong phần backend để thêm trang Contact vào thanh điều hướng.&lt;/p&gt;
 
 &lt;figure&gt;
-    &lt;img src=&quot;/images/ghost/add-contact-to-navigation-menu.png&quot; /&gt;
+    &lt;img src=&quot;http://thapsang.net/images/ghost/add-contact-to-navigation-menu.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&quot;cp-nht-frontend-controller&quot;&gt;Cập nhật frontend controller&lt;/h2&gt;
@@ -315,19 +315,19 @@
   &lt;li&gt;&lt;a href=&quot;http://tarikk.com/ghost-blog-contact-form-using-ghosts-nodemailer/&quot;&gt;Contact form using Ghost’s Nodemailer&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog&quot;&gt;Tạo trang contact và gửi mail với Nodemailer cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 09, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog&quot;&gt;Tạo trang contact và gửi mail với Nodemailer cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 09, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Thiết lập gửi mail sử dụng Gmail cho Ghost blog]]></title>
-  <link>/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog</link>
-  <id>/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog</id>
+  <link>http://thapsang.net/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog</link>
+  <id>http://thapsang.net/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog</id>
   <published>2015-05-08T00:00:00+07:00</published>
   <updated>2015-05-08T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Để gửi mail, Ghost sử dụng &lt;a href=&quot;https://github.com/andris9/Nodemailer&quot;&gt;Nodemailer&lt;/a&gt; - một module của Node.js cho phép gửi mail từ một ứng dụng Node.js. Nó cho phép chúng ta sử dụng các dịch vụ mail hỗ trợ SMTP phổ biến như Gmail, Mailgun, Yahoo, SES, etc. Trong bài viết này, chúng ta sẽ thiết lập cho Ghost blog gửi mail sử dụng dịch vụ Gmail.&lt;/p&gt;
@@ -402,7 +402,7 @@
 &lt;p&gt;Bạn truy cập vào tab &lt;strong&gt;Labs&lt;/strong&gt; trong phần &lt;strong&gt;Settings&lt;/strong&gt; tại địa chỉ &lt;strong&gt;/ghost/settings/labs/&lt;/strong&gt; và click vào nút &lt;strong&gt;Send&lt;/strong&gt; để gửi email test tới địa chỉ email mà bạn đã thiết lập cho user của bạn.&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;a href=&quot;/images/ghost/send-test-mail-ghost.png&quot;&gt;&lt;img src=&quot;/images/ghost/send-test-mail-ghost.png&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://thapsang.net/images/ghost/send-test-mail-ghost.png&quot;&gt;&lt;img src=&quot;http://thapsang.net/images/ghost/send-test-mail-ghost.png&quot; /&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Nếu bạn nhận được email tức là các thiết lập đã được thực hiện chính xác. &lt;/p&gt;
@@ -415,19 +415,19 @@
   &lt;li&gt;&lt;a href=&quot;http://www.qoncious.com/questions/how-setup-ghost-send-email-using-gmail&quot;&gt;How to setup Ghost to send email using Gmail?&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog&quot;&gt;Thiết lập gửi mail sử dụng Gmail cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 08, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog&quot;&gt;Thiết lập gửi mail sử dụng Gmail cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 08, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Thêm tìm kiếm vào Ghost blog]]></title>
-  <link>/ghost/them-tim-kiem-vao-ghost-blog</link>
-  <id>/ghost/them-tim-kiem-vao-ghost-blog</id>
+  <link>http://thapsang.net/ghost/them-tim-kiem-vao-ghost-blog</link>
+  <id>http://thapsang.net/ghost/them-tim-kiem-vao-ghost-blog</id>
   <published>2015-05-07T00:00:00+07:00</published>
   <updated>2015-05-07T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Khi nội dung blog của bạn ngày càng phong phú, việc tìm kiếm một nội dung cụ thể trở nên khó khăn hơn cho độc giả. Do đó, việc bổ sung một khung tìm kiếm cho blog là cần thiết. Bài viết này sẽ giới thiệu cách thêm khung tìm kiếm và hiển thị kết quả của chúng trong blog với plugin &lt;a href=&quot;https://github.com/i11ume/ghostHunter/&quot;&gt;ghostHunter&lt;/a&gt;.&lt;/p&gt;
@@ -437,7 +437,7 @@
     &lt;p&gt;Truy cập vào địa chỉ trang &lt;a href=&quot;https://github.com/i11ume/ghostHunter/&quot;&gt;plugin ghostHunter trên github&lt;/a&gt;, chọn &lt;strong&gt;Download Zip&lt;/strong&gt; ở cột bên phải.&lt;/p&gt;
 
     &lt;figure&gt;
-      &lt;a href=&quot;/images/ghost/ghostHunter-github.png&quot;&gt;&lt;img src=&quot;/images/ghost/ghostHunter-github.png&quot; /&gt;&lt;/a&gt;
+      &lt;a href=&quot;http://thapsang.net/images/ghost/ghostHunter-github.png&quot;&gt;&lt;img src=&quot;http://thapsang.net/images/ghost/ghostHunter-github.png&quot; /&gt;&lt;/a&gt;
   &lt;/figure&gt;
   &lt;/li&gt;
   &lt;li&gt;Giải nén tập tin mới download, copy file &lt;strong&gt;jquery.ghostHunter.js&lt;/strong&gt; hoặc &lt;strong&gt;jquery.ghostHunter.min.js&lt;/strong&gt; vào thư mục &lt;strong&gt;js&lt;/strong&gt; trong thư mục theme bạn đang sử dụng (&lt;em&gt;/content/themes/[your-theme]/assets/js/&lt;/em&gt;).&lt;/li&gt;
@@ -475,20 +475,20 @@
   &lt;li&gt;&lt;a href=&quot;https://ghostforbeginners.com/how-to-add-a-search-box-to-your-ghost-blog/&quot;&gt;Add Searching to Ghost&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/ghost/them-tim-kiem-vao-ghost-blog&quot;&gt;Thêm tìm kiếm vào Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 07, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ghost/them-tim-kiem-vao-ghost-blog&quot;&gt;Thêm tìm kiếm vào Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 07, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hướng dẫn cài đặt Android SDK trên Ubuntu]]></title>
-  <link>/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu</link>
-  <id>/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu</id>
+  <link>http://thapsang.net/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu</link>
+  <id>http://thapsang.net/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu</id>
   <updated>2015-03-11T00:00:00-00:00</updated>
   <published>2015-03-11T00:00:00+07:00</published>
   
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Khi bạn muốn build ứng dụng trên các nền tảng khác nhau, máy tính của bạn cần phải được cài đặt các Tool tương ứng. Bài viết này đi vào hướng dẫn cài đặt Android SDK Tool trên Ubuntu 14.04 để develop ứng dụng trên nền tảng Android.&lt;/p&gt;
@@ -632,20 +632,20 @@ Java HotSpot&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;TM&lt;span class=&quot
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu&quot;&gt;Hướng dẫn cài đặt Android SDK trên Ubuntu&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on March 11, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu&quot;&gt;Hướng dẫn cài đặt Android SDK trên Ubuntu&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on March 11, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Build ứng dụng Ionic trên nền tảng Android]]></title>
-  <link>/ionic/build-ung-dung-ionic-tren-nen-tang-android</link>
-  <id>/ionic/build-ung-dung-ionic-tren-nen-tang-android</id>
+  <link>http://thapsang.net/ionic/build-ung-dung-ionic-tren-nen-tang-android</link>
+  <id>http://thapsang.net/ionic/build-ung-dung-ionic-tren-nen-tang-android</id>
   <updated>2015-03-10T00:00:00-00:00</updated>
   <published>2015-03-10T00:00:00+07:00</published>
   
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Sau khi chạy được ứng dụng trên web view, chúng ta sẽ muốn chạy thử ứng dụng của mình trên các nền tảng khác nhau. Trong bài viết này, chúng ta sẽ đi vào chi tiết cách thức add platform và test ứng dụng như thế nào.&lt;/p&gt;
@@ -734,20 +734,20 @@ Lưu ý: Bạn không nên chỉnh sửa thông tin gì trong thư mục này tr
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/ionic/build-ung-dung-ionic-tren-nen-tang-android&quot;&gt;Build ứng dụng Ionic trên nền tảng Android&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on March 10, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ionic/build-ung-dung-ionic-tren-nen-tang-android&quot;&gt;Build ứng dụng Ionic trên nền tảng Android&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on March 10, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hướng dẫn cài đặt Ionic Framework trên Ubuntu]]></title>
-  <link>/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu</link>
-  <id>/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu</id>
+  <link>http://thapsang.net/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu</link>
+  <id>http://thapsang.net/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu</id>
   <updated>2015-03-09T00:00:00-00:00</updated>
   <published>2015-01-21T00:00:00+07:00</published>
   
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Trong bài viết này, chúng ta sẽ đi vào chi tiết cách thức cài đặt IonicFramework trên Ubuntu (14.04).&lt;/p&gt;
@@ -817,20 +817,20 @@ Lưu ý: Bạn không nên chỉnh sửa thông tin gì trong thư mục này tr
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu&quot;&gt;Hướng dẫn cài đặt Ionic Framework trên Ubuntu&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on January 21, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu&quot;&gt;Hướng dẫn cài đặt Ionic Framework trên Ubuntu&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on January 21, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Sử dụng dịch vụ $resource xây dựng ứng dụng CRUD trong AngularJS]]></title>
-  <link>/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs</link>
-  <id>/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs</id>
+  <link>http://thapsang.net/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs</link>
+  <id>http://thapsang.net/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs</id>
   <updated>2014-12-05T00:00:00-00:00</updated>
   <published>2014-12-05T00:00:00+07:00</published>
   
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Các ứng dụng sử dụng web service ngày càng phổ biến. AngularJS cung cấp dịch vụ $resource hỗ trợ tương tác với dịch vụ RESTful một cách dễ dàng. Trong bài viết này, chúng ta sẽ tìm hiểu cách thức sử dụng $resource trong ứng dụng web xây dựng bằng AngularJS.&lt;/p&gt;
@@ -913,14 +913,14 @@ Lưu ý: Bạn không nên chỉnh sửa thông tin gì trong thư mục này tr
 &lt;p&gt;$resource làm việc với RESTful backend, do đó chúng ta cần có REST endpoint theo định dạng sau:&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;/assets/img/REST-endpoints.png&quot; /&gt;
+	&lt;img src=&quot;http://thapsang.net/assets/img/REST-endpoints.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;h3 id=&quot;to-mt-resource&quot;&gt;Tạo một Resource&lt;/h3&gt;
 
 &lt;p&gt;Chúng ta có thể tạo một Resource bằng Resource factory: &lt;strong&gt;$resource(url, paramDefaults, actions, options)&lt;/strong&gt;&lt;/p&gt;
 &lt;figure&gt;
-	&lt;img src=&quot;/assets/img/create-a-resource.png&quot; /&gt;
+	&lt;img src=&quot;http://thapsang.net/assets/img/create-a-resource.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Các tham số trong Resource factory:&lt;/p&gt;
@@ -1028,7 +1028,7 @@ Lưu ý: Bạn không nên chỉnh sửa thông tin gì trong thư mục này tr
 
 &lt;p&gt;Lưu ý rằng, các non-GET action method của resource instance bắt đầu với dấu &lt;code&gt;$&lt;/code&gt;. Và cả class action và instance action có các chức năng tương đương:&lt;/p&gt;
 &lt;figure&gt;
-		&lt;img src=&quot;/assets/img/instance-vs-constructor-action-methods.png&quot; /&gt;
+		&lt;img src=&quot;http://thapsang.net/assets/img/instance-vs-constructor-action-methods.png&quot; /&gt;
 	&lt;/figure&gt;
 
 &lt;p&gt;Hàm &lt;strong&gt;success callback&lt;/strong&gt; được gọi với tham số &lt;em&gt;(value, responseHeaders)&lt;/em&gt;. Hàm &lt;strong&gt;error callback&lt;/strong&gt; được gọi với tham số &lt;em&gt;(httpResponse)&lt;/em&gt;&lt;/p&gt;
@@ -1111,25 +1111,25 @@ Lưu ý: Bạn không nên chỉnh sửa thông tin gì trong thư mục này tr
 &lt;p&gt;Tiếp đó, bạn có thể tải &lt;a href=&quot;https://github.com/taly2808/example-angularjs-book-ws/archive/master.zip&quot;&gt;ví dụ cho phần Book web service&lt;/a&gt; theo địa chỉ cho &lt;a href=&quot;https://github.com/taly2808/example-angularjs-book-ws.git&quot;&gt;git clone&lt;/a&gt;. Sau đó bạn di chuyển vào thư mục ứng dụng, tiếp đó chạy lệnh &lt;code&gt;dpd -d&lt;/code&gt; để chạy ứng dụng và mở dashboard của ứng dụng trên trình duyệt&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;/assets/img/dpd-d-cli.png&quot; /&gt;
+	&lt;img src=&quot;http://thapsang.net/assets/img/dpd-d-cli.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Khi đó, ứng dụng sẽ được mở trên trình duyệt với cổng mặc định là 2403 như hình dưới đây:&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;/assets/img/example-book-ws-first.png&quot; /&gt;
+	&lt;img src=&quot;http://thapsang.net/assets/img/example-book-ws-first.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Với ví dụ đơn giản này, chúng ta tạo ra một Books Collection với các thuộc tính gồm: id, title, category, price. Bạn có thể dễ dàng thêm các bản ghi cho Books Collection. Giả sử tôi thêm 3 bản ghi, khi đó ứng dụng sẽ như sau:&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;/assets/img/example-book-ws-data.png&quot; /&gt;
+	&lt;img src=&quot;http://thapsang.net/assets/img/example-book-ws-data.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Chuyển sang tab API, chúng ta sẽ thấy danh sách các API mà ứng dụng cung cấp:&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;/assets/img/example-book-ws-api.png&quot; /&gt;
+	&lt;img src=&quot;http://thapsang.net/assets/img/example-book-ws-api.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Khi chạy ứng dụng phía client, ứng dụng này cần được chạy để cung cấp các REST endpoint và tương tác với client.&lt;/p&gt;
@@ -1149,7 +1149,7 @@ Lưu ý: Bạn không nên chỉnh sửa thông tin gì trong thư mục này tr
 &lt;p&gt;Mở cửa sổ trình duyệt mới, nhập vào địa chỉ http://localhost:3000, ta sẽ được giao diện như sau:&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;/assets/img/example-book-client-1.png&quot; /&gt;
+	&lt;img src=&quot;http://thapsang.net/assets/img/example-book-client-1.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Trong phần này, chúng ta tạo ra một service factory &lt;em&gt;Book&lt;/em&gt; sử dụng $resource để request đến server và sử dụng nó trong controller để lấy dữ liệu:&lt;/p&gt;
@@ -1165,20 +1165,20 @@ Lưu ý: Bạn không nên chỉnh sửa thông tin gì trong thư mục này tr
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs&quot;&gt;Sử dụng dịch vụ $resource xây dựng ứng dụng CRUD trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on December 05, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs&quot;&gt;Sử dụng dịch vụ $resource xây dựng ứng dụng CRUD trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on December 05, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Cơ chế phân tích expression trong AngularJS.]]></title>
-  <link>/angularjs/co-che-phan-tich-expression-trong-angularjs</link>
-  <id>/angularjs/co-che-phan-tich-expression-trong-angularjs</id>
+  <link>http://thapsang.net/angularjs/co-che-phan-tich-expression-trong-angularjs</link>
+  <id>http://thapsang.net/angularjs/co-che-phan-tich-expression-trong-angularjs</id>
   <updated>2014-12-01T00:00:00-00:00</updated>
   <published>2014-12-01T00:00:00+07:00</published>
   
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Khi tìm hiểu về Expression, tài liệu nói rằng Angular sử dụng dịch vụ $parse để ước lượng các expression, có thể biên dịch template một cách thủ công với dịch vụ $interpolate. Dịch vụ $interpolate lại được dịch vụ $compile sử dụng để biên dịch các chuỗi HTML hoặc DOM. Vậy cụ thể từng dịch vụ này hoạt động ra sao, chúng được sử dụng trong trường hợp nào, mối quan hệ giữa các dịch vụ này là gì? Chúng ta sẽ tìm hiểu trong nội dung bài viết này.&lt;/p&gt;
@@ -1228,7 +1228,7 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/ul&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;/assets/img/$parse-$interpolate-$compile.png&quot; /&gt;
+	&lt;img src=&quot;http://thapsang.net/assets/img/$parse-$interpolate-$compile.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;h2 id=&quot;parse-service&quot;&gt;$parse service&lt;/h2&gt;
@@ -1253,7 +1253,7 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Trong Angular, chúng ta có khả năng biên dịch template một cách thủ công. Phép nội suy (interpolation) cho phép chúng ta cập nhật trực tiếp một chuỗi của text dựa trên các điều kiện của scope. Dịch vụ &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$interpolate&quot;&gt;$interpolate&lt;/a&gt; được Angular sử dụng với mục đích đó. Dịch vụ này trả về một function với các tham số đầu vào là các expression được chứa trong chuỗi.&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;/assets/img/$interpolateService.png&quot; /&gt;
+	&lt;img src=&quot;http://thapsang.net/assets/img/$interpolateService.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Dưới đây là ví dụ thực hiện với dịch vụ $interpolate:&lt;/p&gt;
@@ -1268,20 +1268,20 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/co-che-phan-tich-expression-trong-angularjs&quot;&gt;Cơ chế phân tích expression trong AngularJS.&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on December 01, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/co-che-phan-tich-expression-trong-angularjs&quot;&gt;Cơ chế phân tích expression trong AngularJS.&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on December 01, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Interceptor trong AngularJS]]></title>
-  <link>/angularjs/$http-interceptor-trong-angularjs</link>
-  <id>/angularjs/$http-interceptor-trong-angularjs</id>
+  <link>http://thapsang.net/angularjs/$http-interceptor-trong-angularjs</link>
+  <id>http://thapsang.net/angularjs/$http-interceptor-trong-angularjs</id>
   <updated>2014-11-25T00:00:00-00:00</updated>
   <published>2014-11-25T00:00:00+07:00</published>
   
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;$http service của AngularJS cho phép chúng ta giao tiếp với phía backend và thực hiện các HTTP request. Có nhiều trường hợp chúng ta muốn chặn bắt (capture) các request và tính toán, xử lý (manipulate) nó trước khi gửi nó đến server. Trong trường hợp khác, chúng ta lại muốn chặn bắt các đáp ứng trả về (response), xử lý nó trước khi hoàn thành lời gọi. Ví như việc xử lý lỗi http trong toàn ứng dụng (global http error handling), xác thực (authentication) cũng cần thực hiện như vậy. &lt;strong&gt;Interceptors&lt;/strong&gt; (bộ chặn) rất thuận tiện cho các trường hợp như thế.&lt;/p&gt;
@@ -1363,20 +1363,20 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;li&gt;&lt;a href=&quot;https://egghead.io/lessons/angularjs-using-angularjs-interceptors-with-http&quot;&gt;Using AngularJS interceptors with $http&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/$http-interceptor-trong-angularjs&quot;&gt;Interceptor trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 25, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/$http-interceptor-trong-angularjs&quot;&gt;Interceptor trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 25, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hiểu về dịch vụ $http trong AngularJS]]></title>
-  <link>/angularjs/hieu-ve-$http-service-trong-angularjs</link>
-  <id>/angularjs/hieu-ve-$http-service-trong-angularjs</id>
+  <link>http://thapsang.net/angularjs/hieu-ve-$http-service-trong-angularjs</link>
+  <id>http://thapsang.net/angularjs/hieu-ve-$http-service-trong-angularjs</id>
   <updated>2014-11-25T00:00:00-00:00</updated>
   <published>2014-11-18T00:00:00+07:00</published>
   
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;$http service là một dịch vụ cốt lõi của Angular, được sử dụng để giao tiếp với các trình chủ HTTP thông qua các đối tượng &lt;a href=&quot;https://developer.mozilla.org/en/xmlhttprequest&quot;&gt;XMLHttpRequest&lt;/a&gt; của trình duyệt (&lt;em&gt;được sử dụng nhiều trong lập trình AJAX&lt;/em&gt;) hoặc &lt;a href=&quot;http://en.wikipedia.org/wiki/JSONP&quot;&gt;JSONP&lt;/a&gt;. &lt;/p&gt;
@@ -1524,7 +1524,7 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;small&gt;Ví dụ dưới đây, chúng ta có thể thấy cách thức hoạt động của các hàm transform. Chúng ta thực hiện một request thông qua phương thức POST. Trong &lt;code&gt;$http.post()&lt;/code&gt;, dữ liệu được truyền đi sử dụng &lt;code&gt;Content-Type: application/json&lt;/code&gt; và tuần tự hóa dữ liệu định dạng JSON &lt;code&gt;{ &quot;name&quot;: &quot;angular&quot;, &quot;rate&quot;: &quot;5&quot; }&lt;/code&gt; nhưng một số ngôn ngữ phía web server, đặc biệt là PHP không thể giải tuần tự (deserialize) dữ liệu. Do đó, dữ liệu truyền đi cần sử dụng &lt;code&gt;Content-Type: x-www-form-urlencoded&lt;/code&gt;, khi đó dữ liệu sẽ được tuần tự hóa theo cách submit form thông thường &lt;code&gt;name=angular&amp;amp;rate=5&lt;/code&gt;. Các hàm transform được khai báo globally trong phần config, và chúng ta khai báo hàm &lt;em&gt;transformResponse&lt;/em&gt; trong request POST (locally). Khi đó hàm &lt;em&gt;transformResponse&lt;/em&gt; khai báo trong $http sẽ ghi đè lên hàm &lt;em&gt;transformResponse&lt;/em&gt; được khai báo global. Bạn có thể chạy &lt;a href=&quot;http://jsfiddle.net/taly2808/p46dr9ck/2/embedded/result/&quot;&gt;demo&lt;/a&gt; trên một cửa sổ mới và bật công cụ bug (F12) để thấy rõ kết quả.&lt;/small&gt;&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;/assets/img/transformRequestResponse.png&quot; /&gt;
+	&lt;img src=&quot;http://thapsang.net/assets/img/transformRequestResponse.png&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;iframe width=&quot;100%&quot; height=&quot;300&quot; src=&quot;http://jsfiddle.net/taly2808/p46dr9ck/2/embedded/js,html,result&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
@@ -1572,7 +1572,7 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     &lt;p&gt;Trong demo dưới đây, chúng ta có một button thực hiện việc gửi request để lấy danh sách các books, một button thực hiện việc hủy request nếu request chưa trả về kết quả. Bạn có thể chạy &lt;a href=&quot;http://embed.plnkr.co/jbRHklfI1H1VfKLjJtCd/preview&quot;&gt;demo&lt;/a&gt; trên một cửa sổ mới, bật công cụ bug của trình duyệt (nhấn F12), chọn tab &lt;strong&gt;Network&lt;/strong&gt;. Ban đầu, bạn thực hiện &lt;strong&gt;Send request&lt;/strong&gt;, khi nó đang &lt;em&gt;Loading …&lt;/em&gt;, bạn thực hiện &lt;strong&gt;Cancel request&lt;/strong&gt; thì bạn sẽ thấy lời gọi bị hủy bỏ.&lt;/p&gt;
 
     &lt;figure&gt;
-      &lt;img src=&quot;/images/canceled-request.png&quot; /&gt;
+      &lt;img src=&quot;http://thapsang.net/images/canceled-request.png&quot; /&gt;
   &lt;/figure&gt;
 
     &lt;iframe src=&quot;http://embed.plnkr.co/jbRHklfI1H1VfKLjJtCd/index.html&quot; style=&quot;border:0px #FFFFFF none;&quot; name=&quot;Canceling AJAX request using $http&quot; scrolling=&quot;no&quot; frameborder=&quot;1&quot; marginheight=&quot;0px&quot; marginwidth=&quot;0px&quot; height=&quot;300px&quot; width=&quot;100%&quot;&gt;&lt;/iframe&gt;
@@ -1682,20 +1682,20 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;li&gt;&lt;a href=&quot;http://tutorials.jenkov.com/angularjs/ajax.html&quot;&gt;AngularJS AJAX&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/hieu-ve-$http-service-trong-angularjs&quot;&gt;Hiểu về dịch vụ $http trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 18, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/hieu-ve-$http-service-trong-angularjs&quot;&gt;Hiểu về dịch vụ $http trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 18, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Expression trong AngularJS]]></title>
-  <link>/angularjs/expression-trong-angularjs</link>
-  <id>/angularjs/expression-trong-angularjs</id>
+  <link>http://thapsang.net/angularjs/expression-trong-angularjs</link>
+  <id>http://thapsang.net/angularjs/expression-trong-angularjs</id>
   <updated>2014-11-28T00:00:00-00:00</updated>
   <published>2014-11-11T00:00:00+07:00</published>
   
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;strong&gt;Expression&lt;/strong&gt; (biểu thức) được sử dụng hầu khắp trong ứng dụng AngularJS. Expression được sử dụng trong template, trong các thẻ đánh dấu (markup), trong các directives. Vậy cụ thể thì Expression là gì, AngularJS sử dụng và ước lượng nó ra sao? Chúng ta cùng tìm hiểu về nó trong nội dung của bài này.&lt;/p&gt;
@@ -1796,19 +1796,19 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/expression-trong-angularjs&quot;&gt;Expression trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 11, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/expression-trong-angularjs&quot;&gt;Expression trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 11, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Promises/Deferred trong AngularJS]]></title>
-  <link>/angularjs/promises-deferred-trong-angularjs</link>
-  <id>/angularjs/promises-deferred-trong-angularjs</id>
+  <link>http://thapsang.net/angularjs/promises-deferred-trong-angularjs</link>
+  <id>http://thapsang.net/angularjs/promises-deferred-trong-angularjs</id>
   <published>2014-10-30T00:00:00+07:00</published>
   <updated>2014-10-30T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Promises là một tính năng chính (a core feature) của AngularJS. Có thể bạn chưa biết hoặc chưa hiểu về promise, nhưng nếu bạn làm việc với AngularJS thì gần như chắc chắn rằng bạn sẽ làm việc với promise. Trong bài viết này, chúng ta sẽ tìm hiểu vậy Promise là gì, chúng được sử dụng ở đâu? Cách thức nó làm việc như thế nào?&lt;/p&gt;
@@ -2040,19 +2040,19 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.dwmkerr.com/promises-in-angularjs-the-definitive-guide/&quot;&gt;AngularJS Promises - The Definitive Guide&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/promises-deferred-trong-angularjs&quot;&gt;Promises/Deferred trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 30, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/promises-deferred-trong-angularjs&quot;&gt;Promises/Deferred trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 30, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hiểu về 'Resolve' trong AngularJS routes]]></title>
-  <link>/angularjs/resolve-trong-angularjs-routes</link>
-  <id>/angularjs/resolve-trong-angularjs-routes</id>
+  <link>http://thapsang.net/angularjs/resolve-trong-angularjs-routes</link>
+  <id>http://thapsang.net/angularjs/resolve-trong-angularjs-routes</id>
   <published>2014-10-28T00:00:00+07:00</published>
   <updated>2014-10-28T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Trong bài &lt;a href=&quot;/angularjs/tim-hieu-module-ngRoute-trong-angularjs&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt;, chúng ta đã tìm hiểu cách làm thế nào để định tuyến (routing) và cách các routes nói chuyện với controller như thế nào. Việc khởi tạo các controller có thể khác nhau dựa trên các thiết lập của route và các sự kiện &lt;code&gt;$routeChangeSuccess&lt;/code&gt; và &lt;code&gt;$routeChangeError&lt;/code&gt; tương ứng. Hầu hết các sự kiện này có do thuộc tính &lt;code&gt;resolve&lt;/code&gt; khi cấu hình route. Trong bài này, chúng ta sẽ làm sáng rõ vấn đề Tại sao lại cần &lt;code&gt;resolve&lt;/code&gt; và cách thức hoạt động của nó như thế nào.&lt;/p&gt;
@@ -2277,19 +2277,19 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;li&gt;&lt;a href=&quot;http://documentup.com/kriskowal/q&quot;&gt;Document about Q&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/resolve-trong-angularjs-routes&quot;&gt;Hiểu về 'Resolve' trong AngularJS routes&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 28, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/resolve-trong-angularjs-routes&quot;&gt;Hiểu về 'Resolve' trong AngularJS routes&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 28, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Tìm hiểu module ngRoute trong AngularJS]]></title>
-  <link>/angularjs/tim-hieu-module-ngRoute-trong-angularjs</link>
-  <id>/angularjs/tim-hieu-module-ngRoute-trong-angularjs</id>
+  <link>http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs</link>
+  <id>http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs</id>
   <published>2014-10-23T00:00:00+07:00</published>
   <updated>2014-10-23T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ngRoute&quot;&gt;ngRoute&lt;/a&gt; là một module trong AngularJS cung cấp dịch vụ định tuyến (routing), &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_linking&quot;&gt;deep linking&lt;/a&gt; và các chỉ thị lệnh (directives) &lt;code&gt;ngView&lt;/code&gt; cho các ứng dụng angular. Trong &lt;a href=&quot;/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs&quot;&gt;bài trước&lt;/a&gt;, chúng ta đã có một ví dụ đơn giản về routing trong SPA với AngularJS. Trong nội dung bài này, chúng ta sẽ đi vào tìm hiểu chi tiết về các thành phần &lt;strong&gt;provider&lt;/strong&gt;, &lt;strong&gt;services&lt;/strong&gt; và &lt;strong&gt;ngView directive&lt;/strong&gt; trong module ngRoute.&lt;/p&gt;
@@ -2512,19 +2512,19 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ngRoute/&quot;&gt;AngularJS’s document on ngRoute&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/tim-hieu-module-ngRoute-trong-angularjs&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 23, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 23, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Routing Single Page Application với module ngRoute của AngularJS]]></title>
-  <link>/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</link>
-  <id>/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</id>
+  <link>http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</link>
+  <id>http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</id>
   <published>2014-10-21T00:00:00+07:00</published>
   <updated>2014-10-21T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Các ứng dụng Single Page ngày càng trở nên phổ biến. Khi ứng dụng của chúng ta lớn dần, việc đặt tất cả các views vào trong một file sẽ khiến chúng ta rất khó quản lý. Việc chia nhỏ chúng vào trong Views và sử dụng Routing để tải các phần khác nhau của ứng dụng giúp chúng ta phân chia ứng dụng hợp lý và quản lý dễ dàng hơn.
@@ -2651,19 +2651,19 @@ pages/
   &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/tutorial/step_07&quot;&gt;AngularJS’s document on Routing &amp;amp; Multiple Views&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs&quot;&gt;Routing Single Page Application với module ngRoute của AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 21, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs&quot;&gt;Routing Single Page Application với module ngRoute của AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 21, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Cấu trúc thư mục cho ứng dụng AngularJS]]></title>
-  <link>/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs</link>
-  <id>/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs</id>
+  <link>http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs</link>
+  <id>http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs</id>
   <published>2014-10-12T00:00:00+07:00</published>
   <updated>2014-10-12T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Khi bắt đầu xây dựng một ứng dụng AngularJS, có thể bạn không biết chính xác cách thức tổ chức các files, hoặc thậm chí là không biết mình cần những files nào. Trong bài viết này, tôi sẽ trình bày về cách tạo ra một ứng dụng bằng AngularJS và cách tổ chức cấu trúc thư mục với các ứng dụng ở các mức độ khác nhau.&lt;/p&gt;
@@ -2746,7 +2746,7 @@ views/
 &lt;p&gt;Có nhiều cách để tổ chức thư mục. Ở đây, chúng ta tập trung vào 2 cách cấu trúc: By Type (theo loại file) và By Feature (theo đặc tính).&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;a href=&quot;/assets/img/NgStructureCompare.jpg&quot;&gt;&lt;img src=&quot;/assets/img/NgStructureCompare.jpg&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://thapsang.net/assets/img/NgStructureCompare.jpg&quot;&gt;&lt;img src=&quot;http://thapsang.net/assets/img/NgStructureCompare.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
 &lt;h3 id=&quot;cu-trc-by-type&quot;&gt;Cấu trúc by type&lt;/h3&gt;
@@ -2760,23 +2760,23 @@ views/
 &lt;h2 id=&quot;kt-lun&quot;&gt;Kết luận&lt;/h2&gt;
 &lt;p&gt;Có rất nhiều cách để tổ chức cấu trúc thư mục ứng dụng và không có cách nào là hoàn hảo. Chúng ta dựa trên quy mô ứng dụng để chọn một cấu trúc phù hợp với ứng dụng của mình. Các bạn cũng có thể tự tạo ra cấu trúc của riêng mình ;). Và điều quan trọng nhất vẫn là cấu trúc phải rõ ràng và chúng ta có thể dễ dàng và nhanh chóng xác định được cái mà chúng ta cần làm.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs&quot;&gt;Cấu trúc thư mục cho ứng dụng AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 12, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs&quot;&gt;Cấu trúc thư mục cho ứng dụng AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 12, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline]]></title>
-  <link>/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</link>
-  <id>/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</id>
+  <link>http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</link>
+  <id>http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</id>
   <published>2014-10-04T00:00:00+07:00</published>
   <updated>2014-10-04T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;figure&gt;
-	&lt;a href=&quot;/assets/img/pipeline.jpg&quot;&gt;&lt;img src=&quot;/assets/img/pipeline.jpg&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://thapsang.net/assets/img/pipeline.jpg&quot;&gt;&lt;img src=&quot;http://thapsang.net/assets/img/pipeline.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Trong laravel 4, có nhiều cách để bạn quản lý các tài nguyên css, js, hình ảnh của mình. Trong bài này, tôi sẽ giới thiệu với bạn một cách để quản lý các tài nguyên (assets) để chúng có thể phục vụ trình duyệt một cách hiệu quả nhất có thể với Asset Pipeline.&lt;/p&gt;
@@ -2874,7 +2874,7 @@ views/
 &lt;p&gt;Bạn mở trình duyệt và gõ vào địa chỉ &lt;code&gt;http://localhost:8000&lt;/code&gt; (tùy thuộc vào cổng khi bạn chạy lệnh &lt;code&gt;php artisan serve&lt;/code&gt; nhé :D) và Enter, kết quả sẽ như thế này: &lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;a href=&quot;/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;/assets/img/image-tag-demo.png&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://thapsang.net/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;http://thapsang.net/assets/img/image-tag-demo.png&quot; /&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Hình ảnh chú Tweety Bird của bạn sẽ được tải lên với đường dẫn &lt;code&gt;http://localhost:8000/assets/tweety.png&lt;/code&gt;. Bạn có thể sử dụng Bug Tool để xác nhận lại ;).&lt;/p&gt;
@@ -2889,19 +2889,19 @@ views/
 
 &lt;p&gt;Hy vọng bạn đã có thể quản lý các asset của mình một cách dễ dàng. Have fun! ;)&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline&quot;&gt;Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 04, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline&quot;&gt;Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 04, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Xóa cache views trong laravel 4 với Artisan command]]></title>
-  <link>/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</link>
-  <id>/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</id>
+  <link>http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</link>
+  <id>http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</id>
   <published>2014-10-03T00:00:00+07:00</published>
   <updated>2014-10-03T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Khi phát triển ứng dụng với laravel 4, có sự thay đổi trên view nhưng khi reload ứng dụng thì bạn không hề thấy có sự thay đổi. Mặc dù đã xóa cache với lệnh &lt;code&gt;php artisan cache:clear&lt;/code&gt; nhưng vẫn không khả quan hơn. Lý do là ứng dụng của chúng ta còn lưu lại cache của views trong thư mục &lt;code&gt;app/storage/views&lt;/code&gt;. Bạn có thể truy cập vào thư mục &lt;code&gt;app/storage/views&lt;/code&gt; và xóa hết các files trong thư mục này đi. Với cách làm thủ công này chắc chắn sẽ khiến bạn phát rồ lên. Trong bài này, tôi sẽ chỉ cho bạn cách xóa views cache dễ như ăn kẹo vậy :).&lt;/p&gt;
@@ -2944,19 +2944,19 @@ Views deleted from cache&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Hy vọng có thể giúp các bạn giải quyết được vấn đề của mình. Have fun! ;)&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command&quot;&gt;Xóa cache views trong laravel 4 với Artisan command&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 03, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command&quot;&gt;Xóa cache views trong laravel 4 với Artisan command&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 03, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hướng dẫn cài đặt Laravel 4]]></title>
-  <link>/laravel/huong-dan-cai-dat-laravel</link>
-  <id>/laravel/huong-dan-cai-dat-laravel</id>
+  <link>http://thapsang.net/laravel/huong-dan-cai-dat-laravel</link>
+  <id>http://thapsang.net/laravel/huong-dan-cai-dat-laravel</id>
   <published>2014-09-27T00:00:00+07:00</published>
   <updated>2014-09-27T00:00:00+07:00</updated>
   <author>
     <name>Ta Ly</name>
-    <uri></uri>
+    <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Có nhiều cách để cài đặt Laravel. Trong bài viết này, tôi sẽ trình bày các cách cài đặt Laravel trên Linux và trên Windows từ mọi thứ mà Laravel yêu cầu. Bạn sẽ biết cài đặt PHP, MySQL, MCrypt, Composer và mọi thứ để ứng dụng của bạn có thể chạy :).&lt;/p&gt;
@@ -3114,10 +3114,10 @@ Tiếp đến, copy file &lt;code&gt;laravel&lt;/code&gt; sang thư mục &lt;co
 
 &lt;p&gt;Mở trình duyệt web và gõ vào địa chỉ &lt;code&gt;http://localhost:8000&lt;/code&gt;, tận hưởng thành quả nào:&lt;/p&gt;
 &lt;figure&gt;
-	&lt;a href=&quot;/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;/assets/img/welcome_laravel.jpg&quot; /&gt;&lt;/a&gt;
+	&lt;a href=&quot;http://thapsang.net/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;http://thapsang.net/assets/img/welcome_laravel.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/laravel/huong-dan-cai-dat-laravel&quot;&gt;Hướng dẫn cài đặt Laravel 4&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 27, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/huong-dan-cai-dat-laravel&quot;&gt;Hướng dẫn cài đặt Laravel 4&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 27, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>

@@ -1,0 +1,5 @@
+User-agent: *
+
+Disallow: /thapsang
+Disallow: /thapsang.sublime-project
+Disallow: /thapsang.sublime-workspace

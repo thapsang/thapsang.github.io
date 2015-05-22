@@ -3,7 +3,7 @@
 		{
 		  "title"      : "Tự tạo handlebars helper cho Ghost blog",
 		  "category"   : "",
-		  "url"        : "/ghost/tu-tao-handlebars-helper-cho-ghost-blog",
+		  "url"        : "http://thapsang.net/ghost/tu-tao-handlebars-helper-cho-ghost-blog",
 		  "date"       : "2015-05-11 00:00:00 +0700",
 		  "shortdate"  : "May 11, 2015"
 		} ,
@@ -11,7 +11,7 @@
 		{
 		  "title"      : "Tạo trang contact và gửi mail với Nodemailer cho Ghost blog",
 		  "category"   : "",
-		  "url"        : "/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog",
+		  "url"        : "http://thapsang.net/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog",
 		  "date"       : "2015-05-09 00:00:00 +0700",
 		  "shortdate"  : "May 09, 2015"
 		} ,
@@ -19,7 +19,7 @@
 		{
 		  "title"      : "Thiết lập gửi mail sử dụng Gmail cho Ghost blog",
 		  "category"   : "",
-		  "url"        : "/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog",
+		  "url"        : "http://thapsang.net/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog",
 		  "date"       : "2015-05-08 00:00:00 +0700",
 		  "shortdate"  : "May 08, 2015"
 		} ,
@@ -27,7 +27,7 @@
 		{
 		  "title"      : "Thêm tìm kiếm vào Ghost blog",
 		  "category"   : "",
-		  "url"        : "/ghost/them-tim-kiem-vao-ghost-blog",
+		  "url"        : "http://thapsang.net/ghost/them-tim-kiem-vao-ghost-blog",
 		  "date"       : "2015-05-07 00:00:00 +0700",
 		  "shortdate"  : "May 07, 2015"
 		} ,
@@ -35,7 +35,7 @@
 		{
 		  "title"      : "Hướng dẫn cài đặt Android SDK trên Ubuntu",
 		  "category"   : "",
-		  "url"        : "/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu",
+		  "url"        : "http://thapsang.net/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu",
 		  "date"       : "2015-03-11 00:00:00 +0700",
 		  "shortdate"  : "March 11, 2015"
 		} ,
@@ -43,7 +43,7 @@
 		{
 		  "title"      : "Build ứng dụng Ionic trên nền tảng Android",
 		  "category"   : "",
-		  "url"        : "/ionic/build-ung-dung-ionic-tren-nen-tang-android",
+		  "url"        : "http://thapsang.net/ionic/build-ung-dung-ionic-tren-nen-tang-android",
 		  "date"       : "2015-03-10 00:00:00 +0700",
 		  "shortdate"  : "March 10, 2015"
 		} ,
@@ -51,7 +51,7 @@
 		{
 		  "title"      : "Hướng dẫn cài đặt Ionic Framework trên Ubuntu",
 		  "category"   : "",
-		  "url"        : "/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu",
+		  "url"        : "http://thapsang.net/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu",
 		  "date"       : "2015-01-21 00:00:00 +0700",
 		  "shortdate"  : "January 21, 2015"
 		} ,
@@ -59,7 +59,7 @@
 		{
 		  "title"      : "Sử dụng dịch vụ $resource xây dựng ứng dụng CRUD trong AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs",
 		  "date"       : "2014-12-05 00:00:00 +0700",
 		  "shortdate"  : "December 05, 2014"
 		} ,
@@ -67,7 +67,7 @@
 		{
 		  "title"      : "Cơ chế phân tích expression trong AngularJS.",
 		  "category"   : "",
-		  "url"        : "/angularjs/co-che-phan-tich-expression-trong-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/co-che-phan-tich-expression-trong-angularjs",
 		  "date"       : "2014-12-01 00:00:00 +0700",
 		  "shortdate"  : "December 01, 2014"
 		} ,
@@ -75,7 +75,7 @@
 		{
 		  "title"      : "Interceptor trong AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/$http-interceptor-trong-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/$http-interceptor-trong-angularjs",
 		  "date"       : "2014-11-25 00:00:00 +0700",
 		  "shortdate"  : "November 25, 2014"
 		} ,
@@ -83,7 +83,7 @@
 		{
 		  "title"      : "Hiểu về dịch vụ $http trong AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/hieu-ve-$http-service-trong-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/hieu-ve-$http-service-trong-angularjs",
 		  "date"       : "2014-11-18 00:00:00 +0700",
 		  "shortdate"  : "November 18, 2014"
 		} ,
@@ -91,7 +91,7 @@
 		{
 		  "title"      : "Expression trong AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/expression-trong-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/expression-trong-angularjs",
 		  "date"       : "2014-11-11 00:00:00 +0700",
 		  "shortdate"  : "November 11, 2014"
 		} ,
@@ -99,7 +99,7 @@
 		{
 		  "title"      : "Promises/Deferred trong AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/promises-deferred-trong-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/promises-deferred-trong-angularjs",
 		  "date"       : "2014-10-30 00:00:00 +0700",
 		  "shortdate"  : "October 30, 2014"
 		} ,
@@ -107,7 +107,7 @@
 		{
 		  "title"      : "Hiểu về &#39;Resolve&#39; trong AngularJS routes",
 		  "category"   : "",
-		  "url"        : "/angularjs/resolve-trong-angularjs-routes",
+		  "url"        : "http://thapsang.net/angularjs/resolve-trong-angularjs-routes",
 		  "date"       : "2014-10-28 00:00:00 +0700",
 		  "shortdate"  : "October 28, 2014"
 		} ,
@@ -115,7 +115,7 @@
 		{
 		  "title"      : "Tìm hiểu module ngRoute trong AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/tim-hieu-module-ngRoute-trong-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs",
 		  "date"       : "2014-10-23 00:00:00 +0700",
 		  "shortdate"  : "October 23, 2014"
 		} ,
@@ -123,7 +123,7 @@
 		{
 		  "title"      : "Routing Single Page Application với module ngRoute của AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs",
 		  "date"       : "2014-10-21 00:00:00 +0700",
 		  "shortdate"  : "October 21, 2014"
 		} ,
@@ -131,7 +131,7 @@
 		{
 		  "title"      : "Cấu trúc thư mục cho ứng dụng AngularJS",
 		  "category"   : "",
-		  "url"        : "/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs",
+		  "url"        : "http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs",
 		  "date"       : "2014-10-12 00:00:00 +0700",
 		  "shortdate"  : "October 12, 2014"
 		} ,
@@ -139,7 +139,7 @@
 		{
 		  "title"      : "Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline",
 		  "category"   : "",
-		  "url"        : "/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline",
+		  "url"        : "http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline",
 		  "date"       : "2014-10-04 00:00:00 +0700",
 		  "shortdate"  : "October 04, 2014"
 		} ,
@@ -147,7 +147,7 @@
 		{
 		  "title"      : "Xóa cache views trong laravel 4 với Artisan command",
 		  "category"   : "",
-		  "url"        : "/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command",
+		  "url"        : "http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command",
 		  "date"       : "2014-10-03 00:00:00 +0700",
 		  "shortdate"  : "October 03, 2014"
 		} ,
@@ -155,7 +155,7 @@
 		{
 		  "title"      : "Hướng dẫn cài đặt Laravel 4",
 		  "category"   : "",
-		  "url"        : "/laravel/huong-dan-cai-dat-laravel",
+		  "url"        : "http://thapsang.net/laravel/huong-dan-cai-dat-laravel",
 		  "date"       : "2014-09-27 00:00:00 +0700",
 		  "shortdate"  : "September 27, 2014"
 		} ,
@@ -163,7 +163,7 @@
 		{
 		  "title"      : "Hướng dẫn cài đặt Composer",
 		  "category"   : "",
-		  "url"        : "/laravel/huong-dan-cai-dat-composer",
+		  "url"        : "http://thapsang.net/laravel/huong-dan-cai-dat-composer",
 		  "date"       : "2014-09-24 00:00:00 +0700",
 		  "shortdate"  : "September 24, 2014"
 		} ,
@@ -171,7 +171,7 @@
 		{
 		  "title"      : "Kiểm tra kết nối database với CodeIgniter",
 		  "category"   : "",
-		  "url"        : "/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter",
+		  "url"        : "http://thapsang.net/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter",
 		  "date"       : "2014-09-23 00:00:00 +0700",
 		  "shortdate"  : "September 23, 2014"
 		} ,
@@ -179,7 +179,7 @@
 		{
 		  "title"      : "Tạo view calendar trong Drupal 7",
 		  "category"   : "",
-		  "url"        : "/drupal-7/tao-view-calendar-trong-drupal7",
+		  "url"        : "http://thapsang.net/drupal-7/tao-view-calendar-trong-drupal7",
 		  "date"       : "2014-04-14 00:00:00 +0700",
 		  "shortdate"  : "April 14, 2014"
 		} 
