@@ -1,0 +1,13 @@
+Options +FollowSymLinks 
+RewriteEngine on 
+RewriteBase /
+Redirect 301 /angularjs/tim-hieu-module-ngRoute-trong-angularjs/ /angularjs/tim-hieu-module-ngRoute-trong-angularjs.html
+Redirect 301 /angularjs/$http-interceptor-trong-angularjs/ /angularjs/$http-interceptor-trong-angularjs.html
+Redirect 301 /angularjs/promises-deferred-trong-angularjs/ /angularjs/promises-deferred-trong-angularjs.html
+Redirect 301 /angularjs/hieu-ve-$http-service-trong-angularjs/ /angularjs/hieu-ve-$http-service-trong-angularjs.html
+Redirect 301 /angularjs/resolve-trong-angularjs-routes/ /angularjs/resolve-trong-angularjs-routes.html
+Redirect 301 /angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs/ /angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs.html
+Redirect 301 /angularjs/co-che-phan-tich-expression-trong-angularjs/ /angularjs/co-che-phan-tich-expression-trong-angularjs.html
+Redirect 301 /angularjs/expression-trong-angularjs/ /angularjs/expression-trong-angularjs.html
+
+Redirect 301 /drupal-7/tao-view-calendar-trong-drupal7/ /drupal-7/tao-view-calendar-trong-drupal7.html

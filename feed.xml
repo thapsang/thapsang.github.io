@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://thapsang.net/feed.xml" />
 <link rel="alternate" type="text/html" href="http://thapsang.net" />
-<updated>2015-05-23T15:47:38+07:00</updated>
+<updated>2015-05-23T18:23:35+07:00</updated>
 <id>http://thapsang.net/</id>
 <author>
   <name>Ta Ly</name>
@@ -15,7 +15,7 @@
 
 <entry>
   <title type="html"><![CDATA[Tự tạo handlebars helper cho Ghost blog]]></title>
-  <link>http://thapsang.net/ghost/tu-tao-handlebars-helper-cho-ghost-blog</link>
+  <link>http://thapsang.net/ghost/tu-tao-handlebars-helper-cho-ghost-blog.html</link>
   <id>http://thapsang.net/ghost/tu-tao-handlebars-helper-cho-ghost-blog</id>
   <published>2015-05-11T00:00:00+07:00</published>
   <updated>2015-05-11T00:00:00+07:00</updated>
@@ -98,13 +98,13 @@
   &lt;li&gt;&lt;a href=&quot;http://zackehh.com/safely-creating-custom-handlebars-helpers/&quot;&gt;Safely creating custom handlebars helpers for ghost blogs&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ghost/tu-tao-handlebars-helper-cho-ghost-blog&quot;&gt;Tự tạo handlebars helper cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 11, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ghost/tu-tao-handlebars-helper-cho-ghost-blog.html&quot;&gt;Tự tạo handlebars helper cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 11, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Tạo trang contact và gửi mail với Nodemailer cho Ghost blog]]></title>
-  <link>http://thapsang.net/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog</link>
+  <link>http://thapsang.net/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog.html</link>
   <id>http://thapsang.net/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog</id>
   <published>2015-05-09T00:00:00+07:00</published>
   <updated>2015-05-09T00:00:00+07:00</updated>
@@ -113,7 +113,7 @@
     <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;Trước khi thực hiện theo nội dung bài này, bạn cần đảm bảo rằng blog của bạn đã được thiết lập có thể gửi mail. Bạn có thể tham khảo bài &lt;a href=&quot;/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog&quot;&gt;Thiết lập gửi mail sử dụng Gmail cho Ghost blog&lt;/a&gt; để chắc chắn điều này.&lt;/p&gt;
+  <content type="html">&lt;p&gt;Trước khi thực hiện theo nội dung bài này, bạn cần đảm bảo rằng blog của bạn đã được thiết lập có thể gửi mail. Bạn có thể tham khảo bài &lt;a href=&quot;/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog.html&quot;&gt;Thiết lập gửi mail sử dụng Gmail cho Ghost blog&lt;/a&gt; để chắc chắn điều này.&lt;/p&gt;
 
 &lt;section&gt;
   &lt;header&gt;
@@ -315,13 +315,13 @@
   &lt;li&gt;&lt;a href=&quot;http://tarikk.com/ghost-blog-contact-form-using-ghosts-nodemailer/&quot;&gt;Contact form using Ghost’s Nodemailer&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog&quot;&gt;Tạo trang contact và gửi mail với Nodemailer cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 09, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog.html&quot;&gt;Tạo trang contact và gửi mail với Nodemailer cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 09, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Thiết lập gửi mail sử dụng Gmail cho Ghost blog]]></title>
-  <link>http://thapsang.net/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog</link>
+  <link>http://thapsang.net/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog.html</link>
   <id>http://thapsang.net/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog</id>
   <published>2015-05-08T00:00:00+07:00</published>
   <updated>2015-05-08T00:00:00+07:00</updated>
@@ -415,13 +415,13 @@
   &lt;li&gt;&lt;a href=&quot;http://www.qoncious.com/questions/how-setup-ghost-send-email-using-gmail&quot;&gt;How to setup Ghost to send email using Gmail?&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog&quot;&gt;Thiết lập gửi mail sử dụng Gmail cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 08, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog.html&quot;&gt;Thiết lập gửi mail sử dụng Gmail cho Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 08, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Thêm tìm kiếm vào Ghost blog]]></title>
-  <link>http://thapsang.net/ghost/them-tim-kiem-vao-ghost-blog</link>
+  <link>http://thapsang.net/ghost/them-tim-kiem-vao-ghost-blog.html</link>
   <id>http://thapsang.net/ghost/them-tim-kiem-vao-ghost-blog</id>
   <published>2015-05-07T00:00:00+07:00</published>
   <updated>2015-05-07T00:00:00+07:00</updated>
@@ -475,13 +475,13 @@
   &lt;li&gt;&lt;a href=&quot;https://ghostforbeginners.com/how-to-add-a-search-box-to-your-ghost-blog/&quot;&gt;Add Searching to Ghost&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ghost/them-tim-kiem-vao-ghost-blog&quot;&gt;Thêm tìm kiếm vào Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 07, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ghost/them-tim-kiem-vao-ghost-blog.html&quot;&gt;Thêm tìm kiếm vào Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 07, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hướng dẫn cài đặt Android SDK trên Ubuntu]]></title>
-  <link>http://thapsang.net/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu</link>
+  <link>http://thapsang.net/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu.html</link>
   <id>http://thapsang.net/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu</id>
   <updated>2015-03-11T00:00:00-00:00</updated>
   <published>2015-03-11T00:00:00+07:00</published>
@@ -632,13 +632,13 @@ Java HotSpot&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;TM&lt;span class=&quot
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu&quot;&gt;Hướng dẫn cài đặt Android SDK trên Ubuntu&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on March 11, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu.html&quot;&gt;Hướng dẫn cài đặt Android SDK trên Ubuntu&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on March 11, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Build ứng dụng Ionic trên nền tảng Android]]></title>
-  <link>http://thapsang.net/ionic/build-ung-dung-ionic-tren-nen-tang-android</link>
+  <link>http://thapsang.net/ionic/build-ung-dung-ionic-tren-nen-tang-android.html</link>
   <id>http://thapsang.net/ionic/build-ung-dung-ionic-tren-nen-tang-android</id>
   <updated>2015-03-10T00:00:00-00:00</updated>
   <published>2015-03-10T00:00:00+07:00</published>
@@ -689,7 +689,7 @@ Java HotSpot&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;TM&lt;span class=&quot
 
 &lt;h4 id=&quot;download-v-ci-t-sdk-tool&quot;&gt;Download và cài đặt SDK Tool&lt;/h4&gt;
 
-&lt;p&gt;Bạn có thể download SDK Tool &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;tại đây&lt;/a&gt; và đảm bảo rằng bạn đã cài đặt Android SDK theo đúng &lt;a href=&quot;http://developer.android.com/sdk/installing/index.html&quot;&gt;hướng dẫn&lt;/a&gt; và thêm các gói &lt;a href=&quot;http://developer.android.com/sdk/installing/adding-packages.html&quot;&gt;SDK Packages&lt;/a&gt; để develop. Bạn có thể tham khảo bài viết &lt;a href=&quot;/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu&quot;&gt;Hướng dẫn cài đặt Android SDK trên Ubuntu 14.04&lt;/a&gt; của tôi.&lt;/p&gt;
+&lt;p&gt;Bạn có thể download SDK Tool &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;tại đây&lt;/a&gt; và đảm bảo rằng bạn đã cài đặt Android SDK theo đúng &lt;a href=&quot;http://developer.android.com/sdk/installing/index.html&quot;&gt;hướng dẫn&lt;/a&gt; và thêm các gói &lt;a href=&quot;http://developer.android.com/sdk/installing/adding-packages.html&quot;&gt;SDK Packages&lt;/a&gt; để develop. Bạn có thể tham khảo bài viết &lt;a href=&quot;/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu.html&quot;&gt;Hướng dẫn cài đặt Android SDK trên Ubuntu 14.04&lt;/a&gt; của tôi.&lt;/p&gt;
 
 &lt;p&gt;Để Cordova command-line (CLI) hoạt động đúng, chúng ta cần thêm thư mục &lt;code&gt;tools&lt;/code&gt; và &lt;code&gt;platform-tools&lt;/code&gt; của SDK vào trong &lt;code&gt;PATH&lt;/code&gt;. Bạn có thể sử dụng editor để tạo hoặc chỉnh sửa file &lt;code&gt;~/.bash_profile&lt;/code&gt;, thêm dòng sau vào file (phụ thuộc vào nơi chúng ta cài đặt sdk, thư mục của tôi là &lt;strong&gt;/home/taly/development&lt;/strong&gt;):&lt;/p&gt;
 
@@ -734,13 +734,13 @@ Lưu ý: Bạn không nên chỉnh sửa thông tin gì trong thư mục này tr
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ionic/build-ung-dung-ionic-tren-nen-tang-android&quot;&gt;Build ứng dụng Ionic trên nền tảng Android&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on March 10, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ionic/build-ung-dung-ionic-tren-nen-tang-android.html&quot;&gt;Build ứng dụng Ionic trên nền tảng Android&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on March 10, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hướng dẫn cài đặt Ionic Framework trên Ubuntu]]></title>
-  <link>http://thapsang.net/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu</link>
+  <link>http://thapsang.net/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu.html</link>
   <id>http://thapsang.net/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu</id>
   <updated>2015-03-09T00:00:00-00:00</updated>
   <published>2015-01-21T00:00:00+07:00</published>
@@ -817,13 +817,13 @@ Lưu ý: Bạn không nên chỉnh sửa thông tin gì trong thư mục này tr
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu&quot;&gt;Hướng dẫn cài đặt Ionic Framework trên Ubuntu&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on January 21, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu.html&quot;&gt;Hướng dẫn cài đặt Ionic Framework trên Ubuntu&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on January 21, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Sử dụng dịch vụ $resource xây dựng ứng dụng CRUD trong AngularJS]]></title>
-  <link>http://thapsang.net/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs</link>
+  <link>http://thapsang.net/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs.html</link>
   <id>http://thapsang.net/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs</id>
   <updated>2014-12-05T00:00:00-00:00</updated>
   <published>2014-12-05T00:00:00+07:00</published>
@@ -936,7 +936,7 @@ Lưu ý: Bạn không nên chỉnh sửa thông tin gì trong thư mục này tr
       &lt;li&gt;method - &lt;em&gt;{string}&lt;/em&gt; - phương thức HTTP, ví như GET, POST, PUT, DELETE, JSONP, PATCH, …&lt;/li&gt;
       &lt;li&gt;params - &lt;em&gt;{Object}&lt;/em&gt; - tập các tùy chọn của các tham số trước khi thực hiện action này.&lt;/li&gt;
       &lt;li&gt;isArray - &lt;em&gt;{boolean}&lt;/em&gt; - quy định dữ liệu trả về cho phương thức này là Array hay Object.&lt;/li&gt;
-      &lt;li&gt;Ngoài ra nó còn chứa đầy đủ các thuộc tính của &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$http#usage&quot;&gt;$http.config&lt;/a&gt; như &lt;code&gt;headers&lt;/code&gt;, &lt;code&gt;transformRequest&lt;/code&gt;, &lt;code&gt;transformResponse&lt;/code&gt;, &lt;code&gt;cache&lt;/code&gt;, &lt;code&gt;timeout&lt;/code&gt;, &lt;code&gt;withCredentials&lt;/code&gt;,&lt;code&gt;responseType&lt;/code&gt;, &lt;code&gt;interceptor&lt;/code&gt;. Bạn có thể xem lại bài viết &lt;a href=&quot;/angularjs/hieu-ve-$http-service-trong-angularjs&quot;&gt;tìm hiểu về $http&lt;/a&gt; để nắm rõ cách thức sử dụng các thuộc tính đó.&lt;/li&gt;
+      &lt;li&gt;Ngoài ra nó còn chứa đầy đủ các thuộc tính của &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$http#usage&quot;&gt;$http.config&lt;/a&gt; như &lt;code&gt;headers&lt;/code&gt;, &lt;code&gt;transformRequest&lt;/code&gt;, &lt;code&gt;transformResponse&lt;/code&gt;, &lt;code&gt;cache&lt;/code&gt;, &lt;code&gt;timeout&lt;/code&gt;, &lt;code&gt;withCredentials&lt;/code&gt;,&lt;code&gt;responseType&lt;/code&gt;, &lt;code&gt;interceptor&lt;/code&gt;. Bạn có thể xem lại bài viết &lt;a href=&quot;/angularjs/hieu-ve-$http-service-trong-angularjs.html&quot;&gt;tìm hiểu về $http&lt;/a&gt; để nắm rõ cách thức sử dụng các thuộc tính đó.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;options&lt;/strong&gt; - &lt;em&gt;{Object}&lt;/em&gt; - tham số này hiện tại chỉ hỗ trợ thiết lập thuộc tính &lt;code&gt;stripTrailingSlashes&lt;/code&gt;. Mặc định, thuộc tính này được thiết lập giá trị &lt;code&gt;true&lt;/code&gt;, nghĩa là dấu &lt;code&gt;/&lt;/code&gt; trong URL sẽ bị bỏ qua khi truyền qua hàm &lt;code&gt;$resource()&lt;/code&gt;, chúng ta có thể hủy bỏ tính năng này bằng cách thiết lập &lt;em&gt;{ stripTrailingSlashes: false }&lt;/em&gt;. Ví dụ: &lt;/li&gt;
@@ -1165,13 +1165,13 @@ Lưu ý: Bạn không nên chỉnh sửa thông tin gì trong thư mục này tr
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs&quot;&gt;Sử dụng dịch vụ $resource xây dựng ứng dụng CRUD trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on December 05, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs.html&quot;&gt;Sử dụng dịch vụ $resource xây dựng ứng dụng CRUD trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on December 05, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Cơ chế phân tích expression trong AngularJS.]]></title>
-  <link>http://thapsang.net/angularjs/co-che-phan-tich-expression-trong-angularjs</link>
+  <link>http://thapsang.net/angularjs/co-che-phan-tich-expression-trong-angularjs.html</link>
   <id>http://thapsang.net/angularjs/co-che-phan-tich-expression-trong-angularjs</id>
   <updated>2014-12-01T00:00:00-00:00</updated>
   <published>2014-12-01T00:00:00+07:00</published>
@@ -1268,13 +1268,13 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/co-che-phan-tich-expression-trong-angularjs&quot;&gt;Cơ chế phân tích expression trong AngularJS.&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on December 01, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/co-che-phan-tich-expression-trong-angularjs.html&quot;&gt;Cơ chế phân tích expression trong AngularJS.&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on December 01, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Interceptor trong AngularJS]]></title>
-  <link>http://thapsang.net/angularjs/$http-interceptor-trong-angularjs</link>
+  <link>http://thapsang.net/angularjs/$http-interceptor-trong-angularjs.html</link>
   <id>http://thapsang.net/angularjs/$http-interceptor-trong-angularjs</id>
   <updated>2014-11-25T00:00:00-00:00</updated>
   <published>2014-11-25T00:00:00+07:00</published>
@@ -1363,13 +1363,13 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;li&gt;&lt;a href=&quot;https://egghead.io/lessons/angularjs-using-angularjs-interceptors-with-http&quot;&gt;Using AngularJS interceptors with $http&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/$http-interceptor-trong-angularjs&quot;&gt;Interceptor trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 25, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/$http-interceptor-trong-angularjs.html&quot;&gt;Interceptor trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 25, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hiểu về dịch vụ $http trong AngularJS]]></title>
-  <link>http://thapsang.net/angularjs/hieu-ve-$http-service-trong-angularjs</link>
+  <link>http://thapsang.net/angularjs/hieu-ve-$http-service-trong-angularjs.html</link>
   <id>http://thapsang.net/angularjs/hieu-ve-$http-service-trong-angularjs</id>
   <updated>2014-11-25T00:00:00-00:00</updated>
   <published>2014-11-18T00:00:00+07:00</published>
@@ -1383,7 +1383,7 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Nếu bạn đã từng sử dụng jQuery thì cách hành xử của $http service gần giống như phương thức &lt;a href=&quot;http://api.jquery.com/jquery.ajax/&quot;&gt;$.ajax()&lt;/a&gt; trong jQuery. $http cấu hình một yêu cầu (request) và trả lại một lời hứa (promise). jQuery sử dụng thư viện &lt;a href=&quot;http://api.jquery.com/jQuery.Deferred/&quot;&gt;Deferred&lt;/a&gt; trong nội hàm của nó, trong khi AngularJS sử dụng &lt;a href=&quot;https://docs.angularjs.org/api/ng/service/$q&quot;&gt;$q&lt;/a&gt; service dựa trên cơ chế của thư viện &lt;a href=&quot;http://documentup.com/kriskowal/q/&quot;&gt;Q&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Trước khi đi vào tìm hiểu chi tiết nội dung bài này, cần đảm bảo rằng bạn đã hiểu về &lt;a href=&quot;/angularjs/promises-deferred-trong-angularjs&quot;&gt;Promise/Deffered trong AngularJS&lt;/a&gt;. Trong bài này, chúng ta sẽ tìm hiểu, làm rõ các vấn đề dưới đây:&lt;/p&gt;
+&lt;p&gt;Trước khi đi vào tìm hiểu chi tiết nội dung bài này, cần đảm bảo rằng bạn đã hiểu về &lt;a href=&quot;/angularjs/promises-deferred-trong-angularjs.html&quot;&gt;Promise/Deffered trong AngularJS&lt;/a&gt;. Trong bài này, chúng ta sẽ tìm hiểu, làm rõ các vấn đề dưới đây:&lt;/p&gt;
 &lt;section&gt;  
 &lt;div id=&quot;drawer&quot;&gt;
 &lt;ul id=&quot;markdown-toc&quot;&gt;
@@ -1671,7 +1671,7 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;interceptors&quot;&gt;Interceptors&lt;/h2&gt;
 
-&lt;p&gt;Khi giao tiếp với server thông qua $http service, có khi chúng ta cần chặn các request hoặc response để làm gì đó trước khi gửi chúng đến server hoặc trả lại phía client. Chúng ta sẽ tìm hiểu về nội dung này trong bài &lt;a href=&quot;/angularjs/$http-interceptor-trong-angularjs&quot;&gt;Interceptor trong AngularJS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Khi giao tiếp với server thông qua $http service, có khi chúng ta cần chặn các request hoặc response để làm gì đó trước khi gửi chúng đến server hoặc trả lại phía client. Chúng ta sẽ tìm hiểu về nội dung này trong bài &lt;a href=&quot;/angularjs/$http-interceptor-trong-angularjs.html&quot;&gt;Interceptor trong AngularJS&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
 
@@ -1682,13 +1682,13 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;li&gt;&lt;a href=&quot;http://tutorials.jenkov.com/angularjs/ajax.html&quot;&gt;AngularJS AJAX&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/hieu-ve-$http-service-trong-angularjs&quot;&gt;Hiểu về dịch vụ $http trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 18, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/hieu-ve-$http-service-trong-angularjs.html&quot;&gt;Hiểu về dịch vụ $http trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 18, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Expression trong AngularJS]]></title>
-  <link>http://thapsang.net/angularjs/expression-trong-angularjs</link>
+  <link>http://thapsang.net/angularjs/expression-trong-angularjs.html</link>
   <id>http://thapsang.net/angularjs/expression-trong-angularjs</id>
   <updated>2014-11-28T00:00:00-00:00</updated>
   <published>2014-11-11T00:00:00+07:00</published>
@@ -1741,7 +1741,7 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;a class=&quot;jsbin-embed&quot; href=&quot;http://jsbin.com/qoduqo/1/embed?html,js,output&quot;&gt;Parse Expression Example&lt;/a&gt;&lt;script src=&quot;http://static.jsbin.com/js/embed.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;Bạn có thể tham khảo bài viết về &lt;a href=&quot;/angularjs/co-che-phan-tich-expression-trong-angularjs&quot;&gt;cơ chế phân tích expression&lt;/a&gt; để rõ hơn về dịch vụ $parse này.&lt;/p&gt;
+&lt;p&gt;Bạn có thể tham khảo bài viết về &lt;a href=&quot;/angularjs/co-che-phan-tich-expression-trong-angularjs.html&quot;&gt;cơ chế phân tích expression&lt;/a&gt; để rõ hơn về dịch vụ $parse này.&lt;/p&gt;
 
 &lt;h2 id=&quot;angularjs-expressions-vs-javascript-expressions&quot;&gt;AngularJS Expressions vs. Javascript Expressions&lt;/h2&gt;
 
@@ -1796,13 +1796,13 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/ol&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/expression-trong-angularjs&quot;&gt;Expression trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 11, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/expression-trong-angularjs.html&quot;&gt;Expression trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on November 11, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Promises/Deferred trong AngularJS]]></title>
-  <link>http://thapsang.net/angularjs/promises-deferred-trong-angularjs</link>
+  <link>http://thapsang.net/angularjs/promises-deferred-trong-angularjs.html</link>
   <id>http://thapsang.net/angularjs/promises-deferred-trong-angularjs</id>
   <published>2014-10-30T00:00:00+07:00</published>
   <updated>2014-10-30T00:00:00+07:00</updated>
@@ -2040,13 +2040,13 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.dwmkerr.com/promises-in-angularjs-the-definitive-guide/&quot;&gt;AngularJS Promises - The Definitive Guide&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/promises-deferred-trong-angularjs&quot;&gt;Promises/Deferred trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 30, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/promises-deferred-trong-angularjs.html&quot;&gt;Promises/Deferred trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 30, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hiểu về 'Resolve' trong AngularJS routes]]></title>
-  <link>http://thapsang.net/angularjs/resolve-trong-angularjs-routes</link>
+  <link>http://thapsang.net/angularjs/resolve-trong-angularjs-routes.html</link>
   <id>http://thapsang.net/angularjs/resolve-trong-angularjs-routes</id>
   <published>2014-10-28T00:00:00+07:00</published>
   <updated>2014-10-28T00:00:00+07:00</updated>
@@ -2055,7 +2055,7 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;Trong bài &lt;a href=&quot;/angularjs/tim-hieu-module-ngRoute-trong-angularjs&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt;, chúng ta đã tìm hiểu cách làm thế nào để định tuyến (routing) và cách các routes nói chuyện với controller như thế nào. Việc khởi tạo các controller có thể khác nhau dựa trên các thiết lập của route và các sự kiện &lt;code&gt;$routeChangeSuccess&lt;/code&gt; và &lt;code&gt;$routeChangeError&lt;/code&gt; tương ứng. Hầu hết các sự kiện này có do thuộc tính &lt;code&gt;resolve&lt;/code&gt; khi cấu hình route. Trong bài này, chúng ta sẽ làm sáng rõ vấn đề Tại sao lại cần &lt;code&gt;resolve&lt;/code&gt; và cách thức hoạt động của nó như thế nào.&lt;/p&gt;
+  <content type="html">&lt;p&gt;Trong bài &lt;a href=&quot;/angularjs/tim-hieu-module-ngRoute-trong-angularjs.html&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt;, chúng ta đã tìm hiểu cách làm thế nào để định tuyến (routing) và cách các routes nói chuyện với controller như thế nào. Việc khởi tạo các controller có thể khác nhau dựa trên các thiết lập của route và các sự kiện &lt;code&gt;$routeChangeSuccess&lt;/code&gt; và &lt;code&gt;$routeChangeError&lt;/code&gt; tương ứng. Hầu hết các sự kiện này có do thuộc tính &lt;code&gt;resolve&lt;/code&gt; khi cấu hình route. Trong bài này, chúng ta sẽ làm sáng rõ vấn đề Tại sao lại cần &lt;code&gt;resolve&lt;/code&gt; và cách thức hoạt động của nó như thế nào.&lt;/p&gt;
 
 &lt;p&gt;Tôi tìm được một bài viết của &lt;a href=&quot;http://www.twitter.com/shidhincr&quot;&gt;Shidhin&lt;/a&gt; giải thích khá rõ ràng và dễ hiểu về thuộc tính &lt;a href=&quot;http://www.undefinednull.com/2014/02/17/resolve-in-angularjs-routes-explained-as-story/&quot;&gt;‘Resolve’ trong AngularJS routes&lt;/a&gt; thông qua ba phiên bản của một câu chuyện. Do đó, tôi sẽ dịch lại bài viết đó và giữ nguyên câu chuyện của tác giả để lưu lại kiến thức cho bản thân và chia sẻ bài viết bổ ích này tới các bạn quan tâm.&lt;/p&gt;
 
@@ -2277,13 +2277,13 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;li&gt;&lt;a href=&quot;http://documentup.com/kriskowal/q&quot;&gt;Document about Q&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/resolve-trong-angularjs-routes&quot;&gt;Hiểu về 'Resolve' trong AngularJS routes&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 28, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/resolve-trong-angularjs-routes.html&quot;&gt;Hiểu về 'Resolve' trong AngularJS routes&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 28, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Tìm hiểu module ngRoute trong AngularJS]]></title>
-  <link>http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs</link>
+  <link>http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs.html</link>
   <id>http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs</id>
   <published>2014-10-23T00:00:00+07:00</published>
   <updated>2014-10-23T00:00:00+07:00</updated>
@@ -2292,7 +2292,7 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     <uri>http://thapsang.net</uri>
     <email>taly2808@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ngRoute&quot;&gt;ngRoute&lt;/a&gt; là một module trong AngularJS cung cấp dịch vụ định tuyến (routing), &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_linking&quot;&gt;deep linking&lt;/a&gt; và các chỉ thị lệnh (directives) &lt;code&gt;ngView&lt;/code&gt; cho các ứng dụng angular. Trong &lt;a href=&quot;/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs&quot;&gt;bài trước&lt;/a&gt;, chúng ta đã có một ví dụ đơn giản về routing trong SPA với AngularJS. Trong nội dung bài này, chúng ta sẽ đi vào tìm hiểu chi tiết về các thành phần &lt;strong&gt;provider&lt;/strong&gt;, &lt;strong&gt;services&lt;/strong&gt; và &lt;strong&gt;ngView directive&lt;/strong&gt; trong module ngRoute.&lt;/p&gt;
+  <content type="html">&lt;p&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ngRoute&quot;&gt;ngRoute&lt;/a&gt; là một module trong AngularJS cung cấp dịch vụ định tuyến (routing), &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_linking&quot;&gt;deep linking&lt;/a&gt; và các chỉ thị lệnh (directives) &lt;code&gt;ngView&lt;/code&gt; cho các ứng dụng angular. Trong &lt;a href=&quot;/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs.html&quot;&gt;bài trước&lt;/a&gt;, chúng ta đã có một ví dụ đơn giản về routing trong SPA với AngularJS. Trong nội dung bài này, chúng ta sẽ đi vào tìm hiểu chi tiết về các thành phần &lt;strong&gt;provider&lt;/strong&gt;, &lt;strong&gt;services&lt;/strong&gt; và &lt;strong&gt;ngView directive&lt;/strong&gt; trong module ngRoute.&lt;/p&gt;
 
 &lt;section&gt;
   &lt;header&gt;
@@ -2454,7 +2454,7 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;resolve&lt;/strong&gt;: một resolve chứa một hoặc nhiều lời hứa (promises), các promises phải được giải quyết thành công (resolve) trước khi route thay đổi. Điều này có nghĩa là chúng ta có thể đợi dữ liệu sẵn sàng trước khi hiển thị trên view và làm đơn giản hóa việc khởi tạo model bên trong một controller vì dữ liệu ban đầu được trao cho controller thay vì controller phải đi ra ngoài và tự tìm kiếm dữ liệu. Chúng ta sẽ tìm hiểu chi tiết về thuộc tính này trong bài &lt;a href=&quot;/angularjs/resolve-trong-angularjs-routes&quot;&gt;Hiểu về ‘Resolve’ trong AngularJS routes&lt;/a&gt;.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;resolve&lt;/strong&gt;: một resolve chứa một hoặc nhiều lời hứa (promises), các promises phải được giải quyết thành công (resolve) trước khi route thay đổi. Điều này có nghĩa là chúng ta có thể đợi dữ liệu sẵn sàng trước khi hiển thị trên view và làm đơn giản hóa việc khởi tạo model bên trong một controller vì dữ liệu ban đầu được trao cho controller thay vì controller phải đi ra ngoài và tự tìm kiếm dữ liệu. Chúng ta sẽ tìm hiểu chi tiết về thuộc tính này trong bài &lt;a href=&quot;/angularjs/resolve-trong-angularjs-routes.html&quot;&gt;Hiểu về ‘Resolve’ trong AngularJS routes&lt;/a&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;reloadOnSearch&lt;/strong&gt;: thuộc tính này được thiết lập mặc định giá trị &lt;em&gt;true&lt;/em&gt;. Thuộc tính này cho phép tải lại route khi $location.search() hoặc $location.hash() thay đổi.&lt;/p&gt;
@@ -2512,13 +2512,13 @@ $scope.extension = &amp;#39;jpg&amp;#39;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/api/ngRoute/&quot;&gt;AngularJS’s document on ngRoute&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 23, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs.html&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 23, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Routing Single Page Application với module ngRoute của AngularJS]]></title>
-  <link>http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</link>
+  <link>http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs.html</link>
   <id>http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs</id>
   <published>2014-10-21T00:00:00+07:00</published>
   <updated>2014-10-21T00:00:00+07:00</updated>
@@ -2642,7 +2642,7 @@ pages/
 
 &lt;script src=&quot;https://gist.github.com/taly2808/22211dc7315bf948a74c.js&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;Trong bài viết này, tôi đã đưa ra một ví dụ đơn giản về routing để mọi người có thể định hình được chức năng cơ bản của module &lt;code&gt;ngRoute&lt;/code&gt; trong AngularJS. Trong bài &lt;a href=&quot;/angularjs/tim-hieu-module-ngRoute-trong-angularjs&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt; chúng ta sẽ đi sâu vào tìm hiểu các thành phần trong module &lt;code&gt;ngRoute&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Trong bài viết này, tôi đã đưa ra một ví dụ đơn giản về routing để mọi người có thể định hình được chức năng cơ bản của module &lt;code&gt;ngRoute&lt;/code&gt; trong AngularJS. Trong bài &lt;a href=&quot;/angularjs/tim-hieu-module-ngRoute-trong-angularjs.html&quot;&gt;Tìm hiểu module ngRoute trong AngularJS&lt;/a&gt; chúng ta sẽ đi sâu vào tìm hiểu các thành phần trong module &lt;code&gt;ngRoute&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
 
@@ -2651,13 +2651,13 @@ pages/
   &lt;li&gt;&lt;a href=&quot;https://docs.angularjs.org/tutorial/step_07&quot;&gt;AngularJS’s document on Routing &amp;amp; Multiple Views&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs&quot;&gt;Routing Single Page Application với module ngRoute của AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 21, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs.html&quot;&gt;Routing Single Page Application với module ngRoute của AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 21, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Cấu trúc thư mục cho ứng dụng AngularJS]]></title>
-  <link>http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs</link>
+  <link>http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs.html</link>
   <id>http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs</id>
   <published>2014-10-12T00:00:00+07:00</published>
   <updated>2014-10-12T00:00:00+07:00</updated>
@@ -2760,13 +2760,13 @@ views/
 &lt;h2 id=&quot;kt-lun&quot;&gt;Kết luận&lt;/h2&gt;
 &lt;p&gt;Có rất nhiều cách để tổ chức cấu trúc thư mục ứng dụng và không có cách nào là hoàn hảo. Chúng ta dựa trên quy mô ứng dụng để chọn một cấu trúc phù hợp với ứng dụng của mình. Các bạn cũng có thể tự tạo ra cấu trúc của riêng mình ;). Và điều quan trọng nhất vẫn là cấu trúc phải rõ ràng và chúng ta có thể dễ dàng và nhanh chóng xác định được cái mà chúng ta cần làm.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs&quot;&gt;Cấu trúc thư mục cho ứng dụng AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 12, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs.html&quot;&gt;Cấu trúc thư mục cho ứng dụng AngularJS&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 12, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline]]></title>
-  <link>http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</link>
+  <link>http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline.html</link>
   <id>http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline</id>
   <published>2014-10-04T00:00:00+07:00</published>
   <updated>2014-10-04T00:00:00+07:00</updated>
@@ -2889,13 +2889,13 @@ views/
 
 &lt;p&gt;Hy vọng bạn đã có thể quản lý các asset của mình một cách dễ dàng. Have fun! ;)&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline&quot;&gt;Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 04, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline.html&quot;&gt;Quản lý tài nguyên public trong Laravel 4 với Asset Pipeline&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 04, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Xóa cache views trong laravel 4 với Artisan command]]></title>
-  <link>http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</link>
+  <link>http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command.html</link>
   <id>http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command</id>
   <published>2014-10-03T00:00:00+07:00</published>
   <updated>2014-10-03T00:00:00+07:00</updated>
@@ -2944,13 +2944,13 @@ Views deleted from cache&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Hy vọng có thể giúp các bạn giải quyết được vấn đề của mình. Have fun! ;)&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command&quot;&gt;Xóa cache views trong laravel 4 với Artisan command&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 03, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command.html&quot;&gt;Xóa cache views trong laravel 4 với Artisan command&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 03, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hướng dẫn cài đặt Laravel 4]]></title>
-  <link>http://thapsang.net/laravel/huong-dan-cai-dat-laravel</link>
+  <link>http://thapsang.net/laravel/huong-dan-cai-dat-laravel.html</link>
   <id>http://thapsang.net/laravel/huong-dan-cai-dat-laravel</id>
   <published>2014-09-27T00:00:00+07:00</published>
   <updated>2014-09-27T00:00:00+07:00</updated>
@@ -3045,7 +3045,7 @@ Zend Engine v2.5.0, Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;c&lt
 
 &lt;h2 id=&quot;install-composer&quot;&gt;Install Composer&lt;/h2&gt;
 
-&lt;p&gt;Laravel sử dụng &lt;a href=&quot;http://getcomposer.org/&quot;&gt;Composer&lt;/a&gt; để quản lý các thư viện phụ thuộc. Bạn tham khảo bài viết &lt;a href=&quot;/laravel/huong-dan-cai-dat-composer&quot;&gt;hướng dẫn cài đặt Composer&lt;/a&gt; để có thể cài đặt Composer. Tôi khuyến nghị bạn nên cài đặt Composer sử dụng cho toàn hệ thống (globally). &lt;/p&gt;
+&lt;p&gt;Laravel sử dụng &lt;a href=&quot;http://getcomposer.org/&quot;&gt;Composer&lt;/a&gt; để quản lý các thư viện phụ thuộc. Bạn tham khảo bài viết &lt;a href=&quot;/laravel/huong-dan-cai-dat-composer.html&quot;&gt;hướng dẫn cài đặt Composer&lt;/a&gt; để có thể cài đặt Composer. Tôi khuyến nghị bạn nên cài đặt Composer sử dụng cho toàn hệ thống (globally). &lt;/p&gt;
 
 &lt;p&gt;Bạn có thể kiểm tra Composer đã được cài đặt hay chưa bằng cách mở Terminal và chạy lệnh sau:&lt;/p&gt;
 
@@ -3117,7 +3117,7 @@ Tiếp đến, copy file &lt;code&gt;laravel&lt;/code&gt; sang thư mục &lt;co
 	&lt;a href=&quot;http://thapsang.net/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;http://thapsang.net/assets/img/welcome_laravel.jpg&quot; /&gt;&lt;/a&gt;
 &lt;/figure&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/huong-dan-cai-dat-laravel&quot;&gt;Hướng dẫn cài đặt Laravel 4&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 27, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://thapsang.net/laravel/huong-dan-cai-dat-laravel.html&quot;&gt;Hướng dẫn cài đặt Laravel 4&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;http://thapsang.net&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 27, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>

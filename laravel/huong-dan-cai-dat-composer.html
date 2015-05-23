@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="vy14mO9wf2bjKiZs8BIxCFXKJDP40DqGTqiwxscMctw" />
+<title>Hướng dẫn cài đặt Composer &#8211; THAPSANG.NET</title>
+<meta name="description" content="Cài đặt Composer trên máy tính">
+<meta name="keywords" content="installation, composer, laravel">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://thapsang.net/images/my-candle.png">
+<meta name="twitter:title" content="Hướng dẫn cài đặt Composer">
+<meta name="twitter:description" content="Cài đặt Composer trên máy tính">
+<meta name="twitter:creator" content="@taly2808">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hướng dẫn cài đặt Composer">
+<meta property="og:description" content="Cài đặt Composer trên máy tính">
+<meta property="og:url" content="http://thapsang.net/laravel/huong-dan-cai-dat-composer.html">
+<meta property="og:site_name" content="THAPSANG.NET">
+<meta property="og:image" content="http://thapsang.net/images/my-candle.png">
+
+
+
+
+
+<link rel="canonical" href="http://thapsang.net/laravel/huong-dan-cai-dat-composer.html">
+<link href="http://thapsang.net/feed.xml" type="application/atom+xml" rel="alternate" title="THAPSANG.NET Feed">
+<link rel="author" href="https://plus.google.com/+TaLy2808?rel=author">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" type="text/css" href="http://thapsang.net/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="http://thapsang.net/assets/css/style.css" />
+
+<div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search...">
+        <i class="icon-remove-sign"></i>
+        <ul class="search-results post-list"></ul><!-- /.search-results -->
+    </div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://thapsang.net/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://thapsang.net/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://thapsang.net/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://thapsang.net/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://thapsang.net/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://thapsang.net/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+<div id="fade"></div>
+<a id="slide" class="animated fade"></a>
+<aside id="sidebar">
+    <nav id="navigation">
+    <h2>MENU</h2>
+    <hr>
+
+            <li>
+                    <a href="http://thapsang.net/">Trang bìa</a>
+                 </li>
+
+            <li>
+                    <a href="http://thapsang.net/categories">Danh mục</a>
+                 </li>
+
+            <li>
+                    <a href="http://thapsang.net/tags"><i class="icon-tag"></i> Tags</a>
+                 </li>
+
+            <li>
+                    <a href="http://thapsang.net/about">Giới thiệu</a>
+                 </li>
+            
+           <li><a href="https://feedburner.google.com/fb/a/mailverify?uri=thapsangnet/taly2808&amp;loc=en_US" title="Atom/RSS feed" target="_blank"><i class="icon-rss"></i> Feed</a></li>
+    </nav>
+    
+    
+</aside>
+
+<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom"  style="background-image: url(http://thapsang.net/images/picture-2.jpg)" itemscope itemtype="http://schema.org/Organization">
+
+
+    <button class="menu-button animated fade dosearch">
+        <i class="icon-search"></i>
+    </button>
+
+
+    <div class="inner">
+        <div class="container">
+            <a class="brand" href="http://thapsang.net/" role="banner" itemprop="url">
+
+                <img itemprop="logo" src="http://thapsang.net/images/my-candle.png" alt="THAPSANG.NET Logo" />
+
+            <h1 class="blog-title light" itemprop="name">
+                THAPSANG.NET
+            </h1>
+                
+            </a>
+        </div>
+    </div>
+    
+    
+    <div class="decor-wrapper">
+        <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+            <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+            <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"></path>
+            <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"></path>
+
+            <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"></path>
+            <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"></path>
+
+            <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"></path>
+
+            <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"></path>
+
+        </svg>
+    </div>
+    
+</header>
+
+<div id="main" class="content" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+    <div class="container">
+        <div class="row">
+            <article class="post col-md-10 col-md-offset-1 hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+            
+            
+            
+            
+            
+                    <header class="post-header entry-header">
+                    
+                        
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Hướng dẫn cài đặt Composer</h1>
+                        
+                        <div class="cursive" style="color: #000; font-style:italic;">Cài đặt Composer trên máy tính</div>
+                        <div class="post-info text-center small">
+                            <span class="entry-date date published updated"><time datetime="2014-09-24T00:00:00+07:00" class="post-time" itemprop="datePublished">24 Sep 2014</time><span>
+                            in <span class="post-tags"><a href="http://thapsang.net/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">10.35</span> minutes read</span>
+                        </div>
+                    </header>
+                    <div class="post-body bordered-bottom" itemprop="description">
+                        
+                        <p>Composer là một công cụ để quản lý sự phụ thuộc trong PHP. Bạn có một project và nó phụ thuộc vào một cơ số các thư viện. Một vài thư viện trong số đó lại phụ thuộc vào các thư viện khác. Việc tải các thư viện cần thiết cho project theo cách thông thường cũng khá tốn thời gian và mệt não. Với Composer, bạn chỉ cần khai báo các thư viện project cần, Composer sẽ tìm các phiên bản tương ứng và download chúng vào vào trong project cho bạn.</p>
+
+<section>
+  <header>
+    <h2>Nội dung</h2>
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#khai-bo-ph-thuc">Khai báo phụ thuộc</a></li>
+  <li><a href="#system-requirements">System Requirements</a></li>
+  <li><a href="#ci-t">Cài đặt</a>    <ul>
+      <li><a href="#ci-t-trn-linux">Cài đặt trên Linux</a>        <ul>
+          <li><a href="#locally">Locally</a></li>
+          <li><a href="#globally">Globally</a></li>
+        </ul>
+      </li>
+      <li><a href="#ci-t-trn-windows">Cài đặt trên Windows</a>        <ul>
+          <li><a href="#using-the-installer">Using the Installer</a></li>
+          <li><a href="#manual-installation">Manual Installation</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</section>
+
+<h2 id="khai-bo-ph-thuc">Khai báo phụ thuộc</h2>
+
+<p>Giả sử, bạn có một dự án và bạn cần thư viện để ghi log. Bạn có thể sử dụng <a href="https://github.com/Seldaek/monolog">monolog</a> hoặc <a href="http://logging.apache.org/log4php/">log4php</a>. Giả như bạn quyết định sử dụng <strong>monolog</strong>. Để thêm thư viện <strong>monolog</strong> vào trong project, bạn chỉ cần tạo một file <code>composer.json</code> và liệt kê thư viện phụ thuộc vào đó: </p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;monolog/monolog&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.*&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Với khai báo như trên, chúng ta nói rằng chúng ta yêu cầu một số gói monolog/monolog của bất kỳ phiên bản nào bắt đầu  bằng 1.2. Composer sẽ tự động tải về và đặt nó trong thư mục <strong>your-project/vendor/</strong>.</p>
+
+<h2 id="system-requirements">System Requirements</h2>
+
+<p>Composer yêu cầu máy tính của bạn phải có PHP phiên bản 5.3.2 trở lên. Bạn có thể kiểm tra phiên bản PHP trên máy bằng lệnh <strong><code>php -v</code></strong> hoặc <strong><code>php --version</code></strong> như sau: </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>php -v
+PHP 5.5.14-2+deb.sury.org~precise+1 <span class="o">(</span>cli<span class="o">)</span> <span class="o">(</span>built: Jul  <span class="m">2</span> <span class="m">2014</span> 11:56:23<span class="o">)</span> 
+Copyright <span class="o">(</span>c<span class="o">)</span> 1997-2014 The PHP Group
+Zend Engine v2.5.0, Copyright <span class="o">(</span>c<span class="o">)</span> 1998-2014 Zend Technologies
+    with Zend OPcache v7.0.4-dev, Copyright <span class="o">(</span>c<span class="o">)</span> 1999-2014, by Zend Technologies</code></pre></div>
+
+<p>Nếu kết quả của bạn không tương tự như trên, bạn cần cài đặt PHP trên máy hoặc nâng cấp phiên bản nếu phiên bản của bạn nhỏ hơn 5.3.2.</p>
+
+<p>Nếu bạn dùng Windows và bạn gặp phải lỗi:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">C:<span class="se">\&gt;</span>php --version
+<span class="s1">&#39;php&#39;</span> is not recognized as an internal or external <span class="nb">command</span>,
+operable program or batch file.</code></pre></div>
+
+<p>Khi đó, bạn cần thiết lập <strong>PATH</strong> với lệnh <code>set PATH=%PATH%;C:\path\to\php</code> trong đó <code>\path\to\php</code> là đường dẫn đến thư mục chứa file <code>php.exe</code>. Giả sử, bạn sử dụng xampp, khi đó bạn nhập vào dòng lệnh sau:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">C:<span class="se">\&gt;</span><span class="nb">set </span><span class="nv">PATH</span><span class="o">=</span>%PATH%<span class="p">;</span>C:<span class="se">\x</span>ampp<span class="se">\p</span>hp</code></pre></div>
+
+<p>Kiểm tra kết quả:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">C:<span class="se">\&gt;</span>php -v
+PHP 5.5.11 <span class="o">(</span>cli<span class="o">)</span> <span class="o">(</span>built: Apr  <span class="m">8</span> <span class="m">2014</span> 15:07:14<span class="o">)</span>
+Copyright <span class="o">(</span>c<span class="o">)</span> 1997-2014 The PHP Group
+Zend Engine v2.5.0, Copyright <span class="o">(</span>c<span class="o">)</span> 1998-2014 Zend Technologies</code></pre></div>
+
+<h2 id="ci-t">Cài đặt</h2>
+
+<p>Trong bài viết này, tôi hướng dẫn cả 2 phương thức cài đặt locally và globally. Nhưng tôi khuyến nghị bạn nên tiến hành cài đặt theo phương thức <strong>Globally</strong> trên Linux và sử dụng <strong>Installer</strong> trên Windows.</p>
+
+<h3 id="ci-t-trn-linux">Cài đặt trên Linux</h3>
+
+<p>Để cài đặt Composer trên Linux (tôi sử dụng Ubuntu), máy tính của bạn cần có sẵn phần mềm <strong>curl</strong>. Bạn kiểm tra phần mềm đã được cài đặt hay chưa bằng lệnh: </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>curl --version
+curl 7.22.0 <span class="o">(</span>i686-pc-linux-gnu<span class="o">)</span> libcurl/7.22.0 OpenSSL/1.0.1 zlib/1.2.3.4 libidn/1.23 librtmp/2.3
+Protocols: dict file ftp ftps gopher http https imap imaps ldap pop3 pop3s rtmp rtsp smtp smtps telnet tftp 
+Features: GSS-Negotiate IDN IPv6 Largefile NTLM NTLM_WB SSL libz TLS-SRP</code></pre></div>
+
+<p>Nếu kết quả hiển thị phiên bản của curl như trên thì máy bạn đã được cài đặt. Nếu không, bạn dễ dàng cài đặt <strong>curl</strong> bằng lệnh sau: </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo apt-get install curl</code></pre></div>
+
+<h4 id="locally">Locally</h4>
+
+<p>Với phương thức này bạn sẽ cài đặt composer cho từng dự án của bạn. Bạn di chuyển đến thư mục chứa project, nhập vào dòng lệnh sau vào Terminal:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>curl -sS https://getcomposer.org/installer <span class="p">|</span> php</code></pre></div>
+
+<p>Nếu lệnh trên bị lỗi, bạn có thể thay thế bằng lệnh: </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>php -r <span class="s2">&quot;readfile(&#39;https://getcomposer.org/installer&#39;);&quot;</span> <span class="p">|</span> php</code></pre></div>
+
+<p>Máy tính sẽ kiểm tra cấu hình PHP và sau đó sẽ download <strong>composer.phar</strong> về thư mục project của bạn.</p>
+
+<p>Bạn cũng có thể cài đặt Composer vào một thư mục cụ thể bằng cách sử dụng option <strong><code>--install-dir</code></strong> và cung cấp đường dẫn tới thư mục đích cho nó (có thể là đường dẫn tương đối hoặc tuyệt đối đều được):</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>curl -sS https://getcomposer.org/installer <span class="p">|</span> php -- --install-dir<span class="o">=</span>bin</code></pre></div>
+
+<p>Sau đó, bạn chỉ cần chạy <strong><code>php composer.phar</code></strong> để chạy Composer.</p>
+
+<h4 id="globally">Globally</h4>
+
+<p>Bạn có thể đặt file <strong>composer.phar</strong> ở bất cứ đâu. Và nếu bạn đặt nó trong đường dẫn của bạn thì bạn có thể truy cập nó như là biến toàn cục. Để download <strong>composer.phar</strong> về máy (đặt bất cứ đâu bạn muốn), bạn chạy các lệnh sau:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>curl -sS https://getcomposer.org/installer <span class="p">|</span> php
+<span class="nv">$ </span>sudo mv composer.phar /usr/local/bin/composer</code></pre></div>
+
+<p>Sau đó, bạn chỉ cần chạy <strong><code>composer</code></strong> thay vì phải chạy <strong><code>php composer.phar</code></strong>.</p>
+
+<h3 id="ci-t-trn-windows">Cài đặt trên Windows</h3>
+
+<h4 id="using-the-installer">Using the Installer</h4>
+
+<p>Đây là cách dễ nhất để bạn cài đặt Composer về máy. Bạn chỉ cần download và chạy file <a href="https://getcomposer.org/Composer-Setup.exe">Composer-Setup.exe</a>. Nó sẽ tự động cài đặt phiên bản Composer mới nhất và thiết lập <strong>PATH</strong> cho bạn. Giờ đây, bạn có thể chạy lệnh <strong><code>composer</code></strong> từ bất cứ thư mục nào bằng command line.</p>
+
+<h4 id="manual-installation">Manual Installation</h4>
+
+<p>Thay đổi đến thư mục bạn muốn và chạy các lệnh sau để download composer.phar:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">C:<span class="se">\U</span>sers<span class="se">\u</span>sername&gt;cd C:<span class="se">\b</span>in
+C:<span class="se">\b</span>in&gt;php -r <span class="s2">&quot;readfile(&#39;https://getcomposer.org/installer&#39;);&quot;</span> <span class="p">|</span> php</code></pre></div>
+
+<p><strong>Lưu ý:</strong> Nếu câu lệnh trên bị lỗi, bạn thay thế <strong>https</strong> bằng <strong>http</strong> hoặc enable <strong>php_openssl.dll</strong> trong file <strong>php.ini</strong>.</p>
+
+<p>Tiếp đến, bạn tạo file <strong><code>composer.bat</code></strong> ngang hàng với file <strong><code>composer.phar</code></strong> bằng lệnh sau: </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">C:<span class="se">\b</span>in&gt;echo @php <span class="s2">&quot;%~dp0composer.phar&quot;</span> %*&gt;composer.bat</code></pre></div>
+
+<p>Sau khi cài đặt xong, để kiểm tra việc cài đặt composer, bạn đóng cửa sổ Ternimal hiện tại lại, mở một cửa sổ terminal mới: </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">C:<span class="se">\U</span>sers<span class="se">\u</span>sername&gt;composer --version
+Composer version b33da336ecb7f1c9b15a57285e5a9f09cf5f3dd2 2014-09-30 15:28:01</code></pre></div>
+
+<p>Với kết quả hiển thị như trên, bạn đã cài đặt thành công Composer trên máy tính của mình.</p>
+
+                        <br>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- responsive_bottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9160637159175593"
+     data-ad-slot="9145112668"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                    
+                    
+                    <div class="entry-tags text-center">
+                    
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="http://thapsang.net/tags/index.html#installation" data-toggle="tooltip" title="Posts tagged with installation" rel="tag">installation</a>&nbsp;&bull;&nbsp;<a href="http://thapsang.net/tags/index.html#composer" data-toggle="tooltip" title="Posts tagged with composer" rel="tag">composer</a>&nbsp;&bull;&nbsp;<a href="http://thapsang.net/tags/index.html#laravel" data-toggle="tooltip" title="Posts tagged with laravel" rel="tag">laravel</a>
+                    
+                    </div>
+                    
+                    </div>
+        </div>
+                    <footer class="post-footer entry-meta">
+                        <div class="post-share text-center">
+    <p class="light small">
+        Share this post
+    </p>
+    <ul class="social-mini">
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=&quot;Hướng dẫn cài đặt Composer&quot;%20http://thapsang.net/laravel/huong-dan-cai-dat-composer.html%20via%20&#64;taly2808"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
+                <i class="icon-twitter"></i>
+            </a>
+        </li>
+        <li>
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=http://thapsang.net/laravel/huong-dan-cai-dat-composer.html"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
+                <i class="icon-facebook"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://plus.google.com/share?url=http://thapsang.net/laravel/huong-dan-cai-dat-composer.html"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
+                <i class="icon-google-plus"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+                        <div class="post-author text-center">                       
+	        <img src="http://thapsang.net/images/my-ava.png" alt="Ta Ly's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>    
+	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="http://schema.org/Person">Written by <span itemprop="name" class="fn"><a href="http://thapsang.net/about" rel="author" title="About Ta Ly" itemprop="url">Ta Ly</a></span></h4>
+	    <p>Hãy thắp một ngọn nến nhỏ, thay vì nguyền rủa bóng đêm!</p>
+</div>
+ 
+                        
+                    </footer>
+            </article>
+    </div>
+</div>
+
+<footer id="footer"  class="blog-background overlay text-center align-middle animated from-top" style="background-image: url(http://thapsang.net/images/picture-2.jpg)" >
+
+
+    <div class="inner">
+        <div class="container">
+
+            <ul class="social-icons">
+            <li>
+                <a href="http://twitter.com/taly2808" data-toggle="tooltip" title="Ta Ly on Twitter" target="_blank">
+                    <i class="icon-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://facebook.com/taly2808" data-toggle="tooltip" title="Ta Ly on Facebook" target="_blank">
+                    <i class="icon-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/+TaLy2808" data-toggle="tooltip" title="Ta Ly on Google+" target="_blank">
+                    <i class="icon-google-plus"></i>
+                </a>
+            </li>
+            
+            
+            
+            
+            <li>
+                <a href="http://github.com/taly2808" data-toggle="tooltip" title="Ta Ly on Github" target="_blank">
+                    <i class="icon-github"></i>
+                </a>
+            </li>
+        </ul>
+            <div>
+                Bản quyền nội dung thuộc về <a href="http://thapsang.net/about/">Ta Ly</a> &copy; 2014 &dash; 2015.
+            </div>
+            <ul class="menu-items">
+            
+            <li>
+                
+                    <a href="http://thapsang.net/"><i class="icon-home"></i></a>&nbsp;&bull;
+                 
+            </li>
+            
+            <li>
+                
+                    <a href="http://thapsang.net/categories">Danh mục</a>&nbsp;&bull;
+                 
+            </li>
+            
+            <li>
+                
+                    <a href="http://thapsang.net/tags"><i class="icon-tag"></i> Tags</a>&nbsp;&bull;
+                 
+            </li>
+            
+            <li>
+                
+                    <a href="http://thapsang.net/about">Giới thiệu</a>&nbsp;&bull;
+                 
+            </li>
+            
+            <li><a href="https://feedburner.google.com/fb/a/mailverify?uri=thapsangnet/taly2808&amp;loc=en_US" title="Atom/RSS feed" target="_blank"><i class="icon-rss"></i> Feed</a></li>
+        </ul>
+        </div>
+    </div>
+    
+        <div class="decor-wrapper">
+            <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+
+                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+                <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"></path>
+                <path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"></path>
+
+                <path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"></path>
+                <path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"></path>
+
+                <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"></path>
+
+                <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"></path>
+
+            </svg>
+        </div>
+    
+</footer>
+
+
+    
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://thapsang.net/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://thapsang.net/assets/js/scripts.min.js"></script>
+<script type="text/javascript" src="http://thapsang.net/assets/js/waypoints.min.js"></script>
+<script type="text/javascript" src="http://thapsang.net/assets/js/script.js"></script>
+<script type='text/javascript'>$(document).ready(function(){$(".time").text(function(a,b){return Math.round(parseFloat(b))})});</script>
+
+<script type="text/javascript">
+
+/*      Slides       */
+
+$("a#slide").click(function(){
+    $("#sidebar,body,a#slide,#fade").addClass("slide")
+});
+
+$("#fade,#header,#posts-container").click(function(){
+    $("#sidebar,body,a#slide,#fade").removeClass("slide")
+});
+
+$("a#click-filter").click(function(){
+    $("#slide-filter").slideToggle("medium");
+    $("#slide-pages").slideOut("medium");
+});
+
+$("a#click-pages").click(function(){
+    $("#slide-pages").slideToggle("medium");
+    $("#slide-filter").slideOut("medium");
+});
+
+/*      End-Slides      */
+
+</script>
+
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://thapsang.net/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55360781-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+ 
+</body>
+</html>

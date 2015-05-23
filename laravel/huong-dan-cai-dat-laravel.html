@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="vy14mO9wf2bjKiZs8BIxCFXKJDP40DqGTqiwxscMctw" />
+<title>Hướng dẫn cài đặt Laravel 4 &#8211; THAPSANG.NET</title>
+<meta name="description" content="Các cách cài đặt Laravel trên local.">
+<meta name="keywords" content="installation, laravel">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://thapsang.net/images/my-candle.png">
+<meta name="twitter:title" content="Hướng dẫn cài đặt Laravel 4">
+<meta name="twitter:description" content="Các cách cài đặt Laravel trên local.">
+<meta name="twitter:creator" content="@taly2808">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hướng dẫn cài đặt Laravel 4">
+<meta property="og:description" content="Các cách cài đặt Laravel trên local.">
+<meta property="og:url" content="http://thapsang.net/laravel/huong-dan-cai-dat-laravel.html">
+<meta property="og:site_name" content="THAPSANG.NET">
+<meta property="og:image" content="http://thapsang.net/images/my-candle.png">
+
+
+
+
+
+<link rel="canonical" href="http://thapsang.net/laravel/huong-dan-cai-dat-laravel.html">
+<link href="http://thapsang.net/feed.xml" type="application/atom+xml" rel="alternate" title="THAPSANG.NET Feed">
+<link rel="author" href="https://plus.google.com/+TaLy2808?rel=author">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" type="text/css" href="http://thapsang.net/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="http://thapsang.net/assets/css/style.css" />
+
+<div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search...">
+        <i class="icon-remove-sign"></i>
+        <ul class="search-results post-list"></ul><!-- /.search-results -->
+    </div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://thapsang.net/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://thapsang.net/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://thapsang.net/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://thapsang.net/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://thapsang.net/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://thapsang.net/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+<div id="fade"></div>
+<a id="slide" class="animated fade"></a>
+<aside id="sidebar">
+    <nav id="navigation">
+    <h2>MENU</h2>
+    <hr>
+
+            <li>
+                    <a href="http://thapsang.net/">Trang bìa</a>
+                 </li>
+
+            <li>
+                    <a href="http://thapsang.net/categories">Danh mục</a>
+                 </li>
+
+            <li>
+                    <a href="http://thapsang.net/tags"><i class="icon-tag"></i> Tags</a>
+                 </li>
+
+            <li>
+                    <a href="http://thapsang.net/about">Giới thiệu</a>
+                 </li>
+            
+           <li><a href="https://feedburner.google.com/fb/a/mailverify?uri=thapsangnet/taly2808&amp;loc=en_US" title="Atom/RSS feed" target="_blank"><i class="icon-rss"></i> Feed</a></li>
+    </nav>
+    
+    
+</aside>
+
+<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom"  style="background-image: url(http://thapsang.net/images/picture-2.jpg)" itemscope itemtype="http://schema.org/Organization">
+
+
+    <button class="menu-button animated fade dosearch">
+        <i class="icon-search"></i>
+    </button>
+
+
+    <div class="inner">
+        <div class="container">
+            <a class="brand" href="http://thapsang.net/" role="banner" itemprop="url">
+
+                <img itemprop="logo" src="http://thapsang.net/images/my-candle.png" alt="THAPSANG.NET Logo" />
+
+            <h1 class="blog-title light" itemprop="name">
+                THAPSANG.NET
+            </h1>
+                
+            </a>
+        </div>
+    </div>
+    
+    
+    <div class="decor-wrapper">
+        <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+            <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+            <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"></path>
+            <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"></path>
+
+            <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"></path>
+            <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"></path>
+
+            <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"></path>
+
+            <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"></path>
+
+        </svg>
+    </div>
+    
+</header>
+
+<div id="main" class="content" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+    <div class="container">
+        <div class="row">
+            <article class="post col-md-10 col-md-offset-1 hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+            
+            
+            
+            
+            
+                    <header class="post-header entry-header">
+                    
+                        
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Hướng dẫn cài đặt Laravel 4</h1>
+                        
+                        <div class="cursive" style="color: #000; font-style:italic;">Các cách cài đặt Laravel trên local.</div>
+                        <div class="post-info text-center small">
+                            <span class="entry-date date published updated"><time datetime="2014-09-27T00:00:00+07:00" class="post-time" itemprop="datePublished">27 Sep 2014</time><span>
+                            in <span class="post-tags"><a href="http://thapsang.net/categories/index.html#laravel" data-toggle="tooltip" title="Other posts from the Laravel category" rel="tag">Laravel</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">10.04</span> minutes read</span>
+                        </div>
+                    </header>
+                    <div class="post-body bordered-bottom" itemprop="description">
+                        
+                        <p>Có nhiều cách để cài đặt Laravel. Trong bài viết này, tôi sẽ trình bày các cách cài đặt Laravel trên Linux và trên Windows từ mọi thứ mà Laravel yêu cầu. Bạn sẽ biết cài đặt PHP, MySQL, MCrypt, Composer và mọi thứ để ứng dụng của bạn có thể chạy :).</p>
+
+<section>
+  <header>
+    <h2>Nội dung</h2>
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#system-requirements">System Requirements</a></li>
+  <li><a href="#install-php">Install PHP</a>    <ul>
+      <li><a href="#using-lampp-or-xampp">Using LAMPP or XAMPP</a></li>
+      <li><a href="#from-scratch">From Scratch</a></li>
+    </ul>
+  </li>
+  <li><a href="#install-composer">Install Composer</a></li>
+  <li><a href="#install-laravel">Install Laravel</a>    <ul>
+      <li><a href="#via-composer">Via Composer</a></li>
+      <li><a href="#via-laravel-installer">Via Laravel Installer</a></li>
+    </ul>
+  </li>
+  <li><a href="#run-your-fisrt-app">Run your fisrt app</a></li>
+</ul>
+
+  </div>
+</section>
+
+<h2 id="system-requirements">System Requirements</h2>
+
+<p>Để chạy được Laravel, chúng ta cần:</p>
+
+<ol>
+  <li>PHP &gt;= 5.4 (phiên bản 5.4 hoặc mới hơn)</li>
+  <li>MCrypt PHP Extension</li>
+  <li>Composer</li>
+  <li>Laravel</li>
+  <li>Openssl phải được enabled trong file <code>php.ini</code></li>
+</ol>
+
+<h2 id="install-php">Install PHP</h2>
+
+<p>Trước hết, bạn kiểm tra PHP đã được cài đặt trên máy hay chưa với lệnh:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>php -v</code></pre></div>
+
+<p>Nếu kết quả hiển thị như dưới đây, tức là bạn đã cài đặt thành công PHP trên máy tính và bạn có thể bỏ qua phần cài đặt PHP này.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">PHP 5.5.11 <span class="o">(</span>cli<span class="o">)</span> <span class="o">(</span>built: Apr  <span class="m">8</span> <span class="m">2014</span> 15:07:14<span class="o">)</span>
+Copyright <span class="o">(</span>c<span class="o">)</span> 1997-2014 The PHP Group
+Zend Engine v2.5.0, Copyright <span class="o">(</span>c<span class="o">)</span> 1998-2014 Zend Technologies</code></pre></div>
+
+<p>Nếu phiên bản PHP của bạn nhỏ hơn 5.4 hoặc không có phiên bản nào, bạn cần phải cài đặt PHP. Bạn có thể lựa chọn cài đặt đủ bộ AMP (Apache + MySQL + PHP) bằng cách cài đặt LAMPP (cho Linux) hoặc XAMPP (cho Windows). Hoặc bạn có thể cài trực tiếp các thành phần riêng lẻ.</p>
+
+<h3 id="using-lampp-or-xampp">Using LAMPP or XAMPP</h3>
+
+<p>Nếu bạn ngại phải cài đặt từng thứ rời rạc, và lo ngại không biết mình có cài đặt và cấu hình đúng không, bạn có thể cài đặt XAMPP để có môi trường đã được tích hợp đầy đủ PHP, Apache2, MySQL, Perl với phiên bản mới nhất. Và một điều rất tuyệt nữa đó là <strong>MCrypt</strong> đã có sẵn trong XAMPP, do đó bạn không còn phải lo lắng về nó nữa.<strong>Nếu bạn dùng Windows, tôi khuyến nghị bạn nên cài đặt PHP theo cách này</strong>.</p>
+
+<p>Để cài đặt XAMPP, bạn cần download <a href="https://www.apachefriends.org/download.html">XAMPP</a> phiên bản phù hợp với máy tính của bạn về. Sauu đó tiến hành cài đặt lên máy tính của bạn.</p>
+
+<p>Sau khi hoàn tất, XAMPP được cài đặt vào trong thư mục <strong>/opt/lampp</strong> với Linux, và trong thư mục C:\xampp trên Windows (nếu bạn chọn ổ C khi cài đặt). Bạn chạy lại lệnh <code>php -v</code> để kiểm tra kết quả.</p>
+
+<p><strong>Note:</strong> Trên Windows, nếu bạn đã cài đặt XAMPP mà vẫn bị báo lỗi không có phiên bản, bạn cần thiết lập <strong>PATH</strong> với lệnh <code>set PATH=%PATH%;C:\path\to\php</code> trong đó <code>\path\to\php</code> là đường dẫn đến thư mục chứa file <code>php.exe</code>. Giả sử, bạn sử dụng xampp, khi đó bạn nhập vào dòng lệnh sau:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">C:<span class="se">\&gt;</span><span class="nb">set </span><span class="nv">PATH</span><span class="o">=</span>%PATH%<span class="p">;</span>C:<span class="se">\x</span>ampp<span class="se">\p</span>hp</code></pre></div>
+
+<p>Sau khi cài đặt XAMPP, bạn cần <strong>Enable OpenSSL</strong> bằng cách mở file <code>php.ini</code> (tại thư mục C:/xampp/php), tìm: </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="p">;</span><span class="nv">extension</span><span class="o">=</span>php_openssl.dll</code></pre></div>
+
+<p>và bỏ dấu <code>;</code> phía trước, khi đó, trông nó thế này:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">extension</span><span class="o">=</span>php_openssl.dll</code></pre></div>
+
+<p>Okay, bây giờ thì restart Apache.</p>
+
+<h3 id="from-scratch">From Scratch</h3>
+<p>(Sử dụng cho Linux).</p>
+
+<p>Nhập vào Terminal các lệnh sau:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get install php5-common libapache2-mod-php5 php5-cli</code></pre></div>
+
+<p>Sau đó, bạn chạy lại lệnh <code>php -v</code> để kiểm tra phiên bản PHP.</p>
+
+<h2 id="install-composer">Install Composer</h2>
+
+<p>Laravel sử dụng <a href="http://getcomposer.org/">Composer</a> để quản lý các thư viện phụ thuộc. Bạn tham khảo bài viết <a href="/laravel/huong-dan-cai-dat-composer.html">hướng dẫn cài đặt Composer</a> để có thể cài đặt Composer. Tôi khuyến nghị bạn nên cài đặt Composer sử dụng cho toàn hệ thống (globally). </p>
+
+<p>Bạn có thể kiểm tra Composer đã được cài đặt hay chưa bằng cách mở Terminal và chạy lệnh sau:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>composer --version
+Composer version b33da336ecb7f1c9b15a57285e5a9f09cf5f3dd2 2014-09-30 15:28:01</code></pre></div>
+
+<p>Nếu kết quả hiển thị như trên thì chắc chắn bạn đã cài composer thành công trên máy tính của mình.</p>
+
+<h2 id="install-laravel">Install Laravel</h2>
+
+<p>Bạn có thể cài đặt Laravel bằng 1 trong 2 cách dưới đây:</p>
+
+<h3 id="via-composer">Via Composer</h3>
+
+<p>(Khuyến nghị bạn nên sử dụng cách này).</p>
+
+<p>Nếu bạn dùng XAMPP, bạn cần di chuyển bằng command line đến thư mục webroot ( <code>/opt/lampp/htdocs</code> trên Linux và <code>C:\xampp\htdocs</code> trên Windows). Bạn muốn tạo mới một project có tên <strong>test_laravel</strong>, bạn nhập vào Terminal (trình command line trên Windows) như sau:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd</span> /opt/lampp/htdocs
+<span class="nv">$ </span>composer create-project laravel/laravel test_laravel --prefer-dist</code></pre></div>
+
+<p>Trên Windows sẽ thế này:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">C:<span class="se">\&gt;</span><span class="nb">cd </span>xampp<span class="se">\h</span>tdocs
+C:<span class="se">\x</span>ampp<span class="se">\h</span>tdocs&gt; composer create-project laravel/laravel test_laravel --prefer-dist</code></pre></div>
+
+<p>Composer sẽ tự động tạo project cho bạn, và bạn chỉ cần ngồi đợi thông báo <strong>successfull</strong> thôi.</p>
+
+<h3 id="via-laravel-installer">Via Laravel Installer</h3>
+
+<p>Trước tiên, bạn cần download Laravel Installer. Có 2 cách:</p>
+
+<blockquote>
+  <p>Cách 1: Sử dụng Composer. Nhập vào Terminal lệnh sau:</p>
+
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash">&gt; composer global require <span class="s2">&quot;laravel/installer=~1.1&quot;</span>
+&gt;</code></pre></div>
+</blockquote>
+
+<blockquote>
+  <p>Cách 2: Download <a href="http://laravel.com/laravel.phar">Laravel Installer</a> , đổi tên thành <code>laravel</code>.
+Tiếp đến, copy file <code>laravel</code> sang thư mục <code>/urs/local/bin</code>.</p>
+</blockquote>
+
+<p>Tạo project <strong>test_laravel</strong> bằng câu lệnh:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">laravel new test_laravel</code></pre></div>
+
+<p>Sau khi tạo xong project, bạn cần cấp quyền ghi cho web server vào thư mục <code>app/storage</code>. Nếu bạn dùng Linux, bạn di chuyển đến thư mục chứa project và sử dụng lệnh sau:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo chmod -R <span class="m">777</span> app/storage</code></pre></div>
+
+<h2 id="run-your-fisrt-app">Run your fisrt app</h2>
+
+<p>Bạn đã có project, bạn cần khởi động nó bằng cách sử dụng Artisan - một command line interface của Laravel. Đơn giản là bạn chỉ cần di chuyển đến project:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>test_laravel</code></pre></div>
+
+<p>và thực thi lệnh: </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">php artisan server</code></pre></div>
+
+<p>Bạn sẽ thấy kết quả: </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Laravel development server started on http://localhost:8000</code></pre></div>
+
+<p>Mở trình duyệt web và gõ vào địa chỉ <code>http://localhost:8000</code>, tận hưởng thành quả nào:</p>
+<figure>
+	<a href="http://thapsang.net/assets/img/welcome_laravel.jpg"><img src="http://thapsang.net/assets/img/welcome_laravel.jpg" /></a>
+</figure>
+
+                        <br>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- responsive_bottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9160637159175593"
+     data-ad-slot="9145112668"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                    
+                    
+                    <div class="entry-tags text-center">
+                    
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="http://thapsang.net/tags/index.html#installation" data-toggle="tooltip" title="Posts tagged with installation" rel="tag">installation</a>&nbsp;&bull;&nbsp;<a href="http://thapsang.net/tags/index.html#laravel" data-toggle="tooltip" title="Posts tagged with laravel" rel="tag">laravel</a>
+                    
+                    </div>
+                    
+                    </div>
+        </div>
+                    <footer class="post-footer entry-meta">
+                        <div class="post-share text-center">
+    <p class="light small">
+        Share this post
+    </p>
+    <ul class="social-mini">
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=&quot;Hướng dẫn cài đặt Laravel 4&quot;%20http://thapsang.net/laravel/huong-dan-cai-dat-laravel.html%20via%20&#64;taly2808"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
+                <i class="icon-twitter"></i>
+            </a>
+        </li>
+        <li>
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=http://thapsang.net/laravel/huong-dan-cai-dat-laravel.html"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
+                <i class="icon-facebook"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://plus.google.com/share?url=http://thapsang.net/laravel/huong-dan-cai-dat-laravel.html"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
+                <i class="icon-google-plus"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+                        <div class="post-author text-center">                       
+	        <img src="http://thapsang.net/images/my-ava.png" alt="Ta Ly's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>    
+	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="http://schema.org/Person">Written by <span itemprop="name" class="fn"><a href="http://thapsang.net/about" rel="author" title="About Ta Ly" itemprop="url">Ta Ly</a></span></h4>
+	    <p>Hãy thắp một ngọn nến nhỏ, thay vì nguyền rủa bóng đêm!</p>
+</div>
+ 
+                        
+                    </footer>
+            </article>
+    </div>
+</div>
+
+<footer id="footer"  class="blog-background overlay text-center align-middle animated from-top" style="background-image: url(http://thapsang.net/images/picture-2.jpg)" >
+
+
+    <div class="inner">
+        <div class="container">
+
+            <ul class="social-icons">
+            <li>
+                <a href="http://twitter.com/taly2808" data-toggle="tooltip" title="Ta Ly on Twitter" target="_blank">
+                    <i class="icon-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://facebook.com/taly2808" data-toggle="tooltip" title="Ta Ly on Facebook" target="_blank">
+                    <i class="icon-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/+TaLy2808" data-toggle="tooltip" title="Ta Ly on Google+" target="_blank">
+                    <i class="icon-google-plus"></i>
+                </a>
+            </li>
+            
+            
+            
+            
+            <li>
+                <a href="http://github.com/taly2808" data-toggle="tooltip" title="Ta Ly on Github" target="_blank">
+                    <i class="icon-github"></i>
+                </a>
+            </li>
+        </ul>
+            <div>
+                Bản quyền nội dung thuộc về <a href="http://thapsang.net/about/">Ta Ly</a> &copy; 2014 &dash; 2015.
+            </div>
+            <ul class="menu-items">
+            
+            <li>
+                
+                    <a href="http://thapsang.net/"><i class="icon-home"></i></a>&nbsp;&bull;
+                 
+            </li>
+            
+            <li>
+                
+                    <a href="http://thapsang.net/categories">Danh mục</a>&nbsp;&bull;
+                 
+            </li>
+            
+            <li>
+                
+                    <a href="http://thapsang.net/tags"><i class="icon-tag"></i> Tags</a>&nbsp;&bull;
+                 
+            </li>
+            
+            <li>
+                
+                    <a href="http://thapsang.net/about">Giới thiệu</a>&nbsp;&bull;
+                 
+            </li>
+            
+            <li><a href="https://feedburner.google.com/fb/a/mailverify?uri=thapsangnet/taly2808&amp;loc=en_US" title="Atom/RSS feed" target="_blank"><i class="icon-rss"></i> Feed</a></li>
+        </ul>
+        </div>
+    </div>
+    
+        <div class="decor-wrapper">
+            <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+
+                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+                <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"></path>
+                <path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"></path>
+
+                <path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"></path>
+                <path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"></path>
+
+                <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"></path>
+
+                <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"></path>
+
+            </svg>
+        </div>
+    
+</footer>
+
+
+    
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://thapsang.net/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://thapsang.net/assets/js/scripts.min.js"></script>
+<script type="text/javascript" src="http://thapsang.net/assets/js/waypoints.min.js"></script>
+<script type="text/javascript" src="http://thapsang.net/assets/js/script.js"></script>
+<script type='text/javascript'>$(document).ready(function(){$(".time").text(function(a,b){return Math.round(parseFloat(b))})});</script>
+
+<script type="text/javascript">
+
+/*      Slides       */
+
+$("a#slide").click(function(){
+    $("#sidebar,body,a#slide,#fade").addClass("slide")
+});
+
+$("#fade,#header,#posts-container").click(function(){
+    $("#sidebar,body,a#slide,#fade").removeClass("slide")
+});
+
+$("a#click-filter").click(function(){
+    $("#slide-filter").slideToggle("medium");
+    $("#slide-pages").slideOut("medium");
+});
+
+$("a#click-pages").click(function(){
+    $("#slide-pages").slideToggle("medium");
+    $("#slide-filter").slideOut("medium");
+});
+
+/*      End-Slides      */
+
+</script>
+
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'http://thapsang.net/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55360781-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+ 
+</body>
+</html>
