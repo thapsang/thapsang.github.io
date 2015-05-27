@@ -2,109 +2,109 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
      
     <url>
-        <loc>http://thapsang.net/</loc>
+        <loc>/</loc>
     </url> 
     <url>
-        <loc>http://thapsang.net/categories</loc>
+        <loc>/categories</loc>
     </url> 
     <url>
-        <loc>http://thapsang.net/tags</loc>
+        <loc>/tags</loc>
     </url> 
     <url>
-        <loc>http://thapsang.net/about</loc>
+        <loc>/about</loc>
     </url>
     
     
     <url>
-        <loc>http://thapsang.net/ghost/tu-tao-handlebars-helper-cho-ghost-blog.html</loc>
+        <loc>/ghost/tu-tao-handlebars-helper-cho-ghost-blog.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog.html</loc>
+        <loc>/ghost/tao-trang-contact-va-gui-mail-voi-nodemailer-cho-ghost-blog.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog.html</loc>
+        <loc>/ghost/thiet-lap-gui-mail-su-dung-gmail-cho-ghost-blog.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/ghost/them-tim-kiem-vao-ghost-blog.html</loc>
+        <loc>/ghost/them-tim-kiem-vao-ghost-blog.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu.html</loc>
+        <loc>/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/ionic/build-ung-dung-ionic-tren-nen-tang-android.html</loc>
+        <loc>/ionic/build-ung-dung-ionic-tren-nen-tang-android.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu.html</loc>
+        <loc>/ionic/huong-dan-cai-dat-ionic-framework-tren-ubuntu.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs.html</loc>
+        <loc>/angularjs/su-dung-$resource-xay-dung-crud-app-trong-angularjs.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/co-che-phan-tich-expression-trong-angularjs.html</loc>
+        <loc>/angularjs/co-che-phan-tich-expression-trong-angularjs.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/$http-interceptor-trong-angularjs.html</loc>
+        <loc>/angularjs/$http-interceptor-trong-angularjs.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/hieu-ve-$http-service-trong-angularjs.html</loc>
+        <loc>/angularjs/hieu-ve-$http-service-trong-angularjs.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/expression-trong-angularjs.html</loc>
+        <loc>/angularjs/expression-trong-angularjs.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/promises-deferred-trong-angularjs.html</loc>
+        <loc>/angularjs/promises-deferred-trong-angularjs.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/resolve-trong-angularjs-routes.html</loc>
+        <loc>/angularjs/resolve-trong-angularjs-routes.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/tim-hieu-module-ngRoute-trong-angularjs.html</loc>
+        <loc>/angularjs/tim-hieu-module-ngRoute-trong-angularjs.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs.html</loc>
+        <loc>/angularjs/routing-single-page-application-voi-module-ngRoute-cua-angularjs.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs.html</loc>
+        <loc>/angularjs/cau-truc-thu-muc-voi-ung-dung-angularjs.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline.html</loc>
+        <loc>/laravel/quan-ly-tai-nguyen-public-trong-laravel-voi-asset-pipeline.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command.html</loc>
+        <loc>/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/laravel/huong-dan-cai-dat-laravel.html</loc>
+        <loc>/laravel/huong-dan-cai-dat-laravel.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/laravel/huong-dan-cai-dat-composer.html</loc>
+        <loc>/laravel/huong-dan-cai-dat-composer.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter.html</loc>
+        <loc>/codeigniter/kiem-tra-ket-noi-database-voi-codeigniter.html</loc>
     </url>
     
     <url>
-        <loc>http://thapsang.net/drupal-7/tao-view-calendar-trong-drupal7.html</loc>
+        <loc>/drupal-7/tao-view-calendar-trong-drupal7.html</loc>
     </url>
     
 </urlset>
