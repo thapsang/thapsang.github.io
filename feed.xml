@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-05-27T21:11:25+07:00</updated>
+<updated>2015-08-23T10:38:55+07:00</updated>
 <id>/</id>
 <author>
   <name>Ta Ly</name>
@@ -476,6 +476,64 @@
 &lt;/ol&gt;
 
   &lt;p&gt;&lt;a href=&quot;/ghost/them-tim-kiem-vao-ghost-blog.html&quot;&gt;Thêm tìm kiếm vào Ghost blog&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 07, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Cài đặt Ghost blog trên local Linux]]></title>
+  <link>/ghost/cai-dat-ghost-blog-tren-local-linux.html</link>
+  <id>/ghost/cai-dat-ghost-blog-tren-local-linux</id>
+  <published>2015-05-06T00:00:00+07:00</published>
+  <updated>2015-05-06T00:00:00+07:00</updated>
+  <author>
+    <name>Ta Ly</name>
+    <uri></uri>
+    <email>taly2808@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Nếu bạn muốn tự host Ghost blog trên máy tính Linux, bạn làm theo các bước sau:&lt;/p&gt;
+
+&lt;h1 id=&quot;ci-t-node&quot;&gt;Cài đặt Node&lt;/h1&gt;
+
+&lt;p&gt;Ghost yêu cầu sử dụng Node phiên bản &lt;em&gt;0.10.x&lt;/em&gt;. Tại thời điểm viết bài, Team Ghost khuyến nghị các bạn sử dụng Node version &lt;strong&gt;0.10.x&lt;/strong&gt; và  npm version &lt;strong&gt;2.5.0&lt;/strong&gt;. &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bạn có thể sử dụng các gói quản lý các bản phân phối Node trong theo hướng dẫn trong trang &lt;a href=&quot;https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager&quot;&gt;Installing Node.js via package manager&lt;/a&gt; hoặc bạn có thể tải bản đóng gói .taz.gz tại trang &lt;a href=&quot;http://nodejs.org/&quot;&gt;http://nodejs.org/&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Sau đó sử dụng lệnh &lt;code&gt;node -v&lt;/code&gt; và &lt;code&gt;npm -v&lt;/code&gt; để kiểm tra phiên bản node và npm mà bạn mới cài đặt.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;ci-t-ghost&quot;&gt;Cài đặt Ghost&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bạn lấy phiên bản mới nhất của Ghost từ ghost.org với lệnh:
+      $ curl -L https://ghost.org/zip/ghost-latest.zip -o ghost.zip&lt;/li&gt;
+  &lt;li&gt;Giải nén Ghost vào thư mục bạn mong muốn (giả sử vào thư mục &lt;code&gt;/var/www/ghost&lt;/code&gt; với lệnh:
+      $ unzip -uo ghost.zip -d /var/www/ghost&lt;/li&gt;
+  &lt;li&gt;Di chuyển vào thư mục ghost vừa mới tạo và cài đặt Ghost:
+      $ cd /var/www/ghost &amp;amp;&amp;amp; npm install 
+Nếu bạn muốn cài đặt ở chế độ production, bạn có thể dùng lệnh sau:
+      $ cd /var/www/ghost &amp;amp;&amp;amp; npm install –production&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;khi-ng-ghost&quot;&gt;Khởi động Ghost&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Để khởi động Ghost, bạn chạy lệnh:
+      $ npm start
+(Nếu bạn muốn chạy trong môi trường production, sử dụng lệnh &lt;em&gt;npm start –production&lt;/em&gt;).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Bây giờ, Ghost đang được chạy mặc định tại địa chỉ &lt;code&gt;172.0.0.1:2368&lt;/code&gt; (hay &lt;code&gt;localhost:2368&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;Bạn truy cập vào địa chỉ &lt;code&gt;http://172.0.0.1:2368&lt;/code&gt; trên trình duyệt để thấy giao hiện Ghost mới thiết lập của bạn.&lt;/li&gt;
+  &lt;li&gt;Muốn truy cập vào admin, bạn gõ vào trình duyệt địa chỉ &lt;code&gt;http://172.0.0.1:2368/ghost&lt;/code&gt; và tạo tài khoản admin của bạn để đăng nhập vào trang admin.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;ti-liu-tham-kho&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://support.ghost.org/installing-ghost-linux/&quot;&gt;Installing Ghost on Linux&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/ghost/cai-dat-ghost-blog-tren-local-linux.html&quot;&gt;Cài đặt Ghost blog trên local Linux&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on May 06, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -2945,179 +3003,6 @@ Views deleted from cache&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Hy vọng có thể giúp các bạn giải quyết được vấn đề của mình. Have fun! ;)&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;/laravel/xoa-cache-view-trong-laravel-4-voi-artisan-command.html&quot;&gt;Xóa cache views trong laravel 4 với Artisan command&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on October 03, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Hướng dẫn cài đặt Laravel 4]]></title>
-  <link>/laravel/huong-dan-cai-dat-laravel.html</link>
-  <id>/laravel/huong-dan-cai-dat-laravel</id>
-  <published>2014-09-27T00:00:00+07:00</published>
-  <updated>2014-09-27T00:00:00+07:00</updated>
-  <author>
-    <name>Ta Ly</name>
-    <uri></uri>
-    <email>taly2808@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Có nhiều cách để cài đặt Laravel. Trong bài viết này, tôi sẽ trình bày các cách cài đặt Laravel trên Linux và trên Windows từ mọi thứ mà Laravel yêu cầu. Bạn sẽ biết cài đặt PHP, MySQL, MCrypt, Composer và mọi thứ để ứng dụng của bạn có thể chạy :).&lt;/p&gt;
-
-&lt;section&gt;
-  &lt;header&gt;
-    &lt;h2&gt;Nội dung&lt;/h2&gt;
-  &lt;/header&gt;
-&lt;div id=&quot;drawer&quot;&gt;
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#system-requirements&quot;&gt;System Requirements&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#install-php&quot;&gt;Install PHP&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#using-lampp-or-xampp&quot;&gt;Using LAMPP or XAMPP&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#from-scratch&quot;&gt;From Scratch&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#install-composer&quot;&gt;Install Composer&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#install-laravel&quot;&gt;Install Laravel&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#via-composer&quot;&gt;Via Composer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#via-laravel-installer&quot;&gt;Via Laravel Installer&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#run-your-fisrt-app&quot;&gt;Run your fisrt app&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;/div&gt;
-&lt;/section&gt;
-
-&lt;h2 id=&quot;system-requirements&quot;&gt;System Requirements&lt;/h2&gt;
-
-&lt;p&gt;Để chạy được Laravel, chúng ta cần:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;PHP &amp;gt;= 5.4 (phiên bản 5.4 hoặc mới hơn)&lt;/li&gt;
-  &lt;li&gt;MCrypt PHP Extension&lt;/li&gt;
-  &lt;li&gt;Composer&lt;/li&gt;
-  &lt;li&gt;Laravel&lt;/li&gt;
-  &lt;li&gt;Openssl phải được enabled trong file &lt;code&gt;php.ini&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;install-php&quot;&gt;Install PHP&lt;/h2&gt;
-
-&lt;p&gt;Trước hết, bạn kiểm tra PHP đã được cài đặt trên máy hay chưa với lệnh:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php -v&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Nếu kết quả hiển thị như dưới đây, tức là bạn đã cài đặt thành công PHP trên máy tính và bạn có thể bỏ qua phần cài đặt PHP này.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;PHP 5.5.11 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;cli&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;built: Apr  &lt;span class=&quot;m&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2014&lt;/span&gt; 15:07:14&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 1997-2014 The PHP Group
-Zend Engine v2.5.0, Copyright &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 1998-2014 Zend Technologies&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Nếu phiên bản PHP của bạn nhỏ hơn 5.4 hoặc không có phiên bản nào, bạn cần phải cài đặt PHP. Bạn có thể lựa chọn cài đặt đủ bộ AMP (Apache + MySQL + PHP) bằng cách cài đặt LAMPP (cho Linux) hoặc XAMPP (cho Windows). Hoặc bạn có thể cài trực tiếp các thành phần riêng lẻ.&lt;/p&gt;
-
-&lt;h3 id=&quot;using-lampp-or-xampp&quot;&gt;Using LAMPP or XAMPP&lt;/h3&gt;
-
-&lt;p&gt;Nếu bạn ngại phải cài đặt từng thứ rời rạc, và lo ngại không biết mình có cài đặt và cấu hình đúng không, bạn có thể cài đặt XAMPP để có môi trường đã được tích hợp đầy đủ PHP, Apache2, MySQL, Perl với phiên bản mới nhất. Và một điều rất tuyệt nữa đó là &lt;strong&gt;MCrypt&lt;/strong&gt; đã có sẵn trong XAMPP, do đó bạn không còn phải lo lắng về nó nữa.&lt;strong&gt;Nếu bạn dùng Windows, tôi khuyến nghị bạn nên cài đặt PHP theo cách này&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Để cài đặt XAMPP, bạn cần download &lt;a href=&quot;https://www.apachefriends.org/download.html&quot;&gt;XAMPP&lt;/a&gt; phiên bản phù hợp với máy tính của bạn về. Sauu đó tiến hành cài đặt lên máy tính của bạn.&lt;/p&gt;
-
-&lt;p&gt;Sau khi hoàn tất, XAMPP được cài đặt vào trong thư mục &lt;strong&gt;/opt/lampp&lt;/strong&gt; với Linux, và trong thư mục C:\xampp trên Windows (nếu bạn chọn ổ C khi cài đặt). Bạn chạy lại lệnh &lt;code&gt;php -v&lt;/code&gt; để kiểm tra kết quả.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Trên Windows, nếu bạn đã cài đặt XAMPP mà vẫn bị báo lỗi không có phiên bản, bạn cần thiết lập &lt;strong&gt;PATH&lt;/strong&gt; với lệnh &lt;code&gt;set PATH=%PATH%;C:\path\to\php&lt;/code&gt; trong đó &lt;code&gt;\path\to\php&lt;/code&gt; là đường dẫn đến thư mục chứa file &lt;code&gt;php.exe&lt;/code&gt;. Giả sử, bạn sử dụng xampp, khi đó bạn nhập vào dòng lệnh sau:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;C:&lt;span class=&quot;se&quot;&gt;\&amp;gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;%PATH%&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;C:&lt;span class=&quot;se&quot;&gt;\x&lt;/span&gt;ampp&lt;span class=&quot;se&quot;&gt;\p&lt;/span&gt;hp&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Sau khi cài đặt XAMPP, bạn cần &lt;strong&gt;Enable OpenSSL&lt;/strong&gt; bằng cách mở file &lt;code&gt;php.ini&lt;/code&gt; (tại thư mục C:/xampp/php), tìm: &lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;extension&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;php_openssl.dll&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;và bỏ dấu &lt;code&gt;;&lt;/code&gt; phía trước, khi đó, trông nó thế này:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;extension&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;php_openssl.dll&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Okay, bây giờ thì restart Apache.&lt;/p&gt;
-
-&lt;h3 id=&quot;from-scratch&quot;&gt;From Scratch&lt;/h3&gt;
-&lt;p&gt;(Sử dụng cho Linux).&lt;/p&gt;
-
-&lt;p&gt;Nhập vào Terminal các lệnh sau:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get update
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo apt-get install php5-common libapache2-mod-php5 php5-cli&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Sau đó, bạn chạy lại lệnh &lt;code&gt;php -v&lt;/code&gt; để kiểm tra phiên bản PHP.&lt;/p&gt;
-
-&lt;h2 id=&quot;install-composer&quot;&gt;Install Composer&lt;/h2&gt;
-
-&lt;p&gt;Laravel sử dụng &lt;a href=&quot;http://getcomposer.org/&quot;&gt;Composer&lt;/a&gt; để quản lý các thư viện phụ thuộc. Bạn tham khảo bài viết &lt;a href=&quot;/laravel/huong-dan-cai-dat-composer.html&quot;&gt;hướng dẫn cài đặt Composer&lt;/a&gt; để có thể cài đặt Composer. Tôi khuyến nghị bạn nên cài đặt Composer sử dụng cho toàn hệ thống (globally). &lt;/p&gt;
-
-&lt;p&gt;Bạn có thể kiểm tra Composer đã được cài đặt hay chưa bằng cách mở Terminal và chạy lệnh sau:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer --version
-Composer version b33da336ecb7f1c9b15a57285e5a9f09cf5f3dd2 2014-09-30 15:28:01&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Nếu kết quả hiển thị như trên thì chắc chắn bạn đã cài composer thành công trên máy tính của mình.&lt;/p&gt;
-
-&lt;h2 id=&quot;install-laravel&quot;&gt;Install Laravel&lt;/h2&gt;
-
-&lt;p&gt;Bạn có thể cài đặt Laravel bằng 1 trong 2 cách dưới đây:&lt;/p&gt;
-
-&lt;h3 id=&quot;via-composer&quot;&gt;Via Composer&lt;/h3&gt;
-
-&lt;p&gt;(Khuyến nghị bạn nên sử dụng cách này).&lt;/p&gt;
-
-&lt;p&gt;Nếu bạn dùng XAMPP, bạn cần di chuyển bằng command line đến thư mục webroot ( &lt;code&gt;/opt/lampp/htdocs&lt;/code&gt; trên Linux và &lt;code&gt;C:\xampp\htdocs&lt;/code&gt; trên Windows). Bạn muốn tạo mới một project có tên &lt;strong&gt;test_laravel&lt;/strong&gt;, bạn nhập vào Terminal (trình command line trên Windows) như sau:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt/lampp/htdocs
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer create-project laravel/laravel test_laravel --prefer-dist&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Trên Windows sẽ thế này:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;C:&lt;span class=&quot;se&quot;&gt;\&amp;gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;xampp&lt;span class=&quot;se&quot;&gt;\h&lt;/span&gt;tdocs
-C:&lt;span class=&quot;se&quot;&gt;\x&lt;/span&gt;ampp&lt;span class=&quot;se&quot;&gt;\h&lt;/span&gt;tdocs&amp;gt; composer create-project laravel/laravel test_laravel --prefer-dist&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Composer sẽ tự động tạo project cho bạn, và bạn chỉ cần ngồi đợi thông báo &lt;strong&gt;successfull&lt;/strong&gt; thôi.&lt;/p&gt;
-
-&lt;h3 id=&quot;via-laravel-installer&quot;&gt;Via Laravel Installer&lt;/h3&gt;
-
-&lt;p&gt;Trước tiên, bạn cần download Laravel Installer. Có 2 cách:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Cách 1: Sử dụng Composer. Nhập vào Terminal lệnh sau:&lt;/p&gt;
-
-  &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&amp;gt; composer global require &lt;span class=&quot;s2&quot;&gt;&amp;quot;laravel/installer=~1.1&amp;quot;&lt;/span&gt;
-&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Cách 2: Download &lt;a href=&quot;http://laravel.com/laravel.phar&quot;&gt;Laravel Installer&lt;/a&gt; , đổi tên thành &lt;code&gt;laravel&lt;/code&gt;.
-Tiếp đến, copy file &lt;code&gt;laravel&lt;/code&gt; sang thư mục &lt;code&gt;/urs/local/bin&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Tạo project &lt;strong&gt;test_laravel&lt;/strong&gt; bằng câu lệnh:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;laravel new test_laravel&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Sau khi tạo xong project, bạn cần cấp quyền ghi cho web server vào thư mục &lt;code&gt;app/storage&lt;/code&gt;. Nếu bạn dùng Linux, bạn di chuyển đến thư mục chứa project và sử dụng lệnh sau:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo chmod -R &lt;span class=&quot;m&quot;&gt;777&lt;/span&gt; app/storage&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;run-your-fisrt-app&quot;&gt;Run your fisrt app&lt;/h2&gt;
-
-&lt;p&gt;Bạn đã có project, bạn cần khởi động nó bằng cách sử dụng Artisan - một command line interface của Laravel. Đơn giản là bạn chỉ cần di chuyển đến project:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;test_laravel&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;và thực thi lệnh: &lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;php artisan server&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Bạn sẽ thấy kết quả: &lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Laravel development server started on http://localhost:8000&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Mở trình duyệt web và gõ vào địa chỉ &lt;code&gt;http://localhost:8000&lt;/code&gt;, tận hưởng thành quả nào:&lt;/p&gt;
-&lt;figure&gt;
-	&lt;a href=&quot;/assets/img/welcome_laravel.jpg&quot;&gt;&lt;img src=&quot;/assets/img/welcome_laravel.jpg&quot; /&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/laravel/huong-dan-cai-dat-laravel.html&quot;&gt;Hướng dẫn cài đặt Laravel 4&lt;/a&gt; was originally published by Ta Ly at &lt;a href=&quot;&quot;&gt;THAPSANG.NET&lt;/a&gt; on September 27, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>

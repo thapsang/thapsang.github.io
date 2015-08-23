@@ -33,6 +33,14 @@
 		} ,
 	
 		{
+		  "title"      : "Cài đặt Ghost blog trên local Linux",
+		  "category"   : "",
+		  "url"        : "/ghost/cai-dat-ghost-blog-tren-local-linux.html",
+		  "date"       : "2015-05-06 00:00:00 +0700",
+		  "shortdate"  : "May 06, 2015"
+		} ,
+	
+		{
 		  "title"      : "Hướng dẫn cài đặt Android SDK trên Ubuntu",
 		  "category"   : "",
 		  "url"        : "/ionic/huong-dan-cai-dat-android-sdk-tren-ubuntu.html",
